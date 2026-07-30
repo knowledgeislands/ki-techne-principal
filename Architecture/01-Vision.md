@@ -55,3 +55,9 @@ Techne develops through small, reviewable increments.
 Significant architectural changes should state their rationale, record alternatives and consequences in an Architecture Decision Record, update affected diagrams, and align the Technology Radar where relevant.
 
 Where the architecture is incomplete or uncertain, Techne records the assumption or a clearly scoped TODO rather than presenting conjecture as settled design.
+
+## Foundation Chapters
+
+- [Goals](02-Goals.md) defines the outcomes that guide the knowledge base and the engineering discipline.
+- [Non-Goals](03-Non-Goals.md) defines the boundaries that prevent Techne from becoming an unbounded technical reference.
+- [Principles](04-Principles.md) defines the criteria used to make and assess engineering decisions.
