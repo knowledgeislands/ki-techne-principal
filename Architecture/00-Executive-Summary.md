@@ -25,6 +25,7 @@ Its architecture, decisions, evaluations, and operating guidance evolve through 
 - [Vision](01-Vision.md) defines the intended engineering discipline and its relationship to Arcadia.
 - [Engineering Estate](05-Engineering-Estate.md) defines the responsibilities and boundaries of the current platform components.
 - [AI Execution Fabric](06-AI-Execution-Fabric.md) defines the execution model.
+- [Knowledge Architecture](07-Knowledge-Architecture.md) defines how engineering knowledge is governed and evolved.
 - [Engineering Operating Model](../Operating-Model/00-Engineering-Operating-Model.md) defines how engineering work is performed and evolved.
 - [Technology Radar](../Technology-Radar/README.md) records the current technology posture.
 - [Phase 1 Roadmap](../Roadmap/Phase-1.md) records the immediate programme of work.

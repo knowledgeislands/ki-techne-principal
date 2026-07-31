@@ -61,6 +61,8 @@ The record should retain sufficient context for a future contributor to understa
 
 Architecture Decision Records, technology evaluations, diagrams, and operational guidance are examples of durable engineering knowledge.
 
+The [Knowledge Architecture](../Architecture/07-Knowledge-Architecture.md) defines the properties and lifecycle of that knowledge.
+
 ### 6. Observe and Evolve
 
 Operational evidence, new constraints, and changed requirements may challenge an earlier approach.
