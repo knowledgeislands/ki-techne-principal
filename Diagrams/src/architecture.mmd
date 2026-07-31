@@ -1,8 +1,29 @@
+%% Techne engineering estate and AI Execution Fabric.
+%% Solid arrows indicate responsibility or work flow.
+%% Dashed arrows indicate private connectivity.
 flowchart TD
-Engineer-->Hermes
-Hermes-->ExecutionFabric
-ExecutionFabric-->toolsmgit
-toolsmgit-->Herdr
-toolsmgit-->Zed
-Herdr-->KnowledgeIslands
-Zed-->KnowledgeIslands
+    Engineer[Engineer] --> Zed[Zed\nEngineering interface]
+    Zed --> Hermes[Hermes Agent\nIntent and planning]
+    Hermes -->|plans| Orchestration[tools-mgit\nDeterministic orchestration]
+    Orchestration -->|persistent work| Herdr[Herdr\nPersistent execution]
+
+    Zed <-->|governed context| Knowledge[Knowledge Islands\nGoverned knowledge]
+    Hermes <-->|context| Knowledge
+    Herdr -->|durable knowledge| Knowledge
+
+    Orchestration -->|AI workload| Fabric
+
+    subgraph Fabric[AI Execution Fabric]
+        direction TB
+        Local[Local execution]
+        Managed[Managed AI APIs]
+        Elastic[Elastic compute]
+        Dedicated[Future dedicated infrastructure]
+    end
+
+    Tailscale[Tailscale\nPrivate connectivity] -.-> Zed
+    Tailscale -.-> Herdr
+    Tailscale -.-> Fabric
+
+    Local --- Llama[llama.cpp]
+    Local --- MLX[MLX-LM]

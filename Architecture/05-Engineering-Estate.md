@@ -85,6 +85,8 @@ The [AI Execution Fabric](06-AI-Execution-Fabric.md) selects an appropriate exec
 
 Local runtimes are one possible target within that fabric, alongside managed APIs, elastic compute, and future dedicated infrastructure.
 
+The [estate interaction diagram](../Diagrams/src/architecture.svg) is generated from its [editable Mermaid source](../Diagrams/src/architecture.mmd).
+
 ## Current Constraints and Open Questions
 
 The estate describes responsibilities, not a fully specified integration topology.
