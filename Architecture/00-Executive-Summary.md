@@ -23,6 +23,7 @@ Its architecture, decisions, evaluations, and operating guidance evolve through 
 ## Reading Guide
 
 - [Vision](01-Vision.md) defines the intended engineering discipline and its relationship to Arcadia.
+- [Engineering Estate](05-Engineering-Estate.md) defines the responsibilities and boundaries of the current platform components.
 - [AI Execution Fabric](06-AI-Execution-Fabric.md) defines the execution model.
 - [Technology Radar](../Technology-Radar/README.md) records the current technology posture.
 - [Phase 1 Roadmap](../Roadmap/Phase-1.md) records the immediate programme of work.
