@@ -20,3 +20,7 @@ visibility = "public"
 ["knowledgeislands/ki-agentic-harness:ki-kb-live-artifacts"]
 
 ["knowledgeislands/ki-agentic-harness:ki-kb-streams"]
+
+["knowledgeislands/ki-agentic-harness:ki-housekeeping-claude"]
+
+["knowledgeislands/ki-agentic-harness:ki-tokenomics-claude"]
