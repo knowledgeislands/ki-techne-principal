@@ -5,3 +5,8 @@
 *.swp
 *.swo
 *~
+
+# Generated project-local runtime payloads (ki-bootstrap) — never committed
+.agents/skills/*
+!.agents/skills/ki-self/
+!.agents/skills/ki-self/**
