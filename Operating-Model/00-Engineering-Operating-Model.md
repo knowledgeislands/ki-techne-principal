@@ -71,14 +71,14 @@ The knowledge base should then be updated through a new, reviewable increment th
 
 ## Responsibilities
 
-| Participant | Operating responsibility |
-| --- | --- |
-| Engineer | Frames work, approves material plans, reviews outcomes, and remains accountable for decisions. |
-| Hermes Agent | Assists with intent interpretation, contextual reasoning, and planning. |
-| tools-mgit | Performs defined, deterministic engineering operations. |
-| Herdr | Provides persistent execution for work that cannot remain within an interactive session. |
-| Zed | Provides the primary environment for engineering interaction, inspection, and review. |
-| Knowledge Islands | Retains governed knowledge, context, decisions, and evolving engineering guidance. |
+| Participant       | Operating responsibility                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| Engineer          | Frames work, approves material plans, reviews outcomes, and remains accountable for decisions. |
+| Hermes Agent      | Assists with intent interpretation, contextual reasoning, and planning.                        |
+| tools-mgit        | Performs defined, deterministic engineering operations.                                        |
+| Herdr             | Provides persistent execution for work that cannot remain within an interactive session.       |
+| Zed               | Provides the primary environment for engineering interaction, inspection, and review.          |
+| Knowledge Islands | Retains governed knowledge, context, decisions, and evolving engineering guidance.             |
 
 The [Engineering Estate](../Architecture/05-Engineering-Estate.md) defines these component roles in architectural terms.
 

@@ -22,16 +22,16 @@ The knowledge layer supports human engineers and agent capabilities, but it does
 
 The engineering knowledge base contains several related domains:
 
-| Domain | Purpose |
-| --- | --- |
-| Principles | Establishes durable criteria for engineering decisions. |
-| Architecture | Defines system concepts, responsibilities, boundaries, and evolution. |
-| Decisions | Records material choices, alternatives, consequences, and future review points. |
-| Operating model | Defines how engineering work is planned, executed, reviewed, and improved. |
-| Evaluations | Records evidence about technologies, approaches, and their suitability. |
-| Diagrams | Makes important system relationships inspectable through editable visual artefacts. |
-| Roadmap | Connects present understanding to intended future work. |
-| Research | Preserves exploratory material that may inform, but does not itself establish, a decision. |
+| Domain          | Purpose                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| Principles      | Establishes durable criteria for engineering decisions.                                    |
+| Architecture    | Defines system concepts, responsibilities, boundaries, and evolution.                      |
+| Decisions       | Records material choices, alternatives, consequences, and future review points.            |
+| Operating model | Defines how engineering work is planned, executed, reviewed, and improved.                 |
+| Evaluations     | Records evidence about technologies, approaches, and their suitability.                    |
+| Diagrams        | Makes important system relationships inspectable through editable visual artefacts.        |
+| Roadmap         | Connects present understanding to intended future work.                                    |
+| Research        | Preserves exploratory material that may inform, but does not itself establish, a decision. |
 
 These domains have distinct purposes but should remain linkable.
 

@@ -3,6 +3,7 @@
 This bootstrap package establishes the initial knowledge base structure.
 
 Initial focus:
+
 - Engineering platform architecture
 - AI Execution Fabric
 - Engineering Estate

@@ -3,7 +3,7 @@ title = "Techne Principal"
 description = "Canonical engineering knowledge base for the Knowledge Islands ecosystem."
 repo_code = "TECHNE"
 supported_runtimes = ["chatgpt-codex"]
-visibility = "private"
+visibility = "public"
 
 ["knowledgeislands/ki-agentic-harness:ki-authoring"]
 

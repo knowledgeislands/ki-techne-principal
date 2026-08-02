@@ -12,16 +12,16 @@ Component-specific configuration, APIs, and operational procedures belong in the
 
 ## Estate Overview
 
-| Component | Architectural role | Primary responsibility |
-| --- | --- | --- |
-| Hermes Agent | Intent and planning capability | Interprets objectives, retains relevant working context, and develops plans. |
-| tools-mgit | Deterministic orchestration layer | Executes defined engineering operations and coordinates repeatable workflows. |
-| Herdr | Persistent execution runtime | Hosts work that must continue beyond a single interactive engineering session. |
-| Zed | Engineering interface | Provides the primary environment through which engineers inspect, change, and review work. |
-| Knowledge Islands | Governed knowledge layer | Organises governed knowledge, context, decisions, and their evolution. |
-| Tailscale | Private connectivity layer | Connects authorised engineering environments and services across network boundaries. |
-| llama.cpp | Local model execution runtime | Provides an implementation option for local model inference. |
-| MLX-LM | Local model execution runtime | Provides an implementation option for local model inference on suitable hardware. |
+| Component         | Architectural role                | Primary responsibility                                                                     |
+| ----------------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Hermes Agent      | Intent and planning capability    | Interprets objectives, retains relevant working context, and develops plans.               |
+| tools-mgit        | Deterministic orchestration layer | Executes defined engineering operations and coordinates repeatable workflows.              |
+| Herdr             | Persistent execution runtime      | Hosts work that must continue beyond a single interactive engineering session.             |
+| Zed               | Engineering interface             | Provides the primary environment through which engineers inspect, change, and review work. |
+| Knowledge Islands | Governed knowledge layer          | Organises governed knowledge, context, decisions, and their evolution.                     |
+| Tailscale         | Private connectivity layer        | Connects authorised engineering environments and services across network boundaries.       |
+| llama.cpp         | Local model execution runtime     | Provides an implementation option for local model inference.                               |
+| MLX-LM            | Local model execution runtime     | Provides an implementation option for local model inference on suitable hardware.          |
 
 ## Responsibility Boundaries
 

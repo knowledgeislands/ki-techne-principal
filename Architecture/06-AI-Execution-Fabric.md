@@ -44,15 +44,15 @@ It remains a future option when requirements for control, scale, capability, eco
 
 Execution decisions should evaluate the following criteria together.
 
-| Criterion | Decision concern |
-| --- | --- |
-| Capability | Whether the target can perform the required model, tooling, or compute workload. |
-| Latency | Whether end-to-end response time meets the interaction or operational need. |
-| Privacy | Whether data handling is suitable for the workload's sensitivity and access requirements. |
-| Cost | Whether total run, transfer, storage, and operational costs are proportionate to the value. |
-| Context length | Whether the target can support the workload's required working context. |
-| Locality | Whether data and execution remain in an appropriate geographic, network, or physical location. |
-| Availability | Whether the target's capacity and service characteristics meet the required continuity. |
+| Criterion      | Decision concern                                                                               |
+| -------------- | ---------------------------------------------------------------------------------------------- |
+| Capability     | Whether the target can perform the required model, tooling, or compute workload.               |
+| Latency        | Whether end-to-end response time meets the interaction or operational need.                    |
+| Privacy        | Whether data handling is suitable for the workload's sensitivity and access requirements.      |
+| Cost           | Whether total run, transfer, storage, and operational costs are proportionate to the value.    |
+| Context length | Whether the target can support the workload's required working context.                        |
+| Locality       | Whether data and execution remain in an appropriate geographic, network, or physical location. |
+| Availability   | Whether the target's capacity and service characteristics meet the required continuity.        |
 
 No single criterion determines the route in isolation.
 
