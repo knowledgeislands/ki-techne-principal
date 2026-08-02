@@ -89,7 +89,7 @@ tools-mgit and Herdr may produce operational evidence that becomes durable knowl
 
 Zed provides the engineering interface through which contributors inspect, change, and review this knowledge.
 
-The [Engineering Estate](05-Engineering-Estate.md) defines the architectural roles of these components.
+[[Engineering Estate]] defines the architectural roles of these components.
 
 ## Boundaries
 

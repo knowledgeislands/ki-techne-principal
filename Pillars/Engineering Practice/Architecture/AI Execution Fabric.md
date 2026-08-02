@@ -70,7 +70,7 @@ This process supports explicit decisions while leaving room for implementation-s
 
 ## Relationship to the Engineering Estate
 
-The [Engineering Estate](05-Engineering-Estate.md) defines the roles of the components that create, orchestrate, persist, and review engineering work.
+[[Engineering Estate]] defines the roles of the components that create, orchestrate, persist, and review engineering work.
 
 The AI Execution Fabric determines where an AI-enabled workload may execute.
 

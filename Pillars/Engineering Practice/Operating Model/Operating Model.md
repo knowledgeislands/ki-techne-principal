@@ -61,7 +61,7 @@ The record should retain sufficient context for a future contributor to understa
 
 Architecture Decision Records, technology evaluations, diagrams, and operational guidance are examples of durable engineering knowledge.
 
-The [Knowledge Architecture](../Architecture/07-Knowledge-Architecture.md) defines the properties and lifecycle of that knowledge.
+[[Knowledge Architecture]] defines the properties and lifecycle of that knowledge.
 
 ### 6. Observe and Evolve
 
@@ -80,7 +80,7 @@ The knowledge base should then be updated through a new, reviewable increment th
 | Zed               | Provides the primary environment for engineering interaction, inspection, and review.          |
 | Knowledge Islands | Retains governed knowledge, context, decisions, and evolving engineering guidance.             |
 
-The [Engineering Estate](../Architecture/05-Engineering-Estate.md) defines these component roles in architectural terms.
+[[Engineering Estate]] defines these component roles in architectural terms.
 
 ## Control Points
 
@@ -99,10 +99,10 @@ A focused documentation correction does not require the same process as an archi
 
 ## Relationships
 
-The [Engineering Estate](../Architecture/05-Engineering-Estate.md) defines the components that support the lifecycle.
+[[Engineering Estate]] defines the components that support the lifecycle.
 
-The [AI Execution Fabric](../Architecture/06-AI-Execution-Fabric.md) determines where AI-enabled workloads may execute.
+[[AI Execution Fabric]] determines where AI-enabled workloads may execute.
 
-The [Principles](../Architecture/04-Principles.md) provide the decision criteria that guide trade-offs within the operating model.
+[[Principles]] provides the decision criteria that guide trade-offs within the operating model.
 
 Future chapters will define the detailed operating practices for remote engineering, security, local AI, cloud AI, and elastic execution.

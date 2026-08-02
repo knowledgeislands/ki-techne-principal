@@ -81,11 +81,11 @@ Knowledge Islands supplies governed context to the engineering practice and rece
 
 Tailscale provides private connectivity where components or engineers operate across locations.
 
-The [AI Execution Fabric](06-AI-Execution-Fabric.md) selects an appropriate execution target for AI-enabled workloads.
+[[AI Execution Fabric]] selects an appropriate execution target for AI-enabled workloads.
 
 Local runtimes are one possible target within that fabric, alongside managed APIs, elastic compute, and future dedicated infrastructure.
 
-The [estate interaction diagram](../Diagrams/src/architecture.svg) is generated from its [editable Mermaid source](../Diagrams/src/architecture.mmd).
+The [[Engineering Estate.svg|estate interaction diagram]] is generated from its [[Engineering Estate.mmd|editable Mermaid source]].
 
 ## Current Constraints and Open Questions
 

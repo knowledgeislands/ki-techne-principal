@@ -4,6 +4,6 @@ Operations contains day-to-day operating records, activities, runbooks, and logs
 
 ## Contents
 
-No operational collections have been created yet.
+- [[Enactment Process]] defines how substantive canonical changes are proposed, approved, rolled out, and reviewed.
 
 Future activities are indexed at `Admin/Operations/Activities/Activities.md` when adopted.

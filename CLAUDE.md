@@ -10,7 +10,7 @@ Load [Admin/MEMORY.md](Admin/MEMORY.md) before substantive knowledge-base work.
 
 When an active Pillar is recorded, load its `MEMORY.md` before editing or authoring canonical knowledge within that Pillar.
 
-The existing handbook chapters predate the zone model and remain in place until a reviewed migration proposal maps them into `Pillars/`.
+The [[Engineering Practice]] pillar holds Techne's settled internal engineering discipline.
 
 ## Enactment
 
@@ -22,4 +22,4 @@ Trivial corrections, time-bound `Calendar/` entries, and inbound `+/` triage are
 
 Write base notes in British English.
 
-Use shortest-unique Obsidian wikilinks within base notes; use relative Markdown links for handbook material that remains outside the zone model.
+Use shortest-unique Obsidian wikilinks within base notes; use relative Markdown links only in repository-orientation files outside the zone model.

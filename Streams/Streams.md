@@ -1,9 +1,15 @@
+---
+type: stream-zone
+---
+
 # Streams
 
 Streams contains Techne work in motion, governed through the Enactment Process.
 
 ## Proposals
 
-No active streams or proposals have been created yet.
+| Topic                                      | Focus  | Status       | Priority |
+| ------------------------------------------ | ------ | ------------ | -------- |
+| [[Techne Knowledge Architecture Proposal]] | Active | `rolled-out` | high     |
 
 Return to [[Admin]].

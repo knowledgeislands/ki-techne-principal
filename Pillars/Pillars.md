@@ -4,8 +4,6 @@ Pillars contains Techne's settled, internal engineering knowledge.
 
 ## Contents
 
-No Pillars have been established yet.
-
-The existing handbook chapters remain source material pending a reviewed migration into this zone.
+- [[Engineering Practice]] — Techne's canonical engineering discipline, including its foundations, architecture, operating model, technology posture, and diagrams.
 
 Return to [[Admin]].

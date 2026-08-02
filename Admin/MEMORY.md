@@ -2,12 +2,12 @@
 
 ## Active Pillars
 
-No Pillars are active while the existing Techne handbook is mapped into the Knowledge Islands structure.
+- [[Engineering Practice]] — canonical engineering discipline, architecture, operating model, technology posture, and diagrams.
 
 ## Current Context
 
-The repository has adopted the Knowledge Islands zone model.
+The repository uses the Knowledge Islands zone model.
 
-Existing handbook chapters remain outside `Pillars/` until a reviewed migration proposal defines their canonical destinations and links.
+The settled v0.1 handbook is canonical in [[Engineering Practice]].
 
 The Agent Dispatch Protocol design is planned work and should begin through a stream proposal before it changes canonical zones.

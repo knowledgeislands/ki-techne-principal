@@ -11,6 +11,12 @@ visibility = "public"
 
 ["knowledgeislands/ki-agentic-harness:ki-kb"]
 
+["knowledgeislands/ki-agentic-harness:ki-kb".templates]
+Admin = "Admin/Templates/activity.md"
+Calendar = "Admin/Templates/session.md"
+Pillars = "Admin/Templates/note.md"
+Resources = "Admin/Templates/source.md"
+
 ["knowledgeislands/ki-agentic-harness:ki-tokenomics"]
 
 ["knowledgeislands/ki-agentic-harness:ki-tokenomics-codex"]
@@ -20,6 +26,7 @@ visibility = "public"
 ["knowledgeislands/ki-agentic-harness:ki-kb-live-artifacts"]
 
 ["knowledgeislands/ki-agentic-harness:ki-kb-streams"]
+process_note = "Admin/Operations/Enactment Process"
 
 ["knowledgeislands/ki-agentic-harness:ki-housekeeping-claude"]
 
