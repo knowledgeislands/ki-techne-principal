@@ -1,0 +1,22 @@
+["knowledgeislands/ki-agentic-harness:ki-repo"]
+title = "Techne Principal"
+description = "Canonical engineering knowledge base for the Knowledge Islands ecosystem."
+repo_code = "TECHNE"
+supported_runtimes = ["chatgpt-codex"]
+visibility = "private"
+
+["knowledgeislands/ki-agentic-harness:ki-authoring"]
+
+["knowledgeislands/ki-agentic-harness:ki-git"]
+
+["knowledgeislands/ki-agentic-harness:ki-kb"]
+
+["knowledgeislands/ki-agentic-harness:ki-tokenomics"]
+
+["knowledgeislands/ki-agentic-harness:ki-tokenomics-codex"]
+
+["knowledgeislands/ki-agentic-harness:ki-kb-activities"]
+
+["knowledgeislands/ki-agentic-harness:ki-kb-live-artifacts"]
+
+["knowledgeislands/ki-agentic-harness:ki-kb-streams"]
