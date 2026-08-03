@@ -6,5 +6,4 @@ Governance records the rules, decisions, and conformance state that govern Techn
 
 - [[Admin/Governance/Charter|Charter]]
 - [[Admin/Governance/Conformance|Conformance]]
-
-Future decision records will be indexed here.
+- [[Admin/Governance/Decisions/Decisions|Decision Records]]
