@@ -10,7 +10,7 @@ Streams currently receiving focused attention.
 
 | Topic                                      | Status       | Priority |
 | ------------------------------------------ | ------------ | -------- |
-| [[Engineering Cockpit Setup Proposal]]     | `draft`      | medium   |
+| [[Engineering Agora Setup Proposal]]       | `draft`      | medium   |
 | [[Techne Knowledge Architecture Proposal]] | `rolled-out` | high     |
 
 Return to [[Streams]].
