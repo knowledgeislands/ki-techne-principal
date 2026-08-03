@@ -5,5 +5,7 @@ Governance records the rules, decisions, and conformance state that govern Techn
 ## Contents
 
 - [[Admin/Governance/Charter|Charter]]
+- [[Known Lands]]
+- [[Conventions]]
 - [[Admin/Governance/Conformance|Conformance]]
 - [[Admin/Governance/Decisions/Decisions|Decision Records]]

@@ -31,7 +31,7 @@ repo_type = "kb"
 ["knowledgeislands/ki-agentic-harness:ki-kb-live-artifacts"]
 
 ["knowledgeislands/ki-agentic-harness:ki-kb-streams"]
-process_note = "Admin/Operations/Enactment Process"
+process_note = "Admin/Operations/Processes/Enactment Process"
 
 ["knowledgeislands/ki-agentic-harness:ki-housekeeping-claude"]
 

@@ -26,7 +26,7 @@ Migrate Techne's pre-Knowledge-Islands handbook structure into the canonical bas
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Artefact | `Pillars/Engineering Practice/` with modular foundations, architecture, operating-model, technology-posture, and diagram material. |
 | Artefact | Active Streams record that preserves the Phase 1 context as work in motion.                                                        |
-| Artefact | `Admin/Operations/Enactment Process.md` and an explicit Streams process binding.                                                   |
+| Artefact | The local Enactment Process and an explicit Streams process binding.                                                               |
 | Artefact | Root orientation, memory, and links that identify the Engineering Practice pillar as Techne's canonical knowledge.                 |
 
 ## Checklist
@@ -66,4 +66,4 @@ The legacy Phase 1 roadmap is work in motion, not settled knowledge. Its intent 
 
 ## Governance
 
-This proposal follows the [[Admin/Operations/Enactment Process|Enactment Process]].
+This proposal follows the [[Enactment Process]].

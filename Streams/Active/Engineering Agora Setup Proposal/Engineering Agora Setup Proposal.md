@@ -158,4 +158,4 @@ Zed renders Codex ACP activity as individual Thinking and command cards in the A
 
 ## Governance
 
-This proposal follows the [[Admin/Operations/Enactment Process|Enactment Process]].
+This proposal follows the [[Enactment Process]].

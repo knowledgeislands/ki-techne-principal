@@ -12,7 +12,7 @@ The base holds durable engineering knowledge, governance records, active change 
 
 ## Owner
 
-TODO: assign the accountable owner for the Techne knowledge base.
+Kris Brown is the accountable owner and approver for Techne.
 
 ## Established
 
