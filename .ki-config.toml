@@ -1,4 +1,5 @@
 ["knowledgeislands/ki-agentic-harness:ki-repo"]
+repository = "https://github.com/knowledgeislands/ki-techne-principal"
 title = "Techne Principal"
 description = "Canonical engineering knowledge base for the Knowledge Islands ecosystem."
 supported_runtimes = ["claude-code", "chatgpt-codex"]
