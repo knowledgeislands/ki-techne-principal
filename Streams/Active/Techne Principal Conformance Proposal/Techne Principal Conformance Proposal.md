@@ -15,20 +15,15 @@ Conform Techne to the principal Knowledge Base contract and make the required go
 
 ## Inputs
 
-| Type         | Detail                                                                                                            |
-| ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Decision     | Techne is the canonical engineering knowledge base for the Knowledge Islands ecosystem.                           |
-| Decision     | [[GDR-KI-FUNDAMENTALS-001]] defines the six primary repositories and their distinct authority.                    |
-| Prerequisite | [[Techne Knowledge Architecture Proposal]] established the current five-zone structure and is `rolled-out`.       |
-| Document     | The `ki-principal` standard requires the principal governance surface and an always-loaded Enactment gate anchor. |
+- **Decision:** Techne is the canonical engineering knowledge base for the Knowledge Islands ecosystem.
+- **Decision:** [[GDR-KI-FUNDAMENTALS-001]] defines the six primary repositories and their distinct authority.
+- **Prerequisite:** [[Techne Knowledge Architecture Proposal]] established the current five-zone structure and is `rolled-out`. | Document | The `ki-principal` standard requires the principal governance surface and an always-loaded Enactment gate anchor. |
 
 ## Outputs
 
-| Type     | Detail                                                                                                        |
-| -------- | ------------------------------------------------------------------------------------------------------------- |
-| Artefact | A complete, locally meaningful principal surface under `Admin/Governance/` and `Admin/Operations/Processes/`. |
-| Artefact | KI configuration and conformance records that declare `ki-decision-records` and `ki-principal`.               |
-| Decision | Techne's existing owner, authority boundary, repository relationships, and local conventions remain explicit. |
+- **Artefact:** A complete, locally meaningful principal surface under `Admin/Governance/` and `Admin/Operations/Processes/`.
+- **Artefact:** KI configuration and conformance records that declare `ki-decision-records` and `ki-principal`.
+- **Decision:** Techne's existing owner, authority boundary, repository relationships, and local conventions remain explicit.
 
 ## Checklist
 
