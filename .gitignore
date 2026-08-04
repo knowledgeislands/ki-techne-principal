@@ -7,6 +7,7 @@
 *~
 
 # Generated project-local runtime payloads (ki-bootstrap) — never committed
+.claude/skills/*
 .agents/skills/*
 !.agents/skills/ki-self/
 !.agents/skills/ki-self/**
