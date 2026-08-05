@@ -1,7 +1,7 @@
 ---
 type: stream-proposal
 title: Techne Knowledge Architecture Proposal
-status: rolled-out
+status: awaiting-review
 priority: high
 dependencies: []
 ---
@@ -21,7 +21,7 @@ Migrate Techne's pre-Knowledge-Islands handbook structure into the canonical bas
 ## Outputs
 
 - **Artefact:** `Pillars/Engineering Practice/` with modular foundations, architecture, operating-model, technology-posture, and diagram material.
-- **Artefact:** Active Streams record that preserves the Phase 1 context as work in motion.
+- **Artefact:** Now Streams record that preserves the Phase 1 context as work in motion.
 - **Artefact:** The local Enactment Process and an explicit Streams process binding. | Artefact | Root orientation, memory, and links that identify the Engineering Practice pillar as Techne's canonical knowledge. |
 
 ## Checklist
