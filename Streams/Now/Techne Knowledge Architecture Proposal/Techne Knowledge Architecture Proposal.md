@@ -22,7 +22,8 @@ Migrate Techne's pre-Knowledge-Islands handbook structure into the canonical bas
 
 - **Artefact:** `Pillars/Engineering Practice/` with modular foundations, architecture, operating-model, technology-posture, and diagram material.
 - **Artefact:** Now Streams record that preserves the Phase 1 context as work in motion.
-- **Artefact:** The local Enactment Process and an explicit Streams process binding. | Artefact | Root orientation, memory, and links that identify the Engineering Practice pillar as Techne's canonical knowledge. |
+- **Artefact:** The local Enactment Process and an explicit Streams process binding.
+- **Artefact:** Root orientation, memory, and links that identify the Engineering Practice pillar as Techne's canonical knowledge.
 
 ## Checklist
 
@@ -46,7 +47,8 @@ None. The approved direction is to establish one Engineering Practice pillar now
 - **`Operating-Model/`:** `Pillars/Engineering Practice/Operating Model/`.
 - **`Technology-Radar/`:** `Pillars/Engineering Practice/Technology/`.
 - **`Diagrams/`:** `Pillars/Engineering Practice/Architecture/Diagrams/`.
-- **`Roadmap/Phase-1.md`:** This proposal's transferred Phase 1 context. | `SUMMARY.md` | `Pillars/Engineering Practice/Foundations/Techne v0.1 Foundations.md` |
+- **`Roadmap/Phase-1.md`:** This proposal's transferred Phase 1 context.
+- **`SUMMARY.md`:** `Pillars/Engineering Practice/Foundations/Techne v0.1 Foundations.md`.
 
 ### Diagram policy
 
