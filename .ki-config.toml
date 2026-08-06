@@ -4,6 +4,8 @@ title = "Techne Principal"
 description = "Canonical engineering knowledge base for the Knowledge Islands ecosystem."
 supported_runtimes = ["claude-code", "chatgpt-codex"]
 visibility = "public"
+repo_type = "kb"
+store_roles = ["notes"]
 
 ["knowledgeislands/ki-agentic-harness:ki-authoring"]
 
@@ -18,7 +20,6 @@ Pillars = "Admin/Templates/note.md"
 Resources = "Admin/Templates/source.md"
 
 ["knowledgeislands/ki-agentic-harness:ki-decision-records"]
-repo_type = "kb"
 
 ["knowledgeislands/ki-agentic-harness:ki-principal"]
 
