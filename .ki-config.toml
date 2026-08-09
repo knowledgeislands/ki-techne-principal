@@ -8,6 +8,7 @@ description = "Canonical engineering knowledge base for the Knowledge Islands ec
 supported_runtimes = ["claude-code", "chatgpt-codex"]
 visibility = "public"
 repo_type = "kb"
+repo_code = "TECHNE"
 store_roles = ["notes"]
 
 [skills.ki-authoring]
@@ -36,6 +37,10 @@ Resources = "Admin/Templates/source.md"
 
 [skills.ki-repo-kb-streams]
 process_note = "Admin/Operations/Processes/Enactment Process"
+
+[skills.ki-repo-kb-streams.areas]
+GOV = "knowledge-governance"
+OPS = "operational-tooling"
 
 [skills.ki-change-management]
 adapter = "kb-streams"

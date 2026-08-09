@@ -26,4 +26,4 @@ Its architecture, decisions, evaluations, and operating guidance evolve through 
 - [[Architecture]] defines the engineering estate, AI Execution Fabric, knowledge architecture, and their diagrams.
 - [[Operating Model]] defines how engineering work is performed and evolved.
 - [[Technology]] records the current technology posture.
-- [[Techne Knowledge Architecture Proposal]] records the active structural migration and its remaining review.
+- [[TECHNE-GOV-001-knowledge-architecture|Techne Knowledge Architecture migration]] retains the structural migration evidence and its remaining review.
