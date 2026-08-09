@@ -7,7 +7,7 @@ aliases:
   - Techne Knowledge Architecture Proposal
 theme: knowledge-governance
 horizon: now
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
@@ -85,6 +85,10 @@ Review that the Engineering Practice pillar preserves the intended handbook scop
 ### Mini recap
 
 Settled architecture is canonical in [[Engineering Practice]]; this record is retained only as finite migration evidence.
+
+## Done
+
+Accepted by the Techne owner on 2026-08-09. Retained as reviewable history; no pruning was selected.
 
 ## Discussion
 

@@ -5,7 +5,7 @@ area: GOV
 title: Conform Streams
 theme: knowledge-governance
 horizon: now
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
@@ -84,6 +84,10 @@ Confirm that the retained records remain the intended finite work and that no re
 ### Mini recap
 
 Streams is now an operational container, not a second Focus-based queue.
+
+## Done
+
+Accepted by the Techne owner on 2026-08-09. Retained as reviewable history; no pruning was selected.
 
 ## Discussion
 
