@@ -14,9 +14,9 @@ store_roles = ["notes"]
 
 [skills.ki-git]
 
-[skills.ki-kb]
+[skills.ki-repo-kb]
 
-[skills.ki-kb.templates]
+[skills.ki-repo-kb.templates]
 Admin = "Admin/Templates/activity.md"
 Calendar = "Admin/Templates/session.md"
 Pillars = "Admin/Templates/note.md"
@@ -24,18 +24,21 @@ Resources = "Admin/Templates/source.md"
 
 [skills.ki-decision-records]
 
-[skills.ki-principal]
+[skills.ki-repo-kb-principal]
 
 [skills.ki-tokenomics]
 
 [skills.ki-tokenomics-codex]
 
-[skills.ki-kb-activities]
+[skills.ki-repo-kb-activities]
 
-[skills.ki-kb-live-artifacts]
+[skills.ki-repo-kb-live-artifacts]
 
-[skills.ki-kb-streams]
+[skills.ki-repo-kb-streams]
 process_note = "Admin/Operations/Processes/Enactment Process"
+
+[skills.ki-change-management]
+adapter = "kb-streams"
 
 [skills.ki-housekeeping-claude]
 

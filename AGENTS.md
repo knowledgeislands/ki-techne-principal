@@ -14,7 +14,7 @@ The [[Engineering Practice]] pillar holds Techne's settled internal engineering 
 
 ## Enactment
 
-Substantive changes to canonical knowledge in `Admin/`, `Pillars/`, or `Resources/` require a ready proposal in `Streams/` and must follow the `ki-kb-streams` enactment process.
+Substantive changes to canonical knowledge in `Admin/`, `Pillars/`, or `Resources/` require a ready proposal in `Streams/` and must follow the `ki-repo-kb-streams` enactment process.
 
 Trivial corrections, time-bound `Calendar/` entries, and inbound `+/` triage are exempt.
 

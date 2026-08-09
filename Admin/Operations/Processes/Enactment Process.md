@@ -1,6 +1,6 @@
 # Enactment Process
 
-Techne uses the Knowledge Islands Enactment Process for substantive changes to canonical knowledge and its operating model. The canonical lifecycle and proposal structure are governed by `ki-kb-streams`; this note records Techne's local application.
+Techne uses the Knowledge Islands Enactment Process for substantive changes to canonical knowledge and its operating model. The canonical lifecycle and proposal structure are governed by `ki-repo-kb-streams`; this note records Techne's local application.
 
 ## Local authority
 
