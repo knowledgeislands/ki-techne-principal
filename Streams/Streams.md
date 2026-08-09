@@ -17,7 +17,7 @@ The base owner directed this migration on 2026-08-09. The former path is treated
 
 - **`Streams/Now/Now.md`:** pruned as superseded Focus navigation. Horizon and lifecycle now live in roadmap-record frontmatter.
 - **Agora Profile Setup Proposal:** retained as roadmap work at `Streams/Roadmap/TECHNE-OPS-001-agora-profile-setup.md`.
-- **Techne Knowledge Architecture Proposal:** retained as roadmap work at `Streams/Roadmap/TECHNE-GOV-001-knowledge-architecture.md`.
+- **Techne Knowledge Architecture Proposal:** accepted and pruned after review; its settled architectural output remains in [[Engineering Practice]].
 - **`Streams/Streams.md`:** retained as the zone orientation and refreshed for the operational-area model.
 
 No legacy Stream is a housekeeping template or a standalone canonical-knowledge note. Its settled architectural output remains in [[Engineering Practice]]; no legacy material is retained solely as an archive.
