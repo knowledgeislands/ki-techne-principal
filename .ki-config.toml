@@ -28,6 +28,8 @@ Resources = "Admin/Templates/source.md"
 [skills.ki-repo-kb-principal]
 
 [skills.ki-trades]
+# Techne's engineering-hub role is visible in the generated estate map.
+map_bonus = 1
 
 [skills.ki-trades.routes."knowledgeislands/ki-agentic-harness"]
 export = ["work", "knowledge"]
