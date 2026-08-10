@@ -11,9 +11,9 @@ status: draft
 priority: medium
 dependencies: []
 blocks: []
-blocked-by: []
-baseline-ref: null
-transferred-from: Streams/Now/Agora Profile Setup Proposal/Agora Profile Setup Proposal.md
+blocked_by: []
+baseline_ref: null
+transferred_from: Streams/Now/Agora Profile Setup Proposal/Agora Profile Setup Proposal.md
 ---
 
 # Agora Profile Setup
