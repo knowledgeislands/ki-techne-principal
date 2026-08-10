@@ -27,6 +27,27 @@ Resources = "Admin/Templates/source.md"
 
 [skills.ki-repo-kb-principal]
 
+[skills.ki-trades]
+
+[skills.ki-trades.routes."knowledgeislands/ki-agentic-harness"]
+export = ["work", "knowledge"]
+import = ["work", "knowledge"]
+
+[skills.ki-trades.routes."knowledgeislands/ki-arcadia-principal"]
+import = ["knowledge"]
+
+[skills.ki-trades.routes."knowledgeislands/ki-website"]
+export = ["knowledge"]
+
+[skills.ki-trades.routes."knowledgeislands/tools-ki"]
+export = ["work", "knowledge"]
+
+[skills.ki-trades.routes."knowledgeislands/tools-mgit"]
+export = ["work", "knowledge"]
+
+[skills.ki-trades.routes."krisb/dotfiles"]
+export = ["work", "knowledge"]
+
 [skills.ki-tokenomics]
 
 [skills.ki-tokenomics-codex]
