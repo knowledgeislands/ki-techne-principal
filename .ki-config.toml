@@ -65,7 +65,7 @@ process_note = "Admin/Operations/Processes/Enactment Process"
 GOV = "knowledge-governance"
 OPS = "operational-tooling"
 
-[skills.ki-change-management]
+[skills.ki-work]
 adapter = "kb-streams"
 
 [skills.ki-housekeeping-claude]

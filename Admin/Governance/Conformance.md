@@ -13,7 +13,7 @@ The following KI capabilities govern Techne.
 | ki-repo-kb-live-artifacts | 2026-08-02 | Live-artifact governance.                       |
 | ki-repo-kb-streams     | 2026-08-02    | Enactment Process and Streams governance.       |
 | ki-repo-kb-principal   | 2026-08-04    | Principal governance surface and authority.     |
-| ki-change-management   | 2026-08-09    | Selects KB Streams as the forward-work adapter. |
+| ki-work                | 2026-08-09    | Selects KB Streams as the forward-work adapter. |
 | ki-housekeeping-claude | 2026-08-02    | Claude Code runtime housekeeping.               |
 | ki-tokenomics          | 2026-08-02    | Token-accounting foundation.                    |
 | ki-tokenomics-codex    | 2026-08-02    | Codex runtime token accounting.                 |
