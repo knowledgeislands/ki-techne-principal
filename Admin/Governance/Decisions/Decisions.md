@@ -1,5 +1,5 @@
 ---
-type: admin/governance/decision
+note_type: admin/governance/decision
 status: current - August 2026
 ---
 

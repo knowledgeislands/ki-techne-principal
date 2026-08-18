@@ -1,5 +1,5 @@
 ---
-type: stream-proposal
+note_type: stream-proposal
 id: TECHNE-OPS-001
 area: OPS
 title: Agora Profile Setup

@@ -61,9 +61,6 @@ export = ["work", "knowledge"]
 [skills.ki-repo-kb-streams]
 process_note = "Admin/Operations/Processes/Enactment Process"
 
-[skills.ki-repo-kb-streams.areas]
-GOV = "knowledge-governance"
-OPS = "operational-tooling"
 
 [skills.ki-work]
 adapter = "kb-streams"

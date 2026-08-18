@@ -1,5 +1,5 @@
 ---
-type: stream-zone
+note_type: stream-zone
 ---
 
 # Streams
