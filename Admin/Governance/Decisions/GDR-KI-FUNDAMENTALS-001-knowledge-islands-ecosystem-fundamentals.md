@@ -1,4 +1,5 @@
 ---
+note_type: admin/governance/decision
 id: GDR-KI-FUNDAMENTALS-001
 title: 'Knowledge Islands ecosystem fundamentals'
 date: 2026-08-06

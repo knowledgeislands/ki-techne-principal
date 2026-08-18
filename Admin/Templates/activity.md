@@ -1,4 +1,5 @@
 ---
+note_type: admin/operations/activity
 status: active
 realization: conversational
 author:
