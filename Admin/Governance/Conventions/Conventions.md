@@ -1,6 +1,6 @@
 # Conventions
 
-Conventions collects the Techne-specific rules that supplement the portable Knowledge Islands standards declared in `.ki-config.toml`.
+Conventions collects the Techne-specific rules that supplement the portable Knowledge Islands standards declared in `.ki.toml`.
 
 ## Language and authoring
 
