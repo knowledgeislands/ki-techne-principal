@@ -1,6 +1,10 @@
 # Knowledge Islands repository configuration.
 # Its presence declares conformance with the Knowledge Islands repository standard.
 
+# -----------------------------------------------------------------------------
+# Foundation
+# -----------------------------------------------------------------------------
+
 [repo]
 harnesses = ["knowledgeislands/ki-agentic-harness"]
 
@@ -16,7 +20,9 @@ store_roles = ["notes"]
 
 [skills.ki-authoring]
 
-[skills.ki-git]
+# -----------------------------------------------------------------------------
+# Repository shape
+# -----------------------------------------------------------------------------
 
 [skills.ki-repo-kb]
 
@@ -26,9 +32,41 @@ Calendar = "Admin/Templates/session.md"
 Pillars = "Admin/Templates/note.md"
 Resources = "Admin/Templates/source.md"
 
+[skills.ki-repo-kb-principal]
+
+[skills.ki-repo-kb-activities]
+
+[skills.ki-repo-kb-live-artifacts]
+
+[skills.ki-repo-kb-streams]
+process_note = "Admin/Operations/Processes/Enactment Process"
+
+# -----------------------------------------------------------------------------
+# Governance runtime
+# -----------------------------------------------------------------------------
+
 [skills.ki-decision-records]
 
-[skills.ki-repo-kb-principal]
+# -----------------------------------------------------------------------------
+# Change management
+# -----------------------------------------------------------------------------
+
+[skills.ki-git]
+
+[skills.ki-work]
+adapter = "kb-streams"
+
+[skills.ki-housekeeping-claude]
+
+[skills.ki-tokenomics]
+
+[skills.ki-tokenomics-claude]
+
+[skills.ki-tokenomics-codex]
+
+# -----------------------------------------------------------------------------
+# Relationships
+# -----------------------------------------------------------------------------
 
 [skills.ki-trades]
 # Techne's engineering-hub role is visible in the generated estate map.
@@ -52,25 +90,6 @@ export = ["work", "knowledge"]
 
 [skills.ki-trades.routes."krisb/dotfiles"]
 export = ["work", "knowledge"]
-
-[skills.ki-tokenomics]
-
-[skills.ki-tokenomics-codex]
-
-[skills.ki-repo-kb-activities]
-
-[skills.ki-repo-kb-live-artifacts]
-
-[skills.ki-repo-kb-streams]
-process_note = "Admin/Operations/Processes/Enactment Process"
-
-
-[skills.ki-work]
-adapter = "kb-streams"
-
-[skills.ki-housekeeping-claude]
-
-[skills.ki-tokenomics-claude]
 
 [skills.ki-agora]
 
