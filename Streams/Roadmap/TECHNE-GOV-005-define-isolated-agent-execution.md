@@ -57,6 +57,9 @@ Techne already defines provider-neutral execution, responsibility separation, se
 
 - [x] Consolidate current estate records, Codex execution surfaces, installed local tooling, available implementation skills, and external sandbox evidence into this proposal.
 - [ ] Inspect the Mac Studio as a distinct target: record operating system and hardware, repository root, SSH or Remote path, installed runtimes, active container or Kubernetes substrate, and intended supervised versus unattended use.
+- [ ] After an explicit AWS SSO login, inventory the Techne account's enabled regions, EKS and ECS clusters, CloudFormation and CDK bootstrap stacks, ECR repositories, VPC and subnet shape, IAM execution roles, budgets, and current cost-bearing resources without retaining account identifiers or credentials in the knowledge base.
+- [ ] Compare EKS Auto Mode, EKS on Fargate, ECS on Fargate, and CodeBuild against the same isolation, persistence, network, credential, evidence, lifecycle, scale-to-zero, and cost controls used for non-AWS candidates.
+- [ ] Decide whether the first AWS proof remains a repository-local CDK application, extends `tools-ki`, or supplies evidence for a distinct `techne` execution tool; do not create a new public tool boundary from one provider implementation.
 - [ ] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
 - [ ] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
 - [ ] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
@@ -133,6 +136,28 @@ The 2026-09-09 inspection ran on an Apple-silicon MacBook, not the Mac Studio, s
 - **Missing local substrate:** Docker, Podman, Docker Sandboxes `sbx`, Colima, Lima, kind, minikube, k3d, and other inspected local container or VM engines were not found.
 - **Missing remote-provider clients:** Daytona, E2B, Coder, Fly, Modal, `eksctl`, Terraform, OpenTofu, and Pulumi CLIs were not found. Their absence does not prevent SDK or API use, but no local operator path is currently established.
 - **Mac Studio unknowns:** The Studio's reachability, remote-control or SSH setup, installed tools, repository roots, container runtime, Kubernetes state, Herdr service mode, and credentials boundary remain unobserved. [[Define Remote Agent Working Style]] should establish the supervised access path; this proposal should then decide which isolated adapter, if any, runs on that host.
+
+### AWS footprint opportunity
+
+The supplied account evidence and a locally configured `knowledge-islands-techne` AWS profile establish a dedicated AWS administrative footprint as a plausible elastic-execution target. They do not establish which resources already exist. The profile's SSO token was expired during the 2026-09-09 inspection, so live regional resources, quotas, network topology, CDK bootstrap state, and current spend remain unverified. Account identifiers and sign-in details are sensitive operational details and must not be copied into this record.
+
+- **Available client layer:** AWS CLI, AWS CDK, `kubectl`, Helm, and k9s are installed. No CDK application or other infrastructure-as-code project was found in the inspected canonical repositories.
+- **EKS Auto Mode:** [EKS Auto Mode](https://docs.aws.amazon.com/eks/latest/userguide/automode.html) can manage control-plane-adjacent infrastructure, node provisioning, scaling, networking, load balancing, and block storage while retaining Kubernetes APIs. It is the lowest-operations EKS starting point, but its managed, immutable nodes may constrain custom runtime classes needed for gVisor or Kata isolation; prove compatibility rather than assuming it.
+- **EKS on Fargate:** [EKS Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html) gives each Pod a separate VM, CPU, memory, storage, and network boundary. Its lack of privileged containers, DaemonSets, EBS mounts, and dynamic persistent-volume provisioning may conflict with Docker-in-Docker, Agent Sandbox controllers, warm pools, or persistence patterns. Treat it as a candidate to test, not a presumed Agent Sandbox host.
+- **ECS on Fargate:** [ECS Fargate security](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-security-considerations.html) provides isolated task execution without Kubernetes. It may be the smallest AWS adapter for one-shot agent work when the Kubernetes API, claims, and warm pools add no value.
+- **CodeBuild:** [CodeBuild on-demand environments](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html) provide short-lived managed build containers and automatic scaling. They are a useful bounded-job control but do not supply the resumable sandbox lifecycle or stable identity required for every agent mode.
+- **CDK projection:** AWS CDK can own repeatable VPC, IAM, ECR, EKS or ECS, logging, budget, and teardown resources and apply Kubernetes manifests or Helm charts. CDK should remain one provider adapter behind the portable execution contract, not become the contract itself.
+- **Security and cost boundary:** Administrative access may bootstrap the footprint, but controllers and task environments need separate least-privilege roles, short-lived credentials, bounded egress, encrypted state, audit logs, mandatory ownership and expiry tags, budget alarms, default time-to-live, and a tested destroy path. EKS retains a per-cluster charge even when workload nodes scale to zero, with separate compute, storage, address, and network charges documented in [EKS pricing](https://aws.amazon.com/eks/pricing/).
+
+### Prospective Techne execution tool
+
+A distinct execution tool is plausible, but its boundary should follow the evidence rather than the AWS implementation name.
+
+- **`ki` remains the governance tool:** It selects repositories, manages knowledge and skills, and runs the governed work lifecycle. It should not acquire provider credentials or silently become an infrastructure control plane.
+- **A prospective `techne` tool manages execution:** Its eventual surface could plan, create, inspect, execute, transfer evidence, checkpoint, suspend, resume, and destroy task environments through local, Kubernetes, and managed-provider adapters.
+- **Profiles and task manifests are inputs:** The tool should consume one portable bootstrap profile, immutable repository baseline, task authority, network and credential policy, result destination, and cleanup policy. Git commits, patches, logs, manifests, and review packets remain outputs independent of the provider.
+- **CDK is an implementation backend:** An AWS adapter may synthesize and deploy CDK stacks, install Agent Sandbox resources with Helm or Kubernetes manifests, and expose safe stack outputs. Equivalent local or hosted adapters should not need to understand CloudFormation.
+- **Begin as a proof, not a product:** The first slice should be a narrow, reviewable CDK project and command script that deploys one disposable environment, runs one bounded repository task, returns evidence, and destroys cleanly. A dedicated executable or repository should be established only after the local and AWS proofs reveal a stable shared lifecycle.
 
 ### Layer model
 
