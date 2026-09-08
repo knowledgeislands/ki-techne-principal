@@ -2,7 +2,7 @@
 note_type: stream-proposal
 id: TECHNE-GOV-005
 area: GOV
-title: Define isolated agent execution
+title: Govern isolated agent execution
 aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
@@ -15,17 +15,19 @@ blocked_by: []
 baseline_ref: null
 ---
 
-# Define Isolated Agent Execution
+# Govern Isolated Agent Execution
 
 ## Goal
 
-Make isolated, portable task environments an explicit part of Techne's engineering principles and execution architecture so autonomous agents can operate independently without coupling Knowledge Islands to a provider, workstation, or agent runtime.
+Govern isolated agent execution as a coherent Knowledge Islands technique area so autonomous agents can operate independently through portable task environments without coupling the engineering model to a provider, workstation, profile implementation, or agent runtime.
 
 ## Context
 
 Techne already establishes Provider-Neutral Execution, Clear Separation of Responsibilities, Security and Privacy as Design Inputs, and Evolvable by Default. The [[AI Execution Fabric]] separates workload requirements from infrastructure selection. It does not yet state that an autonomous agent task should receive its own filesystem and security boundary, bootstrapped from a portable profile, rather than inherit an interactive editor session or shared host workspace.
 
 `KI-HARNESS-RTP-012` now records the corresponding executable substrate analysis. It separates the persistent controller, isolated task environment, bootstrap profile, agent runtime, authoritative Git state, and review evidence. `DOTFILES-UE-020` uses Cheztoi as the working name for one personal bootstrap profile and projection of that wider contract.
+
+Techne is the canonical owner of the engineering model, layer taxonomy, and technology landscape for this concern. `KI-HARNESS-RTP-012` should consume that model when defining a portable executable contract; it must not become the authoritative provider-comparison or engineering-principle record.
 
 ## Boundary
 
@@ -39,7 +41,13 @@ Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap p
 
 Update the [[Engineering Estate]] or its diagrams only where needed to make the controller, sandbox, profile, and runtime boundaries legible. Assess relevant technologies in [[Technology Radar]] only after their architectural role and evidence threshold are clear.
 
-Promote this proposal to Next when the intended principle wording, affected canonical notes, evidence sources, and review assertions are concrete enough for an enactment plan.
+Coordinate the repository-owned outcomes without absorbing their implementation: `KI-HARNESS-RTP-012` defines the portable lifecycle and conformance contract; `DOTFILES-UE-020` implements the residual Cheztoi profile and projection; and `tools-ki` receives shared compiler, CLI, or adapter work only once multiple proofs establish a reusable boundary.
+
+Define the bootstrap-profile inputs that the harness contract must accept: pinned tools, KI bootstrap and repair, XDG layout, Git and shell prerequisites, runtime configuration templates, explicit state classes, and a fail-closed health check. Keep the profile consumable without chezmoi at runtime.
+
+Set a proving sequence that exercises the same profile in a private fresh clone through at least two materially independent adapters. Use open artifacts and ordinary evidence at the hand-off boundary so a provider snapshot cannot become the only recoverable state.
+
+Promote this proposal to Next when the intended principle wording, affected canonical notes, coordinated repository outcomes, evidence sources, and review assertions are concrete enough for an enactment plan.
 
 ## Discussion
 
@@ -49,14 +57,31 @@ The durable technique is not Docker, Kubernetes, or Cheztoi. It is that one inde
 
 This complements Provider-Neutral Execution: workload constraints choose an eligible execution target, while the isolation principle defines how the task is contained once placed there. It also makes Clear Separation of Responsibilities operational by keeping the controller, sandbox substrate, bootstrap profile, and agent runtime replaceable.
 
+### Layer model
+
+The persistent controller owns session identity, policy, credential brokerage, lifecycle, and result integration. The sandbox substrate supplies the filesystem, process, network, and isolation boundary. The bootstrap profile declares the required environment. The agent runtime performs the bounded task. Git and the selected change-management process remain authoritative outside any one sandbox session.
+
+Execution tier, isolation mechanism, environment profile, and agent runtime are independent choices. A local microVM and a remotely scheduled Kubernetes sandbox can consume the same profile; different agent runtimes can operate inside either without changing the governing principle.
+
+### Profile and artifact boundary
+
+Classify candidate dotfiles inputs as portable prerequisite, agent capability, personal preference, secret-bearing state, or machine-specific state. Cheztoi should contain only the portable subset and render independently consumable artifacts with exact feature or package locking where supported.
+
+Use [the Development Container specification](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainer-reference.md) as the primary portable development-environment projection and [the OCI Image specification](https://github.com/opencontainers/image-spec/blob/main/spec.md) for image packaging and transport. Chezmoi may produce these artifacts, but consuming them must not require the full personal dotfiles repository.
+
 ### Reference mapping
 
-- **Agent Sandbox:** the emerging Kubernetes-native control-plane model to follow for neutral sandbox identity, claims, templates, and warm pools.
-- **Docker Sandboxes:** a practical local adapter for proving one task per isolated private clone without making Docker part of the principle.
+- **Fly.io agent infrastructure and Sprites:** [Fly.io agent infrastructure](https://fly.io/ai-agents/) and [Sprites](https://fly.io/sprites/) provide a hosted reference for persistent agent controllers paired with isolated, checkpointable execution environments.
+- **Grok Bot:** [Grok Bot](https://x.ai/bot) is a managed-product reference for always-on teammates with their own computers and multi-agent hand-offs; it primarily informs the controller and cockpit layer.
+- **Grok Build:** [Grok Build](https://github.com/xai-org/grok-build) is an open-source coding-agent harness and terminal interface with Agent Client Protocol support; it primarily informs the agent-runtime and interaction layer rather than the sandbox substrate.
+- **Agent Sandbox:** [Kubernetes SIG Apps Agent Sandbox](https://agent-sandbox.sigs.k8s.io/docs/) is the emerging neutral control-plane model to follow for sandbox identity, claims, templates, and warm pools; its v1beta1 status does not make Kubernetes a mandatory first implementation.
+- **Docker Sandboxes:** [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) is the practical first local adapter for proving one task per isolated private clone without making Docker part of the principle.
 - **Cheztoi:** one personal, reproducible bootstrap profile containing the portable subset of dotfiles knowledge; it is neither the controller nor the sandbox.
 - **Dev Container and OCI:** open artifact boundaries for describing and distributing the environment independently from a provider's snapshot format.
 
-Daytona, E2B, Coder, Cloudflare Sandbox SDK, Modal, and Fly Sprites remain implementation candidates with different control-plane, persistence, hosting, and workload strengths. Their APIs should be evaluated through a shared conformance shape rather than promoted into canonical architecture individually.
+[Daytona](https://github.com/daytonaio/daytona) is the strongest current second-adapter candidate when open-source control-plane operation, OCI compatibility, self-hosting, or bring-your-own-cloud matter. [E2B](https://docs.e2b.dev/) is the alternative when rapid hosted validation and a focused sandbox SDK matter more than self-hosting. [Coder](https://coder.com/docs/ai-coder/agents/architecture), [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/), [Modal Sandboxes](https://modal.com/docs/guide/sandboxes), and Fly Sprites remain specialised references for organisational control planes, edge control, elastic compute, and durable agent homes.
+
+The initial proving sequence should use Docker Sandboxes locally with a private clone, render the same profile through Dev Container and OCI artifacts, and then use Daytona or Agent Sandbox as a materially independent second implementation. Provider APIs remain behind adapters and their snapshots remain acceleration rather than authority.
 
 ### State and authority
 
@@ -66,4 +91,4 @@ Credentials should be scoped, short-lived, and injected at runtime, preferably t
 
 ### Knowledge and implementation ownership
 
-Techne owns the durable engineering principle and conceptual execution model. `ki-agentic-harness` owns reusable sandbox capability semantics and conformance tests. Dotfiles owns the Cheztoi profile instance. `tools-ki` may eventually own a provider-neutral compiler, CLI, or adapter surface once multiple proofs establish that boundary.
+Techne is accountable for the durable engineering principle, conceptual execution model, technology landscape, cross-repository coherence, and evidence review. `ki-agentic-harness` is responsible for reusable sandbox capability semantics and conformance tests. Dotfiles is responsible for the Cheztoi profile instance. `tools-ki` may eventually become responsible for a provider-neutral compiler, CLI, or adapter surface once multiple proofs establish that boundary.
