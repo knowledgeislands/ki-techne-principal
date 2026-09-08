@@ -55,6 +55,8 @@ Techne already defines provider-neutral execution, responsibility separation, se
 
 ## Steps
 
+- [x] Consolidate current estate records, Codex execution surfaces, installed local tooling, available implementation skills, and external sandbox evidence into this proposal.
+- [ ] Inspect the Mac Studio as a distinct target: record operating system and hardware, repository root, SSH or Remote path, installed runtimes, active container or Kubernetes substrate, and intended supervised versus unattended use.
 - [ ] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
 - [ ] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
 - [ ] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
@@ -104,6 +106,34 @@ The operating model should distinguish attached interactive work, persistent hum
 
 `TECHNE-OPS-002` owns the Zed, Herdr, and Mosh evidence for persistent supervised sessions. This proposal owns the unattended isolated-execution principle and the boundary between modes. The Harness receives only the executable capability and conformance consequences of the accepted model.
 
+### Estate evidence
+
+- **Techne architecture:** [[AI Execution Fabric]] already separates workload requirements from local, managed-API, elastic, and future dedicated execution tiers. [[Engineering Estate]] assigns persistent execution to Herdr, private connectivity to Tailscale, engineering interaction to Zed, and deterministic operations to tools-mgit.
+- **Techne working style:** [[Define Remote Agent Working Style]] owns the proof for attached work and persistent human-supervised sessions, including Zed over SSH, Herdr continuity, observation and recovery. This proposal owns unattended isolated execution and the deliberate transition into or out of that mode.
+- **Harness contract:** `KI-HARNESS-RTP-012` holds the prospective provider-neutral lifecycle and conformance contract. `KI-HARNESS-RTP-010` is a downstream Fly.io proof candidate, not authority to select Fly.io.
+- **Personal bootstrap:** `DOTFILES-UE-020` waits for this model and the Harness profile contract before projecting a portable Cheztoi profile from personal source state.
+- **Delivery tooling:** `tools-ki` has no current sandbox adapter. Its possible compiler, CLI, or adapter role remains deferred until at least two implementations demonstrate a reusable seam.
+- **Earlier estate direction:** Arcadia's June 2026 draft Technē note proposed a hybrid Mac Studio and AWS EKS estate. Treat that as historical design input: current Techne architecture retains AWS Elastic Execution at Trial and does not make EKS or Kubernetes the settled runtime.
+
+### Current Codex and agent surfaces
+
+- **Codex local:** A Local chat runs directly in the selected project directory on the chosen Mac. It is useful as an attached baseline but is not an independently provisioned task environment.
+- **Codex worktree:** A Worktree chat runs on the same Mac in a separate Git worktree. It isolates concurrent repository changes, not the host filesystem, credentials, network, or process boundary.
+- **Codex cloud:** A Cloud chat runs in an OpenAI-managed container from a selected repository revision with setup and maintenance scripts. It is an immediately available remote execution surface, but its managed container and environment contract are not a portable KI substrate.
+- **Codex Remote and SSH hosts:** [Remote connections](https://learn.chatgpt.com/docs/remote-connections) can run chats against an always-on Mac or an SSH host using that host's projects, tools, credentials, permissions, and sandbox settings. Chat hand-off can create or reuse a worktree on the destination. This is a strong path to Mac Studio execution once the host is explicitly configured, but it remains attached or persistent supervised work unless a separate task sandbox is provisioned there.
+- **Subagent threads:** Codex and the Harness `ki-subagents` family can coordinate parallel specialist threads. Subagents inherit the parent execution location and sandbox policy, so delegation is orchestration capacity rather than environment isolation.
+- **Agent SDK skills:** Installed Cloudflare and OpenAI Agents SDK skills support application-level controllers and agents. The installed Cloudflare Sandbox SDK skill supports a remote sandbox adapter implementation. Skills provide implementation guidance; they do not prove a provider account, deployed control plane, credentials, or runtime availability.
+
+### Observed workstation tooling
+
+The 2026-09-09 inspection ran on an Apple-silicon MacBook, not the Mac Studio, so it is evidence for the current control workstation only and must not be projected onto the Studio.
+
+- **Ready interaction and bootstrap tools:** Codex CLI, Claude Code, Zed, VS Code, Git, GitHub CLI, chezmoi, mise, SSH, Tailscale, and Herdr are installed. No project-scoped Dev Container or container build definition was found across the six canonical repositories.
+- **Partial Kubernetes and AWS client layer:** `kubectl`, Helm, k9s, AWS CLI, and AWS CDK are installed. The selected `rancher-desktop` context points to a refused loopback endpoint; Rancher Desktop itself was not found. This is stale client configuration, not a running local cluster.
+- **Missing local substrate:** Docker, Podman, Docker Sandboxes `sbx`, Colima, Lima, kind, minikube, k3d, and other inspected local container or VM engines were not found.
+- **Missing remote-provider clients:** Daytona, E2B, Coder, Fly, Modal, `eksctl`, Terraform, OpenTofu, and Pulumi CLIs were not found. Their absence does not prevent SDK or API use, but no local operator path is currently established.
+- **Mac Studio unknowns:** The Studio's reachability, remote-control or SSH setup, installed tools, repository roots, container runtime, Kubernetes state, Herdr service mode, and credentials boundary remain unobserved. [[Define Remote Agent Working Style]] should establish the supervised access path; this proposal should then decide which isolated adapter, if any, runs on that host.
+
 ### Layer model
 
 The persistent controller owns session identity, policy, credential brokerage, lifecycle, and result integration. The sandbox substrate supplies the filesystem, process, network, and isolation boundary. The bootstrap profile declares the required environment. The agent runtime performs the bounded task. Git and the selected change-management process remain authoritative outside any one sandbox session.
@@ -118,17 +148,18 @@ Use [the Development Container specification](https://github.com/devcontainers/s
 
 ### Reference mapping
 
-- **Fly.io agent infrastructure and Sprites:** [Fly.io agent infrastructure](https://fly.io/ai-agents/) and [Sprites](https://fly.io/sprites/) provide a hosted reference for persistent agent controllers paired with isolated, checkpointable execution environments.
+- **Kubernetes execution:** [Kubernetes SIG Apps Agent Sandbox](https://agent-sandbox.sigs.k8s.io/docs/) supplies `Sandbox`, `SandboxTemplate`, `SandboxClaim`, and `SandboxWarmPool` APIs, stable identity, optional persistence, hibernation, scheduled deletion, and runtime choice including gVisor or Kata Containers. It is the clearest Kubernetes-native substrate reference, but requires an operating cluster, storage, networking, policy, and controller lifecycle around it.
+- **Kubernetes workspaces and control plane:** [Coder Agents](https://coder.com/docs/ai-coder/agents/architecture) separates the agent loop and provider credentials in its control plane from tool execution in user-owned workspaces. [Coder on Kubernetes](https://coder.com/docs/install/kubernetes) can provision that control plane and workspace templates on a cluster. It is a broader self-hosted development platform than the minimum sandbox contract and should be assessed as controller plus workspace system, not treated as equivalent to Agent Sandbox.
+- **OpenAI-managed execution:** [Codex cloud environments](https://learn.chatgpt.com/docs/environments/cloud-environment) provide repository checkout, setup, cached environment, bounded internet policy, execution, diff, and pull-request hand-off. They are a useful managed baseline against which KI portability and evidence requirements can be tested.
+- **Local microVM execution:** [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) runs supported coding agents in isolated microVMs and proxies credentials from the host. Its normal project workflow shares the host project read-write, so the KI proof must use a mountless sandbox or an independently cloned repository rather than claiming the default shared-workspace path satisfies private-clone isolation.
+- **Remote sandbox services:** [Daytona](https://www.daytona.io/docs/) offers persistent OCI-compatible sandboxes, snapshots, lifecycle and network controls, including bring-your-own compute; [E2B](https://docs.e2b.dev/) offers on-demand isolated Linux VMs with templates and pause or resume; [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) exposes isolated container execution, files, processes, services, storage mounts, and outbound interception through Workers; [Modal Sandboxes](https://modal.com/docs/guide/sandboxes) provides elastic arbitrary-code sandboxes; and [Fly.io Sprites](https://fly.io/sprites/) provides persistent Firecracker microVMs, checkpoints, sleep and resume.
+- **Selection posture:** Agent Sandbox and Coder are the principal Kubernetes-based references. Docker Sandboxes is the strongest local-isolation candidate for the Mac Studio. Codex Cloud is the lowest-friction managed baseline. Daytona, E2B, Cloudflare, Modal, and Fly provide materially different remote proofs; none is selected by this proposal.
 - **Grok Bot:** [Grok Bot](https://x.ai/bot) is a managed-product reference for always-on teammates with their own computers and multi-agent hand-offs; it primarily informs the controller and cockpit layer.
 - **Grok Build:** [Grok Build](https://github.com/xai-org/grok-build) is an open-source coding-agent harness and terminal interface with Agent Client Protocol support; it primarily informs the agent-runtime and interaction layer rather than the sandbox substrate.
-- **Agent Sandbox:** [Kubernetes SIG Apps Agent Sandbox](https://agent-sandbox.sigs.k8s.io/docs/) is the emerging neutral control-plane model to follow for sandbox identity, claims, templates, and warm pools; its v1beta1 status does not make Kubernetes a mandatory first implementation.
-- **Docker Sandboxes:** [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) is the practical first local adapter for proving one task per isolated private clone without making Docker part of the principle.
 - **Cheztoi:** one personal, reproducible bootstrap profile containing the portable subset of dotfiles knowledge; it is neither the controller nor the sandbox.
 - **Dev Container and OCI:** open artifact boundaries for describing and distributing the environment independently from a provider's snapshot format.
 
-[Daytona](https://github.com/daytonaio/daytona) is the strongest current second-adapter candidate when open-source control-plane operation, OCI compatibility, self-hosting, or bring-your-own-cloud matter. [E2B](https://docs.e2b.dev/) is the alternative when rapid hosted validation and a focused sandbox SDK matter more than self-hosting. [Coder](https://coder.com/docs/ai-coder/agents/architecture), [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/), [Modal Sandboxes](https://modal.com/docs/guide/sandboxes), and Fly Sprites remain specialised references for organisational control planes, edge control, elastic compute, and durable agent homes.
-
-The initial proving sequence should use Docker Sandboxes locally with a private clone, render the same profile through Dev Container and OCI artifacts, and then use Daytona or Agent Sandbox as a materially independent second implementation. Provider APIs remain behind adapters and their snapshots remain acceleration rather than authority.
+The candidate proving sequence should use Codex Worktree as a no-new-substrate control, Docker Sandboxes with a mountless or private clone as the local-isolation proof, and Agent Sandbox on a disposable local or remote Kubernetes cluster as the materially independent proof. Run the same Dev Container and OCI bootstrap artifacts in each. Add one hosted provider only when it tests a requirement those proofs cannot, such as durable suspension, organisational control, edge placement, or burst scale. Provider APIs remain behind adapters and provider snapshots remain acceleration rather than authority.
 
 ### State and authority
 
