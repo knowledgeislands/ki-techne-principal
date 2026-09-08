@@ -9,4 +9,5 @@ Decision Records (DRs) capture significant standalone decisions that govern Tech
 
 Records are ordered by reveal order — the logical sequence in which the decisions build on one another.
 
-1. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — Knowledge Islands ecosystem fundamentals
+1. [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — adopting typed, living Decision Records for Techne.
+2. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — Knowledge Islands ecosystem fundamentals

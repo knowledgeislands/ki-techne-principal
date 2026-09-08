@@ -8,11 +8,11 @@ aliases:
 theme: knowledge-governance
 priority: high
 horizon: now
-status: ready
+status: in-progress
 dependencies: []
 blocks: [TECHNE-GOV-005]
 blocked_by: []
-baseline_ref: null
+baseline_ref: a10df6374174dbf589330eefa8e5bd526bda7b44
 ---
 
 # Decision-Records Audit Follow-up
