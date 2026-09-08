@@ -6,7 +6,7 @@ title: Define remote agent working style
 aliases:
   - Remote Agent Working Style Proposal
 theme: operational-tooling
-horizon: now
+horizon: waiting-for
 status: draft
 priority: medium
 dependencies: []
@@ -71,7 +71,7 @@ The supported-interface comparison and proof design are complete enough to execu
 
 ## Dependencies / blocks
 
-Hands-on proof remains blocked on a named personal-server target and access path. No local roadmap dependency blocks the analysis or operating-model design.
+Hands-on proof remains blocked on a named Mac Studio or personal-server target and access path. Resume when its operating system and hardware, canonical repository root, SSH or Codex Remote path, installed runtimes, container or Kubernetes substrate, intended supervised versus unattended use, service mode, and exposure authority can be inspected. No local roadmap dependency blocks the analysis or operating-model design.
 
 ## Discussion
 

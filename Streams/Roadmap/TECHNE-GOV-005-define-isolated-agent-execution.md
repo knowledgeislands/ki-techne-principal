@@ -7,11 +7,11 @@ aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
 horizon: next
-status: draft
+status: ready
 priority: medium
 dependencies: []
 blocks: []
-blocked_by: [TECHNE-GOV-004]
+blocked_by: []
 baseline_ref: null
 ---
 
@@ -56,10 +56,6 @@ Techne already defines provider-neutral execution, responsibility separation, se
 ## Steps
 
 - [x] Consolidate current estate records, Codex execution surfaces, installed local tooling, available implementation skills, and external sandbox evidence into this proposal.
-- [ ] Inspect the Mac Studio as a distinct target: record operating system and hardware, repository root, SSH or Remote path, installed runtimes, active container or Kubernetes substrate, and intended supervised versus unattended use.
-- [ ] After an explicit AWS SSO login, inventory the Techne account's enabled regions, EKS and ECS clusters, CloudFormation and CDK bootstrap stacks, ECR repositories, VPC and subnet shape, IAM execution roles, budgets, and current cost-bearing resources without retaining account identifiers or credentials in the knowledge base.
-- [ ] Compare EKS Auto Mode, EKS on Fargate, ECS on Fargate, and CodeBuild against the same isolation, persistence, network, credential, evidence, lifecycle, scale-to-zero, and cost controls used for non-AWS candidates.
-- [ ] Decide whether the first AWS proof remains a repository-local CDK application, extends `tools-ki`, or supplies evidence for a distinct `techne` execution tool; do not create a new public tool boundary from one provider implementation.
 - [ ] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
 - [ ] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
 - [ ] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
