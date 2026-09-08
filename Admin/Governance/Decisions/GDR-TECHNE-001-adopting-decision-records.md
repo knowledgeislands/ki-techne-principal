@@ -1,4 +1,5 @@
 ---
+note_type: admin/governance/decision
 id: GDR-TECHNE-001
 title: 'Adopting Decision Records'
 date: 2026-09-09
