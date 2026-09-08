@@ -8,7 +8,7 @@ aliases:
 theme: knowledge-governance
 priority: high
 horizon: now
-status: awaiting-review
+status: done
 dependencies: []
 blocks: [TECHNE-GOV-005]
 blocked_by: []
@@ -90,6 +90,10 @@ The collection now has an explicit Techne-local instrument decision without chan
 ### Mini recap
 
 Techne's Decision Records collection is conformant, its shared fundamentals decision is unchanged, and the isolated-agent architecture work can proceed after acceptance of this review packet.
+
+## Done
+
+Accepted 2026-09-09 by Kris Brown on the review packet above.
 
 ## Discussion
 
