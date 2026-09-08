@@ -7,12 +7,12 @@ aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
 horizon: next
-status: ready
+status: in-progress
 priority: medium
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 9a35c318992672e5d6b21ad46debe88030c77222
 ---
 
 # Govern Isolated Agent Execution

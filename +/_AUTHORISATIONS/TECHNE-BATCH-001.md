@@ -48,3 +48,11 @@ The run may change `TECHNE-GOV-005`, the selected canonical Engineering Practice
 ## Run ledger
 
 <!-- ki-batch-run: TECHNE-BATCH-001-RUN-001 381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d -->
+
+### TECHNE-GOV-005 — started
+
+- Starting state: `ready`
+- Baseline: `9a35c318992672e5d6b21ad46debe88030c77222`
+- Branch: `pilot/isolated-agent-execution`
+- Decision: enact the provider-neutral model without external proofs or provider selection.
+- Delegation: none; the canonical prose and decision rationale form one tightly coupled vocabulary.
