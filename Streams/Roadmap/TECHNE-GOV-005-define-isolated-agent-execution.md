@@ -7,11 +7,11 @@ aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
 horizon: next
-status: ready
+status: draft
 priority: medium
 dependencies: []
 blocks: []
-blocked_by: []
+blocked_by: [TECHNE-GOV-004]
 baseline_ref: null
 ---
 
