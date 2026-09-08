@@ -6,8 +6,8 @@ title: Govern isolated agent execution
 aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
-horizon: soon
-status: draft
+horizon: next
+status: ready
 priority: medium
 dependencies: []
 blocks: []
@@ -47,7 +47,48 @@ Define the bootstrap-profile inputs that the harness contract must accept: pinne
 
 Set a proving sequence that exercises the same profile in a private fresh clone through at least two materially independent adapters. Use open artifacts and ordinary evidence at the hand-off boundary so a provider snapshot cannot become the only recoverable state.
 
-Promote this proposal to Next when the intended principle wording, affected canonical notes, coordinated repository outcomes, evidence sources, and review assertions are concrete enough for an enactment plan.
+The intended principle, affected canonical notes, coordinated repository outcomes, evidence sources, and review assertions are now concrete enough for enactment.
+
+## Current state
+
+Techne already defines provider-neutral execution, responsibility separation, security as a design input, execution tiers, and accountable review. It names Herdr as a persistent execution runtime but does not distinguish attached, persistent supervised, and unattended isolated work or separate controller, sandbox, profile, and runtime selection axes. The Stream contains the current technology evidence and a provider-neutral proving sequence; no provider selection or canonical implementation commitment is needed for this enactment.
+
+## Steps
+
+- [ ] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
+- [ ] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
+- [ ] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
+- [ ] Extend [[Engineering Estate]] with controller, task-environment, bootstrap-profile, and agent-runtime responsibilities while preserving the existing component roles and accountable integration boundary.
+- [ ] Create `ADR-KI-TECHNE-001` recording the provider-neutral model, alternatives, consequences, and review triggers before treating the architecture as settled.
+- [ ] Update the editable estate diagram only if the textual responsibility model is not legible without it; otherwise record explicitly that no diagram change is needed.
+- [ ] Reconcile the Stream discussion against the enacted notes, retaining provider evidence and open proof work here rather than copying the landscape into canonical principles.
+
+## Files touched
+
+- `Pillars/Engineering Practice/Foundations/Principles.md`
+- `Pillars/Engineering Practice/Operating Model/Operating Model.md`
+- `Pillars/Engineering Practice/Architecture/AI Execution Fabric.md`
+- `Pillars/Engineering Practice/Architecture/Engineering Estate.md`
+- `Admin/Governance/Decisions/ADR-KI-TECHNE-001-govern-isolated-agent-execution.md`
+- `Admin/Governance/Decisions/Decisions.md`
+- `Pillars/Engineering Practice/Architecture/Diagrams/Engineering Estate.mmd` and its generated SVG only if the textual review establishes that the existing diagram would misrepresent the new boundaries
+- This Stream record
+
+## Verify
+
+- The canonical model distinguishes attached interactive, persistent supervised, and unattended isolated work without prescribing one runtime or provider.
+- Controller, task environment, bootstrap profile, agent runtime, Git, change management, and human review have distinct responsibilities and an explicit integration boundary.
+- Execution placement and task isolation remain separate decisions, with security, continuity, state, credential, network, recovery, and evidence consequences visible.
+- `ADR-KI-TECHNE-001` records the decision, alternatives, consequences, and evidence-driven review triggers.
+- Wikilinks resolve, Markdown passes the authoring audit, the KB Streams audit passes, and the existing estate description remains internally consistent.
+
+## Dependencies / blocks
+
+No build dependency blocks enactment. `TECHNE-OPS-002` supplies later hands-on evidence for persistent supervised sessions but is not required to state the three-mode boundary. `KI-HARNESS-RTP-012` consumes the accepted model and retains its own executable-contract lifecycle.
+
+## Delegation
+
+Keep this enactment in one coordinator-owned lane because the principle, operating model, architecture, estate responsibilities, and decision rationale must use one vocabulary. Mechanical link and Markdown checks may run independently, but canonical prose should not be split across writers.
 
 ## Discussion
 
