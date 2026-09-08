@@ -27,7 +27,7 @@ Techne already establishes Provider-Neutral Execution, Clear Separation of Respo
 
 `KI-HARNESS-RTP-012` now records the corresponding executable substrate analysis. It separates the persistent controller, isolated task environment, bootstrap profile, agent runtime, authoritative Git state, and review evidence. `DOTFILES-UE-020` uses Cheztoi as the working name for one personal bootstrap profile and projection of that wider contract.
 
-Techne is the canonical owner of the engineering model, layer taxonomy, and technology landscape for this concern. `KI-HARNESS-RTP-012` should consume that model when defining a portable executable contract; it must not become the authoritative provider-comparison or engineering-principle record.
+Techne is the canonical owner of the engineering model, layer taxonomy, technology landscape, and remote-agent working modes for this concern. `TECHNE-OPS-002` owns the persistent supervised-session proof. `KI-HARNESS-RTP-012` should consume the accepted model when defining a portable executable contract; it must not become the authoritative provider-comparison, working-style, or engineering-principle record.
 
 ## Boundary
 
@@ -41,7 +41,7 @@ Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap p
 
 Update the [[Engineering Estate]] or its diagrams only where needed to make the controller, sandbox, profile, and runtime boundaries legible. Assess relevant technologies in [[Technology Radar]] only after their architectural role and evidence threshold are clear.
 
-Coordinate the repository-owned outcomes without absorbing their implementation: `KI-HARNESS-RTP-012` defines the portable lifecycle and conformance contract; `DOTFILES-UE-020` implements the residual Cheztoi profile and projection; and `tools-ki` receives shared compiler, CLI, or adapter work only once multiple proofs establish a reusable boundary.
+Coordinate the repository-owned outcomes without absorbing their implementation: `TECHNE-OPS-002` proves the persistent supervised working style; `KI-HARNESS-RTP-012` defines the portable lifecycle and conformance contract; `DOTFILES-UE-020` implements the residual Cheztoi profile and projection; and `tools-ki` receives shared compiler, CLI, or adapter work only once multiple proofs establish a reusable boundary.
 
 Define the bootstrap-profile inputs that the harness contract must accept: pinned tools, KI bootstrap and repair, XDG layout, Git and shell prerequisites, runtime configuration templates, explicit state classes, and a fail-closed health check. Keep the profile consumable without chezmoi at runtime.
 
@@ -56,6 +56,12 @@ Promote this proposal to Next when the intended principle wording, affected cano
 The durable technique is not Docker, Kubernetes, or Cheztoi. It is that one independently acting agent task receives one isolated execution environment, created from a portable declaration, with explicit state, credential, network, evidence, and teardown boundaries.
 
 This complements Provider-Neutral Execution: workload constraints choose an eligible execution target, while the isolation principle defines how the task is contained once placed there. It also makes Clear Separation of Responsibilities operational by keeping the controller, sandbox substrate, bootstrap profile, and agent runtime replaceable.
+
+### Working modes
+
+The operating model should distinguish attached interactive work, persistent human-supervised remote work, and unattended isolated execution. These modes may use overlapping tools, but they have different expectations for operator presence, session continuity, authority, credentials, observation, control, recovery, and evidence return.
+
+`TECHNE-OPS-002` owns the Zed, Herdr, and Mosh evidence for persistent supervised sessions. This proposal owns the unattended isolated-execution principle and the boundary between modes. The Harness receives only the executable capability and conformance consequences of the accepted model.
 
 ### Layer model
 
@@ -91,4 +97,4 @@ Credentials should be scoped, short-lived, and injected at runtime, preferably t
 
 ### Knowledge and implementation ownership
 
-Techne is accountable for the durable engineering principle, conceptual execution model, technology landscape, cross-repository coherence, and evidence review. `ki-agentic-harness` is responsible for reusable sandbox capability semantics and conformance tests. Dotfiles is responsible for the Cheztoi profile instance. `tools-ki` may eventually become responsible for a provider-neutral compiler, CLI, or adapter surface once multiple proofs establish that boundary.
+Techne is accountable for the durable engineering principle, working modes, conceptual execution model, technology landscape, cross-repository coherence, and evidence review. `ki-agentic-harness` is responsible for reusable sandbox capability semantics and conformance tests. Dotfiles is responsible for the Cheztoi profile instance and approved personal remote-session configuration. `tools-ki` may eventually become responsible for a provider-neutral compiler, CLI, or adapter surface once multiple proofs establish that boundary.
