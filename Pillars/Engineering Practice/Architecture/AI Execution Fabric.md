@@ -8,6 +8,17 @@ It separates the workload's requirements from the infrastructure choice, so that
 
 The fabric is a decision and operating model, not a single runtime, service, or control plane.
 
+## Execution Selection Axes
+
+Execution placement and task isolation are separate decisions. Select these axes independently for each workload:
+
+- **Execution tier** — where eligible compute and model capacity run: local, managed API, elastic, or dedicated.
+- **Sandbox substrate** — the filesystem, process, network, and isolation boundary supplied to the task.
+- **Bootstrap profile** — the portable declaration of required tools, capabilities, configuration shape, state classes, and readiness checks.
+- **Agent runtime** — the implementation that performs the bounded task inside the selected environment.
+
+A persistent controller may coordinate identity, policy, credential brokerage, lifecycle, and result integration across these axes. Git and the selected change-management process remain authoritative outside any one controller, environment, or provider snapshot.
+
 ## Execution Tiers
 
 ### Local Execution
@@ -60,13 +71,14 @@ For example, a capable managed service may be unsuitable for a sensitive workloa
 
 ## Decision Process
 
-1. Classify the workload, including its objective, data sensitivity, interaction pattern, and continuity requirements.
-2. Identify execution targets that satisfy the workload's non-negotiable constraints.
-3. Compare eligible targets against capability, latency, privacy, cost, context length, locality, and availability.
-4. Select the least complex target that meets the requirements and record material trade-offs.
-5. Define a fallback or recovery approach when the workload depends on a target with limited availability or capacity.
+1. Classify the workload, including objective, data sensitivity, interaction pattern, continuity requirements, and working mode.
+2. Identify execution tiers that satisfy the workload's non-negotiable capacity, locality, privacy, and availability constraints.
+3. Select a sandbox substrate, bootstrap profile, and agent runtime independently, applying isolation proportionate to the task's authority and risk.
+4. Compare eligible combinations by capability, latency, privacy, cost, context length, locality, availability, persistence, recovery, and operational burden.
+5. Select the least complex combination that meets the requirements and record material trade-offs.
+6. Define credential, network, evidence-return, cleanup, fallback, and recovery behaviour before execution.
 
-This process supports explicit decisions while leaving room for implementation-specific automation in future operating guidance.
+This process supports explicit decisions while leaving implementation-specific automation to operating guidance and provider adapters.
 
 ## Relationship to the Engineering Estate
 

@@ -69,6 +69,30 @@ They support workloads where locality, privacy, latency, cost, or offline operat
 
 They are implementation choices, not the definition of the local AI strategy.
 
+## Agent Execution Responsibilities
+
+These responsibilities describe replaceable architectural roles rather than requiring one product for each role.
+
+### Agent Controller
+
+The controller owns task or session identity, policy, credential brokerage, lifecycle supervision, and result integration. It selects or invokes an eligible execution target without making that target authoritative for the work.
+
+### Task Environment
+
+The task environment supplies the bounded filesystem, process, network, and isolation boundary. It begins from an immutable repository baseline and is disposable unless an explicit persistence and recovery policy applies.
+
+### Bootstrap Profile
+
+The bootstrap profile declares the tools, capabilities, configuration shape, state classes, and readiness checks required by the task. It remains consumable independently of one workstation configuration manager or provider snapshot.
+
+### Agent Runtime
+
+The agent runtime performs the authorised task inside the selected environment. Changing the runtime must not change the repository baseline, authority, network policy, evidence contract, or review boundary implicitly.
+
+### Integration Boundary
+
+Git and the selected change-management process retain authoritative source, work state, result evidence, and review. Controllers and environments may cache or checkpoint state, but provider-native snapshots are not the sole recoverable hand-off.
+
 ## Interaction Model
 
 The estate separates engineering intent from deterministic execution.

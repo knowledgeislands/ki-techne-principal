@@ -19,6 +19,22 @@ The operating model aims to ensure that engineering work has:
 - evidence sufficient to understand the outcome; and
 - durable knowledge captured when work changes shared understanding.
 
+## Working Modes
+
+### Attached Interactive Work
+
+An engineer remains present while an agent assists inside the engineer's selected project and execution context. This mode may share the workstation, checkout, credentials, and network policy because the engineer directly observes and controls the work. Repository scope, change authority, and review remain explicit.
+
+### Persistent Supervised Work
+
+A named session continues beyond one client connection while an engineer retains observation and control. The session must preserve its repository and process identity, distinguish client reconnection from child-process survival, and define recovery separately for transport loss, persistence-service restart, and agent-runtime restoration.
+
+### Unattended Isolated Work
+
+An agent receives one bounded task in an isolated environment created from an immutable repository baseline and a portable bootstrap profile. A controller supplies scoped authority, credentials, and network policy; the task returns Git references, manifests, logs, and review evidence through the selected change-management boundary before the environment is destroyed or retained under an explicit persistence policy.
+
+A transition between modes is deliberate. The engineer or controller must reassess identity, authority, credentials, observation, continuity, recovery, and review whenever work moves from attached to persistent or unattended execution.
+
 ## Lifecycle
 
 ### 1. Frame the Work
@@ -40,6 +56,8 @@ Material architectural changes require an explicit rationale, alternatives, cons
 ### 3. Execute Defined Operations
 
 Approved or defined actions are performed through deterministic engineering controls where repeatability, correctness, or operational safety is required.
+
+Before execution, select the working mode and execution target independently. The working mode determines operator presence, authority, isolation, continuity, and evidence expectations; the execution target supplies eligible capacity.
 
 tools-mgit provides the intended orchestration boundary for those operations.
 

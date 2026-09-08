@@ -30,6 +30,12 @@ Choose execution targets according to the workload and its constraints rather th
 
 The architecture must accommodate local, managed, elastic, and future dedicated execution without coupling the overall model to a single provider.
 
+## Isolate Independently Acting Work
+
+Give each independently acting agent task an execution boundary proportionate to its authority and risk. Prefer a disposable or explicitly resumable environment built from a portable declaration, with identity, state, credentials, network access, evidence return, and teardown made explicit.
+
+Attached interactive assistance may share the engineer's working context when its scope and review boundary remain clear. Isolation follows the operating mode and consequences of the work, not the mere use of AI.
+
 ## Deterministic Control Around Probabilistic Capability
 
 Use AI where reasoning, synthesis, or adaptation offers value, and use deterministic mechanisms where correctness, repeatability, or operational control is required.

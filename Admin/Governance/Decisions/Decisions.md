@@ -11,3 +11,4 @@ Records are ordered by reveal order — the logical sequence in which the decisi
 
 1. [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — adopting typed, living Decision Records for Techne.
 2. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — Knowledge Islands ecosystem fundamentals
+3. [ADR-TECHNE-001](ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md) — provider-neutral roles and boundaries for isolated agent execution.
