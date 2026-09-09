@@ -7,7 +7,7 @@ aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
 horizon: next
-status: in-progress
+status: awaiting-review
 priority: medium
 dependencies: []
 blocks: []
@@ -56,13 +56,13 @@ Techne already defines provider-neutral execution, responsibility separation, se
 ## Steps
 
 - [x] Consolidate current estate records, Codex execution surfaces, installed local tooling, available implementation skills, and external sandbox evidence into this proposal.
-- [ ] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
-- [ ] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
-- [ ] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
-- [ ] Extend [[Engineering Estate]] with controller, task-environment, bootstrap-profile, and agent-runtime responsibilities while preserving the existing component roles and accountable integration boundary.
-- [ ] Create `ADR-KI-TECHNE-001` recording the provider-neutral model, alternatives, consequences, and review triggers before treating the architecture as settled.
-- [ ] Update the editable estate diagram only if the textual responsibility model is not legible without it; otherwise record explicitly that no diagram change is needed.
-- [ ] Reconcile the Stream discussion against the enacted notes, retaining provider evidence and open proof work here rather than copying the landscape into canonical principles.
+- [x] Add an isolated-agent-execution principle that makes independently acting work, proportional isolation, portable declaration, explicit authority, evidence return, and teardown or governed persistence visible without requiring isolation for every interactive exchange.
+- [x] Extend [[Operating Model]] with the three working modes and deliberate transition boundaries for operator presence, session continuity, authority, credentials, observation, control, recovery, and review.
+- [x] Extend [[AI Execution Fabric]] so execution tier, sandbox substrate, bootstrap profile, and agent runtime are independent selection axes governed by workload constraints.
+- [x] Extend [[Engineering Estate]] with controller, task-environment, bootstrap-profile, and agent-runtime responsibilities while preserving the existing component roles and accountable integration boundary.
+- [x] Create `ADR-TECHNE-001` recording the provider-neutral model, alternatives, consequences, and review triggers before treating the architecture as settled.
+- [x] Review the editable estate diagram and record that no change is needed because it does not depict the newly separated generic execution roles or imply a conflicting topology.
+- [x] Reconcile the Stream discussion against the enacted notes, retaining provider evidence and open proof work here rather than copying the landscape into canonical principles.
 
 ## Files touched
 
@@ -70,7 +70,7 @@ Techne already defines provider-neutral execution, responsibility separation, se
 - `Pillars/Engineering Practice/Operating Model/Operating Model.md`
 - `Pillars/Engineering Practice/Architecture/AI Execution Fabric.md`
 - `Pillars/Engineering Practice/Architecture/Engineering Estate.md`
-- `Admin/Governance/Decisions/ADR-KI-TECHNE-001-govern-isolated-agent-execution.md`
+- `Admin/Governance/Decisions/ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md`
 - `Admin/Governance/Decisions/Decisions.md`
 - `Pillars/Engineering Practice/Architecture/Diagrams/Engineering Estate.mmd` and its generated SVG only if the textual review establishes that the existing diagram would misrepresent the new boundaries
 - This Stream record
@@ -80,7 +80,7 @@ Techne already defines provider-neutral execution, responsibility separation, se
 - The canonical model distinguishes attached interactive, persistent supervised, and unattended isolated work without prescribing one runtime or provider.
 - Controller, task environment, bootstrap profile, agent runtime, Git, change management, and human review have distinct responsibilities and an explicit integration boundary.
 - Execution placement and task isolation remain separate decisions, with security, continuity, state, credential, network, recovery, and evidence consequences visible.
-- `ADR-KI-TECHNE-001` records the decision, alternatives, consequences, and evidence-driven review triggers.
+- `ADR-TECHNE-001` records the decision, alternatives, consequences, and evidence-driven review triggers.
 - Wikilinks resolve, Markdown passes the authoring audit, the KB Streams audit passes, and the existing estate description remains internally consistent.
 
 ## Dependencies / blocks
@@ -90,6 +90,32 @@ No build dependency blocks enactment. `TECHNE-OPS-002` supplies later hands-on e
 ## Delegation
 
 Keep this enactment in one coordinator-owned lane because the principle, operating model, architecture, estate responsibilities, and decision rationale must use one vocabulary. Mechanical link and Markdown checks may run independently, but canonical prose should not be split across writers.
+
+## Review
+
+### Delivered
+
+Implemented the provider-neutral isolated-agent execution model from immutable baseline `9a35c318992672e5d6b21ad46debe88030c77222`. Commit `5f3191eb960f50ba5629d8a9fd04c0d5461557d0` adds the governing architecture and Decision Record without selecting or provisioning a provider.
+
+### Summary changes
+
+Added proportionate isolation to [[Principles]], three working modes to [[Operating Model]], independent execution-selection axes to [[AI Execution Fabric]], and explicit controller, task-environment, bootstrap-profile, agent-runtime, and integration responsibilities to [[Engineering Estate]]. Added `ADR-TECHNE-001` and its collection entry. The conformant local identity is `ADR-TECHNE-001`, replacing the draft's earlier `ADR-KI-TECHNE-001` proposal. Review established that the current estate diagram does not need changing because it does not depict these generic roles. Commit `dde5de56f4e030cc92bb11fb9a4e8540dc45fcf1` also repaired the pre-existing `GDR-TECHNE-001` note-type metadata exposed by the full KB audit.
+
+### Verification
+
+`ki repo audit --skill ki-work --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-decision-records --repo .`, `ki repo audit --skill ki-authoring --repo .`, and `ki repo audit --skill ki-repo-kb --repo .` all pass. The authorised batch payload still resolves unchanged as SHA-256 `381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d`.
+
+### Outstanding concerns
+
+The hands-on proofs remain deliberately outside this architecture enactment. `TECHNE-OPS-002` waits for a named Mac Studio or personal-server access path and environment details. `TECHNE-OPS-003` waits for a user-started AWS SSO session, live account evidence, cost authority, and teardown approval. Neither blocks review of this provider-neutral model.
+
+### Post-change review
+
+The enacted notes now distinguish attached interactive, persistent supervised, and unattended isolated work; separate placement from isolation; retain Git and change management as authoritative; and keep provider-specific infrastructure behind adapters. No external system was contacted, no infrastructure was mutated, and the dedicated branch remains unmerged for consolidated acceptance.
+
+### Mini recap
+
+Techne now owns the durable execution model. Operational proofs are separately visible and waiting for their explicit inputs, while Harness and dotfiles implementation remain outside this batch.
 
 ## Discussion
 

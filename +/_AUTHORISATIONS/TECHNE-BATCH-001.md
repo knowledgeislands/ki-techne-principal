@@ -56,3 +56,15 @@ The run may change `TECHNE-GOV-005`, the selected canonical Engineering Practice
 - Branch: `pilot/isolated-agent-execution`
 - Decision: enact the provider-neutral model without external proofs or provider selection.
 - Delegation: none; the canonical prose and decision rationale form one tightly coupled vocabulary.
+
+### TECHNE-GOV-005 — completed
+
+- Result state: `awaiting-review`
+- Baseline: `9a35c318992672e5d6b21ad46debe88030c77222`
+- Result evidence: `5f3191eb960f50ba5629d8a9fd04c0d5461557d0`
+- Branch: `pilot/isolated-agent-execution`, pushed and intentionally unmerged.
+- Verification: Decision Records, Authoring, `ki-work`, KB Streams, and full KB audits pass; the approved payload hash remains unchanged.
+- Decision: adopt the provider-neutral three-mode model and separate controller, task environment, bootstrap profile, agent runtime, and execution tier.
+- Approved deviation: use conformant local identity `ADR-TECHNE-001` rather than the draft's earlier `ADR-KI-TECHNE-001` proposal.
+- Excluded work: `TECHNE-OPS-002` and `TECHNE-OPS-003` remain waiting for explicit access, authentication, cost, and teardown inputs; no external system, provider, Harness, dotfiles, main merge, or release was touched.
+- Delegation: none; the tightly coupled vocabulary and decision rationale were enacted as one bounded change.
