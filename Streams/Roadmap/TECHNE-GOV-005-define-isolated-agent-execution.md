@@ -13,6 +13,8 @@ dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 9a35c318992672e5d6b21ad46debe88030c77222
+created_at: 2026-09-08T22:10:43Z
+updated_at: 2026-09-09T00:01:44Z
 ---
 
 # Govern Isolated Agent Execution

@@ -13,6 +13,8 @@ dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
+created_at: 2026-09-08T22:33:40Z
+updated_at: 2026-09-08T23:54:53Z
 ---
 
 # Define Remote Agent Working Style
