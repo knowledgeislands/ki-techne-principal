@@ -6,13 +6,15 @@ title: Define agentic operating approach
 aliases:
   - Techne Agentic Operating Approach
 theme: knowledge-governance
-horizon: triage
-status: draft
+horizon: next
+status: ready
+priority: medium
+dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:17:23Z
-updated_at: 2026-09-14T02:17:23Z
+updated_at: 2026-09-15T11:58:28Z
 ---
 
 # Define Agentic Operating Approach
@@ -34,6 +36,55 @@ This is a distinct synthesis and terminology outcome, not a duplicate of the iso
 Capture and clarify the intended operating architecture without claiming that it is implemented. Do not select a mandatory model, runtime, messaging service or sandbox product; redefine Agora membership; grant repository or organisational authority; create controller repositories; provision infrastructure; retire existing repositories; or change canonical notes through this intake capture.
 
 Techne retains its wider engineering-discipline scope. Calling this an agentic operating architecture does not turn the knowledge base into an executable product, displace another repository's canonical authority, or make Kubernetes a requirement for everyone following Techne.
+
+## Current state
+
+The conceptual direction is owner-endorsed and the existing architecture already supplies the provider-neutral execution and working-mode foundations. The missing outcome is one canonical introduction and a reconciliation of product-led descriptions with stable roles, explicit contexts and bounded authority.
+
+The persona and working-context decision has independent architectural value from ADR-TECHNE-001's isolated-execution decision. A new ADR-TECHNE-002 should record it without reopening or accepting TECHNE-GOV-005.
+
+## Steps
+
+- [ ] Create `Agentic Operating Approach.md` as the reader-facing architectural introduction and stable vocabulary.
+- [ ] Record one enduring persona across explicit, authority-bound working contexts in ADR-TECHNE-002.
+- [ ] Reconcile [[Engineering Estate]] around architectural roles before candidate implementation mappings, including the boundary between `ki` governance and a distinct execution-fabric operator.
+- [ ] Reconcile [[AI Execution Fabric]] with the Techne Fabric name, footprints, context eligibility and independent controller, worker and model placement.
+- [ ] Add working-context framing and explicit human handover to [[Operating Model]].
+- [ ] Add context and operational-state boundaries to [[Knowledge Architecture]].
+- [ ] Link the introduction and Decision Record from their canonical indexes.
+- [ ] Verify the overview remains provider-neutral, preserves ADR-TECHNE-001 and distinguishes intended architecture from proven capability.
+
+## Files touched
+
+- `Pillars/Engineering Practice/Architecture/Agentic Operating Approach.md`
+- `Pillars/Engineering Practice/Architecture/Architecture.md`
+- `Pillars/Engineering Practice/Engineering Practice.md`
+- `Pillars/Engineering Practice/Architecture/Engineering Estate.md`
+- `Pillars/Engineering Practice/Architecture/AI Execution Fabric.md`
+- `Pillars/Engineering Practice/Operating Model/Operating Model.md`
+- `Pillars/Engineering Practice/Architecture/Knowledge Architecture.md`
+- `Admin/Governance/Decisions/ADR-TECHNE-002-one-persona-across-explicit-working-contexts.md`
+- `Admin/Governance/Decisions/Decisions.md`
+- This Stream record
+
+## Verify
+
+- `git diff --check`
+- `ki repo audit --skill ki-authoring --repo .`
+- `ki repo audit --skill ki-decision-records --repo .`
+- `ki repo audit --skill ki-repo-kb --repo .`
+- `ki repo audit --skill ki-repo-kb-streams --repo .`
+- A semantic review confirms a new reader can distinguish Techne, Techne Fabric, Kitteth, reusable controller software, persona, context, mode, footprint, execution, task environment, target, deployment and interface.
+- The architecture keeps a context distinct from an Agora or access grant; keeps controller state, credentials and environment checkpoints distinct from durable repository outcomes; and preserves all commitments in ADR-TECHNE-001.
+- Named technologies remain candidate or current mappings rather than mandatory architectural roles, and no infrastructure, repository or external-service commitment is created.
+
+## Dependencies / blocks
+
+No local or external dependency blocks enactment. TECHNE-GOV-005 remains independently awaiting review; this work must preserve its delivered isolation invariants without changing its lifecycle.
+
+## Delegation
+
+Use two bounded canonical-authoring lanes: one owns the new overview, Decision Record and navigation; the other owns reconciliation of existing architecture, operating-model and knowledge notes. The coordinator owns this roadmap record, integration, semantic review and lifecycle evidence.
 
 ## Discussion
 
@@ -146,8 +197,8 @@ Canonical enactment should assess whether the new persona and context boundaries
 
 The Harness retains executable capability and conformance work; reusable software stays in its owning implementation repository; personal definitions stay in their personal repository. The existing AWS and supervised-session records retain their proof outcomes. Any revised scope, cross-repository handoff or separately captured delivery item needs its own honest lifecycle rather than an implied commitment from this narrative.
 
-### Questions for subsequent shaping
+### Deferred implementation choices
 
-The agreed conceptual direction is clear enough to preserve. Subsequent planning must settle the exact canonical-note edits, generic implementation ownership, context declaration and activation rules, permitted cross-context preferences and knowledge transfers, credential and policy enforcement, and the durable operational-state boundary.
+The architectural principles are settled for this enactment: context selection is explicit, existing executions retain their bound context and authority, cross-context transfer requires policy-permitted authority, consequential operations cross trusted deterministic boundaries, controller operational state remains distinct from canonical knowledge, and only one active controller authority acts for a persona. Detailed schemas, fencing mechanisms, credential implementations, provider adapters and reusable controller repository ownership remain downstream implementation choices.
 
 The resulting overview should let a new reader explain Techne, distinguish Kitteth from reusable software, distinguish a context from an Agora or working mode, distinguish a footprint from an execution or deployment, and identify which capabilities are intended versus proven. It must remain understandable without knowing Hermes, Herdr, Kubernetes or any particular model provider.

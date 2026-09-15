@@ -7,14 +7,14 @@ aliases:
   - Adopt Compositional Repository Ignores Proposal
 theme: knowledge-governance
 horizon: next
-status: draft
+status: ready
 priority: medium
-dependencies: []
+dependencies: [TECHNE-GOV-008]
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-08-29T05:03:00Z
-updated_at: 2026-08-29T05:03:00Z
+updated_at: 2026-09-15T11:58:28Z
 transferred_from: TRD-ed88fe40
 ---
 
@@ -22,44 +22,55 @@ transferred_from: TRD-ed88fe40
 
 ## Goal
 
-Bring Techne's root `.gitignore` under the current compositional `ki-repo` contract while preserving Knowledge Base-specific exclusions and keeping canonical knowledge untouched.
+Confirm and close Techne's adoption of the compositional `ki-repo` ignore contract while preserving Knowledge Base-specific exclusions and keeping canonical knowledge untouched.
 
 ## Context
 
-The current `ki-repo` audit fails FILES-6 because the root `.gitignore` predates marker-bounded managed sections and the terminal unmanaged section. The required outcome was previously carried by `TRD-ed88fe40`, originating from ADR-KI-HARNESS-013; this receiver-owned roadmap record replaces that trade projection.
+The required outcome was previously carried by `TRD-ed88fe40`, originating from ADR-KI-HARNESS-013; this receiver-owned roadmap record replaces that trade projection.
+
+Commit `7361962` introduced the marker-bounded managed ignore section. The implementation predates this record's lifecycle evidence, so the remaining work is to verify the current composer output and record an accountable review without manufacturing a new `.gitignore` change.
 
 This is repository-governance work in `Streams/Roadmap/`. It changes no settled knowledge in `Admin/`, `Pillars/`, or `Resources/`.
 
 ## Boundary
 
-Do not change canonical engineering knowledge, introduce a second `.gitignore` writer, or discard Knowledge Base-specific exclusions. Remove any retired `.ki/audits/` or `.ki/conform/` rule only after confirming no tracked or irreplaceable local state depends on it.
+Do not change canonical engineering knowledge, introduce a second `.gitignore` writer, rewrite a conforming `.gitignore`, or absorb unrelated repository-conformance findings. Do not remove local state merely because a path was historically ignored.
 
 ## Current state
 
-The root `.gitignore` contains macOS, editor, and generated runtime-link rules without Knowledge Islands managed markers or a terminal unmanaged section. `ki repo audit --skill ki-repo --repo .` reports exactly one FILES-6 failure.
+The root `.gitignore` contains one valid marker-bounded `ki-repo` section and a terminal unmanaged section. The current composer reports the file as conforming, with no malformed markers or unmanaged rules, and a dry-run conform proposes no `.gitignore` change. No `.ki/` directory or tracked legacy audit or conform state exists.
+
+The full `ki-repo` audit currently reports separate working-area README drift. [[TECHNE-GOV-008-conform-working-area-orientation]] owns that repair so this item can retain its ignore-specific boundary.
 
 ## Steps
 
-- [ ] Preview the `ki-repo` conform proposal and classify every existing ignore as shared managed policy or preserved Knowledge Base-specific policy.
-- [ ] Apply the composed `.gitignore` with marker-bounded managed sections and one terminal unmanaged section.
-- [ ] Confirm no canonical zone content, Streams record other than this item, or runtime source is changed.
-- [ ] Re-run the repository, Streams, and authored-Markdown audits.
+- [ ] Verify commit `7361962` contains the adopted ignore composition and that the current `.gitignore` has not drifted from it.
+- [ ] Run the current ignore composer and confirm it reports one conforming managed section, no malformed markers and no unmanaged rules.
+- [ ] Confirm a `ki-repo` conform dry run proposes no `.gitignore` change and that no tracked or irreplaceable `.ki/` state depends on retired ignore rules.
+- [ ] After TECHNE-GOV-008, run the repository, Streams and authored-Markdown audits.
+- [ ] Record the existing implementation and current verification in the review packet without changing `.gitignore`.
 
 ## Files touched
 
-- `.gitignore`
 - `Streams/Roadmap/TECHNE-GOV-003-adopt-compositional-repository-ignores.md`
 
 ## Verify
 
-- `ki repo audit --skill ki-repo --repo .`
-- `ki repo audit --skill ki-repo-kb-streams --repo .`
-- `ki repo audit --skill ki-authoring --repo .`
-- Confirm the repository diff contains no canonical-zone change.
+- The current composer reports `conforming: true`, no malformed markers and no unmanaged rules.
+- `git diff 7361962 -- .gitignore` is empty.
+- `ki repo conform --skill ki-repo --repo . --dry-run` proposes no `.gitignore` write.
+- `ki repo audit --skill ki-repo --repo .` passes after TECHNE-GOV-008.
+- `ki repo audit --skill ki-repo-kb-streams --repo .` passes.
+- `ki repo audit --skill ki-authoring --repo .` passes.
+- The repository diff contains no canonical-zone change attributable to this item.
 
 ## Dependencies / blocks
 
-There are no local blockers. The installed Harness exposes the current composer and the receiver retains independent planning, implementation, review, and acceptance authority.
+TECHNE-GOV-008 must repair the unrelated working-area README drift before the full repository audit can verify this item. No external dependency remains.
+
+## Delegation
+
+Keep the evidence reconciliation and lifecycle update in the coordinator lane because the implementation is already present and the only intended write is this record.
 
 ## Documentation impact
 
@@ -83,8 +94,8 @@ Retain this record through review. No follow-on item is currently required.
 
 ### Canonical-zone boundary
 
-The root `.gitignore` is repository operating state rather than settled engineering knowledge. The roadmap record supplies enactment authority, but the delivered change must remain outside `Admin/`, `Pillars/`, and `Resources/`.
+The root `.gitignore` is repository operating state rather than settled engineering knowledge. The roadmap record supplies enactment authority, but the delivered change remains outside `Admin/`, `Pillars/` and `Resources/`.
 
 ### Cleanup boundary
 
-The durable source reference is `TRD-ed88fe40` and ADR-KI-HARNESS-013. Once this record is committed, the Harness outbound projection is redundant and can be retired without losing the receiver's work or its provenance.
+The durable source reference is `TRD-ed88fe40` and ADR-KI-HARNESS-013. The Harness outbound projection can be retired through its owning process without losing the receiver's work or provenance.
