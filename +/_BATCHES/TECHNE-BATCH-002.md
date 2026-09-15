@@ -13,3 +13,14 @@ policy: safe-local-v1
 ---
 
 # TECHNE-BATCH-002
+
+## Run ledger
+
+<!-- ki-batch-run: TECHNE-BATCH-002-RUN-001 6bc05f228e5b640e130d41a7484387b99118475fa14bbd63c72c497090331452 -->
+
+| Item | Result | Baseline | Result commit | Exception |
+| --- | --- | --- | --- | --- |
+| TECHNE-GOV-009 | stopped | `5888a26eb931f11ec615a3f7c25789c762114e3a` | `a593fb3d42111ca4cfae534990cb78f18b875146` | Rehashing a historical approval envelope requires explicit owner authority |
+| TECHNE-GOV-008 | awaiting-review | `5888a26eb931f11ec615a3f7c25789c762114e3a` | `a593fb3d42111ca4cfae534990cb78f18b875146` | None |
+| TECHNE-GOV-003 | awaiting-review | `5888a26eb931f11ec615a3f7c25789c762114e3a` | `a593fb3d42111ca4cfae534990cb78f18b875146` | None |
+| TECHNE-GOV-006 | awaiting-review | `5888a26eb931f11ec615a3f7c25789c762114e3a` | `a593fb3d42111ca4cfae534990cb78f18b875146` | None |
