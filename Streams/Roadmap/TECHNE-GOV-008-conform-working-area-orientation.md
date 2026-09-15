@@ -14,7 +14,7 @@ blocks: [TECHNE-GOV-003]
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-15T11:58:28Z
-updated_at: 2026-09-15T11:58:28Z
+updated_at: 2026-09-15T12:10:51Z
 ---
 
 # Conform working-area orientation

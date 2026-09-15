@@ -2,14 +2,71 @@
 id: TECHNE-BATCH-001
 repository: https://github.com/knowledgeislands/ki-techne-principal
 approved: true
-approved_at: 2026-09-15T12:00:17Z
+approved_at: 2026-09-08T23:52:45Z
 authority_mode: outcome
-authority_evidence: "User instructed: Okay, let's get working through the roadmap items. Let's get a bunch of these set up and out of the way."
-approved_payload_sha256: 2051ebddaff72db186f52d2ea0930e99715d31c2f8b040f7a49851040cf0941f
-expires_at: 2026-09-15T18:00:00Z
-item_ids: [TECHNE-GOV-008, TECHNE-GOV-003, TECHNE-GOV-006]
-completion_target: done
-policy: safe-local-v1
+authority_evidence: User instructed autonomous Techne delivery while unavailable, moving viable draft work through Ready and pioneering it on a dedicated branch.
+approved_payload_sha256: 381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d
+run_id: TECHNE-BATCH-001-RUN-001
+timebox_ends_at: 2026-09-09T07:52:45Z
+item_ids: [TECHNE-GOV-005]
+completion_target: awaiting-review
+mandatory_stops: [public-contract-expansion, destructive-or-irreversible-work, external-authentication-or-spend, verification-failure, main-merge-or-release, contested-path-or-head]
 ---
 
-# TECHNE-BATCH-001
+# TECHNE-BATCH-001 — Pioneer isolated agent execution
+
+## Outcome authority
+
+Move viable Techne remote-agent work from Draft through Ready and pioneer the provider-neutral model on `pilot/isolated-agent-execution` while the user is unavailable. Commit and push stable branch increments, preserve review evidence, and leave the branch unmerged.
+
+## Selected plans
+
+1. `TECHNE-GOV-005` — enact the provider-neutral isolated-agent principle, working modes, execution axes, responsibility model, and architecture decision.
+
+## Excluded candidates
+
+- `TECHNE-OPS-002` — persistent supervised-session proof needs a named Mac Studio or personal-server access path and service boundary.
+- `TECHNE-OPS-003` — AWS proof needs an explicit user-started SSO session, live account evidence, cost authority, and teardown approval.
+- Provider provisioning, external authentication, a new public execution tool, Harness changes, dotfiles changes, and main-branch integration remain outside this run.
+
+## Scope
+
+The run may change `TECHNE-GOV-005`, the selected canonical Engineering Practice notes, the Techne Decision Records collection, and this authorisation ledger. It may decide exact provider-neutral wording and whether the existing estate diagram remains accurate. It may not select a provider, provision infrastructure, contact external systems, incur spend, expose secrets, or edit another repository.
+
+## Required verification
+
+- Decision Records audit
+- Authoring audit
+- `ki-work` and KB Streams audits
+- Wikilink target check for changed canonical notes
+- Judgmental cross-note consistency review against the goal, boundary, and ADR
+
+## Completion and remedial policy
+
+`TECHNE-GOV-005` must reach `awaiting-review` through its own implementation cycle with immutable baseline, completed Steps, and the six-heading review packet. Non-blocking improvements become scoped Techne follow-ups. No closure, pruning, merge to `main`, external authentication, provider proof, or infrastructure mutation is authorised.
+
+## Run ledger
+
+<!-- ki-batch-run: TECHNE-BATCH-001-RUN-001 381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d -->
+
+### TECHNE-GOV-005 — started
+
+- Starting state: `ready`
+- Baseline: `9a35c318992672e5d6b21ad46debe88030c77222`
+- Branch: `pilot/isolated-agent-execution`
+- Decision: enact the provider-neutral model without external proofs or provider selection.
+- Delegation: none; the canonical prose and decision rationale form one tightly coupled vocabulary.
+
+### TECHNE-GOV-005 — completed
+
+- Result state: `awaiting-review`
+- Baseline: `9a35c318992672e5d6b21ad46debe88030c77222`
+- Result evidence: `5f3191eb960f50ba5629d8a9fd04c0d5461557d0`
+- Branch: `pilot/isolated-agent-execution`, pushed and intentionally unmerged.
+- Verification: Decision Records, Authoring, `ki-work`, KB Streams, and full KB audits pass; the approved payload hash remains unchanged.
+- Decision: adopt the provider-neutral three-mode model and separate controller, task environment, bootstrap profile, agent runtime, and execution tier.
+- Approved deviation: use conformant local identity `ADR-TECHNE-001` rather than the draft's earlier `ADR-KI-TECHNE-001` proposal.
+- Excluded work: `TECHNE-OPS-002` and `TECHNE-OPS-003` remain waiting for explicit access, authentication, cost, and teardown inputs; no external system, provider, Harness, dotfiles, main merge, or release was touched.
+- Delegation: none; the tightly coupled vocabulary and decision rationale were enacted as one bounded change.
+
+<!-- Migrated from the retired +/_AUTHORISATIONS/ path on 2026-09-15; the approved payload and run evidence above are unchanged. -->

@@ -1,4 +1,4 @@
 ---
 note_type: stream-roadmap-index
-areas: { GOV: 8, OPS: 5 }
+areas: { GOV: 9, OPS: 5 }
 ---

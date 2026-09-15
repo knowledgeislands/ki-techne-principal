@@ -9,12 +9,12 @@ theme: knowledge-governance
 horizon: next
 status: ready
 priority: medium
-dependencies: []
+dependencies: [TECHNE-GOV-009]
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:17:23Z
-updated_at: 2026-09-15T11:58:28Z
+updated_at: 2026-09-15T12:10:51Z
 ---
 
 # Define Agentic Operating Approach
