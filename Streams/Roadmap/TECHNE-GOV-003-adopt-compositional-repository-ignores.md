@@ -7,14 +7,14 @@ aliases:
   - Adopt Compositional Repository Ignores Proposal
 theme: knowledge-governance
 horizon: next
-status: ready
+status: awaiting-review
 priority: medium
 dependencies: [TECHNE-GOV-008]
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-08-29T05:03:00Z
-updated_at: 2026-09-15T12:10:51Z
+updated_at: 2026-09-15T12:13:54Z
 transferred_from: TRD-ed88fe40
 ---
 
@@ -44,11 +44,11 @@ The full `ki-repo` audit currently reports separate working-area README drift. [
 
 ## Steps
 
-- [ ] Verify commit `7361962` contains the adopted ignore composition and that the current `.gitignore` has not drifted from it.
-- [ ] Run the current ignore composer and confirm it reports one conforming managed section, no malformed markers and no unmanaged rules.
-- [ ] Confirm a `ki-repo` conform dry run proposes no `.gitignore` change and that no tracked or irreplaceable `.ki/` state depends on retired ignore rules.
-- [ ] After TECHNE-GOV-008, run the repository, Streams and authored-Markdown audits.
-- [ ] Record the existing implementation and current verification in the review packet without changing `.gitignore`.
+- [x] Verify commit `7361962` contains the adopted ignore composition and that the current `.gitignore` has not drifted from it.
+- [x] Run the current ignore composer and confirm it reports one conforming managed section, no malformed markers and no unmanaged rules.
+- [x] Confirm a `ki-repo` conform dry run proposes no `.gitignore` change and that no tracked or irreplaceable `.ki/` state depends on retired ignore rules.
+- [x] After TECHNE-GOV-008, run the repository, Streams and authored-Markdown audits.
+- [x] Record the existing implementation and current verification in the review packet without changing `.gitignore`.
 
 ## Files touched
 
@@ -89,6 +89,32 @@ No guide change is expected because the work does not alter Techne's knowledge o
 ### Roadmap
 
 Retain this record through review. No follow-on item is currently required.
+
+## Review
+
+### Delivered
+
+Reconciled the already-delivered compositional ignore implementation against immutable batch baseline `5888a26eb931f11ec615a3f7c25789c762114e3a`. Commit `7361962` remains the implementation evidence; this delivery records current verification without manufacturing a new `.gitignore` diff.
+
+### Summary changes
+
+Updated only this roadmap record. The root `.gitignore` was not changed because it already matches the current composer and contains no retained Knowledge Base-specific rule requiring migration.
+
+### Verification
+
+`git diff 7361962 -- .gitignore` is empty. The current composer reports one conforming managed section, no malformed markers, and no unmanaged rules. The conform dry run proposes no `.gitignore` write, `.ki/` is absent, and the repository, Streams and authoring audits pass after GOV-008.
+
+### Outstanding concerns
+
+None. The separate working-area README drift was repaired by GOV-008 rather than absorbed into this item's boundary.
+
+### Post-change review
+
+The compositional ignore contract is present, current, and verified. Canonical knowledge and local state were untouched, and the item is ready for acceptance.
+
+### Mini recap
+
+Techne's `.gitignore` adoption is now supported by current evidence and an honest lifecycle record; no new ignore change was necessary.
 
 ## Discussion
 

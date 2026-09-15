@@ -1,23 +1,37 @@
-# AI Execution Fabric
+# Techne Fabric
 
 ## Purpose
 
-The AI Execution Fabric is the provider-neutral architecture for selecting and operating execution targets for AI-enabled engineering workloads.
+Techne Fabric is the reader-facing name for the provider-neutral architecture also identified in existing notes and links as the AI Execution Fabric.
 
-It separates the workload's requirements from the infrastructure choice, so that the engineering estate can use local, managed, elastic, or dedicated capacity without coupling the overall architecture to a single provider.
+The fabric matches a context-bound assignment and a reusable agent footprint with an eligible execution target. It separates workload requirements from infrastructure choice, so that the engineering estate can use local, managed, elastic or dedicated capacity without coupling the overall architecture to a single provider.
 
-The fabric is a decision and operating model, not a single runtime, service, or control plane.
+The fabric is an architectural decision and operating model, not a single runtime, service, cluster or control plane. A fabric operator may implement its lifecycle, but no particular executable, repository or provider is committed here.
+
+## Fabric Concepts
+
+- **Working context** identifies the purpose and capacity in which the person is acting. It selects applicable knowledge, repository relationships, permissions, approval rules and eligible footprints; it is distinct from a working mode, an Agora and an access grant.
+- **Agent footprint** is a reproducible declaration of an agent runtime, tools, environment requirements, compatible target capabilities, resource and network constraints, state handling, readiness checks and supported human attachment.
+- **Execution** binds one objective, immutable repository baseline, working context, footprint, authority, evidence destination and lifetime. An execution retains that binding if the person later selects another context elsewhere.
+- **Task environment** is the bounded filesystem, process, network and isolation boundary in which a worker carries out the execution.
+- **Execution target** supplies eligible capacity and substrate capabilities. A deployment is one configured realisation of controller, worker, model or supporting services on one or more targets.
+- **Interface** is a replaceable channel through which a person requests, observes, approves, reviews or attaches to work. It does not establish authority merely by carrying a conversation.
+
+A footprint's declared capabilities, the footprints supported by an implementation, the subset eligible in a working context and the executions currently running are different sets. Eligibility alone does not require allocating an execution environment; implementations may still maintain governed images, caches or warm capacity.
 
 ## Execution Selection Axes
 
-Execution placement and task isolation are separate decisions. Select these axes independently for each workload:
+Execution placement, task isolation and component placement are separate decisions. Select these axes independently for each workload:
 
-- **Execution tier** — where eligible compute and model capacity run: local, managed API, elastic, or dedicated.
+- **Controller placement** — where persona continuity, policy, task identity and lifecycle supervision operate.
+- **Worker execution tier** — where the task environment runs: local, managed, elastic or dedicated.
+- **Model-inference placement** — where an eligible model capability runs; it need not be colocated with either controller or worker.
 - **Sandbox substrate** — the filesystem, process, network, and isolation boundary supplied to the task.
-- **Bootstrap profile** — the portable declaration of required tools, capabilities, configuration shape, state classes, and readiness checks.
+- **Agent footprint** — the reusable runtime and operating-envelope declaration selected for the assignment.
+- **Bootstrap profile** — the portable environment-preparation subset of a footprint: required tools, capabilities, configuration shape, state classes and readiness checks.
 - **Agent runtime** — the implementation that performs the bounded task inside the selected environment.
 
-A persistent controller may coordinate identity, policy, credential brokerage, lifecycle, and result integration across these axes. Git and the selected change-management process remain authoritative outside any one controller, environment, or provider snapshot.
+A persistent controller may coordinate identity, context binding, policy, credential brokerage, lifecycle and result integration across these axes. Git and the selected change-management process remain authoritative outside any one controller, environment or provider snapshot.
 
 ## Execution Tiers
 
@@ -51,7 +65,11 @@ Dedicated infrastructure represents capacity operated specifically for sustained
 
 It remains a future option when requirements for control, scale, capability, economics, or data handling justify the operational commitment.
 
-## Routing Criteria
+## Context Eligibility and Routing
+
+Before comparing targets, validate that the selected context permits the objective, repositories, data, footprint, credentials, network access and approval path. Agora membership or an editor projection may help locate repositories, but neither proves user identity, grants access or permits cross-context data transfer.
+
+An ambiguous context must be resolved before consequential action. A context change applies to new work; it must not silently redirect an existing execution or widen its authority. Any deliberate scope change requires a newly validated grant.
 
 Execution decisions should evaluate the following criteria together.
 
@@ -71,20 +89,21 @@ For example, a capable managed service may be unsuitable for a sensitive workloa
 
 ## Decision Process
 
-1. Classify the workload, including objective, data sensitivity, interaction pattern, continuity requirements, and working mode.
-2. Identify execution tiers that satisfy the workload's non-negotiable capacity, locality, privacy, and availability constraints.
-3. Select a sandbox substrate, bootstrap profile, and agent runtime independently, applying isolation proportionate to the task's authority and risk.
-4. Compare eligible combinations by capability, latency, privacy, cost, context length, locality, availability, persistence, recovery, and operational burden.
-5. Select the least complex combination that meets the requirements and record material trade-offs.
-6. Define credential, network, evidence-return, cleanup, fallback, and recovery behaviour before execution.
+1. Bind the objective to an explicit working context, repository baseline, authority and evidence destination.
+2. Identify the context-eligible footprints, then classify data sensitivity, interaction pattern, continuity requirements and working mode.
+3. Identify targets that satisfy the non-negotiable capacity, locality, privacy, availability and footprint constraints.
+4. Select controller, worker and model placement; sandbox substrate; bootstrap profile; and agent runtime independently, applying isolation proportionate to the task's authority and risk.
+5. Compare eligible combinations by capability, latency, privacy, cost, context length, locality, availability, persistence, recovery and operational burden.
+6. Select the least complex combination that meets the requirements and record material trade-offs.
+7. Define credential, network, evidence-return, cleanup, fallback and recovery behaviour before execution.
 
 This process supports explicit decisions while leaving implementation-specific automation to operating guidance and provider adapters.
 
 ## Relationship to the Engineering Estate
 
-[[Engineering Estate]] defines the roles of the components that create, orchestrate, persist, and review engineering work.
+[[Engineering Estate]] defines the stable roles of the components that coordinate, govern, execute, persist and review engineering work, then maps current and candidate products onto them.
 
-The AI Execution Fabric determines where an AI-enabled workload may execute.
+Techne Fabric determines which context-eligible footprint and targets may serve a bounded execution.
 
 It does not transfer accountability for intent, deterministic orchestration, persistent execution, engineering review, or knowledge governance away from the components that hold those responsibilities.
 
@@ -94,7 +113,7 @@ They do not define the fabric itself or preclude managed, elastic, or dedicated 
 
 ## Operating Boundaries
 
-The fabric must not obscure the data, identity, network, cost, and observability consequences of its routing choices.
+The fabric must not obscure the context, authority, data, identity, network, cost and observability consequences of its routing choices.
 
 Execution selection should therefore remain traceable enough for engineers to understand why a workload ran in a particular environment and what constraints applied to it.
 
@@ -102,14 +121,21 @@ The fabric also does not treat model output as an authoritative engineering deci
 
 Deterministic controls and accountable review remain necessary where correctness, safety, or material change is involved.
 
+The `ki` tool remains a governance mechanism for work, repositories, knowledge and skills. It does not become the fabric operator, credential broker or infrastructure control plane. A separate operator is a prospective implementation role whose provider adapters, executable and repository ownership remain undecided.
+
+Controller operational state, credentials and environment checkpoints have their own authorities and retention rules. Durable repository outcomes and review evidence cross the integration boundary deliberately; operational state must not be indiscriminately committed as canonical knowledge, and provider snapshots must not become the sole recoverable result.
+
+Only one active controller authority may act for a persona across deployments. Replication or relocation must prevent a stale controller from dispatching work or publishing results; the exact fencing and recovery mechanism remains an implementation decision.
+
 ## Open Questions
 
 The current architecture does not yet define:
 
+- footprint schemas, compatibility claims and conformance tests;
 - workload classification and data-handling levels;
-- the policy or mechanism that records and enforces routing decisions;
+- the policy or mechanism that records and enforces context eligibility and routing decisions;
 - identity, access control, and secret-management patterns across execution tiers;
 - observability, audit, and cost-accounting requirements; or
-- failover and recovery behaviour for each workload class.
+- single-controller fencing, failover and recovery behaviour for each workload class.
 
 These questions require future Architecture Decision Records or operating-model chapters when implementation work makes them concrete.

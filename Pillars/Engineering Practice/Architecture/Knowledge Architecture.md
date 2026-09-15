@@ -18,6 +18,8 @@ It retains the context required to understand engineering choices over time, inc
 
 The knowledge layer supports human engineers and agent capabilities, but it does not remove the need for source validation, accountable review, or explicit decisions.
 
+Knowledge may be relevant to one or more explicit working contexts. One enduring persona does not make all knowledge available in every context, and context selection does not itself grant repository access or permission to transfer knowledge.
+
 ## Knowledge Domains
 
 The engineering knowledge base contains several related domains:
@@ -53,6 +55,14 @@ The level of detail should be proportionate to the consequence of the knowledge.
 
 A local implementation note need not have the same review trail as a decision that changes execution routing or data handling.
 
+## Context Boundaries
+
+A working context identifies the capacity in which a person is acting and the knowledge, repository relationships, permissions and handling rules relevant to that capacity. It is distinct from a working mode, an Agora and an access grant.
+
+An Agora declares reciprocal relationships among independently governed repositories. A context may refer to several Agoras and an Agora may serve several contexts, but membership does not prove user identity, repository permission, publication authority or permission to combine information across contexts.
+
+Shared personal preferences may be reusable where policy permits. Matter-specific memory, retrieved documents, working files, model inputs, logs and results remain within their context boundaries. Cross-context transfer requires explicit, policy-permitted authority and appropriate provenance; persona continuity is not a licence to pool all accessible knowledge.
+
 ## Knowledge Lifecycle
 
 ### Capture
@@ -83,19 +93,23 @@ Historical context is necessary to understand why the system is shaped as it is 
 
 Engineers use governed knowledge to frame work, develop plans, review outcomes, and understand prior decisions.
 
-Hermes Agent may use relevant knowledge as context for reasoning and planning, subject to the same requirements for source validation and human accountability.
+A personal agent controller or reasoning capability may use context-eligible knowledge for reasoning and planning, subject to the same requirements for authority, source validation and human accountability.
 
-tools-mgit and Herdr may produce operational evidence that becomes durable knowledge when it changes shared understanding or supports a material review.
+Deterministic tools, fabric operators and task environments may produce operational evidence that becomes durable knowledge when it changes shared understanding or supports a material review.
 
-Zed provides the engineering interface through which contributors inspect, change, and review this knowledge.
+An engineering interface allows contributors to inspect, change and review this knowledge.
 
-[[Engineering Estate]] defines the architectural roles of these components.
+Hermes Agent, tools-mgit, Herdr and Zed are current or candidate implementation mappings for these roles. [[Engineering Estate]] defines the stable roles and keeps those mappings replaceable.
 
 ## Boundaries
 
-The knowledge base is not a substitute for source code, runtime state, operational telemetry, secrets management, or every component's authoritative reference documentation.
+The knowledge base is not a substitute for source code, controller operational state, runtime state, operational telemetry, secrets management, environment checkpoints, or every component's authoritative reference documentation.
 
 It records the engineering context, decisions, and patterns needed to understand how those systems should be used and evolved.
+
+Controller execution identities, transient pending-work queues, runtime context bindings, active approvals, write ownership, message deduplication and recovery references belong to an operational authority. Canonical roadmap identities and durable approval evidence remain in their governed repositories. Credentials belong to a separately managed secret authority. Environment disks and provider snapshots may accelerate recovery, but they must not be the sole recoverable record of completed work.
+
+Git and the selected change-management process retain durable repository outcomes and review evidence. Operational records or telemetry cross into governed knowledge deliberately when they support a decision, review or durable learning; they do not become canonical merely because a controller stores them.
 
 The knowledge base also does not treat unverified agent output, unreviewed research, or transient conversation as settled engineering knowledge.
 
@@ -107,7 +121,7 @@ The architecture does not yet define:
 
 - a formal metadata model for ownership, sensitivity, review dates, and provenance;
 - retrieval and ranking behaviour for human and agent consumers;
-- access-control and retention rules for sensitive engineering knowledge; or
+- context-aware access-control, transfer and retention rules for sensitive engineering knowledge; or
 - the process for importing, validating, and superseding external research.
 
 These concerns should be resolved when an implementation or operating requirement makes the trade-offs concrete.

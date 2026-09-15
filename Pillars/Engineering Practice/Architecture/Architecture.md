@@ -4,6 +4,7 @@ Architecture defines the engineering estate, AI execution model, and knowledge a
 
 ## Contents
 
+- [[Agentic Operating Approach]]
 - [[Engineering Estate]]
 - [[AI Execution Fabric]]
 - [[Knowledge Architecture]]

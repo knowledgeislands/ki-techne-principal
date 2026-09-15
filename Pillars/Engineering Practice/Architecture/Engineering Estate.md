@@ -4,70 +4,37 @@
 
 The engineering estate is the set of components used to turn engineering intent into governed, observable work.
 
-This chapter defines the architectural role of each current component and the boundaries between them.
+This chapter defines the stable architectural roles and the boundaries between them before mapping current or candidate components onto those roles.
 
 It is not an installation guide or an integration contract.
 
 Component-specific configuration, APIs, and operational procedures belong in their authoritative repositories or future operating documentation.
 
-## Estate Overview
+## Architectural Roles
 
-| Component | Architectural role | Primary responsibility |
-| --- | --- | --- |
-| Hermes Agent | Intent and planning capability | Interprets objectives, retains relevant working context, and develops plans. |
-| tools-mgit | Deterministic orchestration layer | Executes defined engineering operations and coordinates repeatable workflows. |
-| Herdr | Persistent execution runtime | Hosts work that must continue beyond a single interactive engineering session. |
-| Zed | Engineering interface | Provides the primary environment through which engineers inspect, change, and review work. |
-| Knowledge Islands | Governed knowledge layer | Organises governed knowledge, context, decisions, and their evolution. |
-| Tailscale | Private connectivity layer | Connects authorised engineering environments and services across network boundaries. |
-| llama.cpp | Local model execution runtime | Provides an implementation option for local model inference. |
-| MLX-LM | Local model execution runtime | Provides an implementation option for local model inference on suitable hardware. |
+- **Personal agent controller** — maintains persona continuity, task identity, context binding, delegated authority, lifecycle supervision and result integration. Reasoning may propose work, while trusted deterministic boundaries enforce consequential operations.
+- **Governance layer** — selects and advances governed work, knowledge and repository relationships without acquiring execution-provider authority.
+- **Deterministic operations layer** — performs defined engineering operations repeatably and exposes an accountable control boundary.
+- **Execution-fabric operator** — prospectively matches an authorised execution with an eligible footprint and target, then manages provisioning, dispatch, observation, evidence return and cleanup through replaceable adapters.
+- **Task environment** — supplies the bounded filesystem, process, network and isolation boundary for one execution.
+- **Agent runtime** — performs the authorised assignment inside the task environment.
+- **Engineering interface** — lets a person inspect, change, review or deliberately attach to work.
+- **Governed knowledge layer** — retains durable context, decisions, evidence and relationships without becoming the store for every kind of operational state.
+- **Private connectivity layer** — connects authorised people, environments and services without making network location the primary trust boundary.
+- **Model execution capability** — supplies eligible inference independently of controller and worker placement.
 
-## Responsibility Boundaries
+## Current and Candidate Mappings
 
-### Hermes Agent
+- **Hermes Agent** is a candidate personal-controller reasoning and conversational capability. It does not define the controller role.
+- **`ki`** implements governance workflows for repositories, knowledge, skills and work. It is not the execution-fabric operator and should not silently acquire provider credentials or infrastructure-control responsibilities.
+- **tools-mgit** is the current deterministic engineering-operations mapping.
+- **Herdr** is the current persistent supervised-execution mapping.
+- **Zed** is the current primary engineering-interface mapping.
+- **Knowledge Islands** is the governed knowledge and repository-relationship mapping.
+- **Tailscale** is the current private-connectivity mapping.
+- **llama.cpp** and **MLX-LM** are current local model-execution options.
 
-Hermes Agent is responsible for intent, contextual reasoning, and planning.
-
-It may propose a course of action, but it does not replace deterministic engineering controls or the accountable review of material changes.
-
-### tools-mgit
-
-tools-mgit is responsible for deterministic orchestration and engineering operations.
-
-It translates approved or defined work into repeatable actions and provides the control boundary around work that requires predictable execution.
-
-### Herdr
-
-Herdr is responsible for persistent execution.
-
-It provides the runtime boundary for work that must outlive an individual interaction or engineering client.
-
-### Zed
-
-Zed is the engineering interface.
-
-It is where engineers inspect context, develop changes, and review the outcomes of automated or manual operations.
-
-### Knowledge Islands
-
-Knowledge Islands is responsible for governed knowledge.
-
-It provides the durable context within which engineering decisions, patterns, and documentation can be discovered, evaluated, and evolved.
-
-### Tailscale
-
-Tailscale provides private connectivity between authorised parts of the engineering estate.
-
-It supports remote engineering without making network location the primary trust boundary.
-
-### Local AI Runtimes
-
-llama.cpp and MLX-LM are local execution options within the estate.
-
-They support workloads where locality, privacy, latency, cost, or offline operation favour local model inference.
-
-They are implementation choices, not the definition of the local AI strategy.
+A distinct execution-fabric operator is prospective. Its command surface, implementation, product name and owning repository remain downstream choices; the architecture does not commit to a `techne` executable or another new repository.
 
 ## Agent Execution Responsibilities
 
@@ -75,7 +42,7 @@ These responsibilities describe replaceable architectural roles rather than requ
 
 ### Agent Controller
 
-The controller owns task or session identity, policy, credential brokerage, lifecycle supervision, and result integration. It selects or invokes an eligible execution target without making that target authoritative for the work.
+The controller owns task or session identity, selected working context, delegated policy, credential brokerage, lifecycle supervision, and result integration. It selects or invokes an eligible execution target without making that target authoritative for the work. One persona across several contexts does not permit state or authority to cross their boundaries.
 
 ### Task Environment
 
@@ -85,6 +52,10 @@ The task environment supplies the bounded filesystem, process, network, and isol
 
 The bootstrap profile declares the tools, capabilities, configuration shape, state classes, and readiness checks required by the task. It remains consumable independently of one workstation configuration manager or provider snapshot.
 
+### Agent Footprint
+
+The footprint is the reusable declaration for a class of agent work. It includes its agent runtime, tools, environment and bootstrap requirements, compatible target capabilities, resource and network constraints, state behaviour, health checks and supported forms of human attachment. A footprint does not embed a particular assignment's credentials or repository contents.
+
 ### Agent Runtime
 
 The agent runtime performs the authorised task inside the selected environment. Changing the runtime must not change the repository baseline, authority, network policy, evidence contract, or review boundary implicitly.
@@ -93,11 +64,13 @@ The agent runtime performs the authorised task inside the selected environment. 
 
 Git and the selected change-management process retain authoritative source, work state, result evidence, and review. Controllers and environments may cache or checkpoint state, but provider-native snapshots are not the sole recoverable hand-off.
 
+Controller records for task identity, context binding, approvals, ownership, deduplication and recovery remain operational state. Credentials remain separately managed. Neither category becomes canonical knowledge merely because the controller uses governed repositories.
+
 ## Interaction Model
 
-The estate separates engineering intent from deterministic execution.
+The estate separates engineering intent, governance and deterministic controls from fabric operation and task execution.
 
-Hermes Agent develops or refines intent and plans; tools-mgit performs defined operations; and Herdr provides persistence where an operation requires it.
+Current or candidate mappings may combine roles, but their responsibilities remain distinct. Hermes Agent may develop or refine intent and plans; `ki` governs work and knowledge; tools-mgit performs defined operations; and Herdr provides persistence where an operation requires it.
 
 Zed remains the primary engineering interface for human inspection and review.
 
@@ -105,11 +78,11 @@ Knowledge Islands supplies governed context to the engineering practice and rece
 
 Tailscale provides private connectivity where components or engineers operate across locations.
 
-[[AI Execution Fabric]] selects an appropriate execution target for AI-enabled workloads.
+The Techne Fabric in [[AI Execution Fabric]] matches an authorised execution with an eligible footprint and target.
 
 Local runtimes are one possible target within that fabric, alongside managed APIs, elastic compute, and future dedicated infrastructure.
 
-The [[Engineering Estate.svg|estate interaction diagram]] is generated from its [[Engineering Estate.mmd|editable Mermaid source]].
+The [[Engineering Estate.svg|estate interaction diagram]] is generated from its [[Engineering Estate.mmd|editable Mermaid source]]. It is an illustrative mapping of named components, not a normative inventory of stable roles or a commitment to retain those products.
 
 ## Current Constraints and Open Questions
 
@@ -117,7 +90,7 @@ The estate describes responsibilities, not a fully specified integration topolog
 
 The following areas require future decisions or operating guidance:
 
-- the interfaces and hand-off formats between planning and deterministic orchestration;
+- the interfaces and hand-off formats between personal coordination, governance, deterministic operations and fabric operation;
 - the lifecycle, identity, and observability model for persistent execution;
 - the access-control and data-classification model across local and remote execution; and
 - the selection process for local and managed AI runtimes.

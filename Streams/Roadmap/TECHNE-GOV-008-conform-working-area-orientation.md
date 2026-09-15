@@ -7,14 +7,14 @@ aliases:
   - Working Area Orientation Conformance Proposal
 theme: knowledge-governance
 horizon: next
-status: ready
+status: awaiting-review
 priority: medium
 dependencies: []
 blocks: [TECHNE-GOV-003]
 blocked_by: []
-baseline_ref: null
+baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-09-15T11:58:28Z
-updated_at: 2026-09-15T12:10:51Z
+updated_at: 2026-09-15T12:13:54Z
 ---
 
 # Conform working-area orientation
@@ -39,10 +39,10 @@ Change only the two working-area orientation files and this roadmap record. Do n
 
 ## Steps
 
-- [ ] Re-run the conform dry run and confirm its exact two-file proposal.
-- [ ] Apply the current `ki-repo` conform operation.
-- [ ] Inspect both resulting files and confirm they remain orientation documents rather than staging-area content.
-- [ ] Run the repository, Streams and authored-Markdown audits.
+- [x] Re-run the conform dry run and confirm its exact two-file proposal.
+- [x] Apply the current `ki-repo` conform operation.
+- [x] Inspect both resulting files and confirm they remain orientation documents rather than staging-area content.
+- [x] Run the repository, Streams and authored-Markdown audits.
 
 ## Files touched
 
@@ -83,6 +83,32 @@ The generated README files are the affected orientation guidance; no additional 
 ### Roadmap
 
 No follow-on work is expected if the audits pass.
+
+## Review
+
+### Delivered
+
+Conformed the two working-area orientation files from immutable baseline `5888a26eb931f11ec615a3f7c25789c762114e3a` without changing staging payloads or canonical knowledge.
+
+### Summary changes
+
+Updated `+/README.md` and `-/README.md` to the current `ki-repo` descriptions of temporary inputs and produced outputs. No other delivery file belongs to this item.
+
+### Verification
+
+The pre-application dry run proposed exactly the two authorised README files. `ki repo audit --skill ki-repo --repo .`, the Streams audit, the authoring audit, and `git diff --check` all pass after application.
+
+### Outstanding concerns
+
+None. The conformance operation also invoked its authoring dependency while other disjoint batch work was present; coordinator review confirmed that only harmless formatting affected those owned files and their intended semantics remain intact.
+
+### Post-change review
+
+Both files remain orientation documents. No staging content, canonical knowledge, trade state, Agora declaration, or external system changed. The item is ready for acceptance.
+
+### Mini recap
+
+The inbound and outbound working areas now use the current repository orientation, removing the two WORK-1 findings and unblocking GOV-003 verification.
 
 ## Discussion
 

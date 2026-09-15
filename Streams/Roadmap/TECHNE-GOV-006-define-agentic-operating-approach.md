@@ -7,14 +7,14 @@ aliases:
   - Techne Agentic Operating Approach
 theme: knowledge-governance
 horizon: next
-status: ready
+status: awaiting-review
 priority: medium
 dependencies: [TECHNE-GOV-009]
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-09-14T02:17:23Z
-updated_at: 2026-09-15T12:10:51Z
+updated_at: 2026-09-15T12:13:54Z
 ---
 
 # Define Agentic Operating Approach
@@ -25,7 +25,7 @@ Give readers one clear introduction to Techne's overall approach to agentic work
 
 ## Context
 
-The owner endorsed the one-persona, multiple-contexts direction and requested its capture as Techne's overall approach on 2026-09-14. The introduction and definitions below preserve that agreed conceptual direction. This record is architectural intake, not an approved implementation plan or evidence of a deployed system; canonical enactment remains a separate lifecycle step.
+The owner endorsed the one-persona, multiple-contexts direction and requested its capture as Techne's overall approach on 2026-09-14. The introduction and definitions below preserve that agreed conceptual direction. The record subsequently became the approved enactment plan for canonical architecture; it remains architectural evidence rather than evidence of a deployed system.
 
 [[Engineering Estate]], [[AI Execution Fabric]], [[Operating Model]] and [[Knowledge Architecture]] already describe much of the model. [[TECHNE-GOV-005-define-isolated-agent-execution]] added the isolated-task responsibilities and working modes and remains awaiting review. Those notes lack a single reader-facing introduction connecting personal identity, multiple professional contexts, declared footprints and executions. Their product-led descriptions also need reconciliation with explicitly replaceable architectural roles.
 
@@ -33,7 +33,7 @@ This is a distinct synthesis and terminology outcome, not a duplicate of the iso
 
 ## Boundary
 
-Capture and clarify the intended operating architecture without claiming that it is implemented. Do not select a mandatory model, runtime, messaging service or sandbox product; redefine Agora membership; grant repository or organisational authority; create controller repositories; provision infrastructure; retire existing repositories; or change canonical notes through this intake capture.
+Enact the intended operating architecture only through the named canonical files without claiming that its runtime capabilities are implemented. Do not select a mandatory model, runtime, messaging service or sandbox product; redefine Agora membership; grant repository or organisational authority; create controller repositories; provision infrastructure; retire existing repositories; or change canonical notes outside the approved file set.
 
 Techne retains its wider engineering-discipline scope. Calling this an agentic operating architecture does not turn the knowledge base into an executable product, displace another repository's canonical authority, or make Kubernetes a requirement for everyone following Techne.
 
@@ -45,14 +45,14 @@ The persona and working-context decision has independent architectural value fro
 
 ## Steps
 
-- [ ] Create `Agentic Operating Approach.md` as the reader-facing architectural introduction and stable vocabulary.
-- [ ] Record one enduring persona across explicit, authority-bound working contexts in ADR-TECHNE-002.
-- [ ] Reconcile [[Engineering Estate]] around architectural roles before candidate implementation mappings, including the boundary between `ki` governance and a distinct execution-fabric operator.
-- [ ] Reconcile [[AI Execution Fabric]] with the Techne Fabric name, footprints, context eligibility and independent controller, worker and model placement.
-- [ ] Add working-context framing and explicit human handover to [[Operating Model]].
-- [ ] Add context and operational-state boundaries to [[Knowledge Architecture]].
-- [ ] Link the introduction and Decision Record from their canonical indexes.
-- [ ] Verify the overview remains provider-neutral, preserves ADR-TECHNE-001 and distinguishes intended architecture from proven capability.
+- [x] Create `Agentic Operating Approach.md` as the reader-facing architectural introduction and stable vocabulary.
+- [x] Record one enduring persona across explicit, authority-bound working contexts in ADR-TECHNE-002.
+- [x] Reconcile [[Engineering Estate]] around architectural roles before candidate implementation mappings, including the boundary between `ki` governance and a distinct execution-fabric operator.
+- [x] Reconcile [[AI Execution Fabric]] with the Techne Fabric name, footprints, context eligibility and independent controller, worker and model placement.
+- [x] Add working-context framing and explicit human handover to [[Operating Model]].
+- [x] Add context and operational-state boundaries to [[Knowledge Architecture]].
+- [x] Link the introduction and Decision Record from their canonical indexes.
+- [x] Verify the overview remains provider-neutral, preserves ADR-TECHNE-001 and distinguishes intended architecture from proven capability.
 
 ## Files touched
 
@@ -85,6 +85,34 @@ No local or external dependency blocks enactment. TECHNE-GOV-005 remains indepen
 ## Delegation
 
 Use two bounded canonical-authoring lanes: one owns the new overview, Decision Record and navigation; the other owns reconciliation of existing architecture, operating-model and knowledge notes. The coordinator owns this roadmap record, integration, semantic review and lifecycle evidence.
+
+## Review
+
+### Delivered
+
+Enacted the agentic operating approach from immutable baseline `5888a26eb931f11ec615a3f7c25789c762114e3a`. The delivery adds a reader-facing overview and ADR-TECHNE-002, then reconciles the estate, Techne Fabric, operating model and knowledge boundaries without changing GOV-005's lifecycle or provisioning infrastructure.
+
+### Summary changes
+
+Created [[Agentic Operating Approach]] and [[ADR-TECHNE-002-one-persona-across-explicit-working-contexts|ADR-TECHNE-002]]. Reframed [[Engineering Estate]] around stable roles before product mappings; renamed the reader-facing fabric while preserving the `AI Execution Fabric` note identity; added footprints and context eligibility; distinguished contexts from modes, Agoras and grants; added explicit human write-ownership handover; and separated controller state, credentials and checkpoints from canonical knowledge.
+
+The architecture keeps `ki` as the governance surface and treats an execution-fabric operator as a distinct prospective role. It does not create `tools-techne`, select reusable controller software, or commit to a provider, repository, command surface or deployment.
+
+### Verification
+
+`git diff --check` passes. The work, Streams, authoring, Decision Records, full Knowledge Base and repository audits all pass. Semantic review confirms the vocabulary distinctions, context-bound authority, single-active-controller invariant, product replaceability, operational-state boundary and all isolation commitments in ADR-TECHNE-001.
+
+### Outstanding concerns
+
+No acceptance blocker remains. Footprint schemas, credential mechanisms, provider adapters, fencing, recovery, reusable controller implementation ownership and actual deployments remain deliberately separate implementation work.
+
+### Post-change review
+
+A new reader can now understand Techne's agentic operating architecture without knowing Hermes, Herdr, Kubernetes or a particular model provider. The result stays within the approved knowledge boundary, creates no external commitment and is ready for acceptance.
+
+### Mini recap
+
+Techne now has one coherent account of personal controllers, personas, explicit working contexts, portable footprints and governed execution. Kitteth is Kris's instance; Techne and its fabric remain reusable architecture rather than one product.
 
 ## Discussion
 

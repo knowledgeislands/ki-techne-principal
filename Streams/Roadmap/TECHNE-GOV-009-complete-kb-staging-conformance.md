@@ -7,14 +7,14 @@ aliases:
   - KB Staging Conformance Proposal
 theme: knowledge-governance
 horizon: next
-status: ready
+status: in-progress
 priority: medium
 dependencies: []
 blocks: [TECHNE-GOV-006]
 blocked_by: []
-baseline_ref: null
+baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-09-15T12:10:51Z
-updated_at: 2026-09-15T12:10:51Z
+updated_at: 2026-09-15T12:16:00Z
 ---
 
 # Complete KB staging conformance
@@ -35,14 +35,14 @@ Preserve the historical authority payload and run evidence. Do not reactivate th
 
 ## Current state
 
-The historical record now occupies its supported retained path. The remaining deterministic repair is the missing outbound digest orientation that the `ki-repo-kb` conform dry run proposes.
+The historical record now occupies its supported retained path and the outbound digest orientation is present. The installed `ki` host still rejects the older record because it lacks the later `closure_item_ids` field. Adding an empty field and recomputing the approved hash would preserve operational safety but would alter the historical approval envelope, so that migration is stopped pending explicit authority.
 
 ## Steps
 
 - [ ] Validate that the migrated historical batch remains readable as a retained pre-change authorisation and cannot be executed.
-- [ ] Run the `ki-repo-kb` conform dry run and confirm it proposes only `-/_DIGESTS/README.md`.
-- [ ] Apply that exact scaffold and inspect its session-digest orientation.
-- [ ] Run the full Knowledge Base, Streams and authored-Markdown audits.
+- [x] Run the `ki-repo-kb` conform dry run and confirm it proposes only `-/_DIGESTS/README.md`.
+- [x] Apply that exact scaffold and inspect its session-digest orientation.
+- [x] Run the full Knowledge Base, Streams and authored-Markdown audits.
 
 ## Files touched
 
@@ -91,3 +91,7 @@ No follow-on work is expected if the retained record validates and all audits pa
 ### Historical integrity
 
 The original batch remains recoverable byte-for-byte from Git history. The current retained copy preserves its approved frontmatter and delivery ledger, and the appended migration note records only its path correction.
+
+### Compatibility blocker
+
+The current host requires retained records to declare `closure_item_ids`, while this earlier envelope predates that field. Normalising the envelope would require a new integrity hash even when the closure set remains empty. Do not represent that new hash as the original approval without explicit owner authority; the record remains retained, expired and unavailable for execution meanwhile.
