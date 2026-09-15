@@ -5,10 +5,11 @@ approved: true
 approved_at: 2026-09-08T23:52:45Z
 authority_mode: outcome
 authority_evidence: User instructed autonomous Techne delivery while unavailable, moving viable draft work through Ready and pioneering it on a dedicated branch.
-approved_payload_sha256: 381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d
+approved_payload_sha256: 26390173290169d9a8b7e843f27231039e99f5ad1bede7bcd6b6d90956ceae5a
 run_id: TECHNE-BATCH-001-RUN-001
 timebox_ends_at: 2026-09-09T07:52:45Z
 item_ids: [TECHNE-GOV-005]
+closure_item_ids: []
 completion_target: awaiting-review
 mandatory_stops: [public-contract-expansion, destructive-or-irreversible-work, external-authentication-or-spend, verification-failure, main-merge-or-release, contested-path-or-head]
 ---
@@ -47,7 +48,7 @@ The run may change `TECHNE-GOV-005`, the selected canonical Engineering Practice
 
 ## Run ledger
 
-<!-- ki-batch-run: TECHNE-BATCH-001-RUN-001 381e90d881f7fb1b330ad5c2b9bffe1654066340f49eee972dccc040c9b1701d -->
+<!-- ki-batch-run: TECHNE-BATCH-001-RUN-001 26390173290169d9a8b7e843f27231039e99f5ad1bede7bcd6b6d90956ceae5a -->
 
 ### TECHNE-GOV-005 — started
 
@@ -69,4 +70,4 @@ The run may change `TECHNE-GOV-005`, the selected canonical Engineering Practice
 - Excluded work: `TECHNE-OPS-002` and `TECHNE-OPS-003` remain waiting for explicit access, authentication, cost, and teardown inputs; no external system, provider, Harness, dotfiles, main merge, or release was touched.
 - Delegation: none; the tightly coupled vocabulary and decision rationale were enacted as one bounded change.
 
-<!-- Migrated from the retired +/_AUTHORISATIONS/ path on 2026-09-15; the approved payload and run evidence above are unchanged. -->
+<!-- Migrated from the retired +/_AUTHORISATIONS/ path on 2026-09-15. With explicit owner authority, the retained envelope was normalised for the current host by declaring an empty closure set and rebinding its integrity hash. The original approved bytes and hash remain recoverable from Git history; no closure authority was added. -->
