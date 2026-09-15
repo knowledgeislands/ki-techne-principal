@@ -2,80 +2,115 @@
 note_type: stream-proposal
 id: TECHNE-OPS-003
 area: OPS
-title: Pioneer AWS agent execution
+title: Pioneer portable Kubernetes agent execution on AWS
 aliases:
   - AWS Agent Execution Pioneer Proposal
 theme: operational-tooling
-horizon: waiting-for
+horizon: next
 status: draft
-priority: medium
-dependencies: [TECHNE-GOV-005]
+priority: high
+dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-13T15:53:53Z
+updated_at: 2026-09-15T13:31:00Z
 ---
 
-# Pioneer AWS Agent Execution
+# Pioneer Portable Kubernetes Agent Execution on AWS
 
 ## Goal
 
-Prove one bounded, disposable agent task environment in the dedicated Techne AWS footprint against the provider-neutral execution model.
+Prove one bounded agent footprint on an ordinary Kubernetes cluster hosted by AWS, then demonstrate that the unchanged portable layer can target another conforming Kubernetes cluster.
 
 ## Context
 
-`TECHNE-GOV-005` owns the provider-neutral architecture and current AWS candidate evidence. A locally configured Techne AWS profile and installed AWS CLI, CDK, Kubernetes, and Helm clients make an AWS proof plausible. An explicitly approved read-only inventory on 2026-09-13 established the live baseline without retaining account identifiers or credentials.
+[[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]] establishes the provider-neutral execution model. The dedicated Techne AWS account is a clean first capacity provider, and its EKS control-plane cost is acceptable, but neither AWS nor an AWS application service is part of the Techne execution contract.
 
-The proof should compare the smallest suitable AWS execution surfaces rather than assume Kubernetes. EKS Auto Mode, EKS on Fargate, ECS on Fargate, and CodeBuild offer materially different isolation, persistence, lifecycle, operational, and cost properties.
+Portability is measured at the Kubernetes application boundary. Agent footprints use Kubernetes, OCI images, Git and portable evidence interfaces. AWS-specific infrastructure stops at presenting a conforming cluster and declared capabilities through a replaceable provider adapter.
+
+The read-only inventory completed on 2026-09-13 found no existing EKS cluster, agent runtime or repository-owned infrastructure application. The inherited Control Tower baseline remains outside this proof.
 
 ## Boundary
 
-Do not authenticate without an explicit user-started SSO session, copy account identifiers or credentials into the knowledge base, provision infrastructure before a cost and teardown boundary is approved, select AWS as the portable contract, or create a public `techne` tool from one provider proof.
+Keep AWS infrastructure in a separate provider adapter. Do not use ECS, CodeBuild, Lambda, Step Functions, Bedrock, SQS or DynamoDB as an execution dependency; place AWS SDK calls, ARNs, IAM assumptions, AWS API groups and provider-specific Kubernetes annotations outside the portable layer.
+
+The initial portable layer must not require cluster-admin, privileged pods, host access, a load balancer, a persistent database or queue, baked credentials, a public listener, or an AWS-owned registry. Do not provision until the implementation location, total cost cap, egress design, secret path, retained-cluster policy and tested teardown plan are explicit.
 
 ## Current state
 
-The local client layer and authenticated AWS operator path are present. The dedicated account has 17 enabled regions and no observed agent-runtime infrastructure: no EKS or ECS clusters, CodeBuild projects, ECR repositories, EC2 instances, NAT gateways, RDS instances, or additional regional Lambda functions. `eu-west-1` contains the inherited Control Tower baseline, one non-default three-subnet VPC, and one Control Tower notification function. CDK is not bootstrapped, no relevant execution roles or AWS Budgets exist, and month-to-date metered usage is below one US cent. No repository-owned infrastructure-as-code application has been verified.
+The local AWS, CDK, Kubernetes and Helm clients and an authenticated operator path are present. The account has no observed agent-runtime infrastructure, no CDK bootstrap, no relevant execution roles and no budget alarm. The provider-neutral cluster package, AWS adapter and first workload contract do not yet exist.
+
+A standard EKS control plane with one small managed node group is the leading first reference. The node group should normally sit at zero desired capacity and rise only for bounded work. EKS Auto Mode and Fargate are not the baseline because their provider-managed compute, networking and storage constraints make the portability boundary harder to inspect.
 
 ## Steps
 
-- [x] After an explicit AWS SSO login, inventory enabled regions, EKS and ECS clusters, CloudFormation and CDK bootstrap stacks, ECR repositories, VPC and subnet shape, IAM execution roles, budgets, and current cost-bearing resources without retaining sensitive identifiers.
-- [ ] Compare EKS Auto Mode, EKS on Fargate, ECS on Fargate, and CodeBuild against the isolation, persistence, network, credential, evidence, lifecycle, scale-to-zero, and cost controls accepted in `TECHNE-GOV-005`.
-- [ ] Select the smallest reversible proof surface and define least-privilege roles, bounded egress, encrypted state, audit logs, ownership and expiry tags, budget alarm, default time-to-live, and tested destroy path.
-- [ ] Decide whether the proof remains a repository-local CDK application, supplies evidence for `tools-ki`, or justifies a distinct execution tool only after at least one non-AWS adapter demonstrates the same lifecycle.
-- [ ] Deploy one disposable environment, execute one bounded private-clone task, return portable evidence, and destroy all proof resources.
-- [ ] Record measured lifecycle, recovery, cost, portability, and operational findings in Techne; route only proven reusable executable consequences to the Harness or tools repositories.
+- [ ] Name the implementation repository and paths, then declare the Kubernetes capability profile, portable footprint contract and returned evidence contract.
+- [ ] Separate provider-owned `aws-eks` infrastructure from provider-neutral Kubernetes packaging and prove rendered manifests contain no AWS dependency.
+- [ ] Exercise the portable package on a generic local or CI Kubernetes cluster before incurring AWS cost.
+- [ ] Approve the total cost, network and egress design, credential path, ownership and expiry tags, retained-cluster policy, and tested teardown boundary.
+- [ ] Provision the smallest EKS capacity adapter, run one digest-pinned disposable Kubernetes Job, return Git, log and manifest evidence, and remove task capacity.
+- [ ] Run the same image digest and footprint inputs on a second Kubernetes target, such as another Kubernetes-as-a-service host or the Mac Studio, without changing the portable layer.
+- [ ] Record lifecycle, recovery, cost and portability findings and decide whether evidence justifies a distinct execution-fabric operator.
 
 ## Files touched
 
-- This Stream record
-- A separately reviewed repository-local pilot directory or receiver-owned implementation record after the proof surface is selected
-- Relevant Techne canonical notes only if observed evidence changes the accepted architecture or Technology Radar posture
+- This Stream record while the plan remains Draft
+- A separately named implementation repository or pilot directory after ownership is decided
+- A provider-specific infrastructure package that stops at Kubernetes access and declared capabilities
+- A provider-neutral Helm or Kustomize package for namespaces, RBAC, quotas, network policy and workload resources
+- Canonical Techne notes only if observed evidence changes the accepted architecture
 
 ## Verify
 
-- The initial inventory is read-only and records no account identifier, secret, or credential.
-- The selected proof has explicit cost, authority, network, persistence, logging, expiry, and teardown controls.
-- One bounded task starts from an immutable repository baseline and returns Git references, logs, manifests, and review evidence independently of provider snapshots.
-- Teardown leaves no unplanned cost-bearing resources.
-- Findings distinguish AWS-specific implementation from portable lifecycle requirements.
+- `helm template` or `kustomize build` renders the portable package deterministically.
+- Policy checks reject AWS API groups, annotations, ARNs and SDK assumptions in portable paths.
+- Server-side dry runs pass on a generic cluster and EKS for the same image digest and inputs.
+- The workload ServiceAccount cannot exceed its declared namespace role, does not mount an unnecessary token, receives no AWS credential, and cannot reach instance metadata.
+- Effective default-deny network policy and bounded egress are demonstrated rather than assumed.
+- Task deletion and node scale-to-zero leave only the explicitly retained and costed cluster resources.
+- A second target runs without a portable-contract or manifest rewrite.
 
 ## Dependencies / blocks
 
-The approved read-only inventory is complete. `TECHNE-GOV-005` must establish the accepted provider-neutral model before infrastructure is selected or provisioned. Provisioning also requires explicit cost, budget, and teardown authority.
+No architecture dependency remains. Readiness still requires an exact implementation location, complete cost and network envelope, secret delivery choice, retained-cluster policy, teardown test and first generic Kubernetes verification target.
 
 ## Delegation
 
-Do not delegate authenticated inventory or infrastructure mutation. After the proof surface and authority boundary are fixed, documentation comparison and offline CDK fixture work may be isolated, but one coordinator retains credentials, cost decisions, deployment, verification, and teardown.
+Offline manifest and policy fixtures may be delegated. One coordinator retains AWS credentials, cost decisions, provisioning, verification and teardown; Kitteth and task workloads never receive AWS administrator credentials.
+
+## Documentation impact
+
+### Decision Records
+
+No new Decision Record is required before the proof because the current provider-neutral architecture already owns the boundary. A material contract change discovered through evidence requires a separate decision.
+
+### Specifications
+
+The future portable footprint and capability contracts will need specifications in their owning implementation repository.
+
+### Guides
+
+The selected deployment and teardown procedure will need an operator guide before live provisioning.
+
+### Roadmap
+
+Keep this item in Next and Draft until every readiness input above is resolved. The second-target run is part of the portability claim, not an optional later embellishment.
 
 ## Discussion
 
-### Observed AWS baseline
+### Minimal first reference
 
-The 2026-09-13 inventory authenticated to the expected dedicated account and examined all 17 enabled regions. Only `eu-west-1` contained relevant resources, all attributable to the inherited Control Tower baseline: six CloudFormation stacks, one non-default VPC with three subnets and one VPC endpoint, and one notification function. No internet gateway or NAT gateway was present.
+Use an upstream Kubernetes Job for the lowest-complexity disposable conformance probe. Use the core Agent Sandbox `Sandbox` resource only when resumability or sandbox lifecycle is the purpose, version-pin it, and omit routing and warm-pool extensions from the first proof.
 
-No EKS or ECS cluster, CodeBuild project, ECR repository, EC2 instance, RDS instance, load balancer, CDK bootstrap stack, or relevant agent-execution IAM role was observed. The account had no S3 buckets, hosted zones, or AWS Budgets. Month-to-date unblended cost was below one US cent. This is a clean starting point rather than an existing execution platform; the proof must create its own network, identity, observability, budget, expiry, and teardown controls.
+### Stop conditions
 
-### Candidate posture
+Stop if provider fields leak into portable manifests; the task needs privileged or host access; network-policy enforcement is absent; egress is unresolved; secrets would be baked into images or manifests; cost, ownership or expiry is unbounded; teardown cannot be proved; the second target requires a contract rewrite; or repository write ownership is ambiguous.
 
-ECS on Fargate may be the smallest one-shot AWS adapter when Kubernetes claims and warm pools add no value. EKS is relevant when Kubernetes-native Agent Sandbox or Coder control-plane evidence is the purpose. CodeBuild is a useful short-lived job control but does not supply every resumable-agent lifecycle capability.
+### Primary source entry points
+
+- [Amazon EKS pricing](https://aws.amazon.com/eks/pricing/)
+- [EKS managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
+- [EKS Fargate considerations](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html)
+- [Kubernetes SIG Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox)
+- [Agent Sandbox threat model](https://github.com/kubernetes-sigs/agent-sandbox/blob/main/docs/security/threat_model.md)

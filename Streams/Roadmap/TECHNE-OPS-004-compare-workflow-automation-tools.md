@@ -4,47 +4,112 @@ id: TECHNE-OPS-004
 area: OPS
 title: Compare workflow automation tools
 theme: operational-tooling
-horizon: triage
-status: draft
+horizon: next
+status: ready
+priority: medium
+dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:20:28Z
-updated_at: 2026-09-14T02:20:28Z
+updated_at: 2026-09-15T13:37:00Z
 ---
 
 # Compare Workflow Automation Tools
 
 ## Goal
 
-Determine where workflow automation tools could simplify Knowledge Islands work, using n8n and Node-RED as the initial comparison. Produce a practical recommendation about useful roles, limitations, and whether a controlled trial is worthwhile.
+Determine whether n8n or Node-RED can simplify bounded Knowledge Islands workflows, using the same synthetic problem and a small scripted baseline to produce an evidence-backed role-specific recommendation.
 
 ## Context
 
-Kris Brown wants Techne to investigate established tools and learn from external implementations. Node-RED is the likely match for the recalled name, but that recollection is not confirmed. [[TECHNE-GOV-007-establish-technology-investigation-programme]] captures the wider programme.
+n8n and Node-RED both provide visual workflow construction but have materially different licensing, deployment and operational models. n8n is source-available under its Sustainable Use Licence and its free Community edition omits several collaboration and governance features. Node-RED is Apache-2.0, supports Git-backed Projects and configurable persistent context, and requires deliberate editor security.
 
-Primary documentation reviewed on 2026-09-14 describes [n8n](https://docs.n8n.io/) as workflow automation combining AI features and business processes, and [Node-RED](https://nodered.org/) as low-code programming for event-driven applications. They have overlapping flow-building use cases, but should be compared against the same requirement rather than assumed interchangeable.
+This investigation applies the method established by [[Technology Investigation Programme]]. It tests behaviour rather than treating a visible flow diagram as proof of durable execution or accountable approval.
 
 ## Boundary
 
-This investigation does not adopt an automation platform, replace existing KI execution controls, connect production accounts, or authorise consequential external actions. Additional candidates should enter only when they address an identified gap. Installation, credentials, paid services, and any canonical radar change belong in the subsequently approved experiment plan.
+Do not adopt a platform, connect production accounts, use credentials or private data, call a model, incur paid-service cost, open a public listener, deploy a cluster, or turn either product into the Techne Fabric controller. Run only pinned local packages in ephemeral loopback-only directories with synthetic fixtures.
+
+Do not modify [[Technology Radar]] in this item. Produce an evidence-backed proposed disposition for later acceptance.
+
+## Current state
+
+Current official documentation has been reviewed, but no common scenario has been executed. Local Node.js is available; Docker and a local Kubernetes cluster are not prerequisites for this bounded comparison.
+
+## Steps
+
+- [ ] Freeze current versions, source dates, licence evidence and the shared evidence rubric.
+- [ ] Implement one scripted baseline for a source-intake fixture: validate, transform, call a stubbed enrichment service, pause for approval and write once to an isolated destination.
+- [ ] Implement equivalent pinned n8n and Node-RED flows with reproducible export and launch instructions.
+- [ ] Exercise duplicate delivery, one downstream 503 and retry, restart while approval is pending, rejection with no write, and output idempotency.
+- [ ] Compare understanding, changeability, tests, versioning, logs, recovery, credential model, deployment, licence, portability, operating effort, cost and exit cost.
+- [ ] Publish dated evidence and a canonical evaluation stating useful roles, limitations, uncertainty and proposed Radar disposition.
+
+## Files touched
+
+- `-/TECHNE-OPS-004-workflow-automation-comparison/README.md`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/package.json`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/package-lock.json`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/fixtures/source.json`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/baseline/`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/n8n/`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/node-red/`
+- `-/TECHNE-OPS-004-workflow-automation-comparison/results/comparison.json`
+- `Resources/Workflow Automation Tools.md`
+- `Resources/Resources.md`
+- `Pillars/Engineering Practice/Technology/Workflow Automation Evaluation.md`
+- `Pillars/Engineering Practice/Technology/Technology.md`
+- `Streams/Roadmap/TECHNE-OPS-004-compare-workflow-automation-tools.md`
+
+## Verify
+
+- The exact experiment command completes locally with outbound sockets disabled after dependency installation.
+- All three lanes consume the same fixture and produce the same accepted output.
+- Duplicate and resumed approval paths produce exactly one side effect; rejection produces none.
+- The failure case records retry and recovery behaviour without contacting an external service.
+- Exported flows, package locks, exact versions and dated results are retained.
+- `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .`, and `git diff --check` pass.
+
+## Dependencies / blocks
+
+There are no delivery dependencies. The programme item should run first in a shared batch so this comparison can use its settled evidence vocabulary, but this plan remains executable if that item stops.
+
+## Delegation
+
+One isolated worker may own the experiment directory and factual source note. The coordinator owns canonical recommendation language, lifecycle state and any interaction with the shared Technology index.
+
+## Documentation impact
+
+### Decision Records
+
+No Decision Record is required because the item evaluates candidates without adopting one.
+
+### Specifications
+
+The retained fixture, expected output and failure cases form the experiment contract rather than a production specification.
+
+### Guides
+
+The experiment README must give exact reproduction and cleanup instructions.
+
+### Roadmap
+
+Any integration, adoption or reusable adapter becomes a separately reviewed follow-up. A useful negative result completes this item.
 
 ## Discussion
 
-### Comparable experiment
+### Primary source entry points
 
-Use a synthetic source-intake scenario: receive a fixture, validate and transform it, optionally call a stubbed enrichment service, produce a proposed knowledge note, pause for human approval, and write only to an isolated test destination. Compare both tools with a small scripted baseline using the same inputs and expected outputs.
+- [n8n licence](https://github.com/n8n-io/n8n/blob/master/LICENSE.md)
+- [n8n Community edition features](https://docs.n8n.io/deploy/host-n8n/community-edition-features.md)
+- [n8n queue mode](https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/enable-queue-mode.md)
+- [n8n Wait node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait/)
+- [Node-RED licence](https://nodered.org/about/license/)
+- [Node-RED Projects](https://nodered.org/docs/user-guide/projects/)
+- [Node-RED context storage](https://nodered.org/docs/user-guide/context)
+- [Securing Node-RED](https://nodered.org/docs/user-guide/runtime/securing-node-red)
 
-Exercise duplicate events, a failing downstream service, restart during execution, and an approval that has not yet arrived. Observe actual guarantees about retries, duplicate side effects, state recovery, and review boundaries. A visible flow diagram alone does not establish durable execution or accountable approval.
+### Interpretation to test
 
-### Questions to resolve
-
-Assess how easily an engineer can understand, change, test, version, export, and recover the workflow. Compare integration coverage for the chosen problem, deployment effort, credential handling, evidence and logs, operating costs, licence constraints, and exit cost. Record which capabilities require hosted or paid features.
-
-Distinguish deterministic workflow steps, optional model calls, and autonomous agent decisions. Establish whether KI needs a workflow engine for this scenario at all, and whether an adapter can preserve the existing authority boundary.
-
-### Evidence and handoff
-
-Retain exact versions, fixture and flow artefacts, reproduction instructions, observed failure behaviour, and a concise comparison against the baseline. Return role-specific findings, including useful negative results, and a proposed [[Technology Radar]] disposition with uncertainty and a review trigger.
-
-Techne owns the experiment and recommendation. Only a demonstrated integration need becomes separate Harness or tools-repository work. This record can be shaped independently of the programme proposal; no live trial has yet been performed.
+Node-RED begins with the cleaner openness and portability fit. n8n may offer stronger built-in durable-wait ergonomics, but queue operation adds Redis and a database and some governance features require paid editions. The experiment must confirm which differences matter for the bounded KI scenario.
