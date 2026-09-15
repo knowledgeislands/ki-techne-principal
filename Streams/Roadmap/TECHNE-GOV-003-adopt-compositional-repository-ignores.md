@@ -7,14 +7,14 @@ aliases:
   - Adopt Compositional Repository Ignores Proposal
 theme: knowledge-governance
 horizon: next
-status: awaiting-review
+status: done
 priority: medium
 dependencies: [TECHNE-GOV-008]
 blocks: []
 blocked_by: []
 baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-08-29T05:03:00Z
-updated_at: 2026-09-15T12:13:54Z
+updated_at: 2026-09-15T13:16:00Z
 transferred_from: TRD-ed88fe40
 ---
 
@@ -115,6 +115,10 @@ The compositional ignore contract is present, current, and verified. Canonical k
 ### Mini recap
 
 Techne's `.gitignore` adoption is now supported by current evidence and an honest lifecycle record; no new ignore change was necessary.
+
+## Done
+
+Accepted on 2026-09-15 by Kris Brown through explicit approval of all awaiting-review items. The review packet and current repository audits provide the acceptance evidence.
 
 ## Discussion
 

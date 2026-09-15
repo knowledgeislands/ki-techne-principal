@@ -7,14 +7,14 @@ aliases:
   - Isolated Agent Execution Proposal
 theme: knowledge-governance
 horizon: next
-status: awaiting-review
+status: done
 priority: medium
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 9a35c318992672e5d6b21ad46debe88030c77222
 created_at: 2026-09-08T22:10:43Z
-updated_at: 2026-09-09T00:01:44Z
+updated_at: 2026-09-15T13:16:00Z
 ---
 
 # Govern Isolated Agent Execution
@@ -118,6 +118,10 @@ The enacted notes now distinguish attached interactive, persistent supervised, a
 ### Mini recap
 
 Techne now owns the durable execution model. Operational proofs are separately visible and waiting for their explicit inputs, while Harness and dotfiles implementation remain outside this batch.
+
+## Done
+
+Accepted on 2026-09-15 by Kris Brown through explicit approval of all awaiting-review items. The review packet and current architecture, Decision Records, Knowledge Base and authoring audits provide the acceptance evidence.
 
 ## Discussion
 

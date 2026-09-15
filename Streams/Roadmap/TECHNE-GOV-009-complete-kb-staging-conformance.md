@@ -7,14 +7,14 @@ aliases:
   - KB Staging Conformance Proposal
 theme: knowledge-governance
 horizon: next
-status: awaiting-review
+status: done
 priority: medium
 dependencies: []
 blocks: [TECHNE-GOV-006]
 blocked_by: []
 baseline_ref: 5888a26eb931f11ec615a3f7c25789c762114e3a
 created_at: 2026-09-15T12:10:51Z
-updated_at: 2026-09-15T13:13:29Z
+updated_at: 2026-09-15T13:16:00Z
 ---
 
 # Complete KB staging conformance
@@ -110,6 +110,10 @@ The migration neither reactivated the expired run nor expanded its scope. The di
 ### Mini recap
 
 The staging surfaces now conform to the current host, and the historical batch is both readable and safely non-executable.
+
+## Done
+
+Accepted on 2026-09-15 by Kris Brown through explicit approval of all awaiting-review items, including completion of GOV-009. The review packet and retained-batch, Knowledge Base, Streams and authoring checks provide the acceptance evidence.
 
 ## Discussion
 
