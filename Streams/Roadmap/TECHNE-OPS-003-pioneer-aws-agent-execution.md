@@ -2,9 +2,10 @@
 note_type: stream-proposal
 id: TECHNE-OPS-003
 area: OPS
-title: Pioneer portable Kubernetes agent execution on AWS
+title: Pioneer disposable K3s agent execution on AWS
 aliases:
   - AWS Agent Execution Pioneer Proposal
+  - Disposable K3s EC2 Execution Proof
 theme: operational-tooling
 horizon: next
 status: draft
@@ -14,103 +15,138 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-16T21:48:50Z
+updated_at: 2026-09-16T21:59:23Z
 ---
 
-# Pioneer Portable Kubernetes Agent Execution on AWS
+# Pioneer Disposable K3s Agent Execution on AWS
 
 ## Goal
 
-Prove one bounded agent footprint on an ordinary Kubernetes cluster hosted by AWS, then demonstrate that the unchanged portable layer can target another conforming Kubernetes cluster.
+Prove that one bounded, provider-neutral Kubernetes workload can run on a disposable single-node K3s cluster hosted by one EC2 instance, return its outcome and evidence beyond the cluster, and leave no chargeable proof infrastructure after teardown.
 
 ## Context
 
-[[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]] establishes the provider-neutral execution model. The dedicated Techne AWS account is a clean first capacity provider, and its EKS control-plane cost is acceptable, but neither AWS nor an AWS application service is part of the Techne execution contract.
+[[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]] establishes provider-neutral execution and [[Techne Fabric Execution Contract]] defines the information and evidence boundary. The dedicated Techne AWS account is the first remote capacity provider, but a managed EKS control plane adds cost and operating surface that this proof does not need.
 
-Portability is measured at the Kubernetes application boundary. Agent footprints use Kubernetes, OCI images, Git and portable evidence interfaces. AWS-specific infrastructure stops at presenting a conforming cluster and declared capabilities through a replaceable provider adapter.
+K3s can place the Kubernetes control plane, datastore, container runtime and workload capacity on one machine. The cluster, node and cluster-local state are disposable. Durability belongs in the returned work outcome, logs, verification evidence and reconciliation path outside the instance.
 
-The read-only inventory completed on 2026-09-13 found no existing EKS cluster, agent runtime or repository-owned infrastructure application. The inherited Control Tower baseline remains outside this proof.
+The exact AWS target is account `655383751458` through local profile `knowledge-islands-techne` in `eu-west-1`. The account assertion is a safety boundary: provisioning must stop unless `aws sts get-caller-identity` returns that account.
+
+This proof does not implement the persistent personal controller or a registry of execution targets. [[TECHNE-OPS-007-define-long-running-controller-and-registered-execution-targets|TECHNE-OPS-007]] owns that later outcome.
 
 ## Boundary
 
-Keep AWS infrastructure in a separate provider adapter. Do not use ECS, CodeBuild, Lambda, Step Functions, Bedrock, SQS or DynamoDB as an execution dependency; place AWS SDK calls, ARNs, IAM assumptions, AWS API groups and provider-specific Kubernetes annotations outside the portable layer.
+Keep the provider-neutral layer to plain Kubernetes resources, an OCI image selected by immutable digest, bounded inputs and a portable evidence envelope. Keep AWS account identifiers, IAM, EC2, Systems Manager, networking, tags, expiry and teardown entirely inside the provider adapter.
 
-The initial portable layer must not require cluster-admin, privileged pods, host access, a load balancer, a persistent database or queue, baked credentials, a public listener, or an AWS-owned registry. Do not provision until the implementation location, total cost cap, egress design, secret path, retained-cluster policy and tested teardown plan are explicit.
+Use one EC2 instance as both K3s server and worker. Use Systems Manager for operator access, expose no inbound SSH or Kubernetes API port, require IMDSv2 and prevent workload pods from reaching instance metadata. Give the instance only the minimum management role; the Kubernetes Job receives no AWS credential.
+
+Do not add EKS, managed node groups, autoscaling, high availability, a load balancer, persistent cluster storage, an external datastore, a queue, a workflow engine or a long-running controller. Do not create package manifests, dependency installations or library directories in this repository. Do not provision until the authenticated account, network, AMI, image digest, cost ceiling, expiry guard and teardown commands have been reviewed.
 
 ## Current state
 
-The local AWS, CDK, Kubernetes and Helm clients and an authenticated operator path are present. The account has no observed agent-runtime infrastructure, no CDK bootstrap, no relevant execution roles and no budget alarm. The provider-neutral cluster package, AWS adapter and first workload contract do not yet exist.
+The local machine has AWS CLI, `kubectl`, Helm, `shellcheck` and `jq`. It has no Docker, Podman, Kind or K3d runtime, so client-side manifest validation is available but a local live-cluster run is not currently available.
 
-A standard EKS control plane with one small managed node group is the leading first reference. The node group should normally sit at zero desired capacity and rise only for bounded work. EKS Auto Mode and Fargate are not the baseline because their provider-managed compute, networking and storage constraints make the portability boundary harder to inspect.
+The AWS configuration contains profile `knowledge-islands-techne`, mapped to account `655383751458`, role `AWSAdministratorAccess` and region `eu-west-1`. Its SSO token is expired. No authenticated VPC, subnet, AMI, quota or price inventory has yet been taken for this revision, and no AWS resource has been created.
+
+The proof package, CloudFormation adapter, portable manifests, selected workload image and evidence destination do not yet exist.
 
 ## Steps
 
-- [ ] Name the implementation repository and paths, then declare the Kubernetes capability profile, portable footprint contract and returned evidence contract.
-- [ ] Separate provider-owned `aws-eks` infrastructure from provider-neutral Kubernetes packaging and prove rendered manifests contain no AWS dependency.
-- [ ] Exercise the portable package on a generic local or CI Kubernetes cluster before incurring AWS cost.
-- [ ] Approve the total cost, network and egress design, credential path, ownership and expiry tags, retained-cluster policy, and tested teardown boundary.
-- [ ] Provision the smallest EKS capacity adapter, run one digest-pinned disposable Kubernetes Job, return Git, log and manifest evidence, and remove task capacity.
-- [ ] Run the same image digest and footprint inputs on a second Kubernetes target, such as another Kubernetes-as-a-service host or the Mac Studio, without changing the portable layer.
-- [ ] Record lifecycle, recovery, cost and portability findings and decide whether evidence justifies a distinct execution-fabric operator.
+- [ ] Reauthenticate profile `knowledge-islands-techne`; assert account `655383751458` and region `eu-west-1`; inventory the target VPC, public subnet, EC2 quota, current `t3.medium` price and relevant existing resources without changing them.
+- [ ] Create a dependency-free proof package under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/` containing plain Kubernetes manifests, a CloudFormation adapter, shell orchestration, one synthetic assignment fixture and a local results directory.
+- [ ] Define one non-normative target descriptor, one bounded workload input and one evidence envelope sufficient to record execution identity, immutable image digest, resolved infrastructure, outcome, logs, verification and teardown.
+- [ ] Validate the Kubernetes resources client-side and prove that the portable paths contain no AWS API group, ARN, IAM assumption, EC2 identifier or provider annotation.
+- [ ] Provision one no-ingress `t3.medium` EC2 instance through CloudFormation, using an explicit AMI ID, encrypted delete-on-termination root volume, IMDSv2, Systems Manager access, ownership and expiry tags, instance-initiated termination, and a two-hour fallback lifetime.
+- [ ] Install an explicitly pinned K3s version at boot, wait for readiness through Systems Manager, apply one digest-pinned Kubernetes Job and observe it to a terminal state.
+- [ ] Collect the outcome, pod logs, resolved inputs, manifest hashes, lifecycle timings and verification evidence into the local results directory before teardown; the workload must not publish directly with operator or AWS credentials.
+- [ ] Delete the CloudFormation stack, verify the instance, volume, security group and temporary IAM resources are absent, and record actual elapsed time and cost evidence.
+- [ ] Review whether the execution contract was proportionate, identify any requirement relaxed by evidence, and route only genuinely reusable schemas or capabilities to their owning repositories as separately governed work.
 
 ## Files touched
 
-- This Stream record while the plan remains Draft
-- A separately named implementation repository or pilot directory after ownership is decided
-- A provider-specific infrastructure package that stops at Kubernetes access and declared capabilities
-- A provider-neutral Helm or Kustomize package for namespaces, RBAC, quotas, network policy and workload resources
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/README.md`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/cloudformation/stack.yaml`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/manifests/namespace.yaml`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/manifests/service-account.yaml`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/manifests/network-policy.yaml`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/manifests/job.yaml`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/provision.sh`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/run-proof.sh`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/collect-evidence.sh`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/destroy.sh`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/fixtures/assignment.json`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`
+- `Streams/Roadmap/TECHNE-OPS-003-pioneer-aws-agent-execution.md`
 - Canonical Techne notes only if observed evidence changes the accepted architecture
 
 ## Verify
 
-- `helm template` or `kustomize build` renders the portable package deterministically.
-- Policy checks reject AWS API groups, annotations, ARNs and SDK assumptions in portable paths.
-- Server-side dry runs pass on a generic cluster and EKS for the same image digest and inputs.
-- The workload ServiceAccount cannot exceed its declared namespace role, does not mount an unnecessary token, receives no AWS credential, and cannot reach instance metadata.
-- Effective default-deny network policy and bounded egress are demonstrated rather than assumed.
-- Task deletion and node scale-to-zero leave only the explicitly retained and costed cluster resources.
-- A second target runs without a portable-contract or manifest rewrite.
+- `shellcheck ./-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/*.sh` passes.
+- `bash -n ./-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/*.sh` passes.
+- `kubectl apply --dry-run=client -f ./-/TECHNE-OPS-003-disposable-k3s-ec2-proof/manifests/` passes.
+- `aws cloudformation validate-template --profile knowledge-islands-techne --region eu-west-1 --template-body file://-/TECHNE-OPS-003-disposable-k3s-ec2-proof/cloudformation/stack.yaml` passes before deployment.
+- A preflight assertion proves the caller account is exactly `655383751458`; any mismatch stops before a write.
+- Static checks find no AWS-specific field in `manifests/`, no inbound security-group rule, no workload AWS credential and no package or library directory.
+- The Kubernetes Job reaches one explicit terminal state and its evidence names the execution, image digest, target, inputs, outcome and manifest hashes.
+- Instance-metadata access from the workload fails, while only the declared DNS and HTTPS egress needed by the proof succeeds.
+- Evidence is present locally before teardown begins.
+- Post-teardown inventory finds no retained instance, EBS volume, security group, instance profile or role from the proof stack.
+- `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .`, and `git diff --check` pass.
 
 ## Dependencies / blocks
 
-The architecture prerequisite was accepted in `5aefbcc` and is now canonical in [[Techne Fabric Execution Contract]]. Readiness still requires the exact implementation location, a complete cost and network envelope, a secret-delivery choice, a retained-cluster policy, a teardown test and a first generic Kubernetes verification target.
+The architecture prerequisite was accepted in `5aefbcc` and is canonical in [[Techne Fabric Execution Contract]]. The proof has no remaining roadmap dependency.
+
+Readiness remains blocked on refreshing the named SSO session, completing read-only inventory in account `655383751458`, selecting the exact subnet and AMI, resolving the K3s version and workload image digest, and approving the two-hour lifetime and per-run cost ceiling. The absence of a local live Kubernetes target is recorded rather than silently solved by installing another runtime.
 
 ## Delegation
 
-Offline manifest and policy fixtures may be delegated. One coordinator retains AWS credentials, cost decisions, provisioning, verification and teardown; Kitteth and task workloads never receive AWS administrator credentials.
+Keep AWS authentication, account assertion, provisioning approval and teardown with one coordinator. Offline review of CloudFormation, shell scripts, Kubernetes policy and evidence fixtures may be separated only after the plan is Ready. No delegated worker receives administrator credentials.
 
 ## Documentation impact
 
 ### Decision Records
 
-No new Decision Record is required before the proof because the current provider-neutral architecture already owns the boundary. A material contract change discovered through evidence requires a separate decision.
+No new Decision Record is required. This changes the first implementation proof from managed EKS to disposable K3s without changing the provider-neutral architecture.
 
 ### Specifications
 
-The future portable footprint and capability contracts will need specifications in their owning implementation repository.
+The target descriptor, workload input and evidence envelope begin as explicitly non-normative fixtures. Any stable portable schema or conformance rule supported by proof evidence becomes separately governed `ki-specifications` work.
 
 ### Guides
 
-The selected deployment and teardown procedure will need an operator guide before live provisioning.
+The proof README must document exact preflight, run, evidence collection, emergency cleanup and post-teardown verification procedures.
 
 ### Roadmap
 
-Keep this item in Next and Draft until every readiness input above is resolved. The second-target run is part of the portability claim, not an optional later embellishment.
+Keep this item in Next and Draft until its live AWS readiness inputs are resolved. Keep persistent controller, Telegram transport and registered-target work in `TECHNE-OPS-007`; do not grow this proof into the fabric operator.
 
 ## Discussion
 
-### Minimal first reference
+### Disposable durability model
 
-Use an upstream Kubernetes Job for the lowest-complexity disposable conformance probe. Use the core Agent Sandbox `Sandbox` resource only when resumability or sandbox lifecycle is the purpose, version-pin it, and omit routing and warm-pool extensions from the first proof.
+The instance and K3s datastore may disappear completely. A successful run is one whose outcome and evidence have crossed the review boundary before destruction. Losing the instance before export produces a failed execution that may be retried from immutable inputs; cluster persistence is not a recovery mechanism.
+
+### Cost and lifetime model
+
+Use On-Demand capacity for a short irregular run. Start with `t3.medium` because K3s documents a two-core, two-gigabyte server minimum and the four-gigabyte instance leaves modest workload headroom. The initial proposal is a two-hour hard lifetime and a US$2 total proof ceiling; current regional price evidence must be recorded before this becomes Ready.
+
+The normal cleanup path deletes the CloudFormation stack. Instance-initiated termination plus a boot-time expiry timer is the fallback if the local runner disappears; deleting the residual stack remains mandatory reconciliation.
+
+### Controller boundary
+
+For this proof, local shell orchestration temporarily performs provisioning, dispatch, observation, evidence collection and cleanup. It is not the persistent controller, target registry or final operator interface. Its fixtures should make later registration possible without prematurely standardising that design.
 
 ### Stop conditions
 
-Stop if provider fields leak into portable manifests; the task needs privileged or host access; network-policy enforcement is absent; egress is unresolved; secrets would be baked into images or manifests; cost, ownership or expiry is unbounded; teardown cannot be proved; the second target requires a contract rewrite; or repository write ownership is ambiguous.
+Stop before provisioning if the AWS account or region differs, authentication is ambiguous, the network or AMI is unresolved, the cost ceiling is exceeded, teardown cannot be demonstrated from the template, or unrelated account resources would be modified. Stop the run if provider fields leak into portable manifests, the workload needs privileged or host access, instance metadata is reachable, credentials enter the Job, evidence cannot leave before teardown, or any expected resource remains after cleanup.
 
 ### Primary source entry points
 
-- [Amazon EKS pricing](https://aws.amazon.com/eks/pricing/)
-- [EKS managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
-- [EKS Fargate considerations](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html)
-- [Kubernetes SIG Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox)
-- [Agent Sandbox threat model](https://github.com/kubernetes-sigs/agent-sandbox/blob/main/docs/security/threat_model.md)
+- [K3s quick-start guide](https://docs.k3s.io/quick-start)
+- [K3s installation requirements](https://docs.k3s.io/installation/requirements)
+- [K3s architecture](https://docs.k3s.io/architecture)
+- [Amazon EC2 On-Demand pricing](https://aws.amazon.com/ec2/pricing/on-demand/)
+- [Amazon EC2 T3 instance specifications](https://aws.amazon.com/ec2/instance-types/general-purpose/)
+- [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
+- [Amazon EBS delete-on-termination behaviour](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html)
