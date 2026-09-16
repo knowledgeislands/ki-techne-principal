@@ -5,12 +5,12 @@ area: GOV
 title: Reconcile Shared Fundamentals Decision
 theme: governance
 horizon: now
-status: awaiting-review
+status: done
 blocks: []
 blocked_by: []
 baseline_ref: 27921f85ed2dc1c590166e9c6fc6a3561921c5a7
 created_at: 2026-09-16T09:08:39Z
-updated_at: 2026-09-16T21:23:28Z
+updated_at: 2026-09-16T21:36:43Z
 ---
 
 # Reconcile Shared Fundamentals Decision
@@ -101,6 +101,10 @@ The projection now matches the approved shared identity while Techne's container
 ### Mini recap
 
 Techne's decision projection is aligned, verified, and awaiting review; concurrent unrelated work remains outside the commit.
+
+## Done
+
+Accepted on 2026-09-16 by Kris Brown through the instruction to keep going and complete the remaining roadmap work after this record was identified as the sole review gate. The current review packet and repository audits provide acceptance evidence.
 
 ## Discussion
 
