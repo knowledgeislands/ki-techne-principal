@@ -5,14 +5,14 @@ area: GOV
 title: Define Techne Fabric execution contract and ownership
 theme: agentic-architecture
 horizon: next
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: [TECHNE-OPS-003]
 blocked_by: []
 baseline_ref: 8c5837c0674b4f588f6871777d371b27a90bbba8
 created_at: 2026-09-16T21:28:17Z
-updated_at: 2026-09-16T21:39:40Z
+updated_at: 2026-09-16T21:47:22Z
 ---
 
 # Define Techne Fabric Execution Contract and Ownership
@@ -131,6 +131,10 @@ The delivery meets the goal and restores architecture-before-implementation orde
 ### Mini recap
 
 Techne now defines what a bounded Fabric execution must preserve from intent through cleanup, who owns each layer of meaning or implementation, and what must be known before a provider proof begins. Durable learning routes to [[Techne Fabric Execution Contract]], [[AI Execution Fabric]], [[Engineering Estate]] and [[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]].
+
+## Done
+
+Accepted on 2026-09-16 by Kris Brown after reviewing the execution flow, deterministic admission boundary, lifecycle, invariants, ownership allocation, downstream proof criteria and deliberately unimplemented concerns. The current review packet and repository audits provide acceptance evidence.
 
 ## Discussion
 
