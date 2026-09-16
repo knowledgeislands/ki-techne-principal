@@ -5,14 +5,14 @@ area: GOV
 title: Define Techne Fabric execution contract and ownership
 theme: agentic-architecture
 horizon: next
-status: draft
+status: ready
 priority: high
-dependencies: [KI-TECHNE-GOV-010]
+dependencies: []
 blocks: [TECHNE-OPS-003]
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-16T21:28:17Z
-updated_at: 2026-09-16T21:31:47Z
+updated_at: 2026-09-16T21:37:12Z
 ---
 
 # Define Techne Fabric Execution Contract and Ownership
@@ -70,7 +70,7 @@ The roles and principles are canonical, but no complete contract lets an impleme
 
 ## Dependencies / blocks
 
-This work depends on acceptance of `KI-TECHNE-GOV-010`, because the reconciled shared fundamentals decision assigns portable normative contracts to `ki-specifications`. It blocks `TECHNE-OPS-003`; the AWS proof must consume the accepted contract rather than define it through implementation.
+The shared fundamentals reconciliation was accepted in `fbf73b983414c6ca5b4ef7dd56e15785b37586b1` and its completed roadmap record was pruned in `f049644dc630cd28ae4271481510f99dd952f0fd`. This work blocks `TECHNE-OPS-003`; the AWS proof must consume the accepted contract rather than define it through implementation.
 
 ## Delegation
 
