@@ -7,12 +7,12 @@ theme: agentic-architecture
 horizon: next
 status: draft
 priority: high
-dependencies: []
+dependencies: [KI-TECHNE-GOV-010]
 blocks: [TECHNE-OPS-003]
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-16T21:28:17Z
-updated_at: 2026-09-16T21:28:17Z
+updated_at: 2026-09-16T21:31:47Z
 ---
 
 # Define Techne Fabric Execution Contract and Ownership
@@ -36,6 +36,63 @@ Do not implement a controller or fabric operator, select a required provider or 
 ## Current state
 
 The roles and principles are canonical, but no complete contract lets an implementation prove that a footprint is eligible for a target, that an execution retained its context and authority, or that returned evidence and cleanup satisfy the operating model. No executable owner has been selected for the prospective fabric operator.
+
+## Steps
+
+- [ ] Reconcile the accepted Techne architecture and shared repository-ownership decision into one vocabulary for context, footprint, execution, task environment, target and evidence.
+- [ ] Define the minimum architecture-level execution contract: immutable bindings, lifecycle transitions, eligibility inputs, security and data constraints, returned evidence, cleanup, expiry, recovery and compatibility claims.
+- [ ] Define the ownership boundary between Techne semantics, portable normative specifications, governance, the personal controller, a prospective fabric operator, agent runtimes and provider adapters. Leave a role explicitly unassigned when no current repository owns it.
+- [ ] Amend `ADR-TECHNE-001` in place so its provider-neutral execution decision and consequences reflect the clarified contract and ownership boundary without turning the Decision Record into a schema.
+- [ ] Publish a canonical execution-contract chapter, integrate it with the Fabric and Engineering Estate, and update the estate diagram only where the clarified relationships materially change it.
+- [ ] Identify exact receiver-owned specifications or implementations as later trades or roadmap work. Do not create or deliver them inside this item.
+
+## Files touched
+
+- `Admin/Governance/Decisions/ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md`
+- `Pillars/Engineering Practice/Architecture/Techne Fabric Execution Contract.md`
+- `Pillars/Engineering Practice/Architecture/AI Execution Fabric.md`
+- `Pillars/Engineering Practice/Architecture/Engineering Estate.md`
+- `Pillars/Engineering Practice/Architecture/Architecture.md`
+- `Pillars/Engineering Practice/Architecture/Diagrams/Engineering Estate.mmd` only if the relationship model changes
+- `Pillars/Engineering Practice/Architecture/Diagrams/Engineering Estate.svg` only with a matching source change
+- `Streams/Roadmap/TECHNE-GOV-011-define-techne-fabric-execution-contract-and-ownership.md`
+
+## Verify
+
+- `ki repo audit --skill ki-decision-records --repo .` passes.
+- `ki repo audit --skill ki-authoring --repo .` passes.
+- `ki repo audit --skill ki-repo-kb-streams --repo .` passes.
+- `ki repo audit --skill ki-repo-kb --repo .` passes.
+- `git diff --check` passes.
+- Every new or changed wikilink resolves to one canonical note.
+- Any changed Mermaid source and rendered SVG describe the same relationships.
+- Judgmental review confirms provider, runtime and product names remain replaceable mappings; every executable responsibility has a named owner or is explicitly unassigned; and `TECHNE-OPS-003` can derive a bounded proof without inventing architecture.
+
+## Dependencies / blocks
+
+This work depends on acceptance of `KI-TECHNE-GOV-010`, because the reconciled shared fundamentals decision assigns portable normative contracts to `ki-specifications`. It blocks `TECHNE-OPS-003`; the AWS proof must consume the accepted contract rather than define it through implementation.
+
+## Delegation
+
+Keep the architecture synthesis, Decision Record amendment and ownership judgment in one coordinator lane because they share one vocabulary and decision boundary. A bounded worker may check wikilinks or diagram parity after the prose is stable.
+
+## Documentation impact
+
+### Decision Records
+
+Amend `ADR-TECHNE-001` because it already owns provider-neutral isolated agent execution. Create no new Decision Record unless implementation exposes a genuinely independent architectural decision.
+
+### Specifications
+
+Techne defines architecture-level semantics only. Any normative portable schema, conformance rule or reference example follows the accepted shared ownership model and becomes separately accepted receiver work.
+
+### Guides
+
+No component runbook or provider setup guide belongs in this item.
+
+### Roadmap
+
+Keep `TECHNE-OPS-003` Draft and dependency-blocked. Do not promote `TECHNE-OPS-006` or resume the parked tool comparisons merely because the contract names extension points.
 
 ## Discussion
 
