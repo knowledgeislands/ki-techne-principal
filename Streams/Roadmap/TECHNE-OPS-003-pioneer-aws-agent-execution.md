@@ -15,7 +15,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-16T21:59:23Z
+updated_at: 2026-09-16T22:52:22Z
 ---
 
 # Pioneer Disposable K3s Agent Execution on AWS
@@ -46,18 +46,22 @@ Do not add EKS, managed node groups, autoscaling, high availability, a load bala
 
 The local machine has AWS CLI, `kubectl`, Helm, `shellcheck` and `jq`. It has no Docker, Podman, Kind or K3d runtime, so client-side manifest validation is available but a local live-cluster run is not currently available.
 
-The AWS configuration contains profile `knowledge-islands-techne`, mapped to account `655383751458`, role `AWSAdministratorAccess` and region `eu-west-1`. Its SSO token is expired. No authenticated VPC, subnet, AMI, quota or price inventory has yet been taken for this revision, and no AWS resource has been created.
+The `knowledge-islands-techne` SSO session is authenticated and `aws sts get-caller-identity` confirms account `655383751458` in `eu-west-1`. The account has no running or stopped EC2 instance, no resource tagged for `TECHNE-OPS-003`, and a 256-vCPU standard On-Demand quota.
+
+The account has no default VPC. Its only VPC is the Control Tower VPC, whose three subnets are private and have no internet or NAT gateway; this proof must not modify or depend on it. The proof stack will therefore own one disposable `10.88.0.0/24` VPC, public subnet, internet gateway and route alongside the instance, then delete them together.
+
+The selected launch inputs are Ubuntu Server 24.04 amd64 AMI `ami-0526a6499f6470118` from Canonical public parameter version 76, K3s `v1.36.4+k3s1`, and `docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662`. Current AWS Price List evidence gives `t3.medium` in EU (Ireland) as US$0.0456 per instance-hour before EBS, public IPv4 and data transfer.
 
 The proof package, CloudFormation adapter, portable manifests, selected workload image and evidence destination do not yet exist.
 
 ## Steps
 
-- [ ] Reauthenticate profile `knowledge-islands-techne`; assert account `655383751458` and region `eu-west-1`; inventory the target VPC, public subnet, EC2 quota, current `t3.medium` price and relevant existing resources without changing them.
+- [ ] At run start, assert profile `knowledge-islands-techne` resolves to account `655383751458` and region `eu-west-1`; stop on expired authentication, mismatch or newly conflicting proof resources.
 - [ ] Create a dependency-free proof package under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/` containing plain Kubernetes manifests, a CloudFormation adapter, shell orchestration, one synthetic assignment fixture and a local results directory.
 - [ ] Define one non-normative target descriptor, one bounded workload input and one evidence envelope sufficient to record execution identity, immutable image digest, resolved infrastructure, outcome, logs, verification and teardown.
 - [ ] Validate the Kubernetes resources client-side and prove that the portable paths contain no AWS API group, ARN, IAM assumption, EC2 identifier or provider annotation.
-- [ ] Provision one no-ingress `t3.medium` EC2 instance through CloudFormation, using an explicit AMI ID, encrypted delete-on-termination root volume, IMDSv2, Systems Manager access, ownership and expiry tags, instance-initiated termination, and a two-hour fallback lifetime.
-- [ ] Install an explicitly pinned K3s version at boot, wait for readiness through Systems Manager, apply one digest-pinned Kubernetes Job and observe it to a terminal state.
+- [ ] Provision a disposable `10.88.0.0/24` VPC, public subnet, internet gateway, route, no-ingress security group and one `t3.medium` instance through CloudFormation without touching the Control Tower VPC. Use AMI `ami-0526a6499f6470118`, an encrypted delete-on-termination root volume, IMDSv2, Systems Manager access, ownership and expiry tags, instance-initiated termination, and a two-hour fallback lifetime.
+- [ ] Install K3s `v1.36.4+k3s1` at boot, wait for readiness through Systems Manager, apply one Kubernetes Job using `docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662`, and observe it to a terminal state.
 - [ ] Collect the outcome, pod logs, resolved inputs, manifest hashes, lifecycle timings and verification evidence into the local results directory before teardown; the workload must not publish directly with operator or AWS credentials.
 - [ ] Delete the CloudFormation stack, verify the instance, volume, security group and temporary IAM resources are absent, and record actual elapsed time and cost evidence.
 - [ ] Review whether the execution contract was proportionate, identify any requirement relaxed by evidence, and route only genuinely reusable schemas or capabilities to their owning repositories as separately governed work.
@@ -90,14 +94,14 @@ The proof package, CloudFormation adapter, portable manifests, selected workload
 - The Kubernetes Job reaches one explicit terminal state and its evidence names the execution, image digest, target, inputs, outcome and manifest hashes.
 - Instance-metadata access from the workload fails, while only the declared DNS and HTTPS egress needed by the proof succeeds.
 - Evidence is present locally before teardown begins.
-- Post-teardown inventory finds no retained instance, EBS volume, security group, instance profile or role from the proof stack.
+- Post-teardown inventory finds no retained VPC, subnet, route table, internet gateway, instance, public IPv4 address, EBS volume, security group, instance profile or role from the proof stack.
 - `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .`, and `git diff --check` pass.
 
 ## Dependencies / blocks
 
 The architecture prerequisite was accepted in `5aefbcc` and is canonical in [[Techne Fabric Execution Contract]]. The proof has no remaining roadmap dependency.
 
-Readiness remains blocked on refreshing the named SSO session, completing read-only inventory in account `655383751458`, selecting the exact subnet and AMI, resolving the K3s version and workload image digest, and approving the two-hour lifetime and per-run cost ceiling. The absence of a local live Kubernetes target is recorded rather than silently solved by installing another runtime.
+The account, region, network boundary, AMI, K3s version, workload image digest, quota and current instance price are resolved. The absence of a local live Kubernetes target is recorded rather than silently solved by installing another runtime. Readiness now requires human review of this exact plan, including the disposable VPC, two-hour lifetime and US$2 per-run ceiling.
 
 ## Delegation
 
@@ -129,7 +133,7 @@ The instance and K3s datastore may disappear completely. A successful run is one
 
 ### Cost and lifetime model
 
-Use On-Demand capacity for a short irregular run. Start with `t3.medium` because K3s documents a two-core, two-gigabyte server minimum and the four-gigabyte instance leaves modest workload headroom. The initial proposal is a two-hour hard lifetime and a US$2 total proof ceiling; current regional price evidence must be recorded before this becomes Ready.
+Use On-Demand capacity for a short irregular run. Start with `t3.medium` because K3s documents a two-core, two-gigabyte server minimum and the four-gigabyte instance leaves modest workload headroom. Current EU (Ireland) pricing is US$0.0456 per instance-hour before EBS, public IPv4 and data transfer. A two-hour hard lifetime and US$2 total proof ceiling leave substantial headroom while keeping accidental persistence bounded.
 
 The normal cleanup path deletes the CloudFormation stack. Instance-initiated termination plus a boot-time expiry timer is the fallback if the local runner disappears; deleting the residual stack remains mandatory reconciliation.
 
@@ -139,7 +143,7 @@ For this proof, local shell orchestration temporarily performs provisioning, dis
 
 ### Stop conditions
 
-Stop before provisioning if the AWS account or region differs, authentication is ambiguous, the network or AMI is unresolved, the cost ceiling is exceeded, teardown cannot be demonstrated from the template, or unrelated account resources would be modified. Stop the run if provider fields leak into portable manifests, the workload needs privileged or host access, instance metadata is reachable, credentials enter the Job, evidence cannot leave before teardown, or any expected resource remains after cleanup.
+Stop before provisioning if the AWS account or region differs, authentication is ambiguous, the selected AMI no longer resolves, the cost ceiling is exceeded, teardown cannot be demonstrated from the template, the Control Tower VPC would be touched, or unrelated account resources would be modified. Stop the run if provider fields leak into portable manifests, the workload needs privileged or host access, instance metadata is reachable, credentials enter the Job, evidence cannot leave before teardown, or any expected resource remains after cleanup.
 
 ### Primary source entry points
 
