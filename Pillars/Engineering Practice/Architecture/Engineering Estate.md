@@ -36,6 +36,12 @@ Component-specific configuration, APIs, and operational procedures belong in the
 
 A distinct execution-fabric operator is prospective. Its command surface, implementation, product name and owning repository remain downstream choices; the architecture does not commit to a `techne` executable or another new repository.
 
+## Ownership Boundaries
+
+Techne owns the architectural roles, relationships and decision criteria. `ki-specifications` owns accepted normative portable contracts. `ki-agentic-harness` owns reusable agentic capabilities, while `tools-ki` owns deterministic CLI and platform behaviour it implements. Governance authority does not grant infrastructure-control authority.
+
+The personal-controller and execution-fabric-operator implementations remain explicitly unassigned. Existing products may demonstrate part of either role without becoming the architectural owner. [[Techne Fabric Execution Contract]] defines the hand-off these roles must preserve before a particular implementation or repository is selected.
+
 ## Agent Execution Responsibilities
 
 These responsibilities describe replaceable architectural roles rather than requiring one product for each role.
@@ -65,6 +71,8 @@ The agent runtime performs the authorised task inside the selected environment. 
 Git and the selected change-management process retain authoritative source, work state, result evidence, and review. Controllers and environments may cache or checkpoint state, but provider-native snapshots are not the sole recoverable hand-off.
 
 Controller records for task identity, context binding, approvals, ownership, deduplication and recovery remain operational state. Credentials remain separately managed. Neither category becomes canonical knowledge merely because the controller uses governed repositories.
+
+[[Techne Fabric Execution Contract]] defines the immutable execution bindings and evidence envelope crossing this integration boundary.
 
 ## Interaction Model
 

@@ -7,6 +7,7 @@ Architecture defines the engineering estate, AI execution model, and knowledge a
 - [[Agentic Operating Approach]]
 - [[Engineering Estate]]
 - [[AI Execution Fabric]]
+- [[Techne Fabric Execution Contract]]
 - [[Knowledge Architecture]]
 - [[Diagrams]]
 

@@ -2,7 +2,7 @@
 note_type: admin/governance/decision
 id: ADR-TECHNE-001
 title: 'Provider-neutral isolated agent execution'
-date: 2026-09-09
+date: 2026-09-16
 status: current
 decision_type: architecture
 decision_type_url: https://knowledgeislands.info/specifications/decision-records/adr
@@ -23,6 +23,10 @@ Techne adopts three explicit working modes: attached interactive work, persisten
 
 Isolation is proportionate to task authority and risk rather than mandatory for every use of AI. Provider APIs, images, and snapshots remain adapter concerns; open environment descriptions, OCI artifacts, Git references, manifests, logs, and review evidence form the portable hand-off.
 
+Every unattended execution binds its objective, immutable baseline, working context, authority, footprint identity, target-capability evidence, result destination and lifetime before admission. Deterministic admission verifies eligibility; the execution returns review evidence and cleanup status without making provider state authoritative.
+
+Techne owns the architectural meaning of this contract. Normative portable schemas and conformance rules follow the shared repository-authority decision and belong to `ki-specifications` after implementation evidence supports standardisation. Personal-controller and execution-fabric-operator implementations remain replaceable and may remain explicitly unassigned.
+
 ## Consequences
 
 - Interactive assistance can remain lightweight while persistent and unattended work receive explicit continuity and isolation controls.
@@ -31,6 +35,9 @@ Isolation is proportionate to task authority and risk rather than mandatory for 
 - Independent filesystems remove shared-path contention but not competing Git claims, change-record concurrency, or accountable review.
 - Provider-native checkpoints may improve recovery but cannot be the only authoritative copy of task state or results.
 - Implementations carry additional bootstrap, conformance, observability, and teardown work in exchange for replaceability and safer unattended execution.
+- Implementations must preserve the contract's meaning even when provider mechanisms differ.
+- A provider proof cannot define portable architecture merely by being the first working implementation.
+- Unassigned implementation ownership remains visible instead of being silently absorbed by `ki`, a runtime or a provider adapter.
 
 ## References
 

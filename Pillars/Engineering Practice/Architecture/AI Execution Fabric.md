@@ -8,6 +8,8 @@ The fabric matches a context-bound assignment and a reusable agent footprint wit
 
 The fabric is an architectural decision and operating model, not a single runtime, service, cluster or control plane. A fabric operator may implement its lifecycle, but no particular executable, repository or provider is committed here.
 
+[[Techne Fabric Execution Contract]] defines the immutable bindings, lifecycle, evidence and ownership boundary every admitted execution preserves.
+
 ## Fabric Concepts
 
 - **Working context** identifies the purpose and capacity in which the person is acting. It selects applicable knowledge, repository relationships, permissions, approval rules and eligible footprints; it is distinct from a working mode, an Agora and an access grant.
@@ -127,9 +129,9 @@ Controller operational state, credentials and environment checkpoints have their
 
 Only one active controller authority may act for a persona across deployments. Replication or relocation must prevent a stale controller from dispatching work or publishing results; the exact fencing and recovery mechanism remains an implementation decision.
 
-## Open Questions
+## Implementation Questions
 
-The current architecture does not yet define:
+The architecture-level contract now defines the information and invariants implementations must preserve. Concrete implementations still need to decide:
 
 - footprint schemas, compatibility claims and conformance tests;
 - workload classification and data-handling levels;

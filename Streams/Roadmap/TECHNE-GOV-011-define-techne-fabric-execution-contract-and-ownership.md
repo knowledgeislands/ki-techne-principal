@@ -5,14 +5,14 @@ area: GOV
 title: Define Techne Fabric execution contract and ownership
 theme: agentic-architecture
 horizon: next
-status: ready
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: [TECHNE-OPS-003]
 blocked_by: []
-baseline_ref: null
+baseline_ref: 8c5837c0674b4f588f6871777d371b27a90bbba8
 created_at: 2026-09-16T21:28:17Z
-updated_at: 2026-09-16T21:37:12Z
+updated_at: 2026-09-16T21:39:40Z
 ---
 
 # Define Techne Fabric Execution Contract and Ownership
@@ -39,12 +39,12 @@ The roles and principles are canonical, but no complete contract lets an impleme
 
 ## Steps
 
-- [ ] Reconcile the accepted Techne architecture and shared repository-ownership decision into one vocabulary for context, footprint, execution, task environment, target and evidence.
-- [ ] Define the minimum architecture-level execution contract: immutable bindings, lifecycle transitions, eligibility inputs, security and data constraints, returned evidence, cleanup, expiry, recovery and compatibility claims.
-- [ ] Define the ownership boundary between Techne semantics, portable normative specifications, governance, the personal controller, a prospective fabric operator, agent runtimes and provider adapters. Leave a role explicitly unassigned when no current repository owns it.
-- [ ] Amend `ADR-TECHNE-001` in place so its provider-neutral execution decision and consequences reflect the clarified contract and ownership boundary without turning the Decision Record into a schema.
-- [ ] Publish a canonical execution-contract chapter, integrate it with the Fabric and Engineering Estate, and update the estate diagram only where the clarified relationships materially change it.
-- [ ] Identify exact receiver-owned specifications or implementations as later trades or roadmap work. Do not create or deliver them inside this item.
+- [x] Reconcile the accepted Techne architecture and shared repository-ownership decision into one vocabulary for context, footprint, execution, task environment, target and evidence.
+- [x] Define the minimum architecture-level execution contract: immutable bindings, lifecycle transitions, eligibility inputs, security and data constraints, returned evidence, cleanup, expiry, recovery and compatibility claims.
+- [x] Define the ownership boundary between Techne semantics, portable normative specifications, governance, the personal controller, a prospective fabric operator, agent runtimes and provider adapters. Leave a role explicitly unassigned when no current repository owns it.
+- [x] Amend `ADR-TECHNE-001` in place so its provider-neutral execution decision and consequences reflect the clarified contract and ownership boundary without turning the Decision Record into a schema.
+- [x] Publish a canonical execution-contract chapter, integrate it with the Fabric and Engineering Estate, and update the estate diagram only where the clarified relationships materially change it.
+- [x] Identify exact receiver-owned specifications or implementations as later trades or roadmap work. Do not create or deliver them inside this item.
 
 ## Files touched
 
@@ -93,6 +93,44 @@ No component runbook or provider setup guide belongs in this item.
 ### Roadmap
 
 Keep `TECHNE-OPS-003` Draft and dependency-blocked. Do not promote `TECHNE-OPS-006` or resume the parked tool comparisons merely because the contract names extension points.
+
+## Review
+
+### Delivered
+
+From immutable baseline `8c5837c0674b4f588f6871777d371b27a90bbba8`, the approved boundary produced one canonical Techne Fabric execution contract, clarified the Fabric and Engineering Estate ownership model, and amended the existing provider-neutral execution decision in place. It did not create a controller, fabric operator, portable schema, provider adapter or infrastructure deployment.
+
+### Summary changes
+
+- Defined the required execution bindings, deterministic eligibility decision, observable lifecycle, invariants, evidence envelope and proof-entry criteria.
+- Assigned architecture semantics to Techne, normative portable specifications to `ki-specifications`, reusable capabilities to `ki-agentic-harness` and implemented CLI behaviour to `tools-ki`.
+- Left personal-controller and execution-fabric-operator implementations explicitly unassigned instead of inventing a product or repository owner.
+- Integrated the contract into the Techne Fabric, Engineering Estate and Architecture index.
+- Amended `ADR-TECHNE-001` as the existing owner of provider-neutral isolated execution rather than creating a duplicate decision.
+
+The estate diagram was not changed because the stable roles and relationships remain the same; the delivery clarifies the contract crossing those relationships.
+
+### Verification
+
+- `ki repo audit --skill ki-decision-records --repo .` — passed.
+- `ki repo audit --skill ki-authoring --repo .` — passed after one mechanical list-spacing correction.
+- `ki repo audit --skill ki-repo-kb-streams --repo .` — passed.
+- `ki repo audit --skill ki-repo-kb --repo .` — passed.
+- `git diff --check` — passed.
+- Wikilink review — passed for every new or changed link.
+- Judgmental review — passed: product and provider names remain replaceable mappings, each executable responsibility has an owner or is explicitly unassigned, and `TECHNE-OPS-003` can consume the contract without defining architecture through AWS implementation.
+
+### Outstanding concerns
+
+No implementation owner has yet been selected for the personal controller or fabric operator. No normative schema or conformance suite exists, and no local or provider proof has been run. Those are deliberate downstream outcomes requiring receiver-owned work and evidence; they are outside this architecture item.
+
+### Post-change review
+
+The delivery meets the goal and restores architecture-before-implementation ordering. It gives later proofs a stable semantic boundary while respecting Techne's non-goal of owning executable behaviour or portable normative contracts. The main regression risk is a future implementation silently narrowing or widening the contract through provider-specific fields; the ownership boundary and proof-entry criteria make that visible for review.
+
+### Mini recap
+
+Techne now defines what a bounded Fabric execution must preserve from intent through cleanup, who owns each layer of meaning or implementation, and what must be known before a provider proof begins. Durable learning routes to [[Techne Fabric Execution Contract]], [[AI Execution Fabric]], [[Engineering Estate]] and [[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]].
 
 ## Discussion
 
