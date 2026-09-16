@@ -9,12 +9,12 @@ theme: operational-tooling
 horizon: next
 status: draft
 priority: high
-dependencies: [TECHNE-GOV-011]
+dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-16T21:28:17Z
+updated_at: 2026-09-16T21:48:50Z
 ---
 
 # Pioneer Portable Kubernetes Agent Execution on AWS
@@ -73,7 +73,7 @@ A standard EKS control plane with one small managed node group is the leading fi
 
 ## Dependencies / blocks
 
-This proof depends on `TECHNE-GOV-011` defining the portable execution contract and assigning implementation ownership. Readiness also requires the exact implementation location, a complete cost and network envelope, a secret-delivery choice, a retained-cluster policy, a teardown test and a first generic Kubernetes verification target.
+The architecture prerequisite was accepted in `5aefbcc` and is now canonical in [[Techne Fabric Execution Contract]]. Readiness still requires the exact implementation location, a complete cost and network envelope, a secret-delivery choice, a retained-cluster policy, a teardown test and a first generic Kubernetes verification target.
 
 ## Delegation
 
