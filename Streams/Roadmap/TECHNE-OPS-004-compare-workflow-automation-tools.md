@@ -4,15 +4,15 @@ id: TECHNE-OPS-004
 area: OPS
 title: Compare workflow automation tools
 theme: operational-tooling
-horizon: next
-status: ready
+horizon: parked
+status: draft
 priority: medium
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:20:28Z
-updated_at: 2026-09-15T13:37:00Z
+updated_at: 2026-09-16T21:28:17Z
 ---
 
 # Compare Workflow Automation Tools
@@ -73,7 +73,7 @@ Current official documentation has been reviewed, but no common scenario has bee
 
 ## Dependencies / blocks
 
-There are no delivery dependencies. The programme item should run first in a shared batch so this comparison can use its settled evidence vocabulary, but this plan remains executable if that item stops.
+This investigation is parked because no named recurring Knowledge Islands workflow currently establishes a decision-useful need for a workflow engine. Reconsider it when a real workflow has measurable difficulty with durable pause and resume, retries, human approval, audit or non-agent integration, and evidence from this comparison could change an adoption decision.
 
 ## Delegation
 

@@ -4,15 +4,15 @@ id: TECHNE-OPS-005
 area: OPS
 title: Explore agent application frameworks
 theme: operational-tooling
-horizon: next
-status: ready
+horizon: parked
+status: draft
 priority: medium
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:20:28Z
-updated_at: 2026-09-15T13:38:00Z
+updated_at: 2026-09-16T21:28:17Z
 ---
 
 # Explore Agent Application Frameworks
@@ -73,7 +73,7 @@ Current official LangChain, LangGraph and LangSmith documentation and upstream l
 
 ## Dependencies / blocks
 
-There are no delivery dependencies. In a shared batch, run the programme item first to freeze the evidence vocabulary; keep this experiment and OPS-004 isolated because neither needs the other and they have distinct outputs.
+This investigation is parked because no concrete agent-runtime capability gap currently requires a framework comparison. Reconsider it when an approved Techne Fabric contract exposes a named need for durable graph state, human interruption, tool orchestration or evaluation that the direct baseline may not satisfy, and the result could change an implementation decision.
 
 ## Delegation
 
