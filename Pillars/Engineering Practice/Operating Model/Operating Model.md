@@ -145,4 +145,6 @@ The Techne Fabric in [[AI Execution Fabric]] determines which context-eligible f
 
 [[Principles]] provides the decision criteria that guide trade-offs within the operating model.
 
+[[Technology Investigation Programme]] defines how a bounded technology question becomes reproducible evidence and a proportionate recommendation.
+
 Future chapters will define the detailed operating practices for remote engineering, security, local AI, cloud AI, and elastic execution.

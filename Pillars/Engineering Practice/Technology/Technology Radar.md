@@ -217,8 +217,8 @@ Each entry is reviewed when material evidence changes and no later than its stat
 
 ## Review Practice
 
-A review should retain the current category, move the entry to another category, or retire it from the radar.
+A review should retain the current category, move the entry to another category, or retire it from the radar. [[Technology Investigation Programme]] defines the common question, source, experiment and recommendation evidence used when a candidate needs structured investigation.
 
 Material changes to the engineering estate or AI Execution Fabric should update the relevant entry as part of the same change.
 
-Technology evaluations should record the evidence that justifies a category change.
+Technology evaluations should record the evidence that justifies a category change, distinguish documented claims from observation, and state uncertainty and the next review trigger. Investigation does not itself endorse a candidate or change its category.
