@@ -12,6 +12,28 @@ work_item=TECHNE-OPS-003
 export AWS_PAGER=
 cleanup_required=true
 
+get_command_status() {
+  local command_id=$1
+  local instance_id=$2
+  local command_result
+
+  if ! command_result=$(aws ssm get-command-invocation \
+    --profile "$profile" \
+    --region "$region" \
+    --command-id "$command_id" \
+    --instance-id "$instance_id" \
+    --query Status \
+    --output text 2>&1); then
+    if [[ "$command_result" == *InvocationDoesNotExist* ]]; then
+      printf 'Pending'
+      return 0
+    fi
+    printf '%s\n' "$command_result" >&2
+    return 1
+  fi
+  printf '%s' "$command_result"
+}
+
 cleanup() {
   exit_code=$?
   trap - EXIT INT TERM
@@ -28,24 +50,25 @@ trap cleanup EXIT INT TERM
 "$script_dir/provision.sh"
 
 instance_id=$(jq -r .outputs.InstanceId "$results_dir/inventory.json")
-foundation_payload=$(
-  cat \
-    "$proof_root/manifests/namespace.yaml" \
-    "$proof_root/manifests/service-account.yaml" \
-    "$proof_root/manifests/network-policy.yaml" |
+namespace_payload=$(base64 <"$proof_root/manifests/namespace.yaml" | tr -d '\n')
+namespaced_payload=$(
+  cat "$proof_root/manifests/service-account.yaml" "$proof_root/manifests/network-policy.yaml" |
     base64 |
     tr -d '\n'
 )
 job_payload=$(base64 <"$proof_root/manifests/job.yaml" | tr -d '\n')
 
 remote_command=$(printf '%s\n' \
-  'set -euo pipefail' \
+  'set -eu' \
   'test -f /var/lib/ki-proof/ready' \
-  "printf '%s' '$foundation_payload' | base64 -d >/var/lib/ki-proof/foundation.yaml" \
+  "printf '%s' '$namespace_payload' | base64 -d >/var/lib/ki-proof/namespace.yaml" \
+  "printf '%s' '$namespaced_payload' | base64 -d >/var/lib/ki-proof/namespaced.yaml" \
   "printf '%s' '$job_payload' | base64 -d >/var/lib/ki-proof/job.yaml" \
-  '/usr/local/bin/k3s kubectl apply --dry-run=server -f /var/lib/ki-proof/foundation.yaml' \
+  '/usr/local/bin/k3s kubectl apply --dry-run=server -f /var/lib/ki-proof/namespace.yaml' \
+  '/usr/local/bin/k3s kubectl apply -f /var/lib/ki-proof/namespace.yaml' \
+  '/usr/local/bin/k3s kubectl apply --dry-run=server -f /var/lib/ki-proof/namespaced.yaml' \
+  '/usr/local/bin/k3s kubectl apply -f /var/lib/ki-proof/namespaced.yaml' \
   '/usr/local/bin/k3s kubectl apply --dry-run=server -f /var/lib/ki-proof/job.yaml' \
-  '/usr/local/bin/k3s kubectl apply -f /var/lib/ki-proof/foundation.yaml' \
   'sleep 5' \
   '/usr/local/bin/k3s kubectl -n ki-proof delete job ki-proof --ignore-not-found=true' \
   '/usr/local/bin/k3s kubectl apply -f /var/lib/ki-proof/job.yaml' \
@@ -67,13 +90,7 @@ command_id=$(aws ssm send-command \
 
 command_status=Pending
 for _ in $(seq 1 180); do
-  command_status=$(aws ssm get-command-invocation \
-    --profile "$profile" \
-    --region "$region" \
-    --command-id "$command_id" \
-    --instance-id "$instance_id" \
-    --query Status \
-    --output text 2>/dev/null || true)
+  command_status=$(get_command_status "$command_id" "$instance_id")
   case "$command_status" in
     Success)
       break

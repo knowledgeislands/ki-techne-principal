@@ -1,0 +1,22 @@
+{
+    "CommandId": "c4d451e3-64be-4612-bc23-fa10e2212222",
+    "InstanceId": "i-06657de9a8a1a675c",
+    "Comment": "TECHNE-OPS-003 run disposable workload",
+    "DocumentName": "AWS-RunShellScript",
+    "DocumentVersion": "$DEFAULT",
+    "PluginName": "aws:runShellScript",
+    "ResponseCode": 2,
+    "ExecutionStartDateTime": "2026-09-17T06:21:36.411Z",
+    "ExecutionElapsedTime": "PT0.004S",
+    "ExecutionEndDateTime": "2026-09-17T06:21:36.411Z",
+    "Status": "Failed",
+    "StatusDetails": "Failed",
+    "StandardOutputContent": "",
+    "StandardOutputUrl": "",
+    "StandardErrorContent": "/var/lib/amazon/ssm/i-06657de9a8a1a675c/document/orchestration/c4d451e3-64be-4612-bc23-fa10e2212222/awsrunShellScript/0.awsrunShellScript/_script.sh: 1: set: Illegal option -o pipefail\nfailed to run commands: exit status 2",
+    "StandardErrorUrl": "",
+    "CloudWatchOutputConfig": {
+        "CloudWatchLogGroupName": "",
+        "CloudWatchOutputEnabled": false
+    }
+}

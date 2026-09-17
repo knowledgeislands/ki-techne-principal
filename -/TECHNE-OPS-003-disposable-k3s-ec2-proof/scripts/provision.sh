@@ -15,6 +15,28 @@ work_item=TECHNE-OPS-003
 export AWS_PAGER=
 mkdir -p -- "$results_dir"
 
+get_command_status() {
+  local command_id=$1
+  local instance_id=$2
+  local command_result
+
+  if ! command_result=$(aws ssm get-command-invocation \
+    --profile "$profile" \
+    --region "$region" \
+    --command-id "$command_id" \
+    --instance-id "$instance_id" \
+    --query Status \
+    --output text 2>&1); then
+    if [[ "$command_result" == *InvocationDoesNotExist* ]]; then
+      printf 'Pending'
+      return 0
+    fi
+    printf '%s\n' "$command_result" >&2
+    return 1
+  fi
+  printf '%s' "$command_result"
+}
+
 caller_account=$(aws sts get-caller-identity --profile "$profile" --query Account --output text)
 if [[ "$caller_account" != "$expected_account" ]]; then
   printf 'Refusing AWS write: expected account %s, received %s\n' "$expected_account" "$caller_account" >&2
@@ -32,14 +54,20 @@ if aws cloudformation describe-stacks --profile "$profile" --region "$region" --
   exit 1
 fi
 
-existing_tagged=$(aws resourcegroupstaggingapi get-resources \
+existing_vpcs=$(aws ec2 describe-vpcs --profile "$profile" --region "$region" --filters "Name=tag:ki-work-item,Values=$work_item" --query 'length(Vpcs)' --output text)
+existing_subnets=$(aws ec2 describe-subnets --profile "$profile" --region "$region" --filters "Name=tag:ki-work-item,Values=$work_item" --query 'length(Subnets)' --output text)
+existing_gateways=$(aws ec2 describe-internet-gateways --profile "$profile" --region "$region" --filters "Name=tag:ki-work-item,Values=$work_item" --query 'length(InternetGateways)' --output text)
+existing_security_groups=$(aws ec2 describe-security-groups --profile "$profile" --region "$region" --filters "Name=tag:ki-work-item,Values=$work_item" --query 'length(SecurityGroups)' --output text)
+existing_instances=$(aws ec2 describe-instances \
   --profile "$profile" \
   --region "$region" \
-  --tag-filters "Key=ki-work-item,Values=$work_item" \
-  --query 'length(ResourceTagMappingList)' \
+  --filters "Name=tag:ki-work-item,Values=$work_item" Name=instance-state-name,Values=pending,running,stopping,stopped,shutting-down \
+  --query 'length(Reservations[].Instances[])' \
   --output text)
-if [[ "$existing_tagged" != "0" ]]; then
-  printf 'Refusing AWS write: found %s existing resources tagged %s\n' "$existing_tagged" "$work_item" >&2
+existing_volumes=$(aws ec2 describe-volumes --profile "$profile" --region "$region" --filters "Name=tag:ki-work-item,Values=$work_item" --query 'length(Volumes)' --output text)
+existing_total=$((existing_vpcs + existing_subnets + existing_gateways + existing_security_groups + existing_instances + existing_volumes))
+if [[ "$existing_total" -ne 0 ]]; then
+  printf 'Refusing AWS write: found %s active resources tagged %s\n' "$existing_total" "$work_item" >&2
   exit 1
 fi
 
@@ -133,7 +161,7 @@ for _ in $(seq 1 120); do
     --region "$region" \
     --filters "Key=InstanceIds,Values=$instance_id" \
     --query 'InstanceInformationList[0].PingStatus' \
-    --output text 2>/dev/null || true)
+    --output text)
   if [[ "$ping_status" == "Online" ]]; then
     ssm_online=true
     break
@@ -158,13 +186,7 @@ ready_command_id=$(aws ssm send-command \
 
 ready_status=Pending
 for _ in $(seq 1 180); do
-  ready_status=$(aws ssm get-command-invocation \
-    --profile "$profile" \
-    --region "$region" \
-    --command-id "$ready_command_id" \
-    --instance-id "$instance_id" \
-    --query Status \
-    --output text 2>/dev/null || true)
+  ready_status=$(get_command_status "$ready_command_id" "$instance_id")
   case "$ready_status" in
     Success)
       break

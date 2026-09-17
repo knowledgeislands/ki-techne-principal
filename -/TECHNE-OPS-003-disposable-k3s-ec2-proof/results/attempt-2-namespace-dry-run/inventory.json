@@ -1,0 +1,28 @@
+{
+  "account": "655383751458",
+  "expiry_at": "2026-09-17T08:23:45Z",
+  "inputs": {
+    "ami": "ami-0526a6499f6470118",
+    "image": "docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662",
+    "instance_type": "t3.medium",
+    "k3s_version": "v1.36.4+k3s1",
+    "subnet_cidr": "10.88.0.0/25",
+    "vpc_cidr": "10.88.0.0/24"
+  },
+  "outputs": {
+    "InstanceProfileName": "ki-techne-ops-003-k3s-proof-ProofInstanceProfile-SejIjZE36DOp",
+    "VpcId": "vpc-03a063b37287a1b0d",
+    "InstanceId": "i-0b0e7399a6eb27b1a",
+    "PublicIp": "108.130.151.235",
+    "SecurityGroupId": "sg-0dc057164d3cee20d",
+    "InstanceRoleName": "ki-techne-ops-003-k3s-proof-ProofInstanceRole-SXcUq1KlVAIu",
+    "SubnetId": "subnet-084f6b0152194d064"
+  },
+  "profile": "knowledge-islands-techne",
+  "proof_id": "ops003-20260917062345",
+  "region": "eu-west-1",
+  "stack_name": "ki-techne-ops-003-k3s-proof",
+  "started_at": "2026-09-17T06:23:45Z",
+  "status": "ready",
+  "ready_at": "2026-09-17T06:29:34Z"
+}

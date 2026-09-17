@@ -10,6 +10,28 @@ region=eu-west-1
 
 export AWS_PAGER=
 
+get_command_status() {
+  local command_id=$1
+  local instance_id=$2
+  local command_result
+
+  if ! command_result=$(aws ssm get-command-invocation \
+    --profile "$profile" \
+    --region "$region" \
+    --command-id "$command_id" \
+    --instance-id "$instance_id" \
+    --query Status \
+    --output text 2>&1); then
+    if [[ "$command_result" == *InvocationDoesNotExist* ]]; then
+      printf 'Pending'
+      return 0
+    fi
+    printf '%s\n' "$command_result" >&2
+    return 1
+  fi
+  printf '%s' "$command_result"
+}
+
 inventory_path="$results_dir/inventory.json"
 if [[ ! -f "$inventory_path" ]]; then
   printf 'Missing inventory evidence: %s\n' "$inventory_path" >&2
@@ -18,7 +40,7 @@ fi
 
 instance_id=$(jq -r .outputs.InstanceId "$inventory_path")
 collection_command=$(printf '%s\n' \
-  'set -euo pipefail' \
+  'set -eu' \
   "printf 'K3S_VERSION=%s\\n' \"\$(/usr/local/bin/k3s --version | head -n 1)\"" \
   "printf 'JOB_SUCCEEDED=%s\\n' \"\$(/usr/local/bin/k3s kubectl -n ki-proof get job ki-proof -o jsonpath='{.status.succeeded}')\"" \
   "printf 'POD_PHASE=%s\\n' \"\$(/usr/local/bin/k3s kubectl -n ki-proof get pods -l app.kubernetes.io/name=ki-proof -o jsonpath='{.items[0].status.phase}')\"" \
@@ -38,13 +60,7 @@ command_id=$(aws ssm send-command \
 
 command_status=Pending
 for _ in $(seq 1 120); do
-  command_status=$(aws ssm get-command-invocation \
-    --profile "$profile" \
-    --region "$region" \
-    --command-id "$command_id" \
-    --instance-id "$instance_id" \
-    --query Status \
-    --output text 2>/dev/null || true)
+  command_status=$(get_command_status "$command_id" "$instance_id")
   case "$command_status" in
     Success)
       break

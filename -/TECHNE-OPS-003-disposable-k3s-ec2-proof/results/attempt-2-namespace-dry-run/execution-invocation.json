@@ -1,0 +1,22 @@
+{
+    "CommandId": "2906116b-794d-4ae5-a3f4-ff7ecbe8e214",
+    "InstanceId": "i-0b0e7399a6eb27b1a",
+    "Comment": "TECHNE-OPS-003 run disposable workload",
+    "DocumentName": "AWS-RunShellScript",
+    "DocumentVersion": "$DEFAULT",
+    "PluginName": "aws:runShellScript",
+    "ResponseCode": 1,
+    "ExecutionStartDateTime": "2026-09-17T06:29:34.768Z",
+    "ExecutionElapsedTime": "PT0.405S",
+    "ExecutionEndDateTime": "2026-09-17T06:29:34.768Z",
+    "Status": "Failed",
+    "StatusDetails": "Failed",
+    "StandardOutputContent": "namespace/ki-proof created (server dry run)\n",
+    "StandardOutputUrl": "",
+    "StandardErrorContent": "Error from server (NotFound): error when creating \"/var/lib/ki-proof/foundation.yaml\": namespaces \"ki-proof\" not found\nError from server (NotFound): error when creating \"/var/lib/ki-proof/foundation.yaml\": namespaces \"ki-proof\" not found\nfailed to run commands: exit status 1",
+    "StandardErrorUrl": "",
+    "CloudWatchOutputConfig": {
+        "CloudWatchLogGroupName": "",
+        "CloudWatchOutputEnabled": false
+    }
+}

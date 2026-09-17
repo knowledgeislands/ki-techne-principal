@@ -1,0 +1,22 @@
+{
+    "CommandId": "676bd064-28f0-46b5-89e1-28646c18c90a",
+    "InstanceId": "i-06fbdaa7f7852ba78",
+    "Comment": "TECHNE-OPS-003 run disposable workload",
+    "DocumentName": "AWS-RunShellScript",
+    "DocumentVersion": "$DEFAULT",
+    "PluginName": "aws:runShellScript",
+    "ResponseCode": 0,
+    "ExecutionStartDateTime": "2026-09-17T06:36:27.566Z",
+    "ExecutionElapsedTime": "PT11.67S",
+    "ExecutionEndDateTime": "2026-09-17T06:36:38.566Z",
+    "Status": "Success",
+    "StatusDetails": "Success",
+    "StandardOutputContent": "namespace/ki-proof created (server dry run)\nnamespace/ki-proof created\nserviceaccount/ki-proof created (server dry run)\nnetworkpolicy.networking.k8s.io/default-deny created (server dry run)\nserviceaccount/ki-proof created\nnetworkpolicy.networking.k8s.io/default-deny created\njob.batch/ki-proof created (server dry run)\njob.batch/ki-proof created\njob.batch/ki-proof condition met\nKI_PROOF_OUTCOME_BEGIN\n{\"execution_id\":\"TECHNE-OPS-003-proof\",\"status\":\"completed\",\"metadata_access\":\"blocked\",\"outcome\":\"disposable-k3s-job-ran\"}\nKI_PROOF_OUTCOME_END\n",
+    "StandardOutputUrl": "",
+    "StandardErrorContent": "",
+    "StandardErrorUrl": "",
+    "CloudWatchOutputConfig": {
+        "CloudWatchLogGroupName": "",
+        "CloudWatchOutputEnabled": false
+    }
+}

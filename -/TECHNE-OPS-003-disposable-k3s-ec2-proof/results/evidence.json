@@ -1,0 +1,125 @@
+{
+  "assignment": {
+    "assignment_id": "TECHNE-OPS-003-proof",
+    "authority": {
+      "allowed": [
+        "run the pinned Kubernetes Job",
+        "emit deterministic outcome evidence"
+      ],
+      "denied": [
+        "AWS API access",
+        "repository publication",
+        "host access",
+        "persistent cluster mutation"
+      ]
+    },
+    "baseline_ref": "1814e88b95c1783be6183c4739779395d92161aa",
+    "evidence_destination": "local results directory",
+    "objective": "Prove a bounded workload runs on disposable K3s and cannot reach instance metadata."
+  },
+  "completed_at": "2026-09-17T06:39:39Z",
+  "execution": {
+    "image_id": "docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662",
+    "job_succeeded": 1,
+    "k3s_version": "k3s version v1.36.4+k3s1 (4dedb15b)",
+    "outcome": {
+      "execution_id": "TECHNE-OPS-003-proof",
+      "status": "completed",
+      "metadata_access": "blocked",
+      "outcome": "disposable-k3s-job-ran"
+    },
+    "pod_phase": "Succeeded"
+  },
+  "infrastructure": {
+    "account": "655383751458",
+    "expiry_at": "2026-09-17T08:31:53Z",
+    "inputs": {
+      "ami": "ami-0526a6499f6470118",
+      "image": "docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662",
+      "instance_type": "t3.medium",
+      "k3s_version": "v1.36.4+k3s1",
+      "subnet_cidr": "10.88.0.0/25",
+      "vpc_cidr": "10.88.0.0/24"
+    },
+    "outputs": {
+      "InstanceProfileName": "ki-techne-ops-003-k3s-proof-ProofInstanceProfile-XrUgPcgq8QNx",
+      "VpcId": "vpc-080f56cff4fc6e5c6",
+      "InstanceId": "i-06fbdaa7f7852ba78",
+      "PublicIp": "34.242.84.244",
+      "SecurityGroupId": "sg-0d2cc67a910db3b65",
+      "InstanceRoleName": "ki-techne-ops-003-k3s-proof-ProofInstanceRole-Y2Q3Y6uIdtYf",
+      "SubnetId": "subnet-0e06c5d84f942473d"
+    },
+    "profile": "knowledge-islands-techne",
+    "proof_id": "ops003-20260917063153",
+    "region": "eu-west-1",
+    "stack_name": "ki-techne-ops-003-k3s-proof",
+    "started_at": "2026-09-17T06:31:53Z",
+    "status": "ready",
+    "ready_at": "2026-09-17T06:36:26Z"
+  },
+  "manifest_hashes": [
+    {
+      "file": "job.yaml",
+      "sha256": "71323ee1f0f77a7d76b5743bc5f643e41b5994c537d5e7e18c8e9471144d6034"
+    },
+    {
+      "file": "namespace.yaml",
+      "sha256": "3576e4da0de52d6c96248b3bd0fa8980dd1d2a19dd2c763c0ae9b0109aa8a45b"
+    },
+    {
+      "file": "network-policy.yaml",
+      "sha256": "d8a76a4a47deaa384eff79dfc76c020f51705862b2fb44d0ef4a6800d790b0e2"
+    },
+    {
+      "file": "service-account.yaml",
+      "sha256": "403f1df217cd33896aa5ad475f289f48aa0818e56b60f4b2a580d1c7b14e6ba3"
+    }
+  ],
+  "schema_version": "proof-evidence-v0",
+  "target": {
+    "capabilities": {
+      "architecture": "amd64",
+      "container_runtime": "containerd",
+      "kubernetes_distribution": "k3s",
+      "network_policy": true,
+      "outbound_management": true
+    },
+    "connection": {
+      "method": "aws-ssm",
+      "public_listener": false
+    },
+    "lifecycle": {
+      "class": "ephemeral",
+      "maximum_seconds": 7200,
+      "owner": "TECHNE-OPS-003 CloudFormation stack"
+    },
+    "provider": {
+      "account": "655383751458",
+      "name": "aws",
+      "region": "eu-west-1"
+    },
+    "target_id": "aws-eu-west-1-disposable-k3s"
+  },
+  "teardown": {
+    "completed_at": "2026-09-17T06:40:49Z",
+    "remaining": {
+      "instance_profiles": 0,
+      "instances": 0,
+      "internet_gateways": 0,
+      "resource_arns_reported_by_tagging_api": [
+        "arn:aws:ec2:eu-west-1:655383751458:instance/i-06657de9a8a1a675c",
+        "arn:aws:ec2:eu-west-1:655383751458:instance/i-0b0e7399a6eb27b1a",
+        "arn:aws:ec2:eu-west-1:655383751458:instance/i-06fbdaa7f7852ba78"
+      ],
+      "roles": 0,
+      "security_groups": 0,
+      "subnets": 0,
+      "volumes": 0,
+      "vpcs": 0
+    },
+    "stack": "ki-techne-ops-003-k3s-proof",
+    "status": "deleted"
+  },
+  "work_item": "TECHNE-OPS-003"
+}
