@@ -8,14 +8,14 @@ aliases:
   - Disposable K3s EC2 Execution Proof
 theme: operational-tooling
 horizon: next
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 1814e88b95c1783be6183c4739779395d92161aa
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-17T06:43:47Z
+updated_at: 2026-09-17T06:51:13Z
 ---
 
 # Pioneer Disposable K3s Agent Execution on AWS
@@ -169,6 +169,10 @@ The main operational risk is loss of AWS authentication during observation or cl
 ### Mini recap
 
 Techne now has a reproducible, dependency-free proof that one bounded Kubernetes workload can execute on an ephemeral K3s/EC2 target and return durable evidence before complete teardown. Review evidence routes through `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`; long-running controller and registered-cluster work remains in [[TECHNE-OPS-007-define-long-running-controller-and-registered-execution-targets|TECHNE-OPS-007]].
+
+## Done
+
+Accepted on 2026-09-17 by Kris Brown after review of the disposable K3s execution, retained evidence, bounded cost, corrected failure modes, authentication caveat and complete teardown. The six-part review packet and repository audits provide the acceptance evidence.
 
 ## Discussion
 
