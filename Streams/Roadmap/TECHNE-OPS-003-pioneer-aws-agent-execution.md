@@ -8,14 +8,14 @@ aliases:
   - Disposable K3s EC2 Execution Proof
 theme: operational-tooling
 horizon: next
-status: ready
+status: in-progress
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: b1910bbb93fb9ea27daee4ebba9014e27add8ff4
+baseline_ref: 1814e88b95c1783be6183c4739779395d92161aa
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-17T06:09:06Z
+updated_at: 2026-09-17T06:10:39Z
 ---
 
 # Pioneer Disposable K3s Agent Execution on AWS

@@ -1,0 +1,215 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Disposable single-node K3s proof for TECHNE-OPS-003
+
+Parameters:
+  ProofId:
+    Type: String
+    AllowedPattern: '[a-z0-9-]+'
+  ExpiryAt:
+    Type: String
+  ImageId:
+    Type: AWS::EC2::Image::Id
+    Default: ami-0526a6499f6470118
+  InstanceType:
+    Type: String
+    Default: t3.medium
+    AllowedValues:
+      - t3.medium
+  K3sVersion:
+    Type: String
+    Default: v1.36.4+k3s1
+  VpcCidr:
+    Type: String
+    Default: 10.88.0.0/24
+  PublicSubnetCidr:
+    Type: String
+    Default: 10.88.0.0/25
+
+Resources:
+  ProofVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCidr
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+        - Key: ki-expiry-at
+          Value: !Ref ExpiryAt
+
+  ProofInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+
+  ProofGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref ProofInternetGateway
+      VpcId: !Ref ProofVpc
+
+  ProofSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Select [0, !GetAZs '']
+      CidrBlock: !Ref PublicSubnetCidr
+      MapPublicIpOnLaunch: true
+      VpcId: !Ref ProofVpc
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+
+  ProofRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref ProofVpc
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+
+  ProofDefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: ProofGatewayAttachment
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref ProofInternetGateway
+      RouteTableId: !Ref ProofRouteTable
+
+  ProofSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref ProofRouteTable
+      SubnetId: !Ref ProofSubnet
+
+  ProofSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: No-ingress K3s proof host
+      VpcId: !Ref ProofVpc
+      SecurityGroupEgress:
+        - Description: HTTPS for SSM, K3s and OCI image pulls
+          IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+
+  ProofInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Tags:
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+        - Key: ki-expiry-at
+          Value: !Ref ExpiryAt
+
+  ProofInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref ProofInstanceRole
+
+  ProofInstance:
+    Type: AWS::EC2::Instance
+    DependsOn: ProofDefaultRoute
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref ProofInstanceProfile
+      InstanceInitiatedShutdownBehavior: terminate
+      MetadataOptions:
+        HttpEndpoint: enabled
+        HttpProtocolIpv6: disabled
+        HttpPutResponseHopLimit: 1
+        HttpTokens: required
+        InstanceMetadataTags: enabled
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeleteOnTermination: true
+          DeviceIndex: '0'
+          GroupSet:
+            - !Ref ProofSecurityGroup
+          SubnetId: !Ref ProofSubnet
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            DeleteOnTermination: true
+            Encrypted: true
+            VolumeSize: 16
+            VolumeType: gp3
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-003-${ProofId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-003
+        - Key: ki-proof-id
+          Value: !Ref ProofId
+        - Key: ki-expiry-at
+          Value: !Ref ExpiryAt
+      UserData:
+        Fn::Base64: !Sub |
+          #!/usr/bin/env bash
+          set -euo pipefail
+          exec > >(tee /var/log/ki-proof-bootstrap.txt | logger -t ki-proof-bootstrap -s 2>/dev/console) 2>&1
+          systemctl enable --now amazon-ssm-agent.service || systemctl enable --now snap.amazon-ssm-agent.amazon-ssm-agent.service
+          systemd-run --unit=ki-proof-expiry --on-active=2h /usr/sbin/shutdown -h now
+          curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION='${K3sVersion}' INSTALL_K3S_EXEC='server --disable=traefik --disable=servicelb --write-kubeconfig-mode=0600' sh -
+          until /usr/local/bin/k3s kubectl get --raw=/readyz >/dev/null 2>&1; do
+            sleep 2
+          done
+          install -d -m 0700 /var/lib/ki-proof
+          touch /var/lib/ki-proof/ready
+
+Outputs:
+  InstanceId:
+    Value: !Ref ProofInstance
+  InstanceProfileName:
+    Value: !Ref ProofInstanceProfile
+  InstanceRoleName:
+    Value: !Ref ProofInstanceRole
+  PublicIp:
+    Value: !GetAtt ProofInstance.PublicIp
+  SecurityGroupId:
+    Value: !Ref ProofSecurityGroup
+  SubnetId:
+    Value: !Ref ProofSubnet
+  VpcId:
+    Value: !Ref ProofVpc

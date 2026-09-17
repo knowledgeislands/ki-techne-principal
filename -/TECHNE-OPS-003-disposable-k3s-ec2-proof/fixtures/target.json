@@ -1,0 +1,24 @@
+{
+  "capabilities": {
+    "architecture": "amd64",
+    "container_runtime": "containerd",
+    "kubernetes_distribution": "k3s",
+    "network_policy": true,
+    "outbound_management": true
+  },
+  "connection": {
+    "method": "aws-ssm",
+    "public_listener": false
+  },
+  "lifecycle": {
+    "class": "ephemeral",
+    "maximum_seconds": 7200,
+    "owner": "TECHNE-OPS-003 CloudFormation stack"
+  },
+  "provider": {
+    "account": "655383751458",
+    "name": "aws",
+    "region": "eu-west-1"
+  },
+  "target_id": "aws-eu-west-1-disposable-k3s"
+}
