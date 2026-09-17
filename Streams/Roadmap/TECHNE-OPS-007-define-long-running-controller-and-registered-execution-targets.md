@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-16T21:59:23Z
+updated_at: 2026-09-17T06:51:34Z
 ---
 
 # Define Long-running Controller and Registered Execution Targets
@@ -29,7 +29,7 @@ Define and prove one long-running personal controller that connects outbound to 
 
 The intended topology now has two different lifetimes. The controller is a long-running service that receives operator intent and supervises work. Registered clusters may already exist or may be provisioned temporarily; Kubernetes Jobs and their worker capacity remain ephemeral. Telegram provides an outbound control and notification surface through Bot API long polling, not the authority or durable record of work.
 
-This outcome is distinct from `TECHNE-OPS-002`, which concerns persistent human-supervised remote development sessions. It is also outside [[TECHNE-OPS-003-pioneer-aws-agent-execution|TECHNE-OPS-003]], whose local orchestration proves one disposable K3s target without implementing the controller.
+This outcome is distinct from `TECHNE-OPS-002`, which concerns persistent human-supervised remote development sessions. It is also outside the accepted `TECHNE-OPS-003` proof, whose local orchestration demonstrated one disposable K3s target without implementing the controller. Its retained evidence lives under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`.
 
 ## Boundary
 
@@ -43,7 +43,7 @@ Do not select a controller product, repository, programming language, database, 
 
 The architecture assigns controller responsibilities but no current repository owns an implementation. There is no executable controller, target registry, Telegram integration, fencing mechanism or accepted persistent-state model.
 
-`TECHNE-OPS-003` is the first planned disposable target proof. It can provide evidence about target descriptors, dispatch, result return and teardown, but its shell orchestration must not become the controller by accident.
+The accepted `TECHNE-OPS-003` proof provides evidence about target descriptors, dispatch, result return and teardown, but its shell orchestration must not become the controller by accident.
 
 ## Steps
 
@@ -75,7 +75,7 @@ The architecture assigns controller responsibilities but no current repository o
 
 ## Dependencies / blocks
 
-No local roadmap item is a hard dependency for architectural exploration. Adoption should wait until `TECHNE-OPS-003` supplies evidence about the smallest target descriptor and evidence return, and until the intended controller host, implementation owner, Telegram bot identity and credential boundary can be named.
+No local roadmap item is a hard dependency for architectural exploration. `TECHNE-OPS-003` supplied the initial target-descriptor and evidence-return proof accepted in commit `2443c07143d9508356833a8b8d48315caf58acff`; its evidence remains under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`. Adoption should still wait until the intended controller host, implementation owner, Telegram bot identity and credential boundary can be named.
 
 ## Delegation
 
@@ -97,7 +97,7 @@ An operator guide will be required for controller recovery, credential rotation,
 
 ### Roadmap
 
-This record is unadopted Triage. It may move to Soon or Next only with explicit approval after `TECHNE-OPS-003` evidence clarifies the minimum implementation boundary.
+This record is unadopted Triage. It may move to Soon or Next only with explicit approval after the accepted `TECHNE-OPS-003` evidence is reviewed against the minimum controller implementation boundary.
 
 ## Discussion
 
