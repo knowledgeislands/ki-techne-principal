@@ -8,14 +8,14 @@ aliases:
   - Kubernetes Controller Proof
 theme: operational-tooling
 horizon: next
-status: draft
+status: ready
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: a1badc84e373b73b1716a33690d75dd9a426a4d5
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-17T16:10:18Z
+updated_at: 2026-09-17T16:55:24Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
@@ -44,7 +44,7 @@ Keep controller-cluster and target-cluster authority separate. The controller re
 
 Do not make the controller provision or destroy registered clusters. Provider adapters may create capacity separately. For the live AWS proof, expose the disposable target's Kubernetes API only on private networking and only to the controller host security group; do not expose SSH, the Kubernetes API or the controller publicly.
 
-Retain the controller cluster after successful proof and tear down the disposable target. Do not provision until the human reviewer has approved the controller instance class, ongoing cost ceiling, operator identity and secret-delivery boundary. Use the existing `@kitteth_bot` identity only after read-only preflight confirms its Bot API identity and that no active webhook or other integration would be displaced.
+Retain the controller cluster after successful proof and tear down the disposable target. Use one `t3.medium` controller instance with a US$40 monthly target and US$50 monthly ceiling, including its public IPv4 address, EBS volume and ordinary proof traffic. Use the existing `@kitteth_bot` identity only after read-only preflight confirms its Bot API identity and that no active webhook or other integration would be displaced. Capture and confirm the numeric operator identity from the first private preflight update. Create the Kubernetes Secret from operator-supplied local input without writing the token to Git, shell history or retained evidence.
 
 ## Current state
 
@@ -52,7 +52,7 @@ The repository contains the accepted `TECHNE-OPS-003` K3s/EC2 proof package and 
 
 Official Telegram behaviour permits a client to confirm updates by advancing `getUpdates.offset` beyond the highest received update. A crash between dispatch and confirmation can replay an update, so deterministic Kubernetes object names and reconciliation are the proof's idempotency boundary. Kubernetes supports REST API access, namespaced RBAC, projected local service-account tokens and deterministic object names without a language client library.
 
-No controller cluster currently exists. The existing `@kitteth_bot` identity is selected for the controller, but its token has not been supplied and its webhook or polling state has not been inspected. Controller retention is approved; the instance class, ongoing cost ceiling, numeric operator identity and secret-delivery path remain to be confirmed.
+No controller cluster currently exists. The existing `@kitteth_bot` identity is selected for the controller, but its token has not been supplied and its webhook or polling state has not been inspected. Controller retention, the `t3.medium` instance class, the US$40 monthly target, the US$50 monthly ceiling and the local Kubernetes Secret delivery path are approved. The numeric operator identity will be captured and confirmed during private preflight.
 
 ## Steps
 
@@ -105,11 +105,11 @@ Offline implementation and synthetic verification have no unresolved local depen
 
 - Read-only `getMe` and `getWebhookInfo` preflight for `@kitteth_bot`, followed by its token supplied outside Git without displacing an active integration.
 - One approved Telegram operator user or chat identity.
-- An approved AWS controller-cluster instance class and ongoing cost ceiling; post-proof controller retention is approved.
+- One `t3.medium` controller instance within the approved US$40 monthly target and US$50 monthly ceiling; post-proof controller retention is approved.
 - Fresh AWS authentication to account `655383751458` in `eu-west-1` and confirmation that no conflicting controller or target resources exist.
 - Review of the time-bounded remote target credential and private Kubernetes API route.
 
-The controller package may be built and tested before these live inputs exist, but the item cannot honestly become Ready for complete delivery until they are named.
+The delivery boundary and live-input procedure are approved. Implementation may proceed from the immutable baseline; live execution must stop if the bot preflight, operator confirmation, AWS authentication, private target credential or cost guard is unavailable or fails.
 
 ## Delegation
 
