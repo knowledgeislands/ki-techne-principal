@@ -59,6 +59,8 @@ The Job emits one deterministic JSON outcome and proves it cannot reach EC2 inst
 
 Cluster state is intentionally disposable. A run is successful only when evidence exists locally and post-teardown inventory confirms that the proof VPC, subnet, route, internet gateway, instance, volume, security group and IAM resources are absent.
 
+The completed and failed-attempt evidence is indexed in [the proof results](results/README.md).
+
 ## Local verification
 
 ```bash

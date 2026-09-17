@@ -8,14 +8,14 @@ aliases:
   - Disposable K3s EC2 Execution Proof
 theme: operational-tooling
 horizon: next
-status: in-progress
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 1814e88b95c1783be6183c4739779395d92161aa
 created_at: 2026-09-08T23:54:53Z
-updated_at: 2026-09-17T06:10:39Z
+updated_at: 2026-09-17T06:43:47Z
 ---
 
 # Pioneer Disposable K3s Agent Execution on AWS
@@ -52,19 +52,19 @@ The account has no default VPC. Its only VPC is the Control Tower VPC, whose thr
 
 The selected launch inputs are Ubuntu Server 24.04 amd64 AMI `ami-0526a6499f6470118` from Canonical public parameter version 76, K3s `v1.36.4+k3s1`, and `docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662`. Current AWS Price List evidence gives `t3.medium` in EU (Ireland) as US$0.0456 per instance-hour before EBS, public IPv4 and data transfer.
 
-The proof package, CloudFormation adapter, portable manifests, selected workload image and evidence destination do not yet exist.
+The dependency-free proof package, CloudFormation adapter, portable manifests and retained evidence now exist under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/`. The successful third attempt completed on K3s and deleted the full stack; two earlier pre-workload failures are retained with their successful teardown evidence.
 
 ## Steps
 
-- [ ] At run start, assert profile `knowledge-islands-techne` resolves to account `655383751458` and region `eu-west-1`; stop on expired authentication, mismatch or newly conflicting proof resources.
-- [ ] Create a dependency-free proof package under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/` containing plain Kubernetes manifests, a CloudFormation adapter, shell orchestration, one synthetic assignment fixture and a local results directory.
-- [ ] Define one non-normative target descriptor, one bounded workload input and one evidence envelope sufficient to record execution identity, immutable image digest, resolved infrastructure, outcome, logs, verification and teardown.
-- [ ] Validate the Kubernetes resources client-side and prove that the portable paths contain no AWS API group, ARN, IAM assumption, EC2 identifier or provider annotation.
-- [ ] Provision a disposable `10.88.0.0/24` VPC, public subnet, internet gateway, route, no-ingress security group and one `t3.medium` instance through CloudFormation without touching the Control Tower VPC. Use AMI `ami-0526a6499f6470118`, an encrypted delete-on-termination root volume, IMDSv2, Systems Manager access, ownership and expiry tags, instance-initiated termination, and a two-hour fallback lifetime.
-- [ ] Install K3s `v1.36.4+k3s1` at boot, wait for readiness through Systems Manager, apply one Kubernetes Job using `docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662`, and observe it to a terminal state.
-- [ ] Collect the outcome, pod logs, resolved inputs, manifest hashes, lifecycle timings and verification evidence into the local results directory before teardown; the workload must not publish directly with operator or AWS credentials.
-- [ ] Delete the CloudFormation stack, verify the instance, volume, security group and temporary IAM resources are absent, and record actual elapsed time and cost evidence.
-- [ ] Review whether the execution contract was proportionate, identify any requirement relaxed by evidence, and route only genuinely reusable schemas or capabilities to their owning repositories as separately governed work.
+- [x] At run start, assert profile `knowledge-islands-techne` resolves to account `655383751458` and region `eu-west-1`; stop on expired authentication, mismatch or newly conflicting proof resources.
+- [x] Create a dependency-free proof package under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/` containing plain Kubernetes manifests, a CloudFormation adapter, shell orchestration, one synthetic assignment fixture and a local results directory.
+- [x] Define one non-normative target descriptor, one bounded workload input and one evidence envelope sufficient to record execution identity, immutable image digest, resolved infrastructure, outcome, logs, verification and teardown.
+- [x] Validate the Kubernetes resources through live server-side dry runs and prove that the portable paths contain no AWS API group, ARN, IAM assumption, EC2 identifier or provider annotation.
+- [x] Provision a disposable `10.88.0.0/24` VPC, public subnet, internet gateway, route, no-ingress security group and one `t3.medium` instance through CloudFormation without touching the Control Tower VPC. Use AMI `ami-0526a6499f6470118`, an encrypted delete-on-termination root volume, IMDSv2, Systems Manager access, ownership and expiry tags, instance-initiated termination, and a two-hour fallback lifetime.
+- [x] Install K3s `v1.36.4+k3s1` at boot, wait for readiness through Systems Manager, apply one Kubernetes Job using `docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662`, and observe it to a terminal state.
+- [x] Collect the outcome, pod logs, resolved inputs, manifest hashes, lifecycle timings and verification evidence into the local results directory before teardown; the workload must not publish directly with operator or AWS credentials.
+- [x] Delete the CloudFormation stack, verify the instance, volume, security group and temporary IAM resources are absent, and record actual elapsed time and cost evidence.
+- [x] Review whether the execution contract was proportionate, identify any requirement relaxed by evidence, and route only genuinely reusable schemas or capabilities to their owning repositories as separately governed work.
 
 ## Files touched
 
@@ -79,6 +79,7 @@ The proof package, CloudFormation adapter, portable manifests, selected workload
 - `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/collect-evidence.sh`
 - `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/scripts/destroy.sh`
 - `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/fixtures/assignment.json`
+- `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/fixtures/target.json`
 - `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`
 - `Streams/Roadmap/TECHNE-OPS-003-pioneer-aws-agent-execution.md`
 - Canonical Techne notes only if observed evidence changes the accepted architecture
@@ -123,7 +124,51 @@ The proof README must document exact preflight, run, evidence collection, emerge
 
 ### Roadmap
 
-Keep this item in Next and Draft until its live AWS readiness inputs are resolved. Keep persistent controller, Telegram transport and registered-target work in `TECHNE-OPS-007`; do not grow this proof into the fabric operator.
+Keep persistent controller, Telegram transport and registered-target work in `TECHNE-OPS-007`; this proof did not grow into the fabric operator.
+
+## Review
+
+### Delivered
+
+From immutable baseline `1814e88b95c1783be6183c4739779395d92161aa`, the approved boundary produced a dependency-free CloudFormation, shell and Kubernetes proof package and exercised it in AWS account `655383751458`. One disposable single-node K3s target ran the pinned workload, returned evidence locally and was deleted with its complete stack. The delivery did not introduce EKS, a package manager, a persistent controller, Telegram integration or a cluster registry.
+
+### Summary changes
+
+- Added one CloudFormation stack owning an isolated VPC, public subnet, internet route, no-ingress security group, minimal Systems Manager instance role, encrypted root volume and `t3.medium` instance with an independent two-hour termination fallback.
+- Added provider-neutral restricted Kubernetes resources: namespace, tokenless ServiceAccount, default-deny NetworkPolicy and digest-pinned Job with no privilege or writable root filesystem.
+- Added account, region, AMI, conflict and teardown guards; evidence collection; cost accounting; and fail-fast handling for expired SSO during Systems Manager observation.
+- Retained two failed pre-workload attempts and their successful teardown evidence before the third attempt completed.
+- Kept target, assignment and evidence structures explicitly non-normative and left controller work with `TECHNE-OPS-007`.
+
+### Verification
+
+- `shellcheck` and `bash -n` — passed for every proof script.
+- Kubernetes YAML parse — passed; every resource then passed live K3s server-side dry run before application. Local `kubectl apply --dry-run=client` could not perform API discovery without a local cluster, so the live server-side gate replaced it and is retained in `results/execution-invocation.json`.
+- `aws cloudformation validate-template` — passed for the retained template.
+- Portable-manifest policy check — passed: no AWS API group, ARN, IAM, EC2 or EKS field appears under `manifests/`.
+- Security review — passed: no inbound security-group rule, no service-account token, no workload AWS credential, default-deny workload networking, IMDSv2 hop limit one, and observed workload metadata access `blocked`.
+- Live execution — passed on K3s `v1.36.4+k3s1`; the Job and pod succeeded using the planned immutable image digest and emitted the expected outcome.
+- Evidence — passed for execution identity, assignment, target, image, manifest hashes, lifecycle, outcome and teardown.
+- Teardown — passed after every attempt. The stack is absent and direct checks report zero active proof VPCs, subnets, gateways, instances, volumes, security groups, instance profiles and roles.
+- Cost — 1,367 aggregate instance-seconds across three attempts; estimated EC2 compute cost US$0.01731 against the US$2 ceiling. Final ancillary billing is delayed and explicitly excluded from the estimate.
+- `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .`, and `git diff --check` — passed.
+- Package-directory check — passed: no `node_modules`, virtual environment or Python cache directory exists.
+
+### Outstanding concerns
+
+The first two attempts exposed and then corrected remote-shell portability and namespace dry-run ordering defects before any workload ran. AWS's eventually consistent tagging API still listed terminated instance identifiers after direct resource and stack checks returned zero; the unfiltered evidence is retained. The SSO session expired once during observation and required interactive refresh; polling now fails fast on authentication errors, while the instance termination timer remains the non-interactive cost fallback.
+
+The successful workload was a synthetic conformance Job, not an agent runtime. It proved the disposable execution and evidence boundary but not cross-target portability, controller recovery, Telegram interaction or registered-cluster dispatch. Delayed EBS, public IPv4 and transfer charges are not yet observable, although the short aggregate lifetime leaves substantial room below the approved ceiling.
+
+### Post-change review
+
+The delivery meets the narrowed proof goal: ordinary Kubernetes resources ran on disposable K3s inside one EC2 instance, the workload could not reach instance metadata, evidence survived cluster destruction, and no direct chargeable proof resource remains. The contract was proportionate after replacing unavailable local client dry-run with stronger live server-side validation and after separating durable evidence from cluster state.
+
+The main operational risk is loss of AWS authentication during observation or cleanup. Fail-fast polling, explicit cleanup, CloudFormation ownership and the instance's two-hour termination fallback make that visible and bounded, but a future controller will need durable credential-renewal and reconciliation behaviour. The work is ready for human acceptance review.
+
+### Mini recap
+
+Techne now has a reproducible, dependency-free proof that one bounded Kubernetes workload can execute on an ephemeral K3s/EC2 target and return durable evidence before complete teardown. Review evidence routes through `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`; long-running controller and registered-cluster work remains in [[TECHNE-OPS-007-define-long-running-controller-and-registered-execution-targets|TECHNE-OPS-007]].
 
 ## Discussion
 
