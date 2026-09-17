@@ -8,14 +8,14 @@ aliases:
   - Kubernetes Controller Proof
 theme: operational-tooling
 horizon: next
-status: ready
+status: in-progress
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: a1badc84e373b73b1716a33690d75dd9a426a4d5
+baseline_ref: a8ae843cce01b0c332fdbfbb1fa030614620ad26
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-17T16:55:24Z
+updated_at: 2026-09-17T17:18:28Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
@@ -56,10 +56,10 @@ No controller cluster currently exists. The existing `@kitteth_bot` identity is 
 
 ## Steps
 
-- [ ] Define the controller command, registered-target, execution and evidence envelopes using the accepted `TECHNE-OPS-003` fixtures as non-normative inputs.
-- [ ] Create a dependency-free proof package with Python controller source, Kubernetes manifests, synthetic Telegram fixtures, local and remote target descriptors, AWS adapters, lifecycle scripts and a retained results area.
-- [ ] Implement outbound Telegram long polling, operator allowlisting, command parsing, deterministic execution identities, visible acknowledgement and confirmation-offset handling without persistent local state.
-- [ ] Implement direct Kubernetes REST calls for Job creation, observation, log retrieval and cancellation using JSON resources, TLS verification and target-scoped bearer tokens.
+- [x] Define the controller command, registered-target, execution and evidence envelopes using the accepted `TECHNE-OPS-003` fixtures as non-normative inputs.
+- [x] Create a dependency-free proof package with Python controller source, Kubernetes manifests, synthetic Telegram fixtures, local and remote target descriptors, AWS adapters, lifecycle scripts and a retained results area.
+- [x] Implement outbound Telegram long polling, operator allowlisting, command parsing, deterministic execution identities, visible acknowledgement and confirmation-offset handling without persistent local state.
+- [x] Implement direct Kubernetes REST calls for Job creation, observation, log retrieval and cancellation using JSON resources, TLS verification and target-scoped bearer tokens.
 - [ ] Deploy the controller as one `Recreate` Deployment on a persistent single-node K3s cluster and register that cluster locally through a restricted in-cluster ServiceAccount.
 - [ ] Prove local dispatch, successful outcome return, rejected unauthorised input, duplicate-update reconciliation, controller Pod restart and failed-Job reporting.
 - [ ] Provision one independently disposable K3s target with private API access from the controller host only, issue a time-bounded namespace-scoped token and register it without granting cluster-admin or provider credentials.
