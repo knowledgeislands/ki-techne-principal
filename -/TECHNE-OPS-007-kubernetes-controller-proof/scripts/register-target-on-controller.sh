@@ -40,10 +40,6 @@ jq -n \
     token_file: ("/var/run/secrets/targets/" + $id + "-token")
   }])}' >"${targets_file}"
 
-"${kubectl_parts[@]}" -n techne-controller create configmap techne-controller-config \
-  --from-file=targets.json="${targets_file}" \
-  --dry-run=client -o yaml | "${kubectl_parts[@]}" apply -f -
-
 TARGET_BEARER_TOKEN="${TARGET_BEARER_TOKEN}" \
 TARGET_CA_FILE="${TARGET_CA_FILE}" \
 TARGET_ID="${TARGET_ID}" \
@@ -67,5 +63,8 @@ print(json.dumps({
 PY
 
 unset TARGET_BEARER_TOKEN
+"${kubectl_parts[@]}" -n techne-controller create configmap techne-controller-config \
+  --from-file=targets.json="${targets_file}" \
+  --dry-run=client -o yaml | "${kubectl_parts[@]}" apply -f -
 "${kubectl_parts[@]}" -n techne-controller rollout restart deployment/techne-controller
 "${kubectl_parts[@]}" -n techne-controller rollout status deployment/techne-controller --timeout=180s
