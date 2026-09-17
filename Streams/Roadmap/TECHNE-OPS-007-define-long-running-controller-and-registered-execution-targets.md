@@ -15,7 +15,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-17T09:52:01Z
+updated_at: 2026-09-17T16:10:18Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
@@ -28,7 +28,7 @@ Prove one long-running personal controller can run as a single-replica Kubernete
 
 [[AI Execution Fabric]], [[Engineering Estate]] and [[Techne Fabric Execution Contract]] distinguish a persistent controller from replaceable execution targets and disposable task environments. The accepted `TECHNE-OPS-003` proof demonstrated one bounded Job on disposable K3s/EC2 and retained its evidence under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`.
 
-The selected topology is one controller cluster plus zero or more registered execution clusters. The controller cluster is expected to remain available but does not require EKS, high availability or durable cluster state. It may register itself as the first local execution target. Additional targets may be persistent, independently managed or disposable, and registration does not imply the controller provisioned or owns them.
+The selected topology is one controller cluster plus zero or more registered execution clusters. The controller cluster is retained after the proof as useful shared capacity for follow-on work but does not require EKS, high availability or durable cluster state. It may register itself as the first local execution target. Additional targets may be persistent, independently managed or disposable, and registration does not imply the controller provisioned or owns them.
 
 The controller runs as a Kubernetes Deployment rather than a Job. Execution work runs as deterministic Kubernetes Jobs. The initial proof uses one persistent single-node K3s controller cluster and then adds one disposable K3s target to demonstrate the `1 + N` boundary.
 
@@ -44,7 +44,7 @@ Keep controller-cluster and target-cluster authority separate. The controller re
 
 Do not make the controller provision or destroy registered clusters. Provider adapters may create capacity separately. For the live AWS proof, expose the disposable target's Kubernetes API only on private networking and only to the controller host security group; do not expose SSH, the Kubernetes API or the controller publicly.
 
-Do not provision persistent infrastructure or create a Telegram identity until the human reviewer has approved the live cost ceiling, retention or teardown disposition, bot identity, operator identity and secret-delivery boundary.
+Retain the controller cluster after successful proof and tear down the disposable target. Do not provision until the human reviewer has approved the controller instance class, ongoing cost ceiling, operator identity and secret-delivery boundary. Use the existing `@kitteth_bot` identity only after read-only preflight confirms its Bot API identity and that no active webhook or other integration would be displaced.
 
 ## Current state
 
@@ -52,7 +52,7 @@ The repository contains the accepted `TECHNE-OPS-003` K3s/EC2 proof package and 
 
 Official Telegram behaviour permits a client to confirm updates by advancing `getUpdates.offset` beyond the highest received update. A crash between dispatch and confirmation can replay an update, so deterministic Kubernetes object names and reconciliation are the proof's idempotency boundary. Kubernetes supports REST API access, namespaced RBAC, projected local service-account tokens and deterministic object names without a language client library.
 
-No controller cluster, Telegram bot, bot token, approved operator identity or ongoing AWS spend authority currently exists.
+No controller cluster currently exists. The existing `@kitteth_bot` identity is selected for the controller, but its token has not been supplied and its webhook or polling state has not been inspected. Controller retention is approved; the instance class, ongoing cost ceiling, numeric operator identity and secret-delivery path remain to be confirmed.
 
 ## Steps
 
@@ -64,7 +64,7 @@ No controller cluster, Telegram bot, bot token, approved operator identity or on
 - [ ] Prove local dispatch, successful outcome return, rejected unauthorised input, duplicate-update reconciliation, controller Pod restart and failed-Job reporting.
 - [ ] Provision one independently disposable K3s target with private API access from the controller host only, issue a time-bounded namespace-scoped token and register it without granting cluster-admin or provider credentials.
 - [ ] Prove remote dispatch, observation, evidence return, cancellation, controller restart reconciliation, target deregistration and target teardown without affecting the controller.
-- [ ] Record infrastructure inventory, security boundaries, aggregate cost, controller retention decision and direct post-teardown checks; remove every resource not explicitly approved for retention.
+- [ ] Record infrastructure inventory, security boundaries, aggregate cost and direct post-teardown checks; retain the approved controller stack and remove the disposable target and every other unapproved resource.
 - [ ] Review whether any target, execution or evidence shape is stable enough for separately governed specification work; keep unproven fixtures non-normative.
 
 ## Files touched
@@ -94,7 +94,7 @@ No controller cluster, Telegram bot, bot token, approved operator identity or on
 - Confirm a controller Pod restart reconstructs in-flight execution state from Kubernetes and completes result reporting.
 - Confirm local and remote target Jobs return the same evidence envelope.
 - Confirm the remote target API has no public ingress and accepts only controller-originated private traffic with its time-bounded credential.
-- Confirm target deletion leaves the controller available and controller deletion is governed by the approved retention decision.
+- Confirm target deletion leaves the retained controller available, tagged and represented in the final infrastructure and cost inventory.
 - Confirm direct AWS inventory and CloudFormation checks find no unapproved proof resources after cleanup.
 - Confirm no `node_modules`, virtual environment, vendored dependency or Python cache directory exists anywhere in the repository.
 - Run `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .` and `git diff --check`.
@@ -103,9 +103,9 @@ No controller cluster, Telegram bot, bot token, approved operator identity or on
 
 Offline implementation and synthetic verification have no unresolved local dependency. Live delivery requires all of the following before provisioning or contacting Telegram:
 
-- One dedicated Telegram bot identity and token supplied outside Git.
+- Read-only `getMe` and `getWebhookInfo` preflight for `@kitteth_bot`, followed by its token supplied outside Git without displacing an active integration.
 - One approved Telegram operator user or chat identity.
-- An approved AWS controller-cluster instance class, ongoing cost ceiling and post-proof retention or teardown decision.
+- An approved AWS controller-cluster instance class and ongoing cost ceiling; post-proof controller retention is approved.
 - Fresh AWS authentication to account `655383751458` in `eu-west-1` and confirmation that no conflicting controller or target resources exist.
 - Review of the time-bounded remote target credential and private Kubernetes API route.
 
@@ -137,7 +137,7 @@ This selected Next record is the only immediate controller work. Workflow-engine
 
 ### Controller and target topology
 
-The controller cluster is the stable home of one controller Deployment. It may also be registered as a local target through a restricted ServiceAccount. Each additional cluster is registered independently and exposes a different lifecycle owner without changing the execution contract. The controller dispatches work but does not imply ownership of capacity.
+The retained controller cluster is the stable home of one controller Deployment and useful shared capacity for follow-on work. It may also be registered as a local target through a restricted ServiceAccount. Each additional cluster is registered independently and exposes a different lifecycle owner without changing the execution contract. The controller dispatches work but does not imply ownership of capacity.
 
 ### Restart and replay boundary
 
