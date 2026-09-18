@@ -26,6 +26,7 @@ Component-specific configuration, APIs, and operational procedures belong in the
 ## Current and Candidate Mappings
 
 - **Hermes Agent** is a candidate personal-controller reasoning and conversational capability. It does not define the controller role.
+- **`ki-techne-tools`** owns runnable personal-controller and execution-fabric-operator implementations while preserving those roles as separate components.
 - **`ki`** implements governance workflows for repositories, knowledge, skills and work. It is not the execution-fabric operator and should not silently acquire provider credentials or infrastructure-control responsibilities.
 - **tools-mgit** is the current deterministic engineering-operations mapping.
 - **Herdr** is the current persistent supervised-execution mapping.
@@ -34,13 +35,13 @@ Component-specific configuration, APIs, and operational procedures belong in the
 - **Tailscale** is the current private-connectivity mapping.
 - **llama.cpp** and **MLX-LM** are current local model-execution options.
 
-A distinct execution-fabric operator is prospective. Its command surface, implementation, product name and owning repository remain downstream choices; the architecture does not commit to a `techne` executable or another new repository.
+`ki-techne-tools` is the selected product repository for the execution-fabric operator and personal-controller implementation. Its command surface and internal component boundaries remain product decisions governed by the architectural roles in this chapter.
 
 ## Ownership Boundaries
 
 Techne owns the architectural roles, relationships and decision criteria. `ki-specifications` owns accepted normative portable contracts. `ki-agentic-harness` owns reusable agentic capabilities, while `tools-ki` owns deterministic CLI and platform behaviour it implements. Governance authority does not grant infrastructure-control authority.
 
-The personal-controller and execution-fabric-operator implementations remain explicitly unassigned. Existing products may demonstrate part of either role without becoming the architectural owner. [[Techne Fabric Execution Contract]] defines the hand-off these roles must preserve before a particular implementation or repository is selected.
+`ki-techne-tools` owns implementations of the personal-controller and execution-fabric-operator roles. Techne Principal retains their architectural meaning and boundaries; assigning one product repository does not merge the roles or make that repository authoritative for governed work, credentials or accepted outcomes. [[Techne Fabric Execution Contract]] defines the hand-off those implementations must preserve.
 
 ## Agent Execution Responsibilities
 

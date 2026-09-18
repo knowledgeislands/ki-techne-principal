@@ -15,7 +15,7 @@ blocks: []
 blocked_by: [TECHNE-OPS-008]
 baseline_ref: a8ae843cce01b0c332fdbfbb1fa030614620ad26
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-18T08:01:08Z
+updated_at: 2026-09-18T08:38:11Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
@@ -48,11 +48,19 @@ Retain the controller cluster after successful proof and tear down the disposabl
 
 ## Current state
 
+### Planning baseline
+
 The repository contains the accepted `TECHNE-OPS-003` K3s/EC2 proof package and evidence but no controller implementation, Telegram integration or registered-target client. AWS account `655383751458`, profile `knowledge-islands-techne` and region `eu-west-1` were validated during that proof; their current authentication and resource state must be rechecked before reuse.
 
 Official Telegram behaviour permits a client to confirm updates by advancing `getUpdates.offset` beyond the highest received update. A crash between dispatch and confirmation can replay an update, so deterministic Kubernetes object names and reconciliation are the proof's idempotency boundary. Kubernetes supports REST API access, namespaced RBAC, projected local service-account tokens and deterministic object names without a language client library.
 
 No controller cluster currently exists. The existing `@kitteth_bot` identity is selected for the controller, but its token has not been supplied and its webhook or polling state has not been inspected. Controller retention, the `t3.medium` instance class, the US$40 monthly target, the US$50 monthly ceiling and the local Kubernetes Secret delivery path are approved. The numeric operator identity will be captured and confirmed during private preflight.
+
+### Live position
+
+The retained K3s controller stack now runs on instance `i-09b1ed39bc4735eda` in AWS account `655383751458`, region `eu-west-1`. K3s reports Secret encryption enabled at rotation stage `reencrypt_finished`, with matching server hashes. The controller source uploaded from the local `ki-techne-tools` commit matches SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`.
+
+No Telegram Secret or controller Deployment exists in the `techne-controller` namespace. Live credential admission and dispatch proof remain blocked by `TECHNE-OPS-008` until the initial `ki-techne-tools` commit is published and the old executable tree has a verified retirement path. The retained controller instance, VPC and security group have not been recreated.
 
 ## Steps
 

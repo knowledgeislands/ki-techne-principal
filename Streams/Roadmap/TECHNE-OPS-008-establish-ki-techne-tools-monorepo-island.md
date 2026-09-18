@@ -7,14 +7,14 @@ aliases:
   - Techne Tools Monorepo Proposal
 theme: operational-tooling
 horizon: next
-status: ready
+status: in-progress
 priority: high
 dependencies: []
 blocks: [TECHNE-OPS-007]
 blocked_by: []
 baseline_ref: 0299112334c3ad1d4963797f0ee6f3b3cbd49adf
 created_at: 2026-09-18T07:56:58Z
-updated_at: 2026-09-18T08:01:08Z
+updated_at: 2026-09-18T08:38:11Z
 ---
 
 # Establish ki-techne-tools Monorepo Island
@@ -63,29 +63,31 @@ Adopt this work only after confirming the repository identity, ownership boundar
 
 ## Current state
 
-`knowledgeislands/ki-techne-tools` exists as a public GitHub repository with `main` and one initial README commit. A clean local sibling checkout exists at `../ki-techne-tools`. The repository has no licence, description, `.ki.toml`, workspace, package manifest or release contract. GitHub Issues are enabled, Wiki is disabled and Projects remains enabled pending repository conformance.
+`knowledgeislands/ki-techne-tools` is populated locally at commit `3e33c4e980a59e219dfb31d9b937d7bb4c3691bf`. It carries the KI repository contract, MIT licence, Bun `1.4.1` root workspace, Turborepo `2.10.13`, controller and bootstrap workspaces, Kubernetes resources, AWS adapters, provenance and operating guidance. Root checks reject package-local `node_modules` and lockfiles. The initial `git push origin main` remains unpublished because the execution environment requires a fresh explicit external-publication approval.
 
-The OPS-007 controller implementation remains under Techne Principal's temporary `-/` area. Its retained controller stack is running in AWS account `655383751458`, region `eu-west-1`, on instance `i-09b1ed39bc4735eda`. K3s is ready and the secret-free proof package is uploaded, but no Telegram Secret or controller Deployment has been created.
+GitHub description, topics, Issues, Projects, Wiki, squash-only merges, automatic branch deletion, update-branch support, dependency alerts and public secret-scanning protections match the declared policy. The live licence check remains pending until the commit containing `LICENSE` reaches GitHub.
 
-The Knowledge Islands TypeScript repositories use Bun `1.4.1`. This repository will use Bun workspaces at the root and Turborepo for task orchestration. Packages may carry manifests but must not run package-local installation, create package-local lockfiles or retain nested dependency trees.
+Reciprocal trade declarations pass locally. Agora member consent is present in `ki-techne-tools`, and the Agora home declaration is committed locally in `ki-agentic-harness` as `47b863df3cd6f4ceaf293fbfffa6b1107c23356e`; that separate commit is not pushed by this work item.
+
+The retained controller remains instance `i-09b1ed39bc4735eda` in AWS account `655383751458`, region `eu-west-1`. The package uploaded from `ki-techne-tools` matches controller source SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`. K3s reports Secret encryption enabled, rotation stage `reencrypt_finished` and matching server hashes. The `techne-controller` namespace contains no Secret or Deployment.
 
 ## Steps
 
-- [ ] Record the Techne architectural decision assigning the personal-controller and execution-fabric implementation role to `ki-techne-tools` without transferring Techne Principal's architectural authority.
-- [ ] Bootstrap the local repository with the universal KI repository contract, MIT licence, engineering and local-roadmap declarations, directional working areas and repository orientation.
+- [x] Record the Techne architectural decision assigning the personal-controller and execution-fabric implementation role to `ki-techne-tools` without transferring Techne Principal's architectural authority.
+- [x] Bootstrap the local repository with the universal KI repository contract, MIT licence, local-roadmap declaration, root engineering controls, directional working areas and repository orientation.
 - [ ] Declare reciprocal Agora and trade relationships with Techne Principal and the relevant KI islands without granting cross-repository write authority.
-- [ ] Configure GitHub description, topics, squash-only merges, linear history, automatic branch deletion, Projects, security and dependency settings to the KI repository contract.
-- [ ] Establish one Bun `1.4.1` root workspace and Turborepo task graph with a root-only installation rule and a check that rejects nested `node_modules` or lockfiles.
-- [ ] Create the initial product structure for the controller application, bootstrap tooling, Kubernetes deployment resources, AWS infrastructure adapters and end-to-end proof fixtures without speculative empty packages.
-- [ ] Migrate the executable OPS-007 source, tests, manifests, CloudFormation and operational scripts with source-commit provenance; retain sanitised results and canonical learning in Techne Principal.
-- [ ] Run the migrated offline test suite and both AWS CloudFormation validations from `ki-techne-tools`, confirming behaviour and source checksums before changing the live controller.
-- [ ] Enable K3s Secret encryption at rest through versioned infrastructure and a verified live migration before any Telegram Secret is admitted.
+- [x] Configure GitHub description, topics, squash-only merges, linear history, automatic branch deletion, Projects, security and dependency settings to the KI repository contract.
+- [x] Establish one Bun `1.4.1` root workspace and Turborepo task graph with a root-only installation rule and a check that rejects nested `node_modules` or lockfiles.
+- [x] Create the initial product structure for the controller application, bootstrap tooling, Kubernetes deployment resources, AWS infrastructure adapters and end-to-end proof fixtures without speculative empty packages.
+- [x] Migrate the executable OPS-007 source, tests, manifests, CloudFormation and operational scripts with source-commit provenance; retain sanitised results and canonical learning in Techne Principal.
+- [x] Run the migrated offline test suite and both AWS CloudFormation validations from `ki-techne-tools`, confirming behaviour and source checksums before changing the live controller.
+- [x] Enable K3s Secret encryption at rest through versioned infrastructure and a verified live migration before any Telegram Secret is admitted.
 - [ ] Re-upload the controller package from `ki-techne-tools`, prove the non-retention bootstrap route and resume OPS-007 without recreating the retained EC2 stack.
 - [ ] Replace Techne Principal's temporary executable tree with retained evidence, provenance and links only after the new repository commit and live checksum verification succeed.
 
 ## Files touched
 
-- `Admin/Governance/Decisions/ADR-TECHNE-003-assign-techne-tools-implementation-ownership.md`
+- `Admin/Governance/Decisions/ADR-TECHNE-003-techne-tools-implementation-ownership.md`
 - `Admin/Governance/Decisions/Decisions.md`
 - `Pillars/Engineering Practice/Architecture/Engineering Estate.md`
 - `Pillars/Engineering Practice/Architecture/Techne Fabric Execution Contract.md`
@@ -102,7 +104,6 @@ The Knowledge Islands TypeScript repositories use Bun `1.4.1`. This repository w
 - `../ki-techne-tools/packages/bootstrap/`
 - `../ki-techne-tools/deploy/kubernetes/`
 - `../ki-techne-tools/infra/aws/`
-- `../ki-techne-tools/tests/e2e/`
 - `../ki-techne-tools/docs/roadmap/`
 
 ## Verify
