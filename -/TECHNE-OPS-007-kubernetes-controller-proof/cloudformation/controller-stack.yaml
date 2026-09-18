@@ -30,7 +30,7 @@ Resources:
       CidrBlock: !Ref VpcCidr
       EnableDnsHostnames: true
       EnableDnsSupport: true
-      Tags: &ControllerTags
+      Tags:
         - Key: Name
           Value: !Sub ki-techne-ops-007-${ControllerId}
         - Key: ki-work-item
@@ -43,7 +43,15 @@ Resources:
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
 
   GatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
@@ -58,13 +66,29 @@ Resources:
       CidrBlock: !Ref PublicSubnetCidr
       MapPublicIpOnLaunch: true
       VpcId: !Ref ControllerVpc
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
 
   RouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId: !Ref ControllerVpc
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
 
   DefaultRoute:
     Type: AWS::EC2::Route
@@ -106,7 +130,15 @@ Resources:
           FromPort: 53
           ToPort: 53
           CidrIp: 0.0.0.0/0
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
 
   ControllerRole:
     Type: AWS::IAM::Role
@@ -120,7 +152,15 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
 
   ControllerInstanceProfile:
     Type: AWS::IAM::InstanceProfile
@@ -154,7 +194,15 @@ Resources:
             Encrypted: true
             VolumeSize: 16
             VolumeType: gp3
-      Tags: *ControllerTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-${ControllerId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-controller-id
+          Value: !Ref ControllerId
+        - Key: ki-lifecycle
+          Value: retained-controller
       UserData:
         Fn::Base64: !Sub |
           #!/usr/bin/env bash

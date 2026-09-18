@@ -52,7 +52,7 @@ Resources:
           FromPort: 53
           ToPort: 53
           CidrIp: 0.0.0.0/0
-      Tags: &TargetTags
+      Tags:
         - Key: Name
           Value: !Sub ki-techne-ops-007-target-${TargetId}
         - Key: ki-work-item
@@ -76,7 +76,17 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
-      Tags: *TargetTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-target-${TargetId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-target-id
+          Value: !Ref TargetId
+        - Key: ki-expiry-at
+          Value: !Ref ExpiryAt
+        - Key: ki-lifecycle
+          Value: disposable-target
 
   TargetInstanceProfile:
     Type: AWS::IAM::InstanceProfile
@@ -109,7 +119,17 @@ Resources:
             Encrypted: true
             VolumeSize: 16
             VolumeType: gp3
-      Tags: *TargetTags
+      Tags:
+        - Key: Name
+          Value: !Sub ki-techne-ops-007-target-${TargetId}
+        - Key: ki-work-item
+          Value: TECHNE-OPS-007
+        - Key: ki-target-id
+          Value: !Ref TargetId
+        - Key: ki-expiry-at
+          Value: !Ref ExpiryAt
+        - Key: ki-lifecycle
+          Value: disposable-target
       UserData:
         Fn::Base64: !Sub |
           #!/usr/bin/env bash
