@@ -43,7 +43,7 @@ jq -n --arg payload "${payload}" '{commands: [
   "rm -rf /opt/techne-proof",
   "install -d -m 0755 /opt/techne-proof",
   "tar -xzf /tmp/techne-proof.tar.gz -C /opt/techne-proof",
-  "chmod +x /opt/techne-proof/scripts/*.sh /opt/techne-proof/scripts/*.rb",
+  "chmod +x /opt/techne-proof/scripts/*.sh",
   "rm -f /tmp/techne-proof.tar.gz"
 ]}' >"${parameters}"
 
