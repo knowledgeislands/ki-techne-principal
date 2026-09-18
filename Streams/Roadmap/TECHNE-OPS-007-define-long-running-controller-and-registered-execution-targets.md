@@ -12,10 +12,10 @@ status: in-progress
 priority: high
 dependencies: []
 blocks: []
-blocked_by: []
+blocked_by: [TECHNE-OPS-008]
 baseline_ref: a8ae843cce01b0c332fdbfbb1fa030614620ad26
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-17T17:18:28Z
+updated_at: 2026-09-18T08:01:08Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
