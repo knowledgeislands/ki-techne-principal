@@ -37,7 +37,7 @@ tar -C "${proof_root}" -czf "${archive}" \
 payload=$(base64 <"${archive}" | tr -d '\n')
 
 jq -n --arg payload "${payload}" '{commands: [
-  "set -euo pipefail",
+  "set -eu",
   "umask 077",
   ("printf %s " + ($payload | @sh) + " | base64 -d >/tmp/techne-proof.tar.gz"),
   "rm -rf /opt/techne-proof",
