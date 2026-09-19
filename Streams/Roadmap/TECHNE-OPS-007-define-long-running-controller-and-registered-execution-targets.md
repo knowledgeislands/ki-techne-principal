@@ -12,10 +12,10 @@ status: in-progress
 priority: high
 dependencies: []
 blocks: []
-blocked_by: [TECHNE-OPS-008]
+blocked_by: []
 baseline_ref: a8ae843cce01b0c332fdbfbb1fa030614620ad26
 created_at: 2026-09-16T21:59:23Z
-updated_at: 2026-09-18T08:38:11Z
+updated_at: 2026-09-19T10:50:00Z
 ---
 
 # Prove Kubernetes Controller and Registered Execution Targets
@@ -60,7 +60,7 @@ No controller cluster currently exists. The existing `@kitteth_bot` identity is 
 
 The retained K3s controller stack now runs on instance `i-09b1ed39bc4735eda` in AWS account `655383751458`, region `eu-west-1`. K3s reports Secret encryption enabled at rotation stage `reencrypt_finished`, with matching server hashes. The controller source uploaded from the local `ki-techne-tools` commit matches SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`.
 
-No Telegram Secret or controller Deployment exists in the `techne-controller` namespace. Live credential admission and dispatch proof remain blocked by `TECHNE-OPS-008` until the initial `ki-techne-tools` commit is published and the old executable tree has a verified retirement path. The retained controller instance, VPC and security group have not been recreated.
+No Telegram Secret or controller Deployment exists in the `techne-controller` namespace. `TECHNE-OPS-008` is done: the implementation is published in `ki-techne-tools`, the retained host package checksum matches that source, K3s Secret encryption is fully re-encrypted, and Techne Principal's duplicate executable tree has been retired. Live credential admission and dispatch proof may now resume without recreating the controller instance or VPC security group.
 
 ## Steps
 
