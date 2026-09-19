@@ -14,7 +14,7 @@ blocks: [TECHNE-OPS-007]
 blocked_by: []
 baseline_ref: 0299112334c3ad1d4963797f0ee6f3b3cbd49adf
 created_at: 2026-09-18T07:56:58Z
-updated_at: 2026-09-18T08:38:11Z
+updated_at: 2026-09-19T10:40:19Z
 ---
 
 # Establish ki-techne-tools Monorepo Island
@@ -63,27 +63,27 @@ Adopt this work only after confirming the repository identity, ownership boundar
 
 ## Current state
 
-`knowledgeislands/ki-techne-tools` is populated locally at commit `3e33c4e980a59e219dfb31d9b937d7bb4c3691bf`. It carries the KI repository contract, MIT licence, Bun `1.4.1` root workspace, Turborepo `2.10.13`, controller and bootstrap workspaces, Kubernetes resources, AWS adapters, provenance and operating guidance. Root checks reject package-local `node_modules` and lockfiles. The initial `git push origin main` remains unpublished because the execution environment requires a fresh explicit external-publication approval.
+`knowledgeislands/ki-techne-tools` is published through commit `4574998` on `origin/main`. It carries the KI repository contract, MIT licence, Bun `1.4.1` root workspace, Turborepo `2.10.13`, controller and bootstrap workspaces, Kubernetes resources, AWS adapters, provenance and operating guidance. Root checks reject package-local `node_modules` and lockfiles.
 
-GitHub description, topics, Issues, Projects, Wiki, squash-only merges, automatic branch deletion, update-branch support, dependency alerts and public secret-scanning protections match the declared policy. The live licence check remains pending until the commit containing `LICENSE` reaches GitHub.
+GitHub reports the expected description, topics, Issues, disabled Projects and Wiki, squash-only merges, automatic branch deletion, update-branch support, Dependabot security updates, secret scanning with push protection and MIT licence.
 
-Reciprocal trade declarations pass locally. Agora member consent is present in `ki-techne-tools`, and the Agora home declaration is committed locally in `ki-agentic-harness` as `47b863df3cd6f4ceaf293fbfffa6b1107c23356e`; that separate commit is not pushed by this work item.
+Reciprocal trade declarations pass locally. Agora member consent is published in `ki-techne-tools`, and the Agora home declaration commit `47b863df3cd6f4ceaf293fbfffa6b1107c23356e` is present on the Harness `origin/main`. Fresh `ki-all` and `ki-fnd` Agora audits report zero findings.
 
-The retained controller remains instance `i-09b1ed39bc4735eda` in AWS account `655383751458`, region `eu-west-1`. The package uploaded from `ki-techne-tools` matches controller source SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`. K3s reports Secret encryption enabled, rotation stage `reencrypt_finished` and matching server hashes. The `techne-controller` namespace contains no Secret or Deployment.
+The retained controller remains instance `i-09b1ed39bc4735eda` in AWS account `655383751458`, region `eu-west-1`. On 19 September 2026, the package was re-uploaded from `ki-techne-tools`; the remote controller source matched SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`. K3s reported Secret encryption enabled, rotation stage `reencrypt_finished` and matching server hashes. The `techne-controller` namespace still contained no Secret or Deployment before OPS-007 resumed.
 
 ## Steps
 
 - [x] Record the Techne architectural decision assigning the personal-controller and execution-fabric implementation role to `ki-techne-tools` without transferring Techne Principal's architectural authority.
 - [x] Bootstrap the local repository with the universal KI repository contract, MIT licence, local-roadmap declaration, root engineering controls, directional working areas and repository orientation.
-- [ ] Declare reciprocal Agora and trade relationships with Techne Principal and the relevant KI islands without granting cross-repository write authority.
+- [x] Declare reciprocal Agora and trade relationships with Techne Principal and the relevant KI islands without granting cross-repository write authority.
 - [x] Configure GitHub description, topics, squash-only merges, linear history, automatic branch deletion, Projects, security and dependency settings to the KI repository contract.
 - [x] Establish one Bun `1.4.1` root workspace and Turborepo task graph with a root-only installation rule and a check that rejects nested `node_modules` or lockfiles.
 - [x] Create the initial product structure for the controller application, bootstrap tooling, Kubernetes deployment resources, AWS infrastructure adapters and end-to-end proof fixtures without speculative empty packages.
 - [x] Migrate the executable OPS-007 source, tests, manifests, CloudFormation and operational scripts with source-commit provenance; retain sanitised results and canonical learning in Techne Principal.
 - [x] Run the migrated offline test suite and both AWS CloudFormation validations from `ki-techne-tools`, confirming behaviour and source checksums before changing the live controller.
 - [x] Enable K3s Secret encryption at rest through versioned infrastructure and a verified live migration before any Telegram Secret is admitted.
-- [ ] Re-upload the controller package from `ki-techne-tools`, prove the non-retention bootstrap route and resume OPS-007 without recreating the retained EC2 stack.
-- [ ] Replace Techne Principal's temporary executable tree with retained evidence, provenance and links only after the new repository commit and live checksum verification succeed.
+- [x] Re-upload the controller package from `ki-techne-tools`, prove the non-retention bootstrap route and resume OPS-007 without recreating the retained EC2 stack.
+- [x] Replace Techne Principal's temporary executable tree with retained evidence, provenance and links only after the new repository commit and live checksum verification succeed.
 
 ## Files touched
 
