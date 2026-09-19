@@ -7,14 +7,14 @@ aliases:
   - Techne Tools Monorepo Proposal
 theme: operational-tooling
 horizon: next
-status: in-progress
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: [TECHNE-OPS-007]
 blocked_by: []
 baseline_ref: 0299112334c3ad1d4963797f0ee6f3b3cbd49adf
 created_at: 2026-09-18T07:56:58Z
-updated_at: 2026-09-19T10:40:19Z
+updated_at: 2026-09-19T10:46:06Z
 ---
 
 # Establish ki-techne-tools Monorepo Island
@@ -42,24 +42,6 @@ Enforce root-owned dependency installation and prohibit package-local installati
 Retain the existing OPS-007 controller EC2 stack while repository work proceeds. Do not destroy, recreate or expand the live infrastructure as part of repository establishment. Pause bot-secret injection and live controller deployment until the executable source has an approved implementation home and the migration path preserves the already-verified checksums and proof baseline.
 
 Do not silently absorb `tools-ki`, `tools-mgit`, Harness or unrelated engineering products. The new island owns Techne execution products and their installable artefacts, not every Knowledge Islands tool.
-
-## Discussion
-
-### Proposed product boundary
-
-An initial repository may contain controller and CLI applications, shared controller and target packages, bootstrap and provider adapters, Kubernetes and cloud deployment resources, and end-to-end tests. Exact directories, language and package boundaries belong to planning and must follow actual release cohesion rather than a speculative package taxonomy.
-
-### Existing proof migration
-
-The executable OPS-007 package currently under `-/TECHNE-OPS-007-kubernetes-controller-proof/` is migration input, not the new repository's unquestioned production architecture. Preserve its dependency-free proof behaviour, security boundaries and tests while separating retained evidence from reusable implementation.
-
-### Repository relationships
-
-The new island should import engineering knowledge from Techne Principal, consume accepted portable contracts from `ki-specifications`, and export implementation evidence or work through governed trade routes. It should not acquire authority to edit either source directly merely because it implements their decisions.
-
-### Promotion condition
-
-Adopt this work only after confirming the repository identity, ownership boundary, initial workspace and package-install policy, the OPS-007 migration sequence, relationship declarations, verification gates and treatment of the retained controller stack.
 
 ## Current state
 
@@ -109,7 +91,7 @@ The retained controller remains instance `i-09b1ed39bc4735eda` in AWS account `6
 ## Verify
 
 - Audit Techne Principal with `ki-authoring`, `ki-decision-records`, `ki-repo-kb-streams`, `ki-repo-kb`, `ki-agora` and `ki-trades`.
-- Audit `ki-techne-tools` with `ki-repo`, `ki-authoring`, `ki-git`, `ki-engineering`, `ki-work-roadmap`, `ki-agora` and `ki-trades`.
+- Audit `ki-techne-tools` with `ki-repo`, `ki-authoring`, `ki-git`, `ki-work-roadmap`, `ki-agora` and `ki-trades`; retain the explicit non-TypeScript `coverage-engineering = false` boundary and verify its Python/shell workspace through `bun run test`.
 - Confirm GitHub repository settings and public security features match the declared contract.
 - Run the root workspace checks without creating a package-local dependency directory or lockfile.
 - Run the migrated controller unit tests, shell checks, Kubernetes manifest validation and CloudFormation validation.
@@ -132,3 +114,58 @@ Keep repository ownership, cross-repository moves, Git commits and live-controll
 ## Documentation impact
 
 The implementation-owner decision and two architecture notes change canonically through this proposal. The new repository README must explain its product boundary, relationship to Techne Principal, root-only workspace rule and entry points. OPS-007 retains proof evidence and links to the implementation source; no duplicate canonical architecture is created in the product repository.
+
+## Review
+
+### Delivered
+
+From immutable baseline `0299112334c3ad1d4963797f0ee6f3b3cbd49adf`, established and published `knowledgeislands/ki-techne-tools` as the implementation-owning Techne monorepo, assigned that role through `ADR-TECHNE-003`, migrated the controller proof with provenance, published reciprocal Agora consent, verified the retained controller package, and retired the duplicate executable tree from Techne Principal while retaining sanitised evidence.
+
+### Summary changes
+
+- Added the KI repository contract, MIT licence, Bun/Turborepo root workspace, controller application, bootstrap package, Kubernetes resources, AWS adapters, operating guide, provenance and local roadmap in `ki-techne-tools`.
+- Added reciprocal Techne Principal trade routes and `ki-all`/`ki-fnd` membership, with the Harness home declarations published separately.
+- Recorded implementation ownership in Techne Principal architecture and decision records without transferring architectural authority.
+- Re-uploaded the secret-free package to the retained controller, verified its source checksum and K3s Secret-encryption state, then replaced Techne Principal's temporary executable copy with provenance and its sanitised results area.
+- Kept `ki-engineering` intentionally undeclared because Bun and Turborepo orchestrate Python and shell workspaces with no TypeScript surface; the explicit `coverage-engineering = false` repository check and root test gate preserve that boundary.
+
+### Verification
+
+- `bun run test` passed the root-only dependency-layout check, shell checks and 11 controller unit tests.
+- `AWS_PROFILE=knowledge-islands-techne AWS_REGION=eu-west-1 bun run ki:aws:validate` validated both CloudFormation templates.
+- GitHub reported the expected public identity, topics, MIT licence, squash-only merging, update-branch support, automatic branch deletion, Dependabot security updates, secret scanning and push protection.
+- `ki repo audit` passed Techne Principal authoring, decision-record, Streams, KB, Agora and trade gates.
+- `ki repo audit` passed Techne Tools repository, authoring, Git, roadmap, Agora and trade gates.
+- Fresh `ki-all` and `ki-fnd` audits reported zero findings.
+- SSM package upload completed successfully; the retained controller reported source SHA-256 `4efbca43184429c22265de6f0cb255c2437667f8599dfe555742752020a2f5c5`, Secret encryption enabled, rotation stage `reencrypt_finished` and matching server hashes.
+- `git diff --check` passed in both repositories.
+
+### Outstanding concerns
+
+None within `TECHNE-OPS-008`. Telegram credential admission, controller deployment and local/remote execution proofs remain governed by `TECHNE-OPS-007`.
+
+### Post-change review
+
+The implementation boundary now matches the architectural decision: Techne Principal retains authority and evidence, while Techne Tools owns runnable artefacts and deployment operations. No credential entered Git, chat, an SSM command parameter or retained evidence. The retained EC2 controller stack was not recreated, and the work is ready for acceptance.
+
+### Mini recap
+
+`TECHNE-OPS-008` delivered the published monorepo island, migrated the controller implementation, verified its live package continuity and removed the duplicate implementation from the knowledge base. The declared checks pass, and subsequent live proof work returns to `TECHNE-OPS-007`.
+
+## Discussion
+
+### Proposed product boundary
+
+An initial repository may contain controller and CLI applications, shared controller and target packages, bootstrap and provider adapters, Kubernetes and cloud deployment resources, and end-to-end tests. Exact directories, language and package boundaries belong to planning and must follow actual release cohesion rather than a speculative package taxonomy.
+
+### Existing proof migration
+
+The executable OPS-007 package currently under `-/TECHNE-OPS-007-kubernetes-controller-proof/` is migration input, not the new repository's unquestioned production architecture. Preserve its dependency-free proof behaviour, security boundaries and tests while separating retained evidence from reusable implementation.
+
+### Repository relationships
+
+The new island should import engineering knowledge from Techne Principal, consume accepted portable contracts from `ki-specifications`, and export implementation evidence or work through governed trade routes. It should not acquire authority to edit either source directly merely because it implements their decisions.
+
+### Promotion condition
+
+Adopt this work only after confirming the repository identity, ownership boundary, initial workspace and package-install policy, the OPS-007 migration sequence, relationship declarations, verification gates and treatment of the retained controller stack.
