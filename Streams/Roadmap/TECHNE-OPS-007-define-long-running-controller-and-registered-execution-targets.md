@@ -26,7 +26,7 @@ Prove one long-running personal controller can run as a single-replica Kubernete
 
 ## Context
 
-[[AI Execution Fabric]], [[Engineering Estate]] and [[Techne Fabric Execution Contract]] distinguish a persistent controller from replaceable execution targets and disposable task environments. The accepted `TECHNE-OPS-003` proof demonstrated one bounded Job on disposable K3s/EC2 and retained its evidence under `-/TECHNE-OPS-003-disposable-k3s-ec2-proof/results/`.
+[[AI Execution Fabric]], [[Engineering Estate]] and [[Techne Fabric Execution Contract]] distinguish a persistent controller from replaceable execution targets and disposable task environments. The accepted `TECHNE-OPS-003` proof demonstrated one bounded Job on disposable K3s/EC2; its retired proof package remains recoverable from Git history at acceptance commit `2443c07`.
 
 The selected topology is one controller cluster plus zero or more registered execution clusters. The controller cluster is retained after the proof as useful shared capacity for follow-on work but does not require EKS, high availability or durable cluster state. It may register itself as the first local execution target. Additional targets may be persistent, independently managed or disposable, and registration does not imply the controller provisioned or owns them.
 
@@ -50,7 +50,7 @@ Retain the controller cluster after successful proof and tear down the disposabl
 
 ### Planning baseline
 
-The repository contains the accepted `TECHNE-OPS-003` K3s/EC2 proof package and evidence but no controller implementation, Telegram integration or registered-target client. AWS account `655383751458`, profile `knowledge-islands-techne` and region `eu-west-1` were validated during that proof; their current authentication and resource state must be rechecked before reuse.
+At the planning baseline, the repository contained the accepted `TECHNE-OPS-003` K3s/EC2 proof package and evidence but no controller implementation, Telegram integration or registered-target client. The retired proof package remains recoverable from Git history. AWS account `655383751458`, profile `knowledge-islands-techne` and region `eu-west-1` were validated during that proof; their current authentication and resource state must be rechecked before reuse.
 
 Official Telegram behaviour permits a client to confirm updates by advancing `getUpdates.offset` beyond the highest received update. A crash between dispatch and confirmation can replay an update, so deterministic Kubernetes object names and reconciliation are the proof's idempotency boundary. Kubernetes supports REST API access, namespaced RBAC, projected local service-account tokens and deterministic object names without a language client library.
 
@@ -65,7 +65,7 @@ No Telegram Secret or controller Deployment exists in the `techne-controller` na
 ## Steps
 
 - [x] Define the controller command, registered-target, execution and evidence envelopes using the accepted `TECHNE-OPS-003` fixtures as non-normative inputs.
-- [x] Create a dependency-free proof package with Python controller source, Kubernetes manifests, synthetic Telegram fixtures, local and remote target descriptors, AWS adapters, lifecycle scripts and a retained results area.
+- [x] Create a dependency-free proof package with Python controller source, Kubernetes manifests, synthetic Telegram fixtures, local and remote target descriptors, AWS adapters, lifecycle scripts and a retained results area; migrate reusable implementation to `ki-techne-tools` and retire the Principal copy.
 - [x] Implement outbound Telegram long polling, operator allowlisting, command parsing, deterministic execution identities, visible acknowledgement and confirmation-offset handling without persistent local state.
 - [x] Implement direct Kubernetes REST calls for Job creation, observation, log retrieval and cancellation using JSON resources, TLS verification and target-scoped bearer tokens.
 - [ ] Deploy the controller as one `Recreate` Deployment on a persistent single-node K3s cluster and register that cluster locally through a restricted in-cluster ServiceAccount.
@@ -77,15 +77,11 @@ No Telegram Secret or controller Deployment exists in the `techne-controller` na
 
 ## Files touched
 
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/README.md`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/controller/controller.py`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/cloudformation/controller-stack.yaml`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/cloudformation/target-stack.yaml`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/manifests/controller/`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/manifests/execution/`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/fixtures/`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/scripts/`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/results/`
+- `../ki-techne-tools/apps/controller/`
+- `../ki-techne-tools/packages/bootstrap/`
+- `../ki-techne-tools/deploy/kubernetes/`
+- `../ki-techne-tools/infra/aws/`
+- `../ki-techne-tools/docs/guides/controller-proof.md`
 - `Streams/Roadmap/TECHNE-OPS-007-define-long-running-controller-and-registered-execution-targets.md`
 - Canonical Techne notes only if implementation evidence changes an accepted boundary
 

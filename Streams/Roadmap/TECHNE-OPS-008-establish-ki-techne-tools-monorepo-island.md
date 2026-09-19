@@ -76,7 +76,7 @@ The retained controller remains instance `i-09b1ed39bc4735eda` in AWS account `6
 - `.ki.toml`
 - `Streams/Roadmap/TECHNE-OPS-007-define-long-running-controller-and-registered-execution-targets.md`
 - `Streams/Roadmap/TECHNE-OPS-008-establish-ki-techne-tools-monorepo-island.md`
-- `-/TECHNE-OPS-007-kubernetes-controller-proof/`
+- `-/TECHNE-OPS-007-kubernetes-controller-proof/` (retired after migration)
 - `../ki-techne-tools/.ki.toml`
 - `../ki-techne-tools/README.md`
 - `../ki-techne-tools/LICENSE`
@@ -164,7 +164,7 @@ An initial repository may contain controller and CLI applications, shared contro
 
 ### Existing proof migration
 
-The executable OPS-007 package currently under `-/TECHNE-OPS-007-kubernetes-controller-proof/` is migration input, not the new repository's unquestioned production architecture. Preserve its dependency-free proof behaviour, security boundaries and tests while separating retained evidence from reusable implementation.
+The executable OPS-007 package formerly held under `-/TECHNE-OPS-007-kubernetes-controller-proof/` was migration input, not the new repository's unquestioned production architecture. Its reusable implementation now lives in `ki-techne-tools`; the retired Principal proof package remains recoverable from Git history.
 
 ### Repository relationships
 
