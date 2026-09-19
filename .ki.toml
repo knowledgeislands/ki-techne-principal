@@ -1,6 +1,8 @@
 # Knowledge Islands repository configuration.
 # Its presence declares conformance with the Knowledge Islands repository standard.
 
+# =============================================================================
+
 # -----------------------------------------------------------------------------
 # Foundation
 # -----------------------------------------------------------------------------
@@ -42,7 +44,7 @@ Resources = "Admin/Templates/source.md"
 process_note = "Admin/Operations/Processes/Enactment Process"
 
 # -----------------------------------------------------------------------------
-# Governance runtime
+# Governance and runtime
 # -----------------------------------------------------------------------------
 
 [skills.ki-decision-records]
@@ -71,36 +73,14 @@ adapter = "kb-streams"
 [skills.ki-trades]
 # Techne's engineering-hub role is visible in the generated estate map.
 map_bonus = 1
-
-[skills.ki-trades.routes."knowledgeislands/ki-agentic-harness"]
-export = ["work", "knowledge"]
-import = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-arcadia-principal"]
-import = ["knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-website"]
-export = ["knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-techne-tools"]
-export = ["work", "knowledge"]
-import = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/tools-ki"]
-export = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/tools-mgit"]
-export = ["work", "knowledge"]
-
-[skills.ki-trades.routes."krisb/dotfiles"]
-export = ["work", "knowledge"]
+routes."knowledgeislands/ki-agentic-harness" = { export = ["work", "knowledge"], import = ["work", "knowledge"] }
+routes."knowledgeislands/ki-arcadia-principal" = { import = ["knowledge"] }
+routes."knowledgeislands/ki-website" = { export = ["knowledge"] }
+routes."knowledgeislands/ki-techne-tools" = { export = ["work", "knowledge"], import = ["work", "knowledge"] }
+routes."knowledgeislands/tools-ki" = { export = ["work", "knowledge"] }
+routes."knowledgeislands/tools-mgit" = { export = ["work", "knowledge"] }
+routes."krisb/dotfiles" = { export = ["work", "knowledge"] }
 
 [skills.ki-agora]
-
-[skills.ki-agora.memberships.ki-all]
-home = "https://github.com/knowledgeislands/ki-agentic-harness"
-role = "maintainer"
-
-[skills.ki-agora.memberships.ki-fnd]
-home = "https://github.com/knowledgeislands/ki-agentic-harness"
-role = "maintainer"
+memberships.ki-all = { home = "https://github.com/knowledgeislands/ki-agentic-harness", role = "maintainer" }
+memberships.ki-fnd = { home = "https://github.com/knowledgeislands/ki-agentic-harness", role = "maintainer" }
