@@ -74,12 +74,12 @@ The evidence envelope is proportionate to consequence. A read-only documentation
 - **`ki-specifications`** owns any accepted normative portable schema, conformance rule, template or reference example.
 - **`ki-agentic-harness`** owns reusable agentic capabilities and harness-compatible semantics that implementations can expose.
 - **`tools-ki`** owns CLI and deterministic platform behaviour it implements; governance commands do not thereby become fabric operation.
-- **`ki-techne-tools` personal-controller implementation** owns persona continuity, execution identity, context binding, delegated authority, credential brokerage, supervision and result integration in runnable software.
-- **`ki-techne-tools` execution-fabric-operator implementation** owns admission enforcement, provisioning, dispatch, observation, evidence return and cleanup through replaceable adapters.
+- **`ki-techne-harness` personal-controller implementation** owns persona continuity, execution identity, context binding, delegated authority, credential brokerage, supervision and result integration in runnable software.
+- **`ki-techne-harness` execution-fabric-operator implementation** owns admission enforcement, provisioning, dispatch, observation, evidence return and cleanup through replaceable adapters.
 - **Agent runtimes** own task performance inside the admitted environment without redefining authority or evidence.
 - **Provider adapters** translate the portable contract to provider operations without exporting provider-specific fields into the architecture-level contract.
 
-The two implementation roles share a product repository but remain architecturally distinct. `ki-techne-tools` owns runnable implementation and release choices; Techne Principal owns the meaning and decision criteria in this contract.
+The two implementation roles share a product repository but remain architecturally distinct. `ki-techne-harness` owns runnable implementation and release choices; Techne Principal owns the meaning and decision criteria in this contract.
 
 ## Proof Entry Criteria
 
@@ -97,6 +97,6 @@ A successful proof demonstrates the same execution bindings and evidence meaning
 
 [[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]] records the provider-neutral isolation decision.
 
-[[ADR-TECHNE-003-techne-tools-implementation-ownership|ADR-TECHNE-003]] records the implementation-owner decision.
+[[ADR-TECHNE-003-techne-harness-implementation-ownership|ADR-TECHNE-003]] records the implementation-owner decision.
 
 Return to [[Architecture]].

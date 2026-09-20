@@ -1,7 +1,7 @@
 ---
 note_type: admin/governance/decision
 id: ADR-TECHNE-003
-title: 'Techne tools implementation ownership'
+title: 'Techne Harness implementation ownership'
 date: 2026-09-18
 status: current
 decision_type: architecture
@@ -9,7 +9,7 @@ decision_type_url: https://knowledgeislands.info/specifications/decision-records
 decision_depends_on: [GDR-TECHNE-001, ADR-TECHNE-001, ADR-TECHNE-002]
 ---
 
-# ADR-TECHNE-003: Techne tools implementation ownership
+# ADR-TECHNE-003: Techne Harness implementation ownership
 
 ## Context
 
@@ -19,9 +19,9 @@ The controller and fabric roles share release, bootstrap, deployment and integra
 
 ## Decision
 
-Techne assigns `knowledgeislands/ki-techne-tools` as the product repository for runnable personal-controller and execution-fabric-operator implementations. It is one independently governed monorepo island for controller services, bootstrap tooling, deployment resources, provider adapters and their verification. The architectural roles remain distinct inside the product boundary and may separate later through another explicit decision.
+Techne assigns `knowledgeislands/ki-techne-harness` as the product repository for runnable personal-controller and execution-fabric-operator implementations. It is one independently governed monorepo island for controller services, bootstrap tooling, deployment resources, provider adapters and their verification. The architectural roles remain distinct inside the product boundary and may separate later through another explicit decision.
 
-Techne Principal retains authority for engineering meaning, roles, invariants and decision criteria. `ki-techne-tools` consumes that knowledge and owns implementation choices, source code, packaging, releases and operational documentation. It does not own persona identity, governed work, credentials, canonical execution evidence or accepted portable specifications merely because its software processes them.
+Techne Principal retains authority for engineering meaning, roles, invariants and decision criteria. `ki-techne-harness` consumes that knowledge and owns implementation choices, source code, packaging, releases and operational documentation. It does not own persona identity, governed work, credentials, canonical execution evidence or accepted portable specifications merely because its software processes them.
 
 ## Consequences
 
@@ -29,7 +29,7 @@ Techne Principal retains authority for engineering meaning, roles, invariants an
 - The monorepo can ship coordinated installable artefacts while keeping one root dependency installation and one task graph.
 - Implementations must preserve Techne's controller, authority, target and evidence boundaries without copying canonical architecture into product documentation.
 - Operational credentials and state remain outside Git; bootstrap routes may deliver them directly to an authorised runtime store.
-- Techne Principal and `ki-techne-tools` require explicit reciprocal work and knowledge routes, but neither repository gains write authority over the other.
+- Techne Principal and `ki-techne-harness` require explicit reciprocal work and knowledge routes, but neither repository gains write authority over the other.
 - A later repository split remains possible when an independently versioned product boundary outweighs coordination cost.
 
 ## References

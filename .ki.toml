@@ -76,7 +76,7 @@ map_bonus = 1
 routes."knowledgeislands/ki-agentic-harness" = { export = ["work", "knowledge"], import = ["work", "knowledge"] }
 routes."knowledgeislands/ki-arcadia-principal" = { import = ["knowledge"] }
 routes."knowledgeislands/ki-website" = { export = ["knowledge"] }
-routes."knowledgeislands/ki-techne-tools" = { export = ["work", "knowledge"], import = ["work", "knowledge"] }
+routes."knowledgeislands/ki-techne-harness" = { export = ["work", "knowledge"], import = ["work", "knowledge"] }
 routes."knowledgeislands/tools-ki" = { export = ["work", "knowledge"] }
 routes."knowledgeislands/tools-mgit" = { export = ["work", "knowledge"] }
 routes."krisb/dotfiles" = { export = ["work", "knowledge"] }

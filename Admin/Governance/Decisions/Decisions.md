@@ -13,5 +13,5 @@ Records are ordered by reveal order — the logical sequence in which the decisi
 2. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — Knowledge Islands ecosystem fundamentals
 3. [ADR-TECHNE-001](ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md) — provider-neutral roles and boundaries for isolated agent execution.
 4. [ADR-TECHNE-002](ADR-TECHNE-002-one-persona-across-explicit-working-contexts.md) — one persona per person across explicit, authority-bound working contexts.
-5. [ADR-TECHNE-003](ADR-TECHNE-003-techne-tools-implementation-ownership.md) — `ki-techne-tools` owns runnable controller and execution-fabric implementations.
+5. [ADR-TECHNE-003](ADR-TECHNE-003-techne-harness-implementation-ownership.md) — `ki-techne-harness` owns runnable controller and execution-fabric implementations.
 6. [GDR-TECHNE-002](GDR-TECHNE-002-governing-technology-investigations.md) — finite, evidence-backed technology investigations and their ownership.
