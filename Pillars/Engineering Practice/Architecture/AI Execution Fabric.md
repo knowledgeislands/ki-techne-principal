@@ -2,9 +2,11 @@
 
 ## Purpose
 
+Techne Fabric can carry mechanical, agentic and hybrid work. A **workload footprint** is the general declaration of runtime, tools, environment and operating requirements; an agent footprint is the agentic specialisation that includes an agent runtime. The common execution boundary does not require AI where a purpose-built program is sufficient.
+
 Techne Fabric is the reader-facing name for the provider-neutral architecture also identified in existing notes and links as the AI Execution Fabric.
 
-The fabric matches a context-bound assignment and a reusable agent footprint with an eligible execution target. It separates workload requirements from infrastructure choice, so that the engineering estate can use local, managed, elastic or dedicated capacity without coupling the overall architecture to a single provider.
+The fabric matches a context-bound assignment and a reusable workload footprint with an eligible execution target. It separates workload requirements from infrastructure choice, so that the engineering estate can use local, managed, elastic or dedicated capacity without coupling the overall architecture to a single provider.
 
 The fabric is an architectural decision and operating model, not a single runtime, service, cluster or control plane. A fabric operator may implement its lifecycle, but no particular executable, repository or provider is committed here.
 
@@ -12,8 +14,9 @@ The fabric is an architectural decision and operating model, not a single runtim
 
 ## Fabric Concepts
 
+- **Workload footprint** — a reusable declaration of the runtime, tools, environment requirements, compatible target capabilities, resource and network constraints, state handling and readiness checks for mechanical, agentic or hybrid work. An agent runtime is optional.
 - **Working context** identifies the purpose and capacity in which the person is acting. It selects applicable knowledge, repository relationships, permissions, approval rules and eligible footprints; it is distinct from a working mode, an Agora and an access grant.
-- **Agent footprint** is a reproducible declaration of an agent runtime, tools, environment requirements, compatible target capabilities, resource and network constraints, state handling, readiness checks and supported human attachment.
+- **Agent footprint** specialises a workload footprint with an agent runtime, agent tools, state behaviour and supported human attachment.
 - **Execution** binds one objective, immutable repository baseline, working context, footprint, authority, evidence destination and lifetime. An execution retains that binding if the person later selects another context elsewhere.
 - **Task environment** is the bounded filesystem, process, network and isolation boundary in which a worker carries out the execution.
 - **Execution target** supplies eligible capacity and substrate capabilities. A deployment is one configured realisation of controller, worker, model or supporting services on one or more targets.
@@ -23,15 +26,17 @@ A footprint's declared capabilities, the footprints supported by an implementati
 
 ## Execution Selection Axes
 
+The workload form is selected independently of placement. A mechanical, agentic or hybrid workload can use any eligible target whose declared capabilities satisfy its footprint.
+
 Execution placement, task isolation and component placement are separate decisions. Select these axes independently for each workload:
 
 - **Controller placement** — where persona continuity, policy, task identity and lifecycle supervision operate.
 - **Worker execution tier** — where the task environment runs: local, managed, elastic or dedicated.
 - **Model-inference placement** — where an eligible model capability runs; it need not be colocated with either controller or worker.
 - **Sandbox substrate** — the filesystem, process, network, and isolation boundary supplied to the task.
-- **Agent footprint** — the reusable runtime and operating-envelope declaration selected for the assignment.
+- **Workload footprint** — the reusable runtime and operating-envelope declaration selected for the assignment; it identifies an agent runtime only when the workload requires one.
 - **Bootstrap profile** — the portable environment-preparation subset of a footprint: required tools, capabilities, configuration shape, state classes and readiness checks.
-- **Agent runtime** — the implementation that performs the bounded task inside the selected environment.
+- **Agent runtime** — where required, the implementation that performs the agentic portion of the bounded task inside the selected environment.
 
 A persistent controller may coordinate identity, context binding, policy, credential brokerage, lifecycle and result integration across these axes. Git and the selected change-management process remain authoritative outside any one controller, environment or provider snapshot.
 

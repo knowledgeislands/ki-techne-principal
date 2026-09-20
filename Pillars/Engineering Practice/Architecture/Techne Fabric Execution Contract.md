@@ -2,13 +2,17 @@
 
 ## Purpose
 
-The Techne Fabric execution contract defines the architecture-level information and invariants required to admit, run, review and clean up one bounded agent execution. It lets controllers, operators, runtimes and execution targets remain replaceable while preserving the same intent, authority and evidence boundary.
+The same contract applies to mechanical, agentic and hybrid work. In this chapter, a workload footprint is the general execution declaration; an agent footprint is the special case that includes an agent runtime. Admission and lifecycle control remain deterministic even when the admitted work uses reasoning.
+
+The Techne Fabric execution contract defines the architecture-level information and invariants required to admit, run, review and clean up one bounded work execution. It lets controllers, operators, runtimes and execution targets remain replaceable while preserving the same intent, authority and evidence boundary.
 
 This chapter defines meaning and responsibility. It is not a portable schema, API, provider adapter or component runbook. Normative schemas and conformance rules belong to `ki-specifications` after implementations supply enough evidence to standardise them.
 
 ## Contract Boundary
 
-An execution contract binds one objective to one immutable repository baseline, one working context, one authority envelope, one versioned agent footprint, one eligible execution target, one evidence destination and one lifetime. Admission records the binding before consequential work begins.
+An execution contract does not require a permanently running agent or worker. A controller session may create several executions, and an execution may recover into a replacement task environment while retaining its identity and authority. [[Governed Work Controller]] defines those identity boundaries.
+
+An execution contract binds one objective to one immutable repository baseline, one working context, one authority envelope, one versioned workload footprint, one eligible execution target, one evidence destination and one lifetime. Admission records the binding before consequential work begins.
 
 The contract does not grant authority. It carries authority already established through the applicable governance and approval process. A target, runtime, network path, repository checkout or conversational interface cannot widen it.
 
@@ -20,7 +24,7 @@ Every execution identifies:
 - the immutable source revision and intended result destination;
 - the working context, applicable repositories, data-handling constraints and review path;
 - the authority source, allowed operations, approval points, expiry and revocation behaviour;
-- the agent-footprint identity and version, runtime, tools, bootstrap requirements, resource bounds, state behaviour and supported human attachment;
+- the workload-footprint identity and version, runtime, tools, bootstrap requirements, resource bounds, state behaviour and supported human attachment;
 - the target identity and declared capabilities used to establish eligibility;
 - the filesystem, process and network isolation expected from the task environment;
 - the credential classes and network destinations permitted without embedding credential values;

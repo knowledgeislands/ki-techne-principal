@@ -12,7 +12,9 @@ Component-specific configuration, APIs, and operational procedures belong in the
 
 ## Architectural Roles
 
-- **Personal agent controller** — maintains persona continuity, task identity, context binding, delegated authority, lifecycle supervision and result integration. Reasoning may propose work, while trusted deterministic boundaries enforce consequential operations.
+The personal-controller role coordinates governed work across deterministic, agentic and hybrid paths. Its reasoning capability is optional for a particular request; its identity, policy and lifecycle responsibilities are not. [[Governed Work Controller]] defines the detailed boundary.
+
+- **Personal controller** — maintains persona and session continuity, task identity, context binding, delegated authority, lifecycle supervision and result integration across mechanical, agentic and hybrid work. Reasoning may propose work, while trusted deterministic boundaries enforce consequential operations.
 - **Governance layer** — selects and advances governed work, knowledge and repository relationships without acquiring execution-provider authority.
 - **Deterministic operations layer** — performs defined engineering operations repeatably and exposes an accountable control boundary.
 - **Execution-fabric operator** — prospectively matches an authorised execution with an eligible footprint and target, then manages provisioning, dispatch, observation, evidence return and cleanup through replaceable adapters.
@@ -43,11 +45,13 @@ Techne owns the architectural roles, relationships and decision criteria. `ki-sp
 
 `ki-techne-harness` owns implementations of the personal-controller and execution-fabric-operator roles. Techne Principal retains their architectural meaning and boundaries; assigning one product repository does not merge the roles or make that repository authoritative for governed work, credentials or accepted outcomes. [[Techne Fabric Execution Contract]] defines the hand-off those implementations must preserve.
 
-## Agent Execution Responsibilities
+## Work Execution Responsibilities
+
+These responsibilities apply to mechanical, agentic and hybrid workloads. Agent-specific responsibilities specialise the common workload boundary rather than defining every execution.
 
 These responsibilities describe replaceable architectural roles rather than requiring one product for each role.
 
-### Agent Controller
+### Controller
 
 The controller owns task or session identity, selected working context, delegated policy, credential brokerage, lifecycle supervision, and result integration. It selects or invokes an eligible execution target without making that target authoritative for the work. One persona across several contexts does not permit state or authority to cross their boundaries.
 
@@ -58,6 +62,10 @@ The task environment supplies the bounded filesystem, process, network, and isol
 ### Bootstrap Profile
 
 The bootstrap profile declares the tools, capabilities, configuration shape, state classes, and readiness checks required by the task. It remains consumable independently of one workstation configuration manager or provider snapshot.
+
+### Workload Footprint
+
+A workload footprint declares the runtime, tools, environment and operating constraints needed for one class of work. It may select a purpose-built program, an agent runtime or a hybrid composition. It contains no assignment credentials or repository contents.
 
 ### Agent Footprint
 

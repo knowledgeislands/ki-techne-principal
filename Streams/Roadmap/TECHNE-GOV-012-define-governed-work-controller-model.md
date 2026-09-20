@@ -7,14 +7,14 @@ aliases:
   - Governed Work Controller Model
 theme: agentic-architecture
 horizon: now
-status: ready
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: 33777042d5e2583e61608b1da6567ce349e00232
+baseline_ref: af2ffe281c632ed43315d32f53cff57cedbbe24b
 created_at: 2026-09-20T18:40:17Z
-updated_at: 2026-09-20T18:40:17Z
+updated_at: 2026-09-20T18:44:26Z
 ---
 
 # Define Governed Work Controller Model
@@ -47,13 +47,13 @@ Do not edit `ki-techne-harness`, `ki-specifications`, `ki-agentic-harness` or an
 
 ## Steps
 
-- [ ] Publish a canonical governed-work controller chapter that defines deterministic, agentic and hybrid request and workload paths.
-- [ ] Define controller session, workload, execution, task environment and worker responsibilities without coupling identity to a pod or deployment.
-- [ ] State that controller-side reasoning uses bounded controller operations shared with deterministic command handlers and cannot widen authority.
-- [ ] Generalise Fabric terminology from an agent-only footprint to a workload footprint that may include an agent runtime.
-- [ ] Describe the evolution path from exploratory agent behaviour to registered workload and, where justified, deterministic controller behaviour.
-- [ ] Integrate the model with the Architecture index, operating approach, engineering estate, Fabric and execution contract.
-- [ ] Amend `TECHNE-OPS-009` so its evaluation distinguishes the first mechanical workload proof from a later bounded agent-session proof.
+- [x] Publish a canonical governed-work controller chapter that defines deterministic, agentic and hybrid request and workload paths.
+- [x] Define controller session, workload, execution, task environment and worker responsibilities without coupling identity to a pod or deployment.
+- [x] State that controller-side reasoning uses bounded controller operations shared with deterministic command handlers and cannot widen authority.
+- [x] Generalise Fabric terminology from an agent-only footprint to a workload footprint that may include an agent runtime.
+- [x] Describe the evolution path from exploratory agent behaviour to registered workload and, where justified, deterministic controller behaviour.
+- [x] Integrate the model with the Architecture index, operating approach, engineering estate, Fabric and execution contract.
+- [x] Amend `TECHNE-OPS-009` so its evaluation distinguishes the first mechanical workload proof from a later bounded agent-session proof.
 
 ## Files touched
 
@@ -103,6 +103,41 @@ Add one focused chapter and make minimal terminology amendments to the existing 
 ### Roadmap
 
 Keep `TECHNE-OPS-009` focused on workload choice. It should recognise repository verification as a mechanical proof and record bounded agent-session support as distinct follow-on evidence, not expand into implementation.
+
+## Review
+
+### Delivered
+
+Delivered the approved architecture clarification from immutable baseline `af2ffe281c632ed43315d32f53cff57cedbbe24b`. The change defines the controller as a coordinator of governed mechanical, agentic and hybrid work, generalises the Fabric footprint boundary and updates the first-workload decision without changing executable systems or another repository.
+
+### Summary changes
+
+- Added `[[Governed Work Controller]]` as the canonical model for request routing, workload forms, session and execution identity, worker responsibility and progressive mechanisation.
+- Integrated the model into `[[Architecture]]`, `[[Agentic Operating Approach]]`, `[[Engineering Estate]]`, `[[AI Execution Fabric]]` and `[[Techne Fabric Execution Contract]]`.
+- Generalised the reusable execution declaration to a workload footprint while retaining an agent footprint as its agentic specialisation.
+- Updated `TECHNE-OPS-009` to distinguish evidence from a mechanical workload proof, bounded agent execution and session continuity.
+
+### Verification
+
+- `rumdl fmt` passed on every changed Markdown file after applying three safe list-spacing fixes.
+- `ki repo audit --skill ki-authoring --repo .` passed.
+- `ki repo audit --skill ki-repo-kb-streams --repo .` passed.
+- `ki repo audit --skill ki-repo-kb --repo .` passed.
+- `ki repo audit --skill ki-work --repo .` passed.
+- `git diff --check` passed.
+- Review confirmed `[[Governed Work Controller]]` resolves uniquely and the changed architecture retains independent controller, worker and model-inference placement.
+
+### Outstanding concerns
+
+No concern blocks review of this architecture change. It does not prove a natural-language controller path, durable controller-session storage or a bounded agent runtime; those remain implementation evidence rather than claims made by this work.
+
+### Post-change review
+
+The delivered documents meet the goal and remain within the approved documentation-only boundary. Mechanical and agentic paths now converge on one deterministic authority surface, session identity is separate from disposable compute, and existing provider-neutral isolation decisions remain intact. The change is ready for owner acceptance.
+
+### Mini recap
+
+Techne now describes one governed-work controller with mechanical, agentic and hybrid paths. OPS-009 remains the decision about the first useful workload and can evaluate repository verification as a mechanical proof without implying that agent-session continuity has been demonstrated. Runnable consequences should become separately governed work in `ki-techne-harness` after the workload decision supplies a concrete boundary.
 
 ## Discussion
 

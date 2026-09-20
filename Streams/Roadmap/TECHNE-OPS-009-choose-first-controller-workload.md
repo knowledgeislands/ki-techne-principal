@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: 3841157dafb64c3d97ae645aa195997c87a6bd7f
 created_at: 2026-09-20T06:47:49Z
-updated_at: 2026-09-20T10:36:45Z
+updated_at: 2026-09-20T18:44:26Z
 ---
 
 # Choose First Controller Workload
@@ -25,6 +25,8 @@ Choose the first useful workload for the retained Techne controller, then decide
 
 ## Context
 
+[[Governed Work Controller]] defines the common controller model: requests and workloads may be mechanical, agentic or hybrid, while all consequential paths use the same bounded operations and execution authority. This item chooses a first workload within that model; it does not need the first workload to prove every workload form.
+
 `TECHNE-OPS-007` proved the complete local control loop from an authorised Telegram command through the controller and an isolated Kubernetes Job back to a Telegram result. It deliberately stopped before provisioning a second cluster because infrastructure topology should follow a real workload rather than become the product by default.
 
 The next decision is what outcome the controller should produce for its operator. A concrete workload supplies the missing evidence for runtime, isolation, latency, durability, cost, credential, recovery and capacity requirements.
@@ -32,6 +34,8 @@ The next decision is what outcome the controller should produce for its operator
 One evidence-backed seed candidate already exists: run the standard automated verification for a named Knowledge Islands repository at an immutable Git revision and return a sanitised pass/fail summary. The manual code-review checklist explicitly requires automated gates first, and repository work repeatedly runs these checks before human judgement. This candidate has plain operator value but is not selected in advance; it must be compared with any other candidate grounded in observed work.
 
 ## Boundary
+
+Treat repository verification as a candidate mechanical workload proof. Do not treat its success as proof of natural-language interpretation, controller-session continuity or a bounded agent runtime; those require distinct follow-on evidence.
 
 Choose and specify a workload; do not implement it in this item. Do not provision another cluster, alter the retained controller, adopt a workflow engine, add durable controller state, connect a repository credential or generalise proof fixtures.
 
@@ -49,6 +53,7 @@ The repository-verification seed candidate is grounded in `+/manual-code-review-
 
 ## Steps
 
+- [ ] Classify each candidate as mechanical, agentic or hybrid and state which controller and execution boundaries its proof would actually exercise.
 - [ ] Identify candidate controller workloads from observed repeated work, adopted roadmap needs or existing operating responsibilities; record the source and operator value of each.
 - [ ] Define a compact comparison covering trigger, input, output, authority, idempotency, runtime, resources, credentials, network, evidence, recovery, failure handling and frequency.
 - [ ] Evaluate the repository-verification seed candidate and any other evidence-backed candidates without implementing or provisioning them.
@@ -65,6 +70,7 @@ The repository-verification seed candidate is grounded in `+/manual-code-review-
 
 ## Verify
 
+- The recommendation states whether it proves mechanical execution, bounded agent execution, session continuity or a named combination, without implying untested coverage.
 - Every considered candidate cites an observed repeated task, adopted roadmap need or existing operating responsibility and states a plain operator outcome.
 - The comparison applies the same decision criteria to every candidate and distinguishes required behaviour from preferred implementation.
 - The recommended workload has a complete, bounded execution envelope with explicit authority, credential, network, failure, recovery, evidence and cleanup behaviour.
