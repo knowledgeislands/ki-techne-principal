@@ -119,6 +119,7 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] Decision records describe the current state, consolidated, rather than accumulating history.
 - [ ] A shared decision record is updated coherently in every repository that projects it.
 - [ ] Documentation states the present state and not the journey to it.
+- [ ] Every guide under `docs/guides/` lives in an explicit audience subdirectory, such as `user/`, `developer/`, or `agent/`.
 - [ ] Every cross-reference resolves, and cites the record that is actually current.
 - [ ] No document repeats content that another document owns; it links instead.
 - [ ] The README positions the repository within the estate.
