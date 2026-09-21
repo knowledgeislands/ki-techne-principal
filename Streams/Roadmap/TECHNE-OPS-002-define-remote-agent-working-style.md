@@ -2,7 +2,7 @@
 note_type: stream-proposal
 id: TECHNE-OPS-002
 area: OPS
-title: Define remote agent working style
+title: Remote agent working style
 aliases:
   - Remote Agent Working Style Proposal
 theme: operational-tooling
@@ -14,10 +14,10 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T22:33:40Z
-updated_at: 2026-09-08T23:54:53Z
+updated_at: 2026-09-21T23:57:20Z
 ---
 
-# Define Remote Agent Working Style
+# Remote Agent Working Style
 
 ## Goal
 
