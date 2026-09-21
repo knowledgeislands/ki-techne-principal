@@ -7,14 +7,14 @@ aliases:
   - Techne Controller Workload Decision
 theme: operational-tooling
 horizon: now
-status: ready
+status: in-progress
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: 3841157dafb64c3d97ae645aa195997c87a6bd7f
+baseline_ref: 549fef31dc9b76b20d5a80029cd5968fd2837551
 created_at: 2026-09-20T06:47:49Z
-updated_at: 2026-09-20T18:44:26Z
+updated_at: 2026-09-20T19:23:56Z
 ---
 
 # Choose First Controller Workload
@@ -65,8 +65,8 @@ The repository-verification seed candidate is grounded in `+/manual-code-review-
 ## Files touched
 
 - `Streams/Roadmap/TECHNE-OPS-009-choose-first-controller-workload.md`
-- `Resources/Controller Workload Evaluation.md`
-- `Resources/Resources.md`
+- `Pillars/Engineering Practice/Architecture/Controller Workload Evaluation.md`
+- `Pillars/Engineering Practice/Architecture/Architecture.md`
 
 ## Verify
 
@@ -97,9 +97,9 @@ No Decision Record is expected unless the evaluation proposes a new durable arch
 
 Do not create a portable workload specification from one selected use case. Route a reusable contract to `ki-specifications` only after implementation evidence demonstrates stability.
 
-### Resources
+### Canonical architecture
 
-Publish the candidate evidence, comparison, recommendation and uncertainty in `Resources/Controller Workload Evaluation.md`, indexed from `Resources/Resources.md`.
+Publish the candidate evidence, comparison, recommendation and uncertainty in `Pillars/Engineering Practice/Architecture/Controller Workload Evaluation.md`, indexed from `Architecture.md`. This corrects the planned location because the evaluation is Techne's own settled engineering knowledge, not external reference material that belongs in `Resources/`.
 
 ### Roadmap
 
