@@ -7,14 +7,14 @@ aliases:
   - Techne Controller Workload Decision
 theme: operational-tooling
 horizon: now
-status: in-progress
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 549fef31dc9b76b20d5a80029cd5968fd2837551
 created_at: 2026-09-20T06:47:49Z
-updated_at: 2026-09-20T19:23:56Z
+updated_at: 2026-09-21T23:55:01Z
 ---
 
 # Choose First Controller Workload
@@ -53,14 +53,14 @@ The repository-verification seed candidate is grounded in `+/manual-repo-review-
 
 ## Steps
 
-- [ ] Classify each candidate as mechanical, agentic or hybrid and state which controller and execution boundaries its proof would actually exercise.
-- [ ] Identify candidate controller workloads from observed repeated work, adopted roadmap needs or existing operating responsibilities; record the source and operator value of each.
-- [ ] Define a compact comparison covering trigger, input, output, authority, idempotency, runtime, resources, credentials, network, evidence, recovery, failure handling and frequency.
-- [ ] Evaluate the repository-verification seed candidate and any other evidence-backed candidates without implementing or provisioning them.
-- [ ] Recommend one first workload or an explicit no-selection outcome, recording why alternatives are weaker or premature.
-- [ ] Specify the recommended workload's bounded execution envelope independently of Kubernetes, AWS, Telegram or a particular agent framework.
-- [ ] Decide whether the existing `local` target satisfies that envelope; identify another target only if a concrete unmet requirement justifies it.
-- [ ] Publish the evaluation as a Techne Resource and state the exact follow-on implementation boundary, owning repository and acceptance condition without adopting that follow-on automatically.
+- [x] Classify each candidate as mechanical, agentic or hybrid and state which controller and execution boundaries its proof would actually exercise.
+- [x] Identify candidate controller workloads from observed repeated work, adopted roadmap needs or existing operating responsibilities; record the source and operator value of each.
+- [x] Define a compact comparison covering trigger, input, output, authority, idempotency, runtime, resources, credentials, network, evidence, recovery, failure handling and frequency.
+- [x] Evaluate the repository-verification seed candidate and any other evidence-backed candidates without implementing or provisioning them.
+- [x] Recommend one first workload or an explicit no-selection outcome, recording why alternatives are weaker or premature.
+- [x] Specify the recommended workload's bounded execution envelope independently of Kubernetes, AWS, Telegram or a particular agent framework.
+- [x] Decide whether the existing `local` target satisfies that envelope; identify another target only if a concrete unmet requirement justifies it.
+- [x] Publish the evaluation as canonical Techne architecture and state the exact follow-on implementation boundary, owning repository and acceptance condition without adopting that follow-on automatically.
 
 ## Files touched
 
@@ -104,6 +104,40 @@ Publish the candidate evidence, comparison, recommendation and uncertainty in `P
 ### Roadmap
 
 Do not automatically create or adopt implementation work. The accepted recommendation may later generate a bounded record in the owning implementation repository through the governed trade route.
+
+## Review
+
+### Delivered
+
+Delivered the approved workload decision from immutable baseline `549fef31dc9b76b20d5a80029cd5968fd2837551`. The evaluation selects `repository.verify` as the first useful mechanical workload, retains the registered `local` target and defines a bounded follow-on for `knowledgeislands/ki-techne-harness` without creating or adopting implementation work.
+
+### Summary of changes
+
+- Compared repository verification, advisory code review and persistent supervised agent sessions against the same operator-value, authority, runtime, evidence and recovery concerns.
+- Selected immutable-revision repository verification as the first mechanical workload and identified advisory code review as the strongest likely subsequent hybrid proof.
+- Defined the workload's identity, read-only authority, isolation, resource ceilings, package-library handling, idempotency, result envelope, failure taxonomy and cleanup behaviour.
+- Kept `local` as the first execution target because no current workload requirement justifies another cluster.
+- Corrected the planned output route from `Resources/` to canonical architecture because this evaluation is internal settled engineering knowledge, not external reference material.
+
+### Verification
+
+- The evaluation distinguishes mechanical execution evidence from bounded agent execution and controller-session continuity.
+- Each candidate is grounded in an existing review responsibility or adopted roadmap record and states a concrete operator outcome.
+- The selected envelope excludes arbitrary repository URLs, branches, package commands and shell text; it grants no repository write, controller credential or Kubernetes authority.
+- Package-library folders are confined to an execution-scoped ephemeral volume and cannot persist in the controller image, host repository or a shared package subfolder.
+- `ki repo audit --skill ki-authoring --repo .`, `ki repo audit --skill ki-repo-kb-streams --repo .`, `ki repo audit --skill ki-repo-kb --repo .`, `ki repo audit --skill ki-work --repo .` and `git diff --check` pass.
+
+### Outstanding concerns
+
+The 15-minute, 1-vCPU, 2-GiB memory and 5-GiB ephemeral-storage ceilings are first-proof assumptions that implementation must test. This decision does not yet prove repository checkout, private-source credentials, agentic review, session continuity or the implementation's pass, failure, cancellation, timeout, redaction and cleanup paths.
+
+### Post-change review
+
+The result meets the approved decision-only boundary. It names a useful first workload without turning Kubernetes or AWS into the product, retains one cluster because the workload fits it and keeps implementation authority in the owning tools repository. No controller configuration, credential, cluster, cloud resource or executable code changed.
+
+### Mini recap
+
+Techne should next route a separately governed implementation proposal to `knowledgeislands/ki-techne-harness` when repository verification is selected for delivery. That work should prove one successful and one intentionally failing immutable-revision verification on `local`; this record does not create or authorise it automatically.
 
 ## Discussion
 
