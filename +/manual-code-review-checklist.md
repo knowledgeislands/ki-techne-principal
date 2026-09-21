@@ -12,7 +12,7 @@ author: Mixed
 
 ## Purpose
 
-This manual repository pass covers the judgement that automated gates cannot make across code, documentation, governance, and operational setup. Run the automated gates first, then work this checklist against what they cannot see.
+This checklist captures the high-level judgement a person applies to each repository: whether it meets its needs and fulfils its place in the wider ecosystem. Run the automated gates first, then work through the checklist against what they cannot see across code, documentation, governance, and operational setup.
 
 Each item is atomic and answerable yes or no. An item that needs a paragraph to answer is hiding a second item.
 
@@ -39,6 +39,10 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] The lockfile is current and dependency versions are consistent across workspaces.
 - [ ] No gate was made to pass by widening an ignore list rather than fixing the cause.
 - [ ] Every suppression comment added in this change names a reason.
+
+## Repository purpose
+
+- [ ] The repository fulfils its delineated responsibility within the wider project ecosystem.
 
 ## Structure and modularity
 
