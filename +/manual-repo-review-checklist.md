@@ -152,6 +152,7 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] Scripts accept arguments in the same style as their siblings.
 - [ ] Scripts fail loudly with a non-zero exit rather than continuing on error.
 - [ ] Anything runnable is reachable from the declared task surface.
+- [ ] Website servers use a deterministic port outside tests so start and stop operations can target them reliably.
 - [ ] Nothing depends on a path outside the repository without declaring it.
 
 ## Language and presentation
