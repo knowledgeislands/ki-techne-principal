@@ -14,6 +14,10 @@ author: Mixed
 
 This checklist captures the high-level judgement a person applies to each repository: whether it meets its needs and fulfils its place in the wider ecosystem. It externalises each repository's stable baseline so its purpose, settled state, and outstanding change do not have to be held in personal memory. It moves from ecosystem fit and repository responsibility through architecture and implementation to detailed evidence and final disposition.
 
+`Manual` means the review is deliberately invoked and interpreted, not that a person must perform every step. A person may run it directly or ask an agent to gather evidence, apply selected lenses, and draft findings for human judgement.
+
+The checklist supplies default lenses for an ad hoc review. It is not a universal score, an automatic compliance standard, or permission to change the repository.
+
 Each item is atomic and answerable yes or no. An item that needs a paragraph to answer is hiding a second item.
 
 Items were derived from recurring review requests across the estate between August and September 2026. The checklist is a living record: when a review finds something this list did not ask for, add the question here.
@@ -26,12 +30,36 @@ A failed item is a finding, not a blocker. Record it, decide whether it lands no
 
 Prefer deleting an item that never fires over keeping it out of completeness.
 
+## Review method and output
+
+- [ ] The review states its purpose before inspection begins.
+- [ ] The review states its repository boundary and exclusions.
+- [ ] The review states its intended readers and time horizon.
+- [ ] The review states which checklist sections it applies and why any section is omitted.
+- [ ] The review is read-only unless separate authority explicitly permits changes.
+- [ ] A broad review uses independent product, human-experience, and engineering lenses before reconciling findings.
+- [ ] Evidence covers repository orientation, current work, decisions, specifications, guides, implementation, tests, and relevant live state within scope.
+- [ ] Each material claim is labelled as observed, inferred, or user-confirmed.
+- [ ] Each material finding cites its evidence.
+- [ ] Each material finding states its consequence and confidence.
+- [ ] Each material finding proposes a durable route or explicitly recommends no action.
+- [ ] Findings distinguish defects, intentional current boundaries, and future capabilities.
+- [ ] The output begins with a concise outcome summary.
+- [ ] The output includes a maturity scorecard for the reviewed areas.
+- [ ] The output identifies the strongest choices to retain.
+- [ ] The output prioritises material findings rather than presenting an undifferentiated inventory.
+- [ ] The output proposes a bounded delivery sequence with dependencies.
+- [ ] The output states what changed and where review evidence remains.
+
 ## Repository purpose and stability
 
 - [ ] The repository fulfils its delineated responsibility within the wider project ecosystem.
 - [ ] The repository has a clear stable baseline against which future change can be judged.
 - [ ] The repository records enough of that baseline that maintaining it does not depend on personal memory.
 - [ ] Every known departure from the stable baseline is explicit and represented by active work.
+- [ ] The product or operating model forms a coherent path from declared intent through execution to observable outcome.
+- [ ] Claims about maturity, supported environments, and wider applicability match proven use.
+- [ ] Intentional current boundaries are distinguished from defects and future capabilities.
 
 ## Repository governance
 
@@ -101,6 +129,17 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] Error paths return actionable information rather than a generic failure.
 - [ ] Input from outside the process is validated at the boundary.
 - [ ] The contract is stated somewhere a consumer will find it.
+- [ ] Every operation makes its authority, effective scope, and material consequences clear before mutation.
+- [ ] Selection, application, switching, and deselection semantics are explicit wherever managed state can persist.
+- [ ] Concurrent mutations have an explicit ownership or serialisation model.
+
+## Human use and configuration
+
+- [ ] The primary user path reaches a recognisable end-to-end result before advanced mechanics are introduced.
+- [ ] Realistic configuration remains readable, editable, and reviewable at its actual scale.
+- [ ] Status and preview surfaces distinguish declared intent, observed state, and planned change.
+- [ ] Examples are copyable, realistic, and show the result a reader should recognise.
+- [ ] Human-facing rationales explain why a choice exists rather than merely restating that it is declared.
 
 ## Security and data
 
@@ -122,6 +161,15 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] The toolchain is on the intended leading-edge version, not drifting behind.
 - [ ] No dependency was added where an existing one already does the job.
 - [ ] A new runtime dependency is justified against vendoring or a pinned reference.
+
+## Performance, maintainability, and release
+
+- [ ] Representative operations have explicit performance budgets and meet them against realistic data.
+- [ ] Slow operations expose progress without progress masking avoidable latency in ordinary queries.
+- [ ] The distribution contract does not force authored source into a monolith that raises change coupling.
+- [ ] Version output, changelog, installation instructions, documentation, and released artifacts describe the same release state.
+- [ ] Development-only behaviour is clearly distinguished from the latest released behaviour.
+- [ ] Any published or deployed surface is demonstrably derived from declared current source, or explicitly described as independent.
 
 ## Duplication and reuse
 
@@ -174,6 +222,8 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] Unused-code analysis reports no unused files, exports, or dependencies.
 - [ ] Markdown lint passes.
 - [ ] The lockfile is current and dependency versions are consistent across workspaces.
+- [ ] Verification exercises representative real-scale data as well as minimal fixtures.
+- [ ] Relevant live configuration and runtime state are compared with their declared sources without exposing private values.
 - [ ] No gate was made to pass by widening an ignore list rather than fixing the cause.
 - [ ] Every suppression comment added in this change names a reason.
 
@@ -181,5 +231,6 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 
 - [ ] Claims about the live state were verified against the live state, not recalled.
 - [ ] Every finding is either fixed, recorded as a roadmap item, or explicitly accepted.
+- [ ] The final judgement states what the repository is suitable for now and what claims it is not yet ready to make.
 - [ ] Anything learned that generalises was routed back into the relevant skill or practice note.
 - [ ] Anything this review needed to ask, and this checklist did not, has been added above.
