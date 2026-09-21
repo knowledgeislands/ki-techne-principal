@@ -49,7 +49,7 @@ The retained `t3.medium` controller and its restricted `local` target are live a
 
 `TECHNE-OPS-007` was accepted and pruned after proving two successful local Jobs and Telegram result return. Fly.io intake was rejected because the current K3s approach satisfies the known substrate need. No current evidence requires another target.
 
-The repository-verification seed candidate is grounded in `+/manual-code-review-checklist.md`, which identifies automated gates as a recurring prerequisite to manual review. No candidate workload has yet been selected or authorised for implementation.
+The repository-verification seed candidate is grounded in `+/manual-repo-review-checklist.md`, which includes automated verification as evidence within a broader repository review. No candidate workload has yet been selected or authorised for implementation.
 
 ## Steps
 

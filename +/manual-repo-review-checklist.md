@@ -8,7 +8,7 @@ tags:
 author: Mixed
 ---
 
-# Manual Repository Review Checklist
+# Manual Repo Review Checklist
 
 ## Purpose
 
@@ -53,19 +53,24 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 - [ ] A repository is named after the smallest brand that accurately covers everything it contains.
 - [ ] Renames were propagated to every reference, including documentation and configuration.
 
-## Decision records and documentation
+## Documentation and knowledge
 
+- [ ] Documentation presents one consolidated account of the repository's current responsibility, behaviour, and intended direction.
+- [ ] A human can follow the repository's story without reconstructing it from file layout, commit history, agent-only metadata, or unstated context.
+- [ ] Documentation progressively reveals purpose and concepts before procedures, implementation detail, and reference material.
+- [ ] Each subject has one authoritative home; other documents link to it rather than repeating it.
+- [ ] Historical change remains in version control or explicitly historical records instead of current-state guidance.
+- [ ] Decision records state the current decision, its rationale, and its future consequences rather than accumulating a chronological change history.
 - [ ] Amend an existing decision record in place rather than creating a successor that merely clarifies or expands scope.
 - [ ] Supersede a decision record only when the decision is genuinely reversed.
-- [ ] Decision records describe the current state, consolidated, rather than accumulating history.
 - [ ] A shared decision record is updated coherently in every repository that projects it.
-- [ ] Documentation states the present state and not the journey to it.
+- [ ] Guide areas make their intended audience, task, and reading path obvious.
 - [ ] Every guide under `docs/guides/` lives in an explicit audience subdirectory, such as `user/`, `developer/`, or `agent/`.
+- [ ] Specifications state observable behaviour, constraints, and acceptance evidence precisely enough for implementation and review.
+- [ ] Skill definitions make their triggers, ownership, dependencies, boundaries, and operating modes understandable to a human reviewer.
 - [ ] Every cross-reference resolves, and cites the record that is actually current.
-- [ ] No document repeats content that another document owns; it links instead.
 - [ ] The README positions the repository within the estate.
 - [ ] Anything that could be a skill has been made one.
-- [ ] Less is more, and comprehension is the goal.
 
 ## Necessity and over-engineering
 
