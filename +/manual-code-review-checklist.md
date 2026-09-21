@@ -12,7 +12,7 @@ author: Mixed
 
 ## Purpose
 
-This checklist captures the high-level judgement a person applies to each repository: whether it meets its needs and fulfils its place in the wider ecosystem. It moves from ecosystem fit and repository responsibility through architecture and implementation to detailed evidence and final disposition.
+This checklist captures the high-level judgement a person applies to each repository: whether it meets its needs and fulfils its place in the wider ecosystem. It externalises each repository's stable baseline so its purpose, settled state, and outstanding change do not have to be held in personal memory. It moves from ecosystem fit and repository responsibility through architecture and implementation to detailed evidence and final disposition.
 
 Each item is atomic and answerable yes or no. An item that needs a paragraph to answer is hiding a second item.
 
@@ -26,9 +26,12 @@ A failed item is a finding, not a blocker. Record it, decide whether it lands no
 
 Prefer deleting an item that never fires over keeping it out of completeness.
 
-## Repository purpose
+## Repository purpose and stability
 
 - [ ] The repository fulfils its delineated responsibility within the wider project ecosystem.
+- [ ] The repository has a clear stable baseline against which future change can be judged.
+- [ ] The repository records enough of that baseline that maintaining it does not depend on personal memory.
+- [ ] Every known departure from the stable baseline is explicit and represented by active work.
 
 ## Repository governance
 
