@@ -8,11 +8,11 @@ tags:
 author: Mixed
 ---
 
-# Manual Code Review Checklist
+# Manual Repository Review Checklist
 
 ## Purpose
 
-This is the manual pass: the judgement that automated gates cannot make. Run the automated gates first, then work this checklist against what they cannot see.
+This manual repository pass covers the judgement that automated gates cannot make across code, documentation, governance, and operational setup. Run the automated gates first, then work this checklist against what they cannot see.
 
 Each item is atomic and answerable yes or no. An item that needs a paragraph to answer is hiding a second item.
 
@@ -29,6 +29,8 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 ## Automated gates first
 
 - [ ] The full verification task exits zero.
+- [ ] `ki repo repair` completes without unresolved KI-managed projection repairs.
+- [ ] `ki repo diag` reports every declared repository skill and its local projection healthy.
 - [ ] `ki repo audit` reports `FAIL=0`.
 - [ ] Formatter and linter report no findings.
 - [ ] Type checking passes with no suppressed errors.
@@ -153,6 +155,9 @@ Prefer deleting an item that never fires over keeping it out of completeness.
 ## Repository governance
 
 - [ ] The repository declaration reflects what the repository now contains.
+- [ ] The declared skill set covers every governance capability the repository uses, including capabilities without an automatic detection signal.
+- [ ] Every declared runtime-bound skill is linked into the repository through a KI-managed local projection.
+- [ ] No skill remains declared after the capability it governs has left the repository.
 - [ ] A substantive change to a canonical zone went through the enactment process.
 - [ ] The work record exists and its status matches reality.
 - [ ] Commit messages follow the conventional format and describe the change, not the session.
