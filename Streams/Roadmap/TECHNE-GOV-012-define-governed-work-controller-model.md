@@ -7,14 +7,14 @@ aliases:
   - Governed Work Controller Model
 theme: agentic-architecture
 horizon: now
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: af2ffe281c632ed43315d32f53cff57cedbbe24b
 created_at: 2026-09-20T18:40:17Z
-updated_at: 2026-09-20T18:44:26Z
+updated_at: 2026-09-21T23:55:00Z
 ---
 
 # Define Governed Work Controller Model
@@ -110,7 +110,7 @@ Keep `TECHNE-OPS-009` focused on workload choice. It should recognise repository
 
 Delivered the approved architecture clarification from immutable baseline `af2ffe281c632ed43315d32f53cff57cedbbe24b`. The change defines the controller as a coordinator of governed mechanical, agentic and hybrid work, generalises the Fabric footprint boundary and updates the first-workload decision without changing executable systems or another repository.
 
-### Summary changes
+### Summary of changes
 
 - Added `[[Governed Work Controller]]` as the canonical model for request routing, workload forms, session and execution identity, worker responsibility and progressive mechanisation.
 - Integrated the model into `[[Architecture]]`, `[[Agentic Operating Approach]]`, `[[Engineering Estate]]`, `[[AI Execution Fabric]]` and `[[Techne Fabric Execution Contract]]`.
@@ -138,6 +138,10 @@ The delivered documents meet the goal and remain within the approved documentati
 ### Mini recap
 
 Techne now describes one governed-work controller with mechanical, agentic and hybrid paths. OPS-009 remains the decision about the first useful workload and can evaluate repository verification as a mechanical proof without implying that agent-session continuity has been demonstrated. Runnable consequences should become separately governed work in `ki-techne-harness` after the workload decision supplies a concrete boundary.
+
+## Done
+
+Accepted on 22 September 2026 by Kris Brown after review of the governed-work controller model, its mechanical, agentic and hybrid paths, the bounded controller authority surface and the separate session, execution and worker responsibilities. The corrected six-part review packet and delivery commit `549fef31dc9b76b20d5a80029cd5968fd2837551` provide the acceptance evidence.
 
 ## Discussion
 
