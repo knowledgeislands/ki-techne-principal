@@ -7,14 +7,14 @@ aliases:
   - Techne Implementation Ownership Alignment
 theme: governance
 horizon: now
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 498fbe6e7e2b4b46ad93e158057df52435264fc4
 created_at: 2026-09-21T23:58:46Z
-updated_at: 2026-09-22T00:00:32Z
+updated_at: 2026-09-22T00:04:47Z
 ---
 
 # Align Techne Implementation Ownership
@@ -116,6 +116,10 @@ The amended decision now matches accepted implementation evidence without expand
 ### Mini recap
 
 Techne now has one canonical implementation map: `tools-techne` owns the independently released operator interface, Techne Harness owns deployable controller and execution-fabric runtime implementation, and Techne Principal retains architecture authority.
+
+## Done
+
+Accepted on 22 September 2026 by Kris Brown after review of the independent `tools-techne` operator-interface boundary, retained Techne Harness runtime boundary, explicit integration contract and preserved Techne Principal architecture authority.
 
 ## Discussion
 
