@@ -7,14 +7,14 @@ aliases:
   - Techne Controller Workload Decision
 theme: operational-tooling
 horizon: now
-status: awaiting-review
+status: done
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
 baseline_ref: 549fef31dc9b76b20d5a80029cd5968fd2837551
 created_at: 2026-09-20T06:47:49Z
-updated_at: 2026-09-22T01:08:31Z
+updated_at: 2026-09-22T01:09:37Z
 ---
 
 # Choose First Controller Workload
@@ -138,6 +138,10 @@ The result meets the approved decision-only boundary. It names a useful first wo
 ### Mini recap
 
 Techne should next route a separately governed implementation proposal to `knowledgeislands/ki-techne-harness` when repository verification is selected for delivery. That work should prove one successful and one intentionally failing immutable-revision verification on `local`; this record does not create or authorise it automatically.
+
+## Done
+
+Accepted 22 September 2026 by Kris Brown on the review packet above.
 
 ## Discussion
 
