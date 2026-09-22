@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: 549fef31dc9b76b20d5a80029cd5968fd2837551
 created_at: 2026-09-20T06:47:49Z
-updated_at: 2026-09-21T23:57:21Z
+updated_at: 2026-09-22T01:08:31Z
 ---
 
 # Choose First Controller Workload
@@ -111,7 +111,7 @@ Do not automatically create or adopt implementation work. The accepted recommend
 
 Delivered the approved workload decision from immutable baseline `549fef31dc9b76b20d5a80029cd5968fd2837551`. The evaluation selects `repository.verify` as the first useful mechanical workload, retains the registered `local` target and defines a bounded follow-on for `knowledgeislands/ki-techne-harness` without creating or adopting implementation work.
 
-### Summary changes
+### Summary of changes
 
 - Compared repository verification, advisory code review and persistent supervised agent sessions against the same operator-value, authority, runtime, evidence and recovery concerns.
 - Selected immutable-revision repository verification as the first mechanical workload and identified advisory code review as the strongest likely subsequent hybrid proof.

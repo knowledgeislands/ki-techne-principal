@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: af2ffe281c632ed43315d32f53cff57cedbbe24b
 created_at: 2026-09-20T18:40:17Z
-updated_at: 2026-09-21T23:57:19Z
+updated_at: 2026-09-22T01:08:29Z
 ---
 
 # Governed Work Controller Model
@@ -110,7 +110,7 @@ Keep `TECHNE-OPS-009` focused on workload choice. It should recognise repository
 
 Delivered the approved architecture clarification from immutable baseline `af2ffe281c632ed43315d32f53cff57cedbbe24b`. The change defines the controller as a coordinator of governed mechanical, agentic and hybrid work, generalises the Fabric footprint boundary and updates the first-workload decision without changing executable systems or another repository.
 
-### Summary changes
+### Summary of changes
 
 - Added `[[Governed Work Controller]]` as the canonical model for request routing, workload forms, session and execution identity, worker responsibility and progressive mechanisation.
 - Integrated the model into `[[Architecture]]`, `[[Agentic Operating Approach]]`, `[[Engineering Estate]]`, `[[AI Execution Fabric]]` and `[[Techne Fabric Execution Contract]]`.

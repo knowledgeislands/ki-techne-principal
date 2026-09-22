@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: 498fbe6e7e2b4b46ad93e158057df52435264fc4
 created_at: 2026-09-21T23:58:46Z
-updated_at: 2026-09-22T00:04:47Z
+updated_at: 2026-09-22T01:08:30Z
 ---
 
 # Align Techne Implementation Ownership
@@ -90,7 +90,7 @@ This proposal records enactment and review evidence for the canonical decision u
 
 Updated Techne's implementation-ownership decision from immutable baseline `498fbe6e7e2b4b46ad93e158057df52435264fc4` to recognise the accepted independent CLI and harness product boundaries.
 
-### Summary changes
+### Summary of changes
 
 - Renamed `ADR-TECHNE-003` from harness-only ownership to Techne implementation ownership.
 - Assigned controller applications, runtime payloads and deployment operations to Techne Harness.
@@ -119,7 +119,7 @@ Techne now has one canonical implementation map: `tools-techne` owns the indepen
 
 ## Done
 
-Accepted on 22 September 2026 by Kris Brown after review of the independent `tools-techne` operator-interface boundary, retained Techne Harness runtime boundary, explicit integration contract and preserved Techne Principal architecture authority.
+Accepted 22 September 2026 by Kris Brown on the review packet above.
 
 ## Discussion
 
