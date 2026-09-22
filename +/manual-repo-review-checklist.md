@@ -24,32 +24,69 @@ Items were derived from recurring review requests across the estate between Augu
 
 ## How to use it
 
-Not every section applies to every repository. Start at repository purpose, work in order through each applicable section, and record why any section does not apply.
+Complete Review invocation first. Apply Review method throughout, then start at Repository purpose and work in order through each applicable lens. Record why any section does not apply, and use Assessment output to report the result.
 
 A failed item is a finding, not a blocker. Record it, decide whether it lands now or becomes a roadmap item, and move on.
 
 Prefer deleting an item that never fires over keeping it out of completeness.
 
-## Review method and output
+## Review invocation
 
-- [ ] The review states its purpose before inspection begins.
-- [ ] The review states its repository boundary and exclusions.
-- [ ] The review states its intended readers and time horizon.
-- [ ] The review states which checklist sections it applies and why any section is omitted.
-- [ ] The review is read-only unless separate authority explicitly permits changes.
+Complete this record before inspection. Resolve any material unknown with the reviewer rather than silently assuming it.
+
+```text
+Repository: <absolute path>
+Revision: <commit, tag, or explicit live working state>
+Purpose: <decision this assessment should support>
+Scope: <full review or named checklist sections>
+Out of scope: <explicit exclusions>
+Readers: <intended audience>
+Time horizon: <current state, release, or longer-term direction>
+Authority: read-only
+Required evidence: <repository surfaces and external sources>
+Permitted live or private evidence: <sources and access boundary>
+Privacy constraints: <values or material that must not be exposed>
+Verification and measurements: <exact commands or permission to discover them>
+Assessment destination: <conversation or durable path>
+Retain review evidence: <yes or no>
+```
+
+## Review method
+
+- [ ] Read the repository's `AGENTS.md` and applicable KI skills before inspecting governed material.
+- [ ] Read repository orientation, current work, decisions, specifications, guides, implementation, tests, and public surfaces relevant to scope.
+- [ ] Inspect live configuration, runtime state, and external source material only when the invocation permits it.
 - [ ] A broad review uses independent product, human-experience, and engineering lenses before reconciling findings.
-- [ ] Evidence covers repository orientation, current work, decisions, specifications, guides, implementation, tests, and relevant live state within scope.
-- [ ] Each material claim is labelled as observed, inferred, or user-confirmed.
-- [ ] Each material finding cites its evidence.
-- [ ] Each material finding states its consequence and confidence.
-- [ ] Each material finding proposes a durable route or explicitly recommends no action.
-- [ ] Findings distinguish defects, intentional current boundaries, and future capabilities.
-- [ ] The output begins with a concise outcome summary.
-- [ ] The output includes a maturity scorecard for the reviewed areas.
-- [ ] The output identifies the strongest choices to retain.
-- [ ] The output prioritises material findings rather than presenting an undifferentiated inventory.
-- [ ] The output proposes a bounded delivery sequence with dependencies.
-- [ ] The output states what changed and where review evidence remains.
+- [ ] Record every verification or measurement command and its result.
+- [ ] Reconcile documentary claims against implementation and permitted live evidence.
+- [ ] Do not treat mechanical conformance as sufficient evidence of product quality or fitness.
+- [ ] Label each material claim as observed, inferred, or user-confirmed.
+- [ ] Give each material finding a stable identifier.
+- [ ] Cite material evidence with clickable file links and line numbers where possible.
+- [ ] State each material finding's consequence and confidence.
+- [ ] Pause for reviewer input when a finding depends on uncertain intent, priority, ownership, acceptable risk, compatibility, or operational constraints.
+- [ ] Propose a durable route for each material finding or explicitly recommend no action.
+- [ ] Distinguish defects, intentional current boundaries, and future capabilities.
+- [ ] Preserve privacy by reporting only the values and detail required to support a finding.
+- [ ] Make no repository or external-state change unless the invocation grants separate authority.
+
+## Assessment output
+
+Use these sections in order. Omit one only when the invocation records why it does not apply.
+
+1. **Outcome summary** - give the decision-maker's concise overall judgement.
+2. **Scope and evidence** - identify the repository revision, evidence examined, verification results, exclusions, and limitations.
+3. **Maturity scorecard** - give a short judgement for every reviewed product area without manufacturing a numerical score.
+4. **Current operational state** - report concrete counts, migration state, live usage, and release state when applicable.
+5. **Strongest choices to retain** - identify the architecture, product, and operating decisions that should be preserved.
+6. **Material uncertainties** - record questions, competing interpretations, and reviewer answers that affected findings.
+7. **Prioritised findings** - present stable identifiers, classification, evidence, consequence, confidence, and proposed route.
+8. **Knowledge consolidation** - recommend record-by-record Decision Record disposition and any documentation, Specification, Guide, or skill restructuring.
+9. **Human use and configuration** - assess comprehension, progressive disclosure, realistic configuration, and operator feedback.
+10. **Engineering maturity** - assess performance, maintainability, safety, verification, operations, and release consistency.
+11. **Recommended delivery sequence** - order bounded follow-up by dependency without authorising implementation.
+12. **Final suitability judgement** - state what the repository is suitable for now and what claims it is not ready to make.
+13. **Disposition** - state what changed, where review evidence remains, and which durable routes await confirmation.
 
 ## Repository purpose and stability
 
