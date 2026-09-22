@@ -101,6 +101,6 @@ A successful proof demonstrates the same execution bindings and evidence meaning
 
 [[ADR-TECHNE-001-provider-neutral-isolated-agent-execution|ADR-TECHNE-001]] records the provider-neutral isolation decision.
 
-[[ADR-TECHNE-003-techne-harness-implementation-ownership|ADR-TECHNE-003]] records the implementation-owner decision.
+[[ADR-TECHNE-003-techne-implementation-ownership|ADR-TECHNE-003]] records the implementation-owner decision.
 
 Return to [[Architecture]].

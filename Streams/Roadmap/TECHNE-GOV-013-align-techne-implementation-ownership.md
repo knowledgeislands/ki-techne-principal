@@ -7,14 +7,14 @@ aliases:
   - Techne Implementation Ownership Alignment
 theme: governance
 horizon: now
-status: ready
+status: awaiting-review
 priority: high
 dependencies: []
 blocks: []
 blocked_by: []
-baseline_ref: null
+baseline_ref: 498fbe6e7e2b4b46ad93e158057df52435264fc4
 created_at: 2026-09-21T23:58:46Z
-updated_at: 2026-09-21T23:58:46Z
+updated_at: 2026-09-22T00:00:32Z
 ---
 
 # Align Techne Implementation Ownership
@@ -37,10 +37,10 @@ Clarify existing implementation ownership only. Do not redefine Techne's archite
 
 ## Steps
 
-- [ ] Revise `ADR-TECHNE-003` to name the two independently governed implementation owners and their boundaries.
-- [ ] Preserve Techne Principal's authority over engineering meaning, roles, invariants and decision criteria.
-- [ ] State the integration boundary: the CLI consumes explicit harness interfaces or selected immutable artefacts without assuming co-located source or coupled releases.
-- [ ] Update the decision index and canonical execution-contract reference to the revised decision title.
+- [x] Revise `ADR-TECHNE-003` to name the two independently governed implementation owners and their boundaries.
+- [x] Preserve Techne Principal's authority over engineering meaning, roles, invariants and decision criteria.
+- [x] State the integration boundary: the CLI consumes explicit harness interfaces or selected immutable artefacts without assuming co-located source or coupled releases.
+- [x] Update the decision index and canonical execution-contract reference to the revised decision title.
 
 ## Files touched
 
@@ -83,6 +83,39 @@ Update only the direct reference to the ownership decision; no broader architect
 ### Roadmap
 
 This proposal records enactment and review evidence for the canonical decision update. It creates no implementation work.
+
+## Review
+
+### Delivered
+
+Updated Techne's implementation-ownership decision from immutable baseline `498fbe6e7e2b4b46ad93e158057df52435264fc4` to recognise the accepted independent CLI and harness product boundaries.
+
+### Summary changes
+
+- Renamed `ADR-TECHNE-003` from harness-only ownership to Techne implementation ownership.
+- Assigned controller applications, runtime payloads and deployment operations to Techne Harness.
+- Assigned operator commands, diagnostics, installation and releases to `tools-techne`.
+- Defined an explicit artefact and command integration boundary with independent versioning.
+- Updated the decision index and execution-contract reference.
+
+### Verification
+
+- Confirmed the decision preserves Techne Principal's architectural authority and grants no cross-repository write authority.
+- Confirmed no changed text claims a shared source tree or coupled release lifecycle.
+- Verified every changed wikilink resolves uniquely.
+- Repository governance and authoring audits passed as recorded after implementation.
+
+### Outstanding concerns
+
+No concern blocks review. First public CLI publication and Homebrew packaging remain separately governed work in their owning repositories.
+
+### Post-change review
+
+The amended decision now matches accepted implementation evidence without expanding either repository's authority or changing runtime behaviour. The change is ready for owner acceptance.
+
+### Mini recap
+
+Techne now has one canonical implementation map: `tools-techne` owns the independently released operator interface, Techne Harness owns deployable controller and execution-fabric runtime implementation, and Techne Principal retains architecture authority.
 
 ## Discussion
 
