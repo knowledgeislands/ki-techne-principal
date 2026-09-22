@@ -42,6 +42,10 @@ Scope: <full review or named checklist sections>
 Out of scope: <explicit exclusions>
 Readers: <intended audience>
 Time horizon: <current state, release, or longer-term direction>
+Depth and budget: <broad scan, standard review, or deep assessment; any practical limit>
+Comparison baseline: <declared stable state, previous assessment, release, or none>
+Focus questions: <repository-specific tensions or uncertainties the review must investigate>
+Required conclusions: <decisions or suitability judgements the assessment must reach>
 Authority: read-only
 Required evidence: <repository surfaces and external sources>
 Permitted live or private evidence: <sources and access boundary>
@@ -49,6 +53,46 @@ Privacy constraints: <values or material that must not be exposed>
 Verification and measurements: <exact commands or permission to discover them>
 Assessment destination: <conversation or durable path>
 Retain review evidence: <yes or no>
+```
+
+## Reusable assessment prompt
+
+The invocation record defines the review, but is not a sufficient agent prompt on its own. Copy this prompt, replace its placeholders, and include the completed invocation record. Preserve repository-specific focus questions: they are what turn a generic health check into a useful assessment.
+
+```text
+Perform a detailed, read-only, judgement-led assessment of:
+
+<absolute repository path>
+
+Use the Manual Repo Review Checklist at:
+
+<absolute checklist path>
+
+Treat the completed Review invocation below as the assessment contract:
+
+<completed invocation record>
+
+This is an assessment, not an implementation task. Do not edit files, change repository or external state, create work records, commit, push, publish, deploy, or apply personal configuration.
+
+Start by reading the repository's AGENTS.md and every applicable local skill or governance instruction. Establish the repository's delineated responsibility in the wider ecosystem, its claimed stable baseline, and the decision this assessment must support before judging details.
+
+Build an evidence inventory proportionate to the stated scope. Inspect the relevant repository orientation, current work, Decision Records, Specifications, Guides, skills, implementation, tests, generated and public surfaces, toolchain, release state, and any permitted live or private evidence. Do not infer quality from the presence of these surfaces alone.
+
+Use independent review tracks for:
+
+1. ecosystem fit, product purpose, responsibility, and applicability;
+2. human comprehension, documentation, knowledge consolidation, and configuration experience;
+3. engineering architecture, implementation maturity, safety, verification, operations, and release readiness.
+
+Apply only the tracks and checklist sections relevant to the invocation, and say why anything material is not applicable. Reconcile the tracks yourself against the actual evidence. Do not merely report mechanical conformance or repeat repository claims.
+
+Investigate every focus question in the invocation. Pay particular attention to contradictions between declared intent, documentation, implementation, tests, released artefacts, and permitted live state. Distinguish defects, intentional current boundaries, and future capabilities. Preserve strong choices as explicitly as you identify weaknesses.
+
+Run the specified read-only verification and measurements. Where the invocation permits discovery, identify and run the repository's normal verification gate plus representative measurements needed for the required conclusions. Record each command and result. Do not expose secrets or unnecessary private values.
+
+Label material claims as observed, inferred, or user-confirmed. Ask the reviewer when unresolved intent, ownership, acceptable risk, compatibility, or operational constraints could materially change a finding; otherwise state the uncertainty and continue. Give findings stable identifiers, consequences, confidence, and evidence with clickable file links and line numbers where possible.
+
+Produce the Assessment output sections from the checklist in their stated order. Answer every required conclusion directly, recommend a durable route for each material finding without authorising implementation, and end with a disposition stating what changed, where evidence remains, and what awaits human confirmation.
 ```
 
 ## Review method
