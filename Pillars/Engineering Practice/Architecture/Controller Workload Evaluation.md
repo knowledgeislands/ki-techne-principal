@@ -12,7 +12,7 @@ This workload proves the common admission, dispatch, execution, cancellation, re
 
 ### Repository verification
 
-**Source:** `+/manual-repo-review-checklist.md` includes repository verification, formatting, type, test and repository-audit evidence within a broader human review.
+**Source:** the `ki-repo` REVIEW procedure includes repository verification, formatting, type, test and repository-audit evidence within a broader human review.
 
 **Operator outcome:** ask whether one exact repository revision satisfies its declared automated gates and receive an unambiguous result without opening a development environment.
 
@@ -20,7 +20,7 @@ This is a mechanical workload. Its behaviour is understood, its authority can re
 
 ### Advisory code review
 
-**Source:** `+/manual-repo-review-checklist.md` records human judgement questions spanning ecosystem fit, stability, documentation, architecture, implementation and final disposition.
+**Source:** the `ki-repo` REVIEW procedure records human judgement questions spanning ecosystem fit, stability, documentation, architecture, implementation and final disposition.
 
 **Operator outcome:** receive prioritised, evidence-linked review findings for one immutable change after deterministic verification.
 
