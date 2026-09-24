@@ -10,7 +10,7 @@ Decision Records (DRs) capture significant standalone decisions that govern Tech
 Records are ordered by reveal order — the logical sequence in which the decisions build on one another.
 
 1. [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — adopting typed, living Decision Records for Techne.
-2. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — Knowledge Islands ecosystem fundamentals
+2. [GDR-KI-FUNDAMENTALS-001](GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) — routing responsibility, repository structures and boundaries, and ecosystem coordination
 3. [ADR-TECHNE-001](ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md) — provider-neutral roles and boundaries for isolated agent execution.
 4. [ADR-TECHNE-002](ADR-TECHNE-002-one-persona-across-explicit-working-contexts.md) — one persona per person across explicit, authority-bound working contexts.
 5. [ADR-TECHNE-003](ADR-TECHNE-003-techne-implementation-ownership.md) — Techne Harness owns runtime implementations and `tools-techne` owns the operator interface.
