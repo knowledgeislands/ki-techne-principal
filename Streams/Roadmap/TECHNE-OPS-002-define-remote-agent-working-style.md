@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T22:33:40Z
-updated_at: 2026-09-26T15:55:00Z
+updated_at: 2026-09-26T16:05:00Z
 ---
 
 # Remote Agent Working Style
@@ -45,15 +45,27 @@ Promote this proposal when the server operating system, canonical repository roo
 
 The supported-interface comparison and proof design are complete enough to execute once a target exists. Herdr is installed locally at `/opt/homebrew/bin/herdr`, but the inspected SSH configuration names no personal-server host and the inspected Zed configuration names no remote server.
 
-A target has now been inspected and partly resolved. Covering Paperclip task: `KNO-7`.
+A target has now been inspected and partly resolved. Covering Paperclip task: `KIS-7`.
 
-**Resolved.** The target is the deployed Techne controller host: a single-node K3s control plane on Ubuntu 24.04 LTS, two processors and four gigabytes of memory, sixteen-gigabyte encrypted root volume with about twelve gigabytes free, running continuously and reporting the cluster healthy. The access path is the AWS Systems Manager session service over the instance's existing outbound HTTPS allowance. That path requires no inbound exposure: the instance security group has no ingress rules at all, the instance has no SSH key pair, and none is needed. The authentication boundary is therefore an identity permission that can be scoped and revoked centrally, rather than key material held on one machine. The exposure authority for this target is the repository owner, recorded on `KNO-7`.
+**Resolved.** The target is the deployed Techne controller host: a single-node K3s control plane on Ubuntu 24.04 LTS, two processors and four gigabytes of memory, sixteen-gigabyte encrypted root volume with about twelve gigabytes free, running continuously and reporting the cluster healthy. The access path is the AWS Systems Manager session service over the instance's existing outbound HTTPS allowance. That path requires no inbound exposure: the instance security group has no ingress rules at all, the instance has no SSH key pair, and none is needed. The authentication boundary is therefore an identity permission that can be scoped and revoked centrally, rather than key material held on one machine. The exposure authority for this target is the repository owner, recorded on `KIS-7`.
 
 **Resolved by evidence, not assumption.** The session service was observed to survive a severed connection rather than a clean detach: after the local transport was killed outright, the far-side shell and its session worker were still alive on the host, and the service's resume operation returned a working stream for that same session. A terminal multiplexer is already installed on the host. These are the transport properties the persistent human-supervised mode depends on, and they hold.
 
 **Unresolved.** The canonical repository root is not yet chosen, and capacity is the reason: a full archipelago checkout is about nine gigabytes against roughly twelve gigabytes free, which fits but leaves little headroom for runtimes and images. No agent runtime, Node or Bun runtime, or Herdr installation exists on the host, so the intended Herdr service mode cannot be exercised there yet and the Zed remote and Herdr legs of the proof remain unrun. Whether this host should carry the supervised mode at all, given that it would then share a blast radius with the controller, is an open decision carried by `TECHNE-TOOLS-OPS-008` in the Harness.
 
 **Mode scope.** For the unattended isolated mode this substrate is a good fit and is already governed in the Harness. For the persistent human-supervised mode the access path is now proven but the host is not yet provisioned, so no supervised host is named. The attached interactive mode remains the operator's own machine and is out of scope for this item. The horizon stays `waiting-for` because the supervised host decision and the repository root are still open, and promoting it is a separate adoption decision.
+
+**Write-root enforcement for the unattended isolated mode, decided 2026-09-26.** The repository owner selected a host sandbox with a private clone per task as the enforcement mechanism for agents that change repositories, in preference to leaving the read-only rule as convention and in preference to waiting for the Kubernetes substrate. Covering Paperclip task: `KIS-10`. The decision was needed because the rule was previously convention and review alone: on this platform the process sandbox that would bound a write root is unavailable, and a write to an absolute path outside every declared root was observed to succeed with no prompt.
+
+The mechanism is a named permission profile on the Codex CLI lane, whose write root on this platform is the operating system's own sandbox, granting the task's private clone and nothing else. A clone is required rather than a worktree because all worktrees of one repository share a single ref store, object database and configuration, so a run permitted to commit inside a worktree is necessarily also permitted to rewrite or delete refs belonging to the operator. That follows from the worktree layout rather than from any host, and so it holds on the Kubernetes substrate too. The clone must be made with `git clone --no-hardlinks`: cloning from a local path otherwise hardlinks both loose objects and packfiles, leaving object files inside the clone that are the same inodes as the original's, and one in-place write there can leave both copies unreadable. `--shared` and `--reference` are both excluded, and for different reasons: the first leaves the clone no objects of its own, and the second still hardlinks.
+
+_Exposure authority._ None is required and none is granted. The mechanism withdraws write access rather than adding reachability: no port, endpoint, service, account or identity permission is involved, and the change is confined to one lane's adapter configuration on the operator's own machine. The profile itself is machine configuration and belongs to dotfiles under this item's Boundary; Techne records the decision and its terms, not the configuration.
+
+_Revocation scope._ Deleting the named profile and the adapter argument that selects it restores the lane's previous behaviour on the next run, with no residue and nothing to migrate. The mechanism is expected to be retired rather than maintained: it is superseded when the unattended isolated mode moves to a kernel-enforced write root on the Kubernetes substrate, which is the adapter design carried by `KIS-8`.
+
+_Not yet built, and the reason matters._ Clone per task has no realiser in the harness, which realises a worktree and nothing else, so adopting this lane is an implementation rather than a configuration change. The realisation is to clone the harness-realised worktree, which keeps the recorded base revision and the worktree lifecycle intact, and to return the result by fetching from the worktree side onto the base ref before the workspace is closed. The ordering is load-bearing: the agent's commits live in the clone's own object database, so until that fetch runs they are invisible to every terminal check the harness performs.
+
+**Governing-record gap.** The Context above names `TECHNE-GOV-005` as the record governing unattended agents in isolated task environments. No such record exists in this repository: `Streams/Roadmap/` holds no `GOV` record at all, while `_ISSUES.md` records thirteen allocated `GOV` identifiers. Until that record is written or the reference is corrected, this item is the only Techne home for the decision above, and it is recorded here for that reason rather than because the enforcement mechanism belongs to the remote working style.
 
 ## Steps
 
