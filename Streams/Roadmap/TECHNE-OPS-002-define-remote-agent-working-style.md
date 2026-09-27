@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T22:33:40Z
-updated_at: 2026-09-26T15:55:00Z
+updated_at: 2026-09-27T23:09:34Z
 ---
 
 # Remote Agent Working Style
@@ -98,3 +98,9 @@ Use [Zed remote-development documentation](https://zed.dev/docs/remote-developme
 ### Ownership
 
 Techne owns the working style, responsibility model, evidence comparison, and technology posture. Dotfiles owns approved personal configuration. The Harness owns only reusable agent capabilities and executable conformance contracts derived from the accepted model.
+
+### Pickup checkpoint — 2026-09-28
+
+- **Integrated and historical evidence:** local `main` is `deb52db4daf1be9fb409640d9227c5c162f109b5`. This record's `## Current state` reports an inspected controller host, session-manager access, and recovery of a severed shell session; those are historical observations, not a fresh host or service check. It also records that the Zed and Herdr proof legs have not run, the canonical repository root and supervised-host choice remain open, and `TECHNE-TOOLS-OPS-008` in `ki-techne-harness` is unadopted Triage. The older `## Dependencies / blocks` target wording has not been reconciled with that later Current state. No canonical working-style change or proof result was found on `main`.
+- **Retained candidate evidence, not accepted delivery:** `0f77071572aa649a936be3069f635ab8ea721858` adds a proposed write-root enforcement decision to this record; `eb7292a1f1bd515fcb7c44715caac48bfe5770ad` updates its target/blocker wording and proposes the `KNO-7` to `KIS-7` task-key correction. Both change only `Streams/Roadmap/TECHNE-OPS-002-define-remote-agent-working-style.md`, descend from `c99592a2a2e2872a95fe4c4f44506291a0b825c8`, and are absent from `main`. Their worktrees are retained and clean. The `TECHNE-GOV-005` reference in this record has no matching current `Streams/Roadmap/` record; the candidate identifies that gap but does not settle it.
+- **Remaining and pickup:** before any implementation, reconcile destination `main`, the `KIS-7`/`KIS-10` linked tasks and any live ownership, both candidate commits and retained worktrees, and the proposed wording against current source. Review the candidates separately under the principal's Techné hold; neither this checkpoint nor a passing audit adopts the proposed decision, integrates a branch, or authorises resumption. The principal must explicitly decide the programme restart and the supervised-host/root/provisioning route before the remaining proof and canonical enactment. Missing task evidence does not release ownership or lift the hold. This checkpoint is guidance, not an execution block or resumption authority; owner review and acceptance remain required for closure, and any later Done record stays until explicit pruning.
