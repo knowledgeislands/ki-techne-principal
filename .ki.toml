@@ -113,4 +113,4 @@ standing.export.knowledge = ["techne-architecture-context"]
 export = ["work", "knowledge"]
 
 [skills.ki-agora]
-memberships.kis = { home = "https://github.com/knowledgeislands/ki-arcadia-principal", role = "product" }
+memberships.kis = { home = "https://github.com/knowledgeislands/ki-arcadia-principal", role = "member" }
