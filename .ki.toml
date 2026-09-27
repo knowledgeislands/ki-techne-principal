@@ -17,6 +17,7 @@ description = "Canonical engineering knowledge base for the Knowledge Islands ec
 supported_runtimes = ["claude-code", "claude-desktop", "chatgpt-codex"]
 visibility = "public"
 repo_type = "kb"
+primary_shape = "ki-repo-kb"
 repo_code = "TECHNE"
 store_roles = ["notes"]
 
