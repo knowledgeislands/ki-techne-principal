@@ -14,7 +14,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-08T22:33:40Z
-updated_at: 2026-09-26T15:55:00Z
+updated_at: 2026-09-27T05:20:00Z
 ---
 
 # Remote Agent Working Style
@@ -45,19 +45,22 @@ Promote this proposal when the server operating system, canonical repository roo
 
 The supported-interface comparison and proof design are complete enough to execute once a target exists. Herdr is installed locally at `/opt/homebrew/bin/herdr`, but the inspected SSH configuration names no personal-server host and the inspected Zed configuration names no remote server.
 
-A target has now been inspected and partly resolved. Covering Paperclip task: `KNO-7`.
+A target has now been inspected and partly resolved. Covering Paperclip task: `KIS-7`, formerly keyed `KNO-7` before the project was re-established against an admitted repository baseline.
 
-**Resolved.** The target is the deployed Techne controller host: a single-node K3s control plane on Ubuntu 24.04 LTS, two processors and four gigabytes of memory, sixteen-gigabyte encrypted root volume with about twelve gigabytes free, running continuously and reporting the cluster healthy. The access path is the AWS Systems Manager session service over the instance's existing outbound HTTPS allowance. That path requires no inbound exposure: the instance security group has no ingress rules at all, the instance has no SSH key pair, and none is needed. The authentication boundary is therefore an identity permission that can be scoped and revoked centrally, rather than key material held on one machine. The exposure authority for this target is the repository owner, recorded on `KNO-7`.
+**Resolved.** The target is the deployed Techne controller host: a single-node K3s control plane on Ubuntu 24.04 LTS, two processors and four gigabytes of memory, sixteen-gigabyte encrypted root volume with about twelve gigabytes free, running continuously and reporting the cluster healthy. The access path is the AWS Systems Manager session service over the instance's existing outbound HTTPS allowance. That path requires no inbound exposure: the instance security group has no ingress rules at all, the instance has no SSH key pair, and none is needed. The authentication boundary is therefore an identity permission that can be scoped and revoked centrally, rather than key material held on one machine. The exposure authority for this target is the repository owner, recorded on `KIS-7`.
 
 **Resolved by evidence, not assumption.** The session service was observed to survive a severed connection rather than a clean detach: after the local transport was killed outright, the far-side shell and its session worker were still alive on the host, and the service's resume operation returned a working stream for that same session. A terminal multiplexer is already installed on the host. These are the transport properties the persistent human-supervised mode depends on, and they hold.
 
-**Unresolved.** The canonical repository root is not yet chosen, and capacity is the reason: a full archipelago checkout is about nine gigabytes against roughly twelve gigabytes free, which fits but leaves little headroom for runtimes and images. No agent runtime, Node or Bun runtime, or Herdr installation exists on the host, so the intended Herdr service mode cannot be exercised there yet and the Zed remote and Herdr legs of the proof remain unrun. Whether this host should carry the supervised mode at all, given that it would then share a blast radius with the controller, is an open decision carried by `TECHNE-TOOLS-OPS-008` in the Harness.
+**Decided by the repository owner on 2026-09-27, recorded on `KIS-7`.** The Techne controller host carries the persistent human-supervised mode, and it holds a single repository working copy rather than the full archipelago checkout. Capacity drove the second decision: an archipelago checkout is about nine gigabytes against roughly twelve gigabytes free, which fits but leaves no headroom for the runtimes and images the supervised mode needs. The first decision knowingly accepts a shared blast radius, because a supervised session and the deterministic controller then share one node, one root volume, and one kubelet, so a runaway build on the supervised side can starve the controller that `TECHNE-OPS-007` depends on. That consequence is accepted deliberately and belongs in the provisioning item's boundary rather than being rediscovered during the proof.
 
-**Mode scope.** For the unattended isolated mode this substrate is a good fit and is already governed in the Harness. For the persistent human-supervised mode the access path is now proven but the host is not yet provisioned, so no supervised host is named. The attached interactive mode remains the operator's own machine and is out of scope for this item. The horizon stays `waiting-for` because the supervised host decision and the repository root are still open, and promoting it is a separate adoption decision.
+**Unresolved.** Which single repository the canonical root holds is not yet named, and neither is the intended Herdr service mode. Neither can be settled before provisioning, because the host carries no agent runtime, no Node or Bun runtime, and no Herdr installation today. `TECHNE-TOOLS-OPS-008` in the Harness carries that provisioning at horizon `triage`, so it is captured but not yet ready and no one is authorised to deliver it. Until it is, the Zed remote and Herdr legs of the proof remain unrun, not for want of a target or an access path but for want of anything installed to detach from.
+
+**Mode scope.** For the unattended isolated mode this substrate is a good fit and is already governed in the Harness. For the persistent human-supervised mode the target, the access path, the authentication boundary, and now the host are all named, and the transport properties are proven, so only provisioning stands between this record and the proof. The attached interactive mode remains the operator's own machine and is out of scope for this item. The horizon stays `waiting-for` because every proof leg is still unrun and promotion additionally needs the repository root and the Herdr service mode; promoting it is a separate adoption decision.
 
 ## Steps
 
-- [ ] Name the personal-server operating system, canonical repository root, SSH host or access path, intended Herdr service mode, and authentication boundary.
+- [x] Name the supervised host, its operating system, the access path, and the authentication boundary.
+- [ ] Name the single repository the canonical root holds and the intended Herdr service mode, once the host is provisioned.
 - [ ] Observe the Zed-only baseline through an intentional SSH disconnect and reconnect.
 - [ ] Run the Herdr proof through detach and reattach, dropped SSH, durable child-process survival, blocked or idle agent state, repository identity, and simultaneous observer versus controller behaviour.
 - [ ] Restart Herdr separately and record layout restoration, terminal-process loss or survival, and native Codex or Claude Code session restoration.
@@ -83,7 +86,13 @@ A target has now been inspected and partly resolved. Covering Paperclip task: `K
 
 ## Dependencies / blocks
 
-Hands-on proof remains blocked on a named Mac Studio or personal-server target and access path. Resume when its operating system and hardware, canonical repository root, SSH or Codex Remote path, installed runtimes, container or Kubernetes substrate, intended supervised versus unattended use, service mode, and exposure authority can be inspected. No local roadmap dependency blocks the analysis or operating-model design.
+The hands-on proof is no longer blocked on naming a target. The host, its operating system and hardware, the access path, the authentication boundary, the exposure authority, the Kubernetes substrate, and the supervised versus unattended split are all inspected, decided, and recorded above.
+
+The proof is now blocked on provisioning that host with an agent runtime and Herdr, which `TECHNE-TOOLS-OPS-008` in the Harness carries at horizon `triage`. That item must reach a ready state and be approved before any Zed or Herdr leg can run, because installing runtimes on a running controller is an infrastructure change and the owner's approval is the gate.
+
+Two further constraints belong to the proof rather than to the host, and are recorded here so they are not mistaken for host faults. The agent adapter that would otherwise drive Herdr cannot start it at all: the adapter redirects the home directory to a path long enough that Herdr's control socket exceeds the platform's socket-path limit, so Herdr evidence must come from an operator terminal or from an adapter change. And host death mid-run stays out of scope for this item, because session persistence is process persistence on a live host rather than run durability; that gap belongs to the remote-adapter design.
+
+No local roadmap dependency blocks the analysis or operating-model design.
 
 ## Discussion
 
