@@ -85,9 +85,7 @@ map_bonus = 1
 [skills.ki-trades.routes."knowledgeislands/ki-agentic-harness"]
 export = ["work", "knowledge"]
 import = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-agentic-harness".standing.export]
-knowledge = ["shared-capability-maintenance"]
+standing.export.knowledge = ["shared-capability-maintenance"]
 
 [skills.ki-trades.routes."knowledgeislands/ki-arcadia-principal"]
 import = ["knowledge"]
@@ -95,15 +93,11 @@ import = ["knowledge"]
 [skills.ki-trades.routes."knowledgeislands/ki-techne-harness"]
 export = ["work", "knowledge"]
 import = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-techne-harness".standing.export]
-knowledge = ["techne-architecture-context"]
+standing.export.knowledge = ["techne-architecture-context"]
 
 [skills.ki-trades.routes."knowledgeislands/ki-website"]
 export = ["knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/ki-website".standing.export]
-knowledge = ["public-source-change"]
+standing.export.knowledge = ["public-source-change"]
 
 [skills.ki-trades.routes."knowledgeislands/tools-ki"]
 export = ["work", "knowledge"]
@@ -113,9 +107,7 @@ export = ["work", "knowledge"]
 
 [skills.ki-trades.routes."knowledgeislands/tools-techne"]
 export = ["work", "knowledge"]
-
-[skills.ki-trades.routes."knowledgeislands/tools-techne".standing.export]
-knowledge = ["techne-architecture-context"]
+standing.export.knowledge = ["techne-architecture-context"]
 
 [skills.ki-trades.routes."krisb/dotfiles"]
 export = ["work", "knowledge"]
