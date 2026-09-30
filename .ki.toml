@@ -112,6 +112,3 @@ standing.export.knowledge = ["techne-architecture-context"]
 
 [skills.ki-trades.routes."krisb/dotfiles"]
 export = ["work", "knowledge"]
-
-[skills.ki-agora]
-memberships.kis = { home = "https://github.com/knowledgeislands/ki-arcadia-principal" }
