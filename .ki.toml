@@ -109,6 +109,3 @@ export = ["work", "knowledge"]
 [skills.ki-trades.routes."knowledgeislands/tools-techne"]
 export = ["work", "knowledge"]
 standing.export.knowledge = ["techne-architecture-context"]
-
-[skills.ki-trades.routes."krisb/dotfiles"]
-export = ["work", "knowledge"]
