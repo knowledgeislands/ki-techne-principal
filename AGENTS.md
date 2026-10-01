@@ -1,6 +1,6 @@
 # Techne Principal
 
-Techne is the canonical engineering knowledge base for the Knowledge Islands ecosystem.
+Techne is a retained source and held-work repository; Arcadia owns canonical engineering knowledge.
 
 ## Knowledge Base Structure
 
@@ -10,11 +10,11 @@ Load [Admin/MEMORY.md](Admin/MEMORY.md) before substantive knowledge-base work.
 
 When an active Pillar is recorded, load its `MEMORY.md` before editing or authoring canonical knowledge within that Pillar.
 
-The [[Engineering Practice]] pillar holds Techne's settled internal engineering discipline.
+The [[Engineering Practice]] pillar retains a noncanonical snapshot of the engineering discipline now maintained in Arcadia.
 
 ## Enactment
 
-Substantive changes to canonical knowledge in `Admin/`, `Pillars/`, or `Resources/` require a ready proposal in `Streams/` and must follow the `ki-repo-kb-streams` enactment process.
+Substantive changes to retained knowledge or local governance in `Admin/`, `Pillars/`, or `Resources/` require a ready proposal in `Streams/` and must follow the `ki-repo-kb-streams` enactment process.
 
 Trivial corrections, time-bound `Calendar/` entries, and inbound `+/` triage are exempt.
 
@@ -23,6 +23,16 @@ Trivial corrections, time-bound `Calendar/` entries, and inbound `+/` triage are
 Write base notes in British English.
 
 Use shortest-unique Obsidian wikilinks within base notes; use relative Markdown links only in repository-orientation files outside the zone model.
+
+## Retained source standing
+
+Arcadia now owns canonical engineering knowledge: [Engineering Practice](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Pillars/Engineering%20Practice/Engineering%20Practice.md) and its [decision collection](https://github.com/knowledgeislands/ki-arcadia-principal/tree/main/Admin/Governance/Decisions). This repository retains noncanonical knowledge snapshots, source evidence and existing held work. Original knowledge bytes remain in Git at `b25e9c950fd87715d12f76b69bb2079c3a4fc054`. The shared decision copies are semantically identical projections maintained by Arcadia, not a second authority.
+
+Existing work records, identifiers, ledger, branches, worktrees and candidates remain in place. The [Techné programme hold](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Admin/Governance/Policies/Techne%20Programme%20Hold.md) remains unchanged; this documentation transition grants no runtime resumption, integration, deletion or archival authority.
+
+## Approved knowledge-owner transition
+
+The accountable human explicitly waived this retiring source's separate Enactment proposal prerequisite for the bounded Arcadia ECO-007 documentation transition. This exception does not waive held-work governance or the programme execution hold, and creates no source proposal, ledger reservation or scaffold-cleanup requirement.
 
 ## Techne holding position
 

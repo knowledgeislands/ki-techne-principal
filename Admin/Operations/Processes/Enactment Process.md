@@ -1,6 +1,6 @@
 # Enactment Process
 
-Techne uses the Knowledge Islands Enactment Process for substantive changes to canonical knowledge and its operating model. The canonical lifecycle and proposal structure are governed by `ki-repo-kb-streams`; this note records Techne's local application.
+Techne retains the Knowledge Islands Enactment Process for existing held work and local preservation governance. Canonical engineering knowledge is now governed by Arcadia. The canonical lifecycle and proposal structure are governed by `ki-repo-kb-streams`; this note records Techne's local application.
 
 ## Local authority
 
@@ -27,3 +27,7 @@ Trivial corrections, time-bound [[Calendar]] entries, and inbound `+/` triage do
 ## Stream governance footer
 
 Every roadmap item and housekeeping template follows this process where applicable.
+
+## Approved source transition exception
+
+The accountable human explicitly waived the separate source-local Ready proposal prerequisite only for the bounded Arcadia ECO-007 documentation transition. Existing work, ledger and scaffolds remain unchanged. This is not approval to resume execution, integrate candidates, delete source evidence or archive the repository. The programme hold remains governed by [Arcadia's preserved policy](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Admin/Governance/Policies/Techne%20Programme%20Hold.md).

@@ -4,6 +4,7 @@ id: ADR-TECHNE-001
 title: 'Provider-neutral isolated agent execution'
 date: 2026-09-16
 status: current
+shared_record: true
 decision_type: architecture
 decision_type_url: https://knowledgeislands.info/specifications/decision-records/adr
 decision_depends_on: [GDR-TECHNE-001]
@@ -25,7 +26,7 @@ Isolation is proportionate to task authority and risk rather than mandatory for 
 
 Every unattended execution binds its objective, immutable baseline, working context, authority, footprint identity, target-capability evidence, result destination and lifetime before admission. Deterministic admission verifies eligibility; the execution returns review evidence and cleanup status without making provider state authoritative.
 
-Techne owns the architectural meaning of this contract. Normative portable schemas and conformance rules follow the shared repository-authority decision and belong to `ki-specifications` after implementation evidence supports standardisation. Personal-controller and execution-fabric-operator implementations remain replaceable and may remain explicitly unassigned.
+Arcadia owns the architectural meaning of this contract. Normative portable schemas and conformance rules follow the shared repository-authority decision and belong to `ki-specifications` after implementation evidence supports standardisation. Before overall V1, KI Specifications remains dormant and repository-local contracts remain authoritative. Personal-controller and execution-fabric implementations belong to `ki-techne-harness`; the operator interface belongs to `tools-techne`. These implementations remain replaceable.
 
 ## Consequences
 
@@ -39,8 +40,10 @@ Techne owns the architectural meaning of this contract. Normative portable schem
 - A provider proof cannot define portable architecture merely by being the first working implementation.
 - Unassigned implementation ownership remains visible instead of being silently absorbed by `ki`, a runtime or a provider adapter.
 
+Arcadia maintains this shared decision record. The copy in `knowledgeislands/ki-techne-principal` is a semantically identical retained projection, not an independent authority. Original source evidence remains in Git at `b25e9c950fd87715d12f76b69bb2079c3a4fc054`; the Techné programme hold and retained work are unchanged.
+
 ## References
 
-- [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — establishes Techne's Decision Records instrument.
+- [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — records the engineering discipline's Decision Records instrument.
 - [Development Container specification](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainer-reference.md) — portable development-environment description.
 - [OCI Image specification](https://github.com/opencontainers/image-spec/blob/main/spec.md) — portable image packaging and transport.

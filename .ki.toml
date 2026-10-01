@@ -13,7 +13,7 @@ harnesses = ["knowledgeislands/ki-agentic-harness"]
 [skills.ki-repo]
 repository = "https://github.com/knowledgeislands/ki-techne-principal"
 title = "Techne Principal"
-description = "Canonical engineering knowledge base for the Knowledge Islands ecosystem."
+description = "Retained noncanonical engineering snapshots, source evidence and held Techné work; canonical knowledge is maintained by Arcadia."
 supported_runtimes = ["claude-code", "claude-desktop", "chatgpt-codex"]
 visibility = "public"
 repo_type = "kb"
@@ -39,8 +39,6 @@ Admin = "Admin/Templates/activity.md"
 Calendar = "Admin/Templates/session.md"
 Pillars = "Admin/Templates/note.md"
 Resources = "Admin/Templates/source.md"
-
-[skills.ki-repo-kb-principal]
 
 [skills.ki-repo-kb-activities]
 

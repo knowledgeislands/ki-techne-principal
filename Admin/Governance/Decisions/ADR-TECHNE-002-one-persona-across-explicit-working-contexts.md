@@ -4,6 +4,7 @@ id: ADR-TECHNE-002
 title: 'One persona across explicit working contexts'
 date: 2026-09-15
 status: current
+shared_record: true
 decision_type: architecture
 decision_type_url: https://knowledgeislands.info/specifications/decision-records/adr
 decision_depends_on: [GDR-TECHNE-001, ADR-TECHNE-001]
@@ -34,7 +35,9 @@ A working context may reference Agoras and repositories, but it is neither an Ag
 - A deployment, repository, Agora relationship or visible capability supplies context for an authority decision but cannot substitute for one.
 - This decision creates no controller repository, software product, provider, provisioning or deployment commitment.
 
+Arcadia maintains this shared decision record. The copy in `knowledgeislands/ki-techne-principal` is a semantically identical retained projection, not an independent authority. Original source evidence remains in Git at `b25e9c950fd87715d12f76b69bb2079c3a4fc054`; the Techné programme hold and retained work are unchanged.
+
 ## References
 
-- [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — establishes Techne's Decision Records instrument.
+- [GDR-TECHNE-001](GDR-TECHNE-001-adopting-decision-records.md) — records the engineering discipline's Decision Records instrument.
 - [ADR-TECHNE-001](ADR-TECHNE-001-provider-neutral-isolated-agent-execution.md) — establishes the provider-neutral controller, execution and isolation boundaries this decision extends.

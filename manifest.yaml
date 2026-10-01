@@ -1,4 +1,5 @@
 name: Techne
 version: 0.1
-status: foundations
+status: retained-snapshot
+# Canonical engineering knowledge: knowledgeislands/ki-arcadia-principal.
 knowledge_package: true

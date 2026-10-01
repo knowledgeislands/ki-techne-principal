@@ -15,3 +15,7 @@ Records are ordered by reveal order — the logical sequence in which the decisi
 4. [ADR-TECHNE-002](ADR-TECHNE-002-one-persona-across-explicit-working-contexts.md) — one persona per person across explicit, authority-bound working contexts.
 5. [ADR-TECHNE-003](ADR-TECHNE-003-techne-implementation-ownership.md) — Techne Harness owns runtime implementations and `tools-techne` owns the operator interface.
 6. [GDR-TECHNE-002](GDR-TECHNE-002-governing-technology-investigations.md) — finite, evidence-backed technology investigations and their ownership.
+
+## Canonical maintenance
+
+Arcadia maintains the canonical engineering decisions. The TECHNE records listed here preserve their identifiers as semantically identical shared projections; this retained index does not establish an independent decision authority. Existing reveal order and source evidence are preserved.

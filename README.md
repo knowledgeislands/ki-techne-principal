@@ -1,15 +1,7 @@
-# Techne Principal
+# Techne retained source
 
-Techne is the canonical engineering island within the Knowledge Islands archipelago.
+## Retained source standing
 
-Arcadia explains _why_ Knowledge Islands exists. Techne explains _how_ AI-native engineering is practised.
+Arcadia now owns canonical engineering knowledge: [Engineering Practice](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Pillars/Engineering%20Practice/Engineering%20Practice.md) and its [decision collection](https://github.com/knowledgeislands/ki-arcadia-principal/tree/main/Admin/Governance/Decisions). This repository retains noncanonical knowledge snapshots, source evidence and existing held work. Original knowledge bytes remain in Git at `b25e9c950fd87715d12f76b69bb2079c3a4fc054`. The shared decision copies are semantically identical projections maintained by Arcadia, not a second authority.
 
-This repository is the living engineering knowledge base.
-
-## Place in the Knowledge Islands ecosystem
-
-Techne Principal is the canonical source of the Knowledge Islands engineering discipline. It translates the philosophy and conceptual model established by [Arcadia Principal](https://github.com/knowledgeislands/ki-arcadia-principal) into engineering architecture, operating models, workflows, technology posture, and implementation patterns; it does not own the executable behaviour of [tools-ki](https://github.com/knowledgeislands/tools-ki) or the normative portable contracts of [KI Specifications](https://github.com/knowledgeislands/ki-specifications). Its engineering practice can inform the [KI Agentic Harness](https://github.com/knowledgeislands/ki-agentic-harness) and the other implementation repositories without displacing their canonical authority.
-
-The [KI Website](https://github.com/knowledgeislands/ki-website) may vendor source-labelled Techne material for public publication, while this repository remains canonical for the engineering discipline. The mirrored [ecosystem decision](Admin/Governance/Decisions/GDR-KI-FUNDAMENTALS-001-knowledge-islands-ecosystem-fundamentals.md) defines the six authorities and publication flows.
-
-Its settled engineering discipline is held in the [Engineering Practice pillar](<Pillars/Engineering Practice/Engineering Practice.md>).
+Existing work records, identifiers, ledger, branches, worktrees and candidates remain in place. The [Techné programme hold](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Admin/Governance/Policies/Techne%20Programme%20Hold.md) remains unchanged; this documentation transition grants no runtime resumption, integration, deletion or archival authority.

@@ -1,21 +1,17 @@
 # Known Lands
 
-Known Lands records the islands and repositories whose authority Techne consumes, informs, constrains, or publishes through. [[GDR-KI-FUNDAMENTALS-001]] is the canonical decision for the six-repository authority model; this note is Techne's navigational view of that model.
+## Retained source standing
 
-## This principal
+Arcadia now owns canonical engineering knowledge: [Engineering Practice](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Pillars/Engineering%20Practice/Engineering%20Practice.md) and its [decision collection](https://github.com/knowledgeislands/ki-arcadia-principal/tree/main/Admin/Governance/Decisions). This repository retains noncanonical knowledge snapshots, source evidence and existing held work. Original knowledge bytes remain in Git at `b25e9c950fd87715d12f76b69bb2079c3a4fc054`. The shared decision copies are semantically identical projections maintained by Arcadia, not a second authority.
 
-Techne Principal is the canonical source of the Knowledge Islands engineering discipline. It owns engineering architecture, operating models, workflows, technology posture, and implementation patterns, while [[Charter]] defines its local scope and stewardship.
+Existing work records, identifiers, ledger, branches, worktrees and candidates remain in place. The [Techné programme hold](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Admin/Governance/Policies/Techne%20Programme%20Hold.md) remains unchanged; this documentation transition grants no runtime resumption, integration, deletion or archival authority.
 
-## Related authorities
+## Related repositories
 
-- [Arcadia Principal](https://github.com/knowledgeislands/ki-arcadia-principal) supplies the philosophy and conceptual model that Techne translates into engineering practice.
-- [KI Agentic Harness](https://github.com/knowledgeislands/ki-agentic-harness) owns reusable agentic capabilities and compatible harness semantics; Techne may inform their engineering without defining them.
-- [tools-ki](https://github.com/knowledgeislands/tools-ki) owns executable `ki` behaviour and delivery; Techne supplies engineering guidance rather than implementation authority.
-- [KI Specifications](https://github.com/knowledgeislands/ki-specifications) owns normative portable contracts and constrains implementations that claim conformance.
-- [KI Website](https://github.com/knowledgeislands/ki-website) owns public publication and may vendor source-labelled Techne material without acquiring canonical ownership.
+- [Arcadia](https://github.com/knowledgeislands/ki-arcadia-principal) owns canonical engineering knowledge, philosophy and ecosystem governance.
+- [Techné Harness](https://github.com/knowledgeislands/ki-techne-harness) owns controller and execution-fabric implementation.
+- [tools-techne](https://github.com/knowledgeislands/tools-techne) owns the operator interface and CLI.
+- [KI Agentic Harness](https://github.com/knowledgeislands/ki-agentic-harness) owns reusable agent capabilities; [tools-ki](https://github.com/knowledgeislands/tools-ki) owns executable KI behaviour.
+- [KI Website](https://github.com/knowledgeislands/ki-website) owns public editorial publication. [KI Specifications](https://github.com/knowledgeislands/ki-specifications) remains dormant before overall V1.
 
-The `homebrew-tap` repository is a delivery surface for package-manager formulae, not a separate primary authority.
-
-## Choreography
-
-Each related repository owns its own plans, verification, and commits. Cross-repository work uses explicit handoffs and independently executable changes unless a genuine prerequisite requires blocking coordination.
+[[GDR-KI-FUNDAMENTALS-001]] governs ecosystem responsibility. Existing trade declarations and runtime or company bindings are unchanged; this navigation does not infer a replacement route.
