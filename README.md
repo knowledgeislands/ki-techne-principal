@@ -1,4 +1,4 @@
-# Techne retained source
+# Techne Principal
 
 ## Retained source standing
 
