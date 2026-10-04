@@ -9,7 +9,7 @@ Streams contains Techne work in motion, governed through the [[Enactment Process
 ## Operational areas
 
 - `Roadmap/` holds flat finite work records and its `_ISSUES.md` issue-allocation ledger.
-- `Housekeeping/` holds recurring-work templates. No recurring template is currently retained.
+- Recurring obligations, if any are adopted, are Activity notes in the configured Activity collection rather than a Streams area. None is currently retained.
 
 ## Owner-reviewed legacy migration
 
