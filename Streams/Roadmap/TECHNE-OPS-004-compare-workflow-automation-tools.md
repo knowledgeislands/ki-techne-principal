@@ -12,7 +12,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:20:28Z
-updated_at: 2026-09-16T21:28:17Z
+updated_at: 2026-10-04T17:00:21Z
 ---
 
 # Compare Workflow Automation Tools
@@ -113,3 +113,7 @@ Any integration, adoption or reusable adapter becomes a separately reviewed foll
 ### Interpretation to test
 
 Node-RED begins with the cleaner openness and portability fit. n8n may offer stronger built-in durable-wait ergonomics, but queue operation adds Redis and a database and some governance features require paid editions. The experiment must confirm which differences matter for the bounded KI scenario.
+
+### Retirement disposition - 2026-10-04
+
+Closed in place on the retirement of this repository under [KI-ARCADIA-ECO-008](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Streams/Roadmap/KI-ARCADIA-ECO-008-disposition-retained-techne-source.md); not transferred. No scenario was executed and no Knowledge Islands workflow has triggered the comparison. If the reconsideration trigger under Dependencies / blocks is met, Arcadia may capture a fresh record that cites `TECHNE-OPS-004` as provenance; the identifier is not reused. The lifecycle fields above are frozen at their last live values.

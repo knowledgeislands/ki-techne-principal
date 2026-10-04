@@ -12,7 +12,7 @@ blocks: []
 blocked_by: []
 baseline_ref: null
 created_at: 2026-09-14T02:20:28Z
-updated_at: 2026-09-16T21:28:17Z
+updated_at: 2026-10-04T17:00:21Z
 ---
 
 # Explore Agent Application Frameworks
@@ -113,3 +113,7 @@ Any adoption, production integration, LangSmith trial or reusable adapter become
 ### Interpretation to test
 
 Direct control should remain the clarity baseline. LangChain may reduce ordinary model-and-tool plumbing, while explicit LangGraph may justify its complexity only when durable state, branching or human interruption materially simplifies the application. LangSmith's value and proprietary operating dependency must be considered separately.
+
+### Retirement disposition - 2026-10-04
+
+Closed in place on the retirement of this repository under [KI-ARCADIA-ECO-008](https://github.com/knowledgeislands/ki-arcadia-principal/blob/main/Streams/Roadmap/KI-ARCADIA-ECO-008-disposition-retained-techne-source.md); not transferred. No experiment was executed and no approved Fabric contract has exposed the capability gap that would trigger it. If that trigger is met, Arcadia may capture a fresh record that cites `TECHNE-OPS-005` as provenance; the identifier is not reused. The lifecycle fields above are frozen at their last live values.
